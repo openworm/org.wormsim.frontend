@@ -108,9 +108,19 @@
             <version>1.7_6</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.servicemix.bundles</groupId>
-            <artifactId>org.apache.servicemix.bundles.shiro</artifactId>
-            <version>1.1.0_3</version>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+            <version>1.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-web</artifactId>
+            <version>1.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+            <version>1.2.1</version>
         </dependency>
         <dependency>
 			<groupId>org.osgi</groupId>
@@ -236,11 +246,12 @@
 						<Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
 						<Bundle-Name>${project.name}</Bundle-Name>
 						<Bundle-Version>${project.version}</Bundle-Version>
-						<Bundle-ClassPath>.,{maven-dependencies},WEB-INF/classes,WEB-INF/lib/jstl-api-1.2.jar,WEB-INF/lib/velocity-1.7.jar</Bundle-ClassPath>
+						<Bundle-ClassPath>.,{maven-dependencies},WEB-INF/classes,WEB-INF/lib/jstl-api-1.2.jar,WEB-INF/lib/velocity-1.7.jar,WEB-INF/lib/stormpath-sdk-api-1.0.RC2.jar,WEB-INF/lib/stormpath-shiro-core-0.6.0.jar</Bundle-ClassPath>
 						<Web-ContextPath>org.wormsim.frontend</Web-ContextPath>
-						<Import-Package>org.eclipse.virgo.web.dm;version="2.1.1.RELEASE",org.apache.velocity.runtime,org.apache.velocity.runtime.directive,org.apache.velocity.runtime.resource,org.apache.velocity.util.introspection,*</Import-Package>
+						<Import-Package>com.stormpath.shiro.client,org.apache.shiro.web.env,org.apache.shiro.web.servlet,org.eclipse.virgo.web.dm;version="2.1.1.RELEASE",org.apache.velocity.runtime,org.apache.velocity.runtime.directive,org.apache.velocity.runtime.resource,org.apache.velocity.util.introspection,*</Import-Package>
                         <Import-Library>org.springframework.spring;version="${spring.version}"</Import-Library>
                         <Import-Bundle>org.springframework.aop;version="${spring.version}",org.springframework.web;version="${spring.version}"</Import-Bundle>
+
                     </instructions>
 				</configuration>
 				<executions>
@@ -294,9 +305,34 @@
 				</executions>
 			</plugin>
 
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.6</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <!-- here the phase you need -->
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.outputDirectory}/lib</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/webapp/WEB-INF/lib</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
 		</plugins>
 		<pluginManagement>
 			<plugins>
+
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>

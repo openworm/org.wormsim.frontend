@@ -31,7 +31,7 @@
         <div class="jumbotron">
             <h2>Welcome to Wormsim</h2>
             <p class="lead">c. elegans in your browser</p>
-            <p><a href="${}/login" class="btn btn-primary" role="button">Login or sign up</a></p>
+            <p><a href="login" class="btn btn-primary" role="button">Login or sign up</a></p>
 
         </div>
     </div>

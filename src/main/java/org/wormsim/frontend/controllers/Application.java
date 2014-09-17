@@ -18,4 +18,10 @@ public class Application {
     public String home() {
         return "home";
     }
+
+    @RequestMapping(value="/create", method=RequestMethod.GET)
+    public String create() {
+        return "createworm";
+    }
+
 }

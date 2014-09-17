@@ -17,6 +17,10 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
+    <listener>
+        <listener-class>org.apache.shiro.web.env.EnvironmentLoaderListener</listener-class>
+    </listener>
+
     <servlet>
         <servlet-name>springmvc</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -44,19 +48,18 @@
     <!-- ==================================================================
         Filters
         ================================================================== -->
-    <!-- Shiro Filter is defined in the spring application context: -->
-   <!-- <filter>
-        <filter-name>shiroFilter</filter-name>
-        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    <filter>
+        <filter-name>ShiroFilter</filter-name>
+        <filter-class>org.apache.shiro.web.servlet.ShiroFilter</filter-class>
     </filter>
 
     <filter-mapping>
-        <filter-name>shiroFilter</filter-name>
-        <url-pattern>/s/*</url-pattern>
+        <filter-name>ShiroFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>INCLUDE</dispatcher>
+        <dispatcher>ERROR</dispatcher>
     </filter-mapping>
-    <filter-mapping>
-        <filter-name>shiroFilter</filter-name>
-        <url-pattern>/remoting/*</url-pattern>
-    </filter-mapping>
--->
+
 </web-app>
