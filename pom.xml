@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.wormsim</groupId>
 	<artifactId>frontend</artifactId>
-	<version>0.1.6</version>
+	<version>0.1.7</version>
 	<name>Wormsim Frontend</name>
 	<packaging>war</packaging>
 	<properties>
@@ -26,7 +26,7 @@
 			<artifactId>com.springsource.org.apache.commons.logging</artifactId>
 			<version>1.1.1</version>
 		</dependency>
-		<dependency>
+        <dependency>
 			<groupId>org.apache.tomcat</groupId>
 			<artifactId>tomcat-catalina</artifactId>
 			<version>7.0.29</version>
@@ -123,17 +123,68 @@
             <version>1.2.1</version>
         </dependency>
         <dependency>
-			<groupId>org.osgi</groupId>
-			<artifactId>org.osgi.core</artifactId>
-			<version>5.0.0</version>
-		</dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.core</artifactId>
+            <version>5.0.0</version>
+        </dependency>
 		<dependency>
 			<groupId>org.junit</groupId>
 			<artifactId>com.springsource.org.junit</artifactId>
 			<version>4.5.0</version>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+
+        <dependency>
+            <groupId>com.nativelibs4java</groupId>
+            <artifactId>bridj</artifactId>
+            <version>0.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.servicemix.bundles</groupId>
+            <artifactId>org.apache.servicemix.bundles.xalan</artifactId>
+            <version>2.7.1_4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-osgi</artifactId>
+            <version>4.2.7.SP1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.log4j</groupId>
+            <artifactId>com.springsource.org.apache.log4j</artifactId>
+            <version>1.2.15</version>
+        </dependency>
+
+
+        <!--<dependency>
+            <groupId>com.stormpath.shiro</groupId>
+            <artifactId>stormpath-shiro-core</artifactId>
+            <version>0.6.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.stormpath.sdk</groupId>
+            <artifactId>stormpath-sdk-api</artifactId>
+            <version>1.0.RC2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.stormpath.sdk</groupId>
+            <artifactId>stormpath-sdk-httpclient</artifactId>
+            <version>1.0.RC2</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.0-alpha4</version>
+        </dependency>
+-->
+
+    </dependencies>
 	<build>
 		<plugins>
 			<plugin>
@@ -231,10 +282,10 @@
 				</configuration>
 			</plugin>
 
-			<plugin>
+
+			<!--<plugin>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>
-				<version>2.3.7</version>
 				<extensions>true</extensions>
 				<configuration>
 					<manifestLocation>src/main/webapp/META-INF</manifestLocation>
@@ -246,12 +297,12 @@
 						<Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
 						<Bundle-Name>${project.name}</Bundle-Name>
 						<Bundle-Version>${project.version}</Bundle-Version>
-						<Bundle-ClassPath>.,{maven-dependencies},WEB-INF/classes,WEB-INF/lib/jstl-api-1.2.jar,WEB-INF/lib/velocity-1.7.jar,WEB-INF/lib/stormpath-sdk-api-1.0.RC2.jar,WEB-INF/lib/stormpath-shiro-core-0.6.0.jar</Bundle-ClassPath>
+						<Bundle-ClassPath>.,{maven-dependencies},WEB-INF/classes</Bundle-ClassPath>
 						<Web-ContextPath>org.wormsim.frontend</Web-ContextPath>
-						<Import-Package>com.stormpath.shiro.client,org.apache.shiro.web.env,org.apache.shiro.web.servlet,org.eclipse.virgo.web.dm;version="2.1.1.RELEASE",org.apache.velocity.runtime,org.apache.velocity.runtime.directive,org.apache.velocity.runtime.resource,org.apache.velocity.util.introspection,*</Import-Package>
+						<Import-Package>org.apache.shiro.util,org.apache.shiro.web.env,org.apache.shiro.web.servlet,org.eclipse.virgo.web.dm;version="2.1.1.RELEASE",org.slf4j,org.apache.velocity.runtime,org.apache.velocity.runtime.directive,org.apache.velocity.runtime.resource,org.apache.velocity.util.introspection,org.apache.velocity.runtime.resource.loader,*</Import-Package>
                         <Import-Library>org.springframework.spring;version="${spring.version}"</Import-Library>
                         <Import-Bundle>org.springframework.aop;version="${spring.version}",org.springframework.web;version="${spring.version}"</Import-Bundle>
-
+                        &lt;!&ndash;<Embed-Dependency>*;scope=compile|runtime</Embed-Dependency>&ndash;&gt;
                     </instructions>
 				</configuration>
 				<executions>
@@ -264,14 +315,83 @@
 						<inherited>true</inherited>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin>-->
 
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>2.3.7</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <manifestLocation>src/main/webapp/META-INF</manifestLocation>
+                    <supportedProjectTypes>
+                        <supportedProjectType>war</supportedProjectType>
+                        <supportedProjectType>bundle</supportedProjectType>
+                    </supportedProjectTypes>
+                    <instructions>
+                        <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
+                        <Bundle-Name>${project.name}</Bundle-Name>
+                        <Bundle-Version>${project.version}</Bundle-Version>
+<!--
+                        <Bundle-ClassPath>.,{maven-dependencies},WEB-INF/classes,WEB-INF/lib/stormpath-shiro-core-0.6.0.jar,WEB-INF/lib/stormpath-sdk-api-1.0.RC2.jar,WEB-INF/lib/stormpath-sdk-impl-1.0.RC2.jar,WEB-INF/lib/stormpath-sdk-httpclient-1.0.RC2.jar</Bundle-ClassPath>
+-->
+                        <Bundle-ClassPath>.,{maven-dependencies},WEB-INF/classes,WEB-INF/lib,WEB-INF/lib/mysql-connector-java-5.1.32.jar</Bundle-ClassPath>
+                        <Web-ContextPath>org.wormsim.frontend</Web-ContextPath>
+                        <Import-Package>org.hibernate.service,javax.naming,javax.sql,org.apache.shiro.cache,org.apache.shiro.authz.permission,org.apache.shiro.authz,org.apache.shiro.subject,org.apache.shiro.authc.credential,org.apache.shiro.authc,org.apache.shiro.realm,org.apache.shiro.config,org.apache.shiro.util,org.apache.shiro.web.env,org.apache.shiro.web.servlet,org.eclipse.virgo.web.dm;version="2.1.1.RELEASE",org.slf4j,org.apache.velocity.runtime,org.apache.velocity.runtime.directive,org.apache.velocity.runtime.resource,org.apache.velocity.util.introspection,org.apache.velocity.runtime.resource.loader,org.apache.shiro.realm.jdbc,*</Import-Package>
+                        <Import-Library>org.springframework.spring;version="${spring.version}"</Import-Library>
+                        <Import-Bundle>org.springframework.aop;version="${spring.version}",org.springframework.web;version="${spring.version}"</Import-Bundle>
+                    </instructions>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>bundle</id>
+                        <goals>
+                            <goal>manifest</goal>
+                        </goals>
+                        <phase>prepare-package</phase>
+                        <inherited>true</inherited>
+                    </execution>
+
+                </executions>
+            </plugin>
+            <!--<plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+
+                    <manifestLocation>src/main/webapp/META-INF</manifestLocation>
+                    <supportedProjectTypes>
+                        <supportedProjectType>war</supportedProjectType>
+                        <supportedProjectType>bundle</supportedProjectType>
+                    </supportedProjectTypes>
+                    <instructions>
+                        <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
+                        <Bundle-Name>${project.name}</Bundle-Name>
+                        <Bundle-Version>${project.version}</Bundle-Version>
+                        <Bundle-ClassPath>.,{maven-dependencies},WEB-INF/classes</Bundle-ClassPath>
+                        <Web-ContextPath>org.wormsim.frontend</Web-ContextPath>
+                        <Embed-Dependency>*;scope=compile;inline=true</Embed-Dependency>
+                        <_exportcontents>*</_exportcontents>
+                    </instructions>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>bundle</id>
+                        <goals>
+                            <goal>manifest</goal>
+                        </goals>
+                        <phase>prepare-package</phase>
+                        <inherited>true</inherited>
+                    </execution>
+                </executions>
+            </plugin>
+            -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.3</version>
 				<configuration>
-					<packagingExcludes>WEB-INF/lib/*.jar</packagingExcludes>
 					<warName>org.wormsim.frontend</warName>
 					<archive>
 						<manifestFile>src/main/webapp/META-INF/MANIFEST.MF</manifestFile>
@@ -311,7 +431,6 @@
                 <executions>
                     <execution>
                         <id>copy-resources</id>
-                        <!-- here the phase you need -->
                         <phase>validate</phase>
                         <goals>
                             <goal>copy-resources</goal>
@@ -320,7 +439,11 @@
                             <outputDirectory>${project.build.outputDirectory}/lib</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>src/main/webapp/WEB-INF/lib</directory>
+                                    <directory>src/lib</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                                <resource>
+                                    <directory>src/lib</directory>
                                     <filtering>true</filtering>
                                 </resource>
                             </resources>
