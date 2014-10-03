@@ -36,12 +36,12 @@
 			<artifactId>tomcat-coyote</artifactId>
 			<version>7.0.29</version>
 		</dependency>
-        <dependency>
-            <groupId>jstl</groupId>
-            <artifactId>jstl</artifactId>
-            <version>1.2</version>
-            <scope>runtime</scope>
-        </dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>com.springsource.javax.servlet.jsp.jstl</artifactId>
+			<version>1.1.2</version>
+			<scope>runtime</scope>
+		</dependency>
         <dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
@@ -102,6 +102,9 @@
             <artifactId>spring-osgi-web-extender</artifactId>
             <version>1.2.1</version>
         </dependency>
+
+
+
         <dependency>
             <groupId>org.apache.servicemix.bundles</groupId>
             <artifactId>org.apache.servicemix.bundles.velocity</artifactId>
@@ -122,6 +125,8 @@
             <artifactId>shiro-spring</artifactId>
             <version>1.2.1</version>
         </dependency>
+
+
         <dependency>
             <groupId>org.osgi</groupId>
             <artifactId>org.osgi.core</artifactId>
@@ -133,35 +138,14 @@
 			<version>4.5.0</version>
 			<scope>test</scope>
 		</dependency>
-
-        <dependency>
-            <groupId>com.nativelibs4java</groupId>
-            <artifactId>bridj</artifactId>
-            <version>0.6.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.servicemix.bundles</groupId>
-            <artifactId>org.apache.servicemix.bundles.xalan</artifactId>
-            <version>2.7.1_4</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>1.6.1</version>
-        </dependency>
+        
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-osgi</artifactId>
             <version>4.2.7.SP1</version>
         </dependency>
+
         <dependency>
-            <groupId>org.apache.log4j</groupId>
-            <artifactId>com.springsource.org.apache.log4j</artifactId>
-            <version>1.2.15</version>
-        </dependency>
-
-
-        <!--<dependency>
             <groupId>com.stormpath.shiro</groupId>
             <artifactId>stormpath-shiro-core</artifactId>
             <version>0.6.0</version>
@@ -171,6 +155,14 @@
             <artifactId>stormpath-sdk-api</artifactId>
             <version>1.0.RC2</version>
         </dependency>
+
+        <!--
+        <dependency>
+            <groupId>org.apache.log4j</groupId>
+            <artifactId>com.springsource.org.apache.log4j</artifactId>
+            <version>1.2.15</version>
+        </dependency>
+
         <dependency>
             <groupId>com.stormpath.sdk</groupId>
             <artifactId>stormpath-sdk-httpclient</artifactId>
@@ -329,17 +321,17 @@
                         <supportedProjectType>bundle</supportedProjectType>
                     </supportedProjectTypes>
                     <instructions>
-                        <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
-                        <Bundle-Name>${project.name}</Bundle-Name>
-                        <Bundle-Version>${project.version}</Bundle-Version>
 <!--
                         <Bundle-ClassPath>.,{maven-dependencies},WEB-INF/classes,WEB-INF/lib/stormpath-shiro-core-0.6.0.jar,WEB-INF/lib/stormpath-sdk-api-1.0.RC2.jar,WEB-INF/lib/stormpath-sdk-impl-1.0.RC2.jar,WEB-INF/lib/stormpath-sdk-httpclient-1.0.RC2.jar</Bundle-ClassPath>
 -->
-                        <Bundle-ClassPath>.,{maven-dependencies},WEB-INF/classes,WEB-INF/lib,WEB-INF/lib/mysql-connector-java-5.1.32.jar</Bundle-ClassPath>
+                        <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
+                        <Bundle-Name>${project.name}</Bundle-Name>
+                        <Bundle-Version>${project.version}</Bundle-Version>
+                        <Bundle-ClassPath>.,{maven-dependencies},WEB-INF/classes</Bundle-ClassPath>
                         <Web-ContextPath>org.wormsim.frontend</Web-ContextPath>
-                        <Import-Package>org.hibernate.service,javax.naming,javax.sql,org.apache.shiro.cache,org.apache.shiro.authz.permission,org.apache.shiro.authz,org.apache.shiro.subject,org.apache.shiro.authc.credential,org.apache.shiro.authc,org.apache.shiro.realm,org.apache.shiro.config,org.apache.shiro.util,org.apache.shiro.web.env,org.apache.shiro.web.servlet,org.eclipse.virgo.web.dm;version="2.1.1.RELEASE",org.slf4j,org.apache.velocity.runtime,org.apache.velocity.runtime.directive,org.apache.velocity.runtime.resource,org.apache.velocity.util.introspection,org.apache.velocity.runtime.resource.loader,org.apache.shiro.realm.jdbc,*</Import-Package>
+                        <Import-Package>com.stormpath.shiro.client,org.apache.shiro.web.env,org.eclipse.virgo.web.dm;version="2.1.1.RELEASE",*</Import-Package>
                         <Import-Library>org.springframework.spring;version="${spring.version}"</Import-Library>
-                        <Import-Bundle>org.springframework.aop;version="${spring.version}",org.springframework.web;version="${spring.version}"</Import-Bundle>
+                        <Import-Bundle>org.springframework.aop;version="${spring.version}"</Import-Bundle>
                     </instructions>
                 </configuration>
                 <executions>
@@ -437,14 +429,14 @@
                         </goals>
                         <configuration>
                             <outputDirectory>${project.build.outputDirectory}/lib</outputDirectory>
+                            <overwrite>true</overwrite>
                             <resources>
                                 <resource>
                                     <directory>src/lib</directory>
-                                    <filtering>true</filtering>
-                                </resource>
-                                <resource>
-                                    <directory>src/lib</directory>
-                                    <filtering>true</filtering>
+                                    <filtering>false</filtering>
+                                    <includes>
+                                        <include>**/*.jar</include>
+                                    </includes>
                                 </resource>
                             </resources>
                         </configuration>
@@ -519,6 +511,14 @@
 		</resources>
 	</build>
 	<repositories>
+        <repository>
+            <id>org.geppetto-mvn-repo</id>
+            <url>https://raw.github.com/openworm/org.geppetto.maven/mvn-repo</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
         <repository>
             <id>com.springsource.repository.bundles.release</id>
             <name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Releases</name>
