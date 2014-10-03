@@ -24,6 +24,7 @@ public class Login {
 
     @RequestMapping(value="/login", method=RequestMethod.POST)
     public String dologin(@ModelAttribute User user, ModelMap model) {
+
         return "login";
     }
 
