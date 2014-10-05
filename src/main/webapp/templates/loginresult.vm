@@ -40,6 +40,10 @@
             <span class="help-block"></span>
         </div>
 
+        #if($result && $result.hasErrors())
+            <p>There was an error</p>
+        #end
+
         <div class="form-group submit-group row">
             <div class="col-sm-12">
                 <button type="submit" class="btn btn-primary btn-lg">Log in</button>

@@ -102,9 +102,6 @@
             <artifactId>spring-osgi-web-extender</artifactId>
             <version>1.2.1</version>
         </dependency>
-
-
-
         <dependency>
             <groupId>org.apache.servicemix.bundles</groupId>
             <artifactId>org.apache.servicemix.bundles.velocity</artifactId>
@@ -125,8 +122,6 @@
             <artifactId>shiro-spring</artifactId>
             <version>1.2.1</version>
         </dependency>
-
-
         <dependency>
             <groupId>org.osgi</groupId>
             <artifactId>org.osgi.core</artifactId>
@@ -177,26 +172,6 @@
             <artifactId>httpclient-osgi</artifactId>
             <version>4.4-alpha1</version>
         </dependency>
-
-        <!--
-        <dependency>
-            <groupId>org.apache.log4j</groupId>
-            <artifactId>com.springsource.org.apache.log4j</artifactId>
-            <version>1.2.15</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.stormpath.sdk</groupId>
-            <artifactId>stormpath-sdk-httpclient</artifactId>
-            <version>1.0.RC2</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>4.0-alpha4</version>
-        </dependency>
--->
 
     </dependencies>
 	<build>
@@ -313,7 +288,29 @@
                         <Bundle-Version>${project.version}</Bundle-Version>
                         <Bundle-ClassPath>.,{maven-dependencies},WEB-INF/classes</Bundle-ClassPath>
                         <Web-ContextPath>org.wormsim.frontend</Web-ContextPath>
-                        <Import-Package>javax.naming,org.apache.http.conn,com.stormpath.sdk.impl.ds,com.stormpath.sdk.impl.http.httpclient,com.stormpath.sdk.impl.api,com.stormpath.sdk.impl.http,com.stormpath.shiro.realm,com.stormpath.sdk.impl.client,com.stormpath.shiro.client,org.apache.shiro.web.env,org.apache.shiro.web.servlet,org.eclipse.virgo.web.dm;version="2.1.1.RELEASE",*</Import-Package>
+                        <Import-Package>
+                            javax.naming,org.apache.http.conn,
+                            com.stormpath.sdk.impl.tenant,
+                            com.stormpath.sdk.impl.query,
+                            com.stormpath.sdk.impl.application,
+                            com.stormpath.sdk.impl.ds,
+                            com.stormpath.sdk.impl.http.httpclient,
+                            com.stormpath.sdk.impl.api,
+                            com.stormpath.sdk.impl.http,
+                            com.stormpath.sdk.impl.client,
+                            com.stormpath.sdk.impl.account,
+                            com.stormpath.sdk.impl.cache,
+                            com.stormpath.sdk.impl.directory,
+                            com.stormpath.sdk.impl.authc,
+                            com.stormpath.sdk.impl.error,
+                            com.stormpath.sdk.impl.group,
+                            com.stormpath.sdk.impl.jwt,
+                            com.stormpath.shiro.realm,
+                            com.stormpath.shiro.client,
+                            org.apache.shiro.web.env,
+                            org.apache.shiro.web.servlet,
+                            org.eclipse.virgo.web.dm;version="2.1.1.RELEASE",*
+                        </Import-Package>
                         <Import-Library>org.springframework.spring;version="${spring.version}"</Import-Library>
                         <Import-Bundle>org.springframework.aop;version="${spring.version}"</Import-Bundle>
                     </instructions>

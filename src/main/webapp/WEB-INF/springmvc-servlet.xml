@@ -18,23 +18,6 @@
 
     <context:component-scan base-package="org.wormsim.frontend.controllers"/>
 
-
-
-       <!--<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-           <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-           <property name="prefix" value="/jsp/"/>
-           <property name="suffix" value=".jsp"/>
-       </bean>
-
-
-
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-        <property name="prefix" value="/templates/" />
-        <property name="suffix" value=".vm" />
-    </bean>
-
--->
     <bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
         <property name="resourceLoaderPath">
             <value>/</value>

@@ -31,8 +31,23 @@
         <div class="jumbotron">
             <h2>Welcome to Wormsim</h2>
             <p class="lead">c. elegans in your browser</p>
-            <p><a href="login" class="btn btn-primary" role="button">Login or sign up</a></p>
 
+            #if($subject.isAuthenticated())
+                <p><a href="login" class="btn btn-primary" role="button">You are logged in! Aww yeah!</a></p>
+            #else
+                <p><a href="login" class="btn btn-primary" role="button">You are not logged in. go to /login or /signup</a></p>
+            #end
+
+            <h2>User management urls:</h2>
+            <p>
+                /login - login
+            </p>
+            <p>
+                /logout - logout
+            </p>
+            <p>
+                /signup - create account
+            </p>
         </div>
     </div>
 
