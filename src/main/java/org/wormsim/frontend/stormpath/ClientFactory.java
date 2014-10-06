@@ -1,12 +1,16 @@
 package org.wormsim.frontend.stormpath;
 
 import com.stormpath.sdk.account.Account;
+import com.stormpath.sdk.account.AccountList;
 import com.stormpath.sdk.api.ApiKeys;
 import com.stormpath.sdk.application.Application;
 import com.stormpath.sdk.application.ApplicationList;
 import com.stormpath.sdk.application.Applications;
 import com.stormpath.sdk.client.Client;
 import com.stormpath.sdk.client.Clients;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class ClientFactory {
 
@@ -32,5 +36,17 @@ public class ClientFactory {
         account.setEmail(email);
         account.setPassword(password);
         return APPLICATION.createAccount(account);
+    }
+
+    public static Account getAccount(String email) throws AccountNotFoundException {
+        Map<String, Object> queryParams = new HashMap<>();
+        queryParams.put("email", email);
+        AccountList accounts = APPLICATION.getAccounts(queryParams);
+
+        if(accounts.iterator().hasNext()) {
+            return accounts.iterator().next();
+        } else {
+            throw new AccountNotFoundException("Account not found for email "+email);
+        }
     }
 }

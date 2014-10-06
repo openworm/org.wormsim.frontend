@@ -1,7 +1,6 @@
 package org.wormsim.frontend.controllers;
 
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.osgi.framework.BundleContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.wormsim.frontend.models.User;
 
+import org.wormsim.frontend.stormpath.AccountNotFoundException;
 import org.wormsim.frontend.stormpath.UserFactory;
 
 import java.util.HashMap;
@@ -50,22 +50,21 @@ public class Login {
             return model;
         }
 
-        Subject currentUser = SecurityUtils.getSubject();
-        UsernamePasswordToken token =
-                new UsernamePasswordToken( user.getEmail(), user.getPassword() );
+        User loggedInUser;
 
         try {
-            currentUser.login(token);
-        } catch(Exception e) {
-            Map<String, User> modelMap = new HashMap<>();
-            modelMap.put("user",user);
+            loggedInUser = UserFactory.login(user.getEmail(), user.getPassword());
+        } catch(AccountNotFoundException e) {
 
+            //TODO: handle login failure
+            Map<String, User> modelMap = new HashMap<>();
+            modelMap.put("user", user);
             return new ModelAndView("loginresult", modelMap);
         }
 
-        Map<String, Subject> modelMap = new HashMap<>();
-        modelMap.put("subject", currentUser);
-        return new ModelAndView("home", modelMap);
+        Map<String, User> modelMap = new HashMap<>();
+        modelMap.put("user", loggedInUser);
+        return new ModelAndView("redirect:/");
     }
 
     @RequestMapping(value="/signup", method=RequestMethod.GET)
@@ -83,8 +82,10 @@ public class Login {
 
         try {
             UserFactory.create(user.getEmail(), user.getPassword(), user.getFirstName(), user.getLastName());
+            UserFactory.login(user.getEmail(), user.getPassword());
             return new ModelAndView("home");
         }catch (Exception e) {
+            //TODO: handle signup failure
             ModelAndView model = new ModelAndView("signupresult","message",e.getMessage());
             return model;
         }

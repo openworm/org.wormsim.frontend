@@ -32,8 +32,8 @@
             <h2>Welcome to Wormsim</h2>
             <p class="lead">c. elegans in your browser</p>
 
-            #if($subject.isAuthenticated())
-                <p><a href="login" class="btn btn-primary" role="button">You are logged in! Aww yeah!</a></p>
+            #if($user)
+                <p><a href="login" class="btn btn-primary" role="button">You are logged in as $user.getEmail() ! Aww yeah!</a></p>
             #else
                 <p><a href="login" class="btn btn-primary" role="button">You are not logged in. go to /login or /signup</a></p>
             #end
