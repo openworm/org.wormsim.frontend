@@ -104,4 +104,8 @@ public class User {
 
     public void setWormColor(String wormColor) { this.wormColor = wormColor; }
 
+    public String getDisplayName() {
+        return firstName + " " + lastName;
+    }
+
 }

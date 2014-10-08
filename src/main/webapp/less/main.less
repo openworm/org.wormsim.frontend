@@ -1,15 +1,103 @@
-
-html {
-  height: 100%;
-  width: 100%;
-}
-
 body {
-  height: 100%;
-  width: 100%;
   padding-top: 40px;
   padding-bottom: 40px;
   background-color: #eee;
+}
+
+#video-bg {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+}
+
+.header-container {
+  top: 0;
+  left: 0;
+  right: 0;
+  padding-top: 20px;
+  position: absolute;
+  background: rgba(0,0,0,0.6);
+}
+
+.header-container .header {
+  border: none;
+}
+
+.wormsim-logo {
+  background: url('../images/wormsim-logo.png') no-repeat;
+  width: 200px;
+  height: 60px;
+  position: relative;
+  bottom: 12px;
+}
+
+.simulation-nav.well {
+  background-color: rgba(0,0,0,0.6);
+  border:none;
+  color:#fff;
+  width:340px;
+  margin-left: auto;
+  margin-right: auto;
+  top: 100px;
+  position: relative;
+}
+
+.simulation-nav a {
+  font-family: 'Lato', sans-serif;
+}
+
+.simulation-nav h2 {
+  text-align: center;
+}
+
+.simulation-nav li a.sim-nav {
+  width:145px;
+  text-align: center;
+  color:#333333;
+  background-color: rgba(219, 219, 219, 0.9);
+}
+
+.simulation-nav li a.sim-nav:hover {
+  background-color: rgba(240, 240, 240, 0.9);
+}
+
+.simulation-nav li.active a.sim-nav:hover {
+  background-color:#42CA63;
+  color: #ffffff;
+}
+
+.simulation-nav li.active a.sim-nav {
+  background-color:#42CA63;
+  color: #ffffff;
+}
+
+.simulation-nav a.large {
+  width: 100%;
+}
+
+.simulation-nav .tab-pane {
+  padding:10px 0 10px 0;
+}
+
+.simulation-nav .worminfo-submit {
+  width: 100%;
+  margin-top: 20px;
+}
+
+#login-modal .modal-header {
+  border-bottom: none;
+}
+
+#login-modal .modal-content {
+  background-color: rgba(41, 41, 41, 1);
+  color: #fff;
+}
+
+#login-modal button.close {
+  color:#fff;
+  opacity: 1;
+  text-shadow: none;
 }
 
 .form-signin {
@@ -17,16 +105,13 @@ body {
   padding: 15px;
   margin: 0 auto;
 }
-
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
   margin-bottom: 10px;
 }
-
 .form-signin .checkbox {
   font-weight: normal;
 }
-
 .form-signin .form-control {
   position: relative;
   height: auto;
@@ -36,7 +121,6 @@ body {
   padding: 10px;
   font-size: 16px;
 }
-
 .form-signin .form-control:focus {
   z-index: 2;
 }
@@ -44,7 +128,7 @@ body {
 .login-container {
   max-width: 500px;
   min-height: 280px;
-  padding: 30px;
+  padding:30px;
   margin-left: auto;
   margin-right: auto;
   border: 1px solid #129900;
@@ -57,21 +141,22 @@ body {
 
 .login-container h2 {
   text-align: center;
-  margin-top: 0;
+  margin-top:0;
 }
 
 .login-container small {
-  font-size: 16px;
+  font-size:16px;
 }
 
 .login-container .btn {
-  width: 100%;
-  margin-top: 10px;
+  width:100%;
+  margin-top:10px;
 }
 
 .login-container .submit-group {
-  margin-bottom: 0;
+  margin-bottom:0;
 }
+
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
@@ -85,7 +170,6 @@ body {
 .header {
   border-bottom: 1px solid #e5e5e5;
 }
-
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
   padding-bottom: 19px;
@@ -107,7 +191,6 @@ body {
     max-width: 730px;
   }
 }
-
 .container-narrow > hr {
   margin: 30px 0;
 }
@@ -117,7 +200,6 @@ body {
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
 }
-
 .jumbotron .btn {
   padding: 14px 24px;
   font-size: 21px;
@@ -127,7 +209,6 @@ body {
 .marketing {
   margin: 40px 0;
 }
-
 .marketing p + h4 {
   margin-top: 28px;
 }
@@ -141,12 +222,10 @@ body {
     padding-right: 0;
     padding-left: 0;
   }
-
   /* Space out the masthead */
   .header {
     margin-bottom: 30px;
   }
-
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;
