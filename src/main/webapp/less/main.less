@@ -18,10 +18,10 @@ body {
   padding-top: 20px;
   position: absolute;
   background: rgba(0,0,0,0.6);
-}
+  .header {
+    border: none;
+  }
 
-.header-container .header {
-  border: none;
 }
 
 .wormsim-logo {
@@ -32,98 +32,111 @@ body {
   bottom: 12px;
 }
 
-.simulation-nav.well {
-  background-color: rgba(0,0,0,0.6);
-  border:none;
-  color:#fff;
-  width:340px;
-  margin-left: auto;
-  margin-right: auto;
-  top: 100px;
-  position: relative;
+.simulation-nav {
+  &.well {
+    background-color: rgba(0, 0, 0, 0.6);
+    border: none;
+    color: #fff;
+    width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+    top: 100px;
+    position: relative;
+  }
+  a {
+    font-family: 'Lato', sans-serif;
+  }
+  h2 {
+    text-align: center;
+  }
+  li a.sim-nav {
+    width:145px;
+    text-align: center;
+    color:#333333;
+    background-color: rgba(219, 219, 219, 0.9);
+  }
+  li a.sim-nav:hover {
+    background-color: rgba(240, 240, 240, 0.9);
+  }
+  li.active a.sim-nav:hover {
+    background-color:#42CA63;
+    color: #ffffff;
+  }
+  li.active a.sim-nav {
+    background-color:#42CA63;
+    color: #ffffff;
+  }
+
+  a.large {
+    width: 100%;
+  }
+  .tab-pane {
+    padding:10px 0 10px 0;
+  }
+  .worminfo-submit {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+.modal {
+  .modal-header {
+    border-bottom: none;
+  }
+  .modal-content {
+    background-color: rgba(41, 41, 41, 1);
+    color: #fff;
+  }
+  button.close {
+    color:#fff;
+    opacity: 1;
+    text-shadow: none;
+  }
 }
 
-.simulation-nav a {
-  font-family: 'Lato', sans-serif;
-}
-
-.simulation-nav h2 {
-  text-align: center;
-}
-
-.simulation-nav li a.sim-nav {
-  width:145px;
-  text-align: center;
-  color:#333333;
-  background-color: rgba(219, 219, 219, 0.9);
-}
-
-.simulation-nav li a.sim-nav:hover {
-  background-color: rgba(240, 240, 240, 0.9);
-}
-
-.simulation-nav li.active a.sim-nav:hover {
-  background-color:#42CA63;
-  color: #ffffff;
-}
-
-.simulation-nav li.active a.sim-nav {
-  background-color:#42CA63;
-  color: #ffffff;
-}
-
-.simulation-nav a.large {
-  width: 100%;
-}
-
-.simulation-nav .tab-pane {
-  padding:10px 0 10px 0;
-}
-
-.simulation-nav .worminfo-submit {
-  width: 100%;
-  margin-top: 20px;
-}
-
-#login-modal .modal-header {
-  border-bottom: none;
-}
-
-#login-modal .modal-content {
-  background-color: rgba(41, 41, 41, 1);
-  color: #fff;
-}
-
-#login-modal button.close {
-  color:#fff;
-  opacity: 1;
-  text-shadow: none;
+#worm-info-modal {
+  .modal-body {
+    padding-top:0;
+  }
+  h3 {
+    margin-top:0;
+  }
+  button#worm-info-submit {
+    margin-top: 15px;
+    width: 200px;
+  }
+  .alert {
+    margin-top: 15px;
+  }
 }
 
 .form-signin {
   max-width: 330px;
   padding: 15px;
   margin: 0 auto;
+
+  .checkbox {
+    font-weight: normal;
+  }
+
+  .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+  }
+  .form-control:focus {
+    z-index: 2;
+  }
+
 }
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
   margin-bottom: 10px;
 }
-.form-signin .checkbox {
-  font-weight: normal;
-}
-.form-signin .form-control {
-  position: relative;
-  height: auto;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  padding: 10px;
-  font-size: 16px;
-}
-.form-signin .form-control:focus {
-  z-index: 2;
-}
+
 
 .login-container {
   max-width: 500px;
@@ -137,26 +150,24 @@ body {
   padding-top: 30px;
   -webkit-box-shadow: inset 0 0 200px rgba(0, 0, 0, .1);
   box-shadow: inset 0 0 200px rgba(0, 0, 0, .1);
-}
 
-.login-container h2 {
-  text-align: center;
-  margin-top:0;
-}
+  h2 {
+    text-align: center;
+    margin-top:0;
+  }
+  small {
+    font-size:16px;
+  }
 
-.login-container small {
-  font-size:16px;
-}
+  .btn {
+    width:100%;
+    margin-top:10px;
+  }
 
-.login-container .btn {
-  width:100%;
-  margin-top:10px;
+  .submit-group {
+    margin-bottom:0;
+  }
 }
-
-.login-container .submit-group {
-  margin-bottom:0;
-}
-
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
@@ -169,15 +180,14 @@ body {
 /* Custom page header */
 .header {
   border-bottom: 1px solid #e5e5e5;
-}
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-  padding-bottom: 19px;
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-}
+  h3 {
+    padding-bottom: 19px;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+  }
 
+}
 /* Custom page footer */
 .footer {
   padding-top: 19px;
@@ -195,23 +205,7 @@ body {
   margin: 30px 0;
 }
 
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-}
-.jumbotron .btn {
-  padding: 14px 24px;
-  font-size: 21px;
-}
 
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-}
-.marketing p + h4 {
-  margin-top: 28px;
-}
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {

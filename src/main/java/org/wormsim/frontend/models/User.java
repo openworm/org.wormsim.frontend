@@ -34,8 +34,8 @@ public class User {
         this.lastName = account.getSurname();
 
         CustomData customData = account.getCustomData();
-        this.wormName = (String)customData.get("wormName");
-        this.wormColor = (String)customData.get("wormColor");
+        this.wormName = (String) customData.get("wormName");
+        this.wormColor = (String) customData.get("wormColor");
     }
 
     public void save() {
@@ -48,6 +48,7 @@ public class User {
                 return;
             }
         }
+
         account.setStatus(AccountStatus.ENABLED);
         account.setEmail(this.email);
         account.setGivenName(this.firstName);

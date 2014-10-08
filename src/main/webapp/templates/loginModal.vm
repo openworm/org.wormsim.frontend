@@ -6,7 +6,7 @@
                 <h4 class="modal-title" id="loginModalLabel">Login</h4>
             </div>
             <div class="modal-body">
-                <form action="/login" method="POST" id="login-form">
+                <form method="POST" id="login-form">
                     <div class="form-group ">
                         <input type="text" id="inputEmail" name="email" value="" class="form-control input-lg" autocomplete="off" placeholder="Email">
                         <span class="help-block"></span>
@@ -23,7 +23,7 @@
                             <button type="button" class="btn btn-lg" id="login-submit">Log in</button>
                         </div>
                         <div class="col-sm-6">
-                            <a href="javascript:void(0);" onclick="window.location.href = '/org.wormsim.frontend/user/reset';" class="btn btn-info pull-right btn-lg">Retrieve Password</a>
+                            <a href="javascript:void(0);" onclick="window.location.href = '/org.wormsim.frontend/user/reset';" class="btn btn-info pull-right btn-lg">Forgot Password</a>
                         </div>
                     </div>
                 </form>

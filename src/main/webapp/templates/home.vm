@@ -23,7 +23,7 @@
                                 $user.displayName <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Account settings</a></li>
+                                <li><a data-toggle="modal" data-target="#worm-info-modal">Account settings</a></li>
                                 <li class="divider"></li>
                                 <li><a href="logout">Log out</a></li>
                             </ul>
@@ -68,7 +68,13 @@
             </div>
         </div>
 
-        <a class="btn btn-lg btn-danger large" href="/org.wormsim.frontend/simulator" role="button">Launch</a>
+        #if($user.wormName)
+            <a class="btn btn-lg btn-danger large" href="/org.wormsim.frontend/simulator" role="button">Launch</a>
+        #else
+            <a class="btn btn-lg btn-danger large" data-toggle="modal" data-target="#worm-info-modal">
+                Launch
+            </a>
+        #end
 
     #else
 
@@ -92,5 +98,6 @@
 </div>
 
     #parse("templates/loginModal.vm")
+    #parse("templates/wormInfoModal.vm")
 </body>
 </html>

@@ -46,7 +46,7 @@ public class UserFactory {
         }
     }
 
-    private static void setSessionUser(User user) {
+    public static void setSessionUser(User user) {
         Subject subject = SecurityUtils.getSubject();
         if(subject.isAuthenticated()) {
             Session session = subject.getSession();

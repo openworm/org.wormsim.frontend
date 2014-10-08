@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.wormsim.frontend.models.User;
 import org.wormsim.frontend.models.WormInfo;
+import org.wormsim.frontend.stormpath.ClientFactory;
 import org.wormsim.frontend.stormpath.UserFactory;
 
 import javax.servlet.http.HttpServletResponse;
@@ -39,7 +40,6 @@ public class Application {
     public ModelAndView setWormInfo() {
         Map<String, Subject> modelMap = new HashMap<>();
         modelMap.put("subject", SecurityUtils.getSubject());
-
         return new ModelAndView("setWormInfo", modelMap);
     }
 
@@ -50,9 +50,10 @@ public class Application {
         currentUser.setWormName(wormInfo.getWormName());
         currentUser.setWormColor(wormInfo.getWormColor());
         currentUser.save();
+        UserFactory.setSessionUser(currentUser);
 
         //TODO: redirect to org.geppetto.frontend if worminfo is set successfully (use bundleContext)
-        return new ModelAndView("redirect:/");
+        return new ModelAndView("redirect:/simulator");
     }
 
     @RequestMapping(value = "/simulator", method = RequestMethod.GET)
