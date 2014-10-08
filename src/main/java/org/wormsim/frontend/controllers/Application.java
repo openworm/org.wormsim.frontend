@@ -1,6 +1,7 @@
 package org.wormsim.frontend.controllers;
 
-import org.apache.shiro.authz.annotation.RequiresAuthentication;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.osgi.framework.BundleContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,7 @@ import org.wormsim.frontend.models.User;
 import org.wormsim.frontend.models.WormInfo;
 import org.wormsim.frontend.stormpath.UserFactory;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,14 +36,15 @@ public class Application {
     }
 
     @RequestMapping(value = "/wormInfo", method = RequestMethod.GET)
-    @RequiresAuthentication
-    public String setWormInfo() {
-        return "setWormInfo";
+    public ModelAndView setWormInfo() {
+        Map<String, Subject> modelMap = new HashMap<>();
+        modelMap.put("subject", SecurityUtils.getSubject());
+
+        return new ModelAndView("setWormInfo", modelMap);
     }
 
     @RequestMapping(value = "/wormInfo", method = RequestMethod.POST)
     @ResponseBody
-    @RequiresAuthentication
     public ModelAndView doSetWormInfo(@ModelAttribute WormInfo wormInfo, BindingResult bindingResult) {
         User currentUser = UserFactory.current();
         currentUser.setWormName(wormInfo.getWormName());
@@ -52,5 +55,10 @@ public class Application {
         return new ModelAndView("redirect:/");
     }
 
+    @RequestMapping(value = "/simulator", method = RequestMethod.GET)
+    public void simulator(HttpServletResponse response) {
+        response.setStatus(302);
+        response.setHeader("Location", "/org.geppetto.frontend");
+    }
 
 }

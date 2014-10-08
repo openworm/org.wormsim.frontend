@@ -1,44 +1,22 @@
 <!DOCTYPE html>
 <html lang="@lang().code()">
-<head>
-    <title>Wormsim Login</title>
-
-    <!-- meta -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Matt Olson">
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="resources/css/main.css">
-
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-</head>
+    #set($title = "Wormsim Set Info")
+    #parse("templates/head.vm")
 
 <body>
 <div class="login-container">
 
-    <form action="/signup" method="POST" >
+    <form action="" method="POST" >
 
         <h2>Name your worm:</h2>
         <div class="form-group ">
-
             <input type="text" id="wormName" name="wormName" value="" class="form-control input-lg" placeholder="Worm Name"/>
-
             <span class="help-block"></span>
         </div>
 
         <h2>Choose a color:</h2>
         <div class="form-group ">
-
             <input type="text" id="color" name="color" value="" class="form-control input-lg" placeholder=""/>
-
             <span class="help-block"></span>
         </div>
         <div class="form-group submit-group row">
@@ -48,6 +26,7 @@
         </div>
     </form>
 </div>
+
 
 </body>
 </html>

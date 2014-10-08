@@ -173,6 +173,12 @@
             <version>4.4-alpha1</version>
         </dependency>
 
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>com.springsource.javax.validation</artifactId>
+            <version>1.0.0.GA</version>
+        </dependency>
+
     </dependencies>
 	<build>
 		<plugins>

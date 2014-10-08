@@ -8,6 +8,8 @@ import com.stormpath.sdk.application.ApplicationList;
 import com.stormpath.sdk.application.Applications;
 import com.stormpath.sdk.client.Client;
 import com.stormpath.sdk.client.Clients;
+import com.stormpath.sdk.resource.ResourceException;
+import org.wormsim.frontend.models.User;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -47,6 +49,19 @@ public class ClientFactory {
             return accounts.iterator().next();
         } else {
             throw new AccountNotFoundException("Account not found for email "+email);
+        }
+    }
+
+    public static void triggerPasswordReset(String email) throws ResourceException {
+        APPLICATION.sendPasswordResetEmail(email);
+    }
+
+    public static void resetPassword(String token, String newPassword) {
+        try {
+            Account account = APPLICATION.resetPassword(token, newPassword);
+            UserFactory.login(account.getEmail(), newPassword);
+        } catch (AccountNotFoundException e) {
+            //ignore
         }
     }
 }
