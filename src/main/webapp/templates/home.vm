@@ -1,24 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Wormsim</title>
-
-    <!-- Le meta -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Matt Olson">
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <link href="resources/css/main.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-</head>
+#set($title = "Wormsim")
+#parse("templates/head.vm")
 
 <body>
 
@@ -47,6 +30,9 @@
             </p>
             <p>
                 /signup - create account
+            </p>
+            <p>
+                /user/reset - reset password
             </p>
         </div>
     </div>

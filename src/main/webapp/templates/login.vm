@@ -1,56 +1,42 @@
 <!DOCTYPE html>
 <html lang="@lang().code()">
-<head>
-    <title>Wormsim Login</title>
-
-    <!-- meta -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Matt Olson">
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="resources/css/main.css">
-
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-</head>
-
+    #set($title = "Wormsim Login")
+    #parse("templates/head.vm")
 <body>
-<div class="login-container">
+    <div class="login-container">
+        <form action="" method="POST" >
 
-    <form action="" method="POST" >
-
-        <div class="form-group ">
-
-            <input type="text" id="inputEmail" name="email" value="" class="form-control input-lg" autocomplete="off" placeholder="Email"/>
-
-            <span class="help-block"></span>
-        </div>
-
-        <div class="form-group ">
-
-            <input type="password" id="inputPassword" name="password" class="form-control input-lg" autocomplete="off" placeholder="Password"/>
-
-            <span class="help-block"></span>
-        </div>
-
-        <div class="form-group submit-group row">
-            <div class="col-sm-12">
-                <button type="submit" class="btn btn-primary btn-lg">Log in</button>
+            <div class="form-group ">
+                <input type="text" id="inputEmail" name="email" value="" class="form-control input-lg" autocomplete="off" placeholder="Email"/>
+                <span class="help-block"></span>
             </div>
-            <div class="col-sm-12">
-                <a href="reset" class="btn btn-info pull-right btn-lg">Retrieve Password</a>
-            </div>
-        </div>
 
-    </form>
-</div>
+            <div class="form-group ">
+                <input type="password" id="inputPassword" name="password" class="form-control input-lg" autocomplete="off" placeholder="Password"/>
+                <span class="help-block"></span>
+            </div>
+
+            #if($error)
+                <div class="alert alert-danger">
+                    <strong>Error:</strong> $error
+                </div>
+            #elseif(${status.errorMessage})
+                <div class="alert alert-danger">
+                    <strong>Error:</strong> ${status.errorMessage}
+                </div>
+            #end
+
+            <div class="form-group submit-group row">
+                <div class="col-sm-12">
+                    <button type="submit" class="btn btn-primary btn-lg">Log in</button>
+                </div>
+                <div class="col-sm-12">
+                    <a href="reset" class="btn btn-info pull-right btn-lg">Retrieve Password</a>
+                </div>
+            </div>
+
+        </form>
+    </div>
 
 </body>
 </html>
