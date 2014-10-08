@@ -1,5 +1,6 @@
 package org.wormsim.frontend.controllers;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -39,7 +40,7 @@ public class Login {
 
     @RequestMapping(value="/login", method=RequestMethod.POST)
     @ResponseBody
-    public ModelAndView dologin(@Valid @ModelAttribute User user, BindingResult bindingResult) {
+    public ModelAndView dologin(@Valid @ModelAttribute User user, BindingResult bindingResult, HttpServletResponse response) {
 
         Map<String, String> messageMap = new HashMap<>();
 
@@ -47,12 +48,15 @@ public class Login {
             return new ModelAndView("login");
         }
 
+        //TODO: Better exception handling
         try {
             UserFactory.login(user.getEmail(), user.getPassword());
         } catch(AuthenticationException e) {
+            response.setStatus(400);
             messageMap.put("error", "Invalid email or password");
             return new ModelAndView("login", messageMap);
         } catch(Exception e) {
+            response.setStatus(400);
             messageMap.put("error", e.getMessage());
             return new ModelAndView("login", messageMap);
         }

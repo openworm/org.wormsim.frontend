@@ -13,6 +13,7 @@ $(function() {
                     document.location.reload(true);
                 } else {
                     $('.login.alert').fadeIn();
+                    $('.login.alert').fadeOut(2500,"swing");
                 }
             }
         });
