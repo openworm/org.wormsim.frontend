@@ -1,5 +1,6 @@
 $(function() {
     $("#worm-info-submit").click(function() {
+        $("#worm-info-submit").button('loading');
         $.ajax({
             url: '/org.wormsim.frontend/wormInfo',
             type: 'post',
@@ -13,6 +14,7 @@ $(function() {
                     document.location.reload(true);
                 } else {
                     $('.worm-info.alert').fadeIn();
+                    $("#worm-info-submit").button('reset');
                 }
             }
         });

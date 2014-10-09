@@ -1,5 +1,6 @@
 $(function() {
     $("#login-submit").click(function() {
+        $('#login-submit').button('loading');
         $.ajax({
             url: '/org.wormsim.frontend/login',
             type: 'post',
@@ -12,9 +13,11 @@ $(function() {
                 if(xhr.status === 200) {
                     document.location.reload(true);
                 } else {
+                    $('#login-submit').button('reset');
                     $('.login.alert').fadeIn();
                     $('.login.alert').fadeOut(2500,"swing");
                 }
+
             }
         });
     });
