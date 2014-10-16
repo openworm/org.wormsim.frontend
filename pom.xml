@@ -133,13 +133,11 @@
 			<version>4.5.0</version>
 			<scope>test</scope>
 		</dependency>
-        
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-osgi</artifactId>
             <version>4.2.7.SP1</version>
         </dependency>
-
         <dependency>
             <groupId>com.stormpath.shiro</groupId>
             <artifactId>stormpath-shiro-core</artifactId>
@@ -160,25 +158,26 @@
             <artifactId>stormpath-sdk-httpclient</artifactId>
             <version>1.0.RC2</version>
         </dependency>
-
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpcore-osgi</artifactId>
             <version>4.3.2</version>
         </dependency>
-
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient-osgi</artifactId>
             <version>4.4-alpha1</version>
         </dependency>
-
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>com.springsource.javax.validation</artifactId>
             <version>1.0.0.GA</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.geppetto</groupId>
+            <artifactId>core</artifactId>
+            <version>${version}</version>
+        </dependency>
     </dependencies>
 	<build>
 		<plugins>
