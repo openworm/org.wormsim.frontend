@@ -12,14 +12,14 @@
 
                     <p>Name of your worm:</p>
                     <div class="form-group">
-                        <input type="text" name="wormName" value="#if($user.wormName) $user.wormName #end" class="form-control input-lg" autocomplete="off"
+                        <input type="text" name="wormName" value="#if($user.wormName)$user.wormName#end" class="form-control input-lg" autocomplete="off"
                                placeholder="">
                         <span class="help-block"></span>
                     </div>
 
                     <p>Color of your worm:</p>
                     <div class="input-group color-picker">
-                        <input type="text" name="wormColor" value="#if($user.wormColor) $user.wormColor #else #33FF33 #end" class="form-control" placeholder="#33FF33" />
+                        <input type="text" name="wormColor" value="#if($user.wormColor)$user.wormColor#else#33FF33#end" class="form-control" placeholder="#33FF33" />
                         <span class="input-group-addon"><i></i></span>
                     </div>
 

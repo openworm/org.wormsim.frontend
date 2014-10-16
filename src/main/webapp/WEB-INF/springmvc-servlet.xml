@@ -4,19 +4,23 @@
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:osgi="http://www.springframework.org/schema/osgi" xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/osgi
+		http://www.springframework.org/schema/osgi/spring-osgi-1.1.xsd
         http://www.springframework.org/schema/mvc
-        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <mvc:annotation-driven />
     <mvc:resources mapping="/resources/**"
                    location="/"
                    cache-period="10000" />
 
-    <context:component-scan base-package="org.wormsim.frontend.controllers"/>
+    <context:annotation-config />
+    <context:component-scan base-package="org.wormsim.frontend.controllers, org.wormsim.frontend.service"/>
 
     <bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
         <property name="resourceLoaderPath">
@@ -28,6 +32,12 @@
         <property name="prefix"><value>/templates/</value></property>
         <property name="suffix"><value>.vm</value></property>
         <property name="exposeSpringMacroHelpers"><value>true</value></property>
+    </bean>
+
+    <!-- Exports the service implementation to other bundles by its service interface -->
+    <osgi:service id="IAuthService" ref="authService" interface="org.geppetto.core.auth.IAuthService"/>
+    <bean id="authService" scope="session" class="org.wormsim.frontend.service.AuthService">
+        <aop:scoped-proxy proxy-target-class="false"/>
     </bean>
 
 </beans>

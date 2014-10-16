@@ -16,14 +16,14 @@
             <div class="wormsim-logo pull-left"></div>
 
             #if($user)
-                <ul class="nav nav-pills pull-right">
+                <ul class="nav nav-pills pull-right navbar-right">
                     <li>
                         <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                $user.displayName <span class="caret"></span>
+                            <button type="button" class="btn btn-lg btn-success dropdown-toggle" data-toggle="dropdown">
+                                 <i class="fa fa-bars"></i>
                             </button>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a data-toggle="modal" data-target="#worm-info-modal">Account settings</a></li>
+                                <li><a data-toggle="modal" data-target="#worm-info-modal">Worm Settings</a></li>
                                 <li class="divider"></li>
                                 <li><a href="logout">Log out</a></li>
                             </ul>
