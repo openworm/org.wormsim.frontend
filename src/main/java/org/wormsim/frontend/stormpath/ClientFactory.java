@@ -31,7 +31,19 @@ public class ClientFactory {
         APPLICATION = applications.iterator().next();
     }
 
-    public static Account createAccount(String email, String password, String firstName, String lastName) {
+    private static ClientFactory _instance;
+
+    private ClientFactory() {
+    }
+
+    public static ClientFactory getInstance() {
+        if(_instance == null) {
+            _instance = new ClientFactory();
+        }
+        return _instance;
+    }
+
+    public Account createAccount(String email, String password, String firstName, String lastName) {
         Account account = CLIENT.instantiate(Account.class);
         account.setGivenName(firstName);
         account.setSurname(lastName);
@@ -40,7 +52,7 @@ public class ClientFactory {
         return APPLICATION.createAccount(account);
     }
 
-    public static Account getAccount(String email) throws AccountNotFoundException {
+    public Account getAccount(String email) throws AccountNotFoundException {
         Map<String, Object> queryParams = new HashMap<>();
         queryParams.put("email", email);
         AccountList accounts = APPLICATION.getAccounts(queryParams);
@@ -52,11 +64,11 @@ public class ClientFactory {
         }
     }
 
-    public static void triggerPasswordReset(String email) throws ResourceException {
+    public void triggerPasswordReset(String email) throws ResourceException {
         APPLICATION.sendPasswordResetEmail(email);
     }
 
-    public static void resetPassword(String token, String newPassword) {
+    public void resetPassword(String token, String newPassword) {
         try {
             Account account = APPLICATION.resetPassword(token, newPassword);
             UserFactory.login(account.getEmail(), newPassword);

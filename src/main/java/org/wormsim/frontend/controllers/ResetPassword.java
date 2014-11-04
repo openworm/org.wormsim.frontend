@@ -1,6 +1,9 @@
 package org.wormsim.frontend.controllers;
 
 import com.stormpath.sdk.resource.ResourceException;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.shiro.session.mgt.SessionContext;
 import org.osgi.framework.BundleContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +20,8 @@ import java.util.Map;
 
 @Controller
 public class ResetPassword {
+
+    private static Log _logger = LogFactory.getLog(ResetPassword.class);
 
     @Autowired
     BundleContext bundleContext;
@@ -41,7 +46,7 @@ public class ResetPassword {
         }
 
         try {
-            ClientFactory.triggerPasswordReset(user.getEmail());
+            ClientFactory.getInstance().triggerPasswordReset(user.getEmail());
             Map<String, Boolean> map = new HashMap<>();
             map.put("wasreset", true);
             return new ModelAndView("triggerreset", map);
@@ -73,17 +78,18 @@ public class ResetPassword {
             return new ModelAndView("resetpasswordResult", messageMap);
         }
 
+        _logger.error("SP TOKEN :"+sptoken);
         //TODO: Figure out how to properly use binding result in the templates
         //if(bindingResult.hasErrors()) {
         //  return new ModelAndView("resetpasswordResult");
         //}
 
-        try {
-            ClientFactory.resetPassword(sptoken, passwordForm.getPassword());
-        } catch (Exception e) {
-            messageMap.put("error", e.getMessage());
-            return new ModelAndView("resetpasswordResult", messageMap);
-        }
+       // try {
+            ClientFactory.getInstance().resetPassword(sptoken, passwordForm.getPassword());
+        //} catch (Exception e) {
+        //   messageMap.put("error", e.getMessage());
+        //   return new ModelAndView("resetpasswordResult", messageMap);
+        //}
 
         return new ModelAndView("redirect:/");
     }
