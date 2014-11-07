@@ -1,0 +1,31 @@
+<div class="header-container">
+    <div class="container">
+        <div class="header">
+
+            <div class="wormsim-logo pull-left"></div>
+
+            #if($user)
+                <ul class="nav nav-pills pull-right navbar-right">
+                    <li>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-lg btn-success dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="/org.wormsim.frontend/wormInfo">Worm Settings</a></li>
+                                <li class="divider"></li>
+                                <li><a href="logout">Log out</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            #else
+                <button type="button" class="btn btn-danger btn-large dropdown-toggle pull-right" data-toggle="modal"
+                        data-target="#login-modal">
+                    Login
+                </button>
+            #end
+
+        </div>
+    </div>
+</div>
