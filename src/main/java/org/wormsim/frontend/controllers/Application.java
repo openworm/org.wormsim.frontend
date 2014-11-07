@@ -31,15 +31,23 @@ public class Application {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView home() {
-        Map<String, User> modelMap = new HashMap<>();
-        modelMap.put("user", UserFactory.current());
-        return new ModelAndView("home", modelMap);
+
+        User user = UserFactory.current();
+
+        if(user != null && (user.getWormName() == null || user.getWormName().isEmpty())) {
+            return new ModelAndView("redirect:/wormInfo");
+        } else {
+            Map<String, User> modelMap = new HashMap<>();
+            modelMap.put("user", user);
+            return new ModelAndView("home", modelMap);
+        }
+
     }
 
     @RequestMapping(value = "/wormInfo", method = RequestMethod.GET)
     public ModelAndView setWormInfo() {
-        Map<String, Subject> modelMap = new HashMap<>();
-        modelMap.put("subject", SecurityUtils.getSubject());
+        Map<String, User> modelMap = new HashMap<>();
+        modelMap.put("user", UserFactory.current());
         return new ModelAndView("setWormInfo", modelMap);
     }
 
