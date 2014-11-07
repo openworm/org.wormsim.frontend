@@ -42,18 +42,34 @@ body {
     background-color: rgba(0, 0, 0, 0.6);
     border: none;
     color: #fff;
-    width: 340px;
+    max-width: 340px;
     margin-left: auto;
     margin-right: auto;
     top: 100px;
     position: relative;
   }
+
+  &.well.create-worm {
+    max-width: 660px;
+    padding-bottom: 30px;
+  }
+  .worm-model-container {
+    height: 275px;
+    border: 1px solid #fff;
+  }
+
   a {
     font-family: 'Lato', sans-serif;
   }
+
   h2 {
     text-align: center;
   }
+
+  h2.top-heading {
+    margin-top:0;
+  }
+
   li a.sim-nav {
     width:145px;
     text-align: center;
