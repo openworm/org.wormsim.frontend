@@ -1,7 +1,5 @@
 package org.wormsim.frontend.controllers;
 
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.subject.Subject;
 import org.osgi.framework.BundleContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.wormsim.frontend.models.User;
 import org.wormsim.frontend.models.WormInfo;
-import org.wormsim.frontend.stormpath.ClientFactory;
 import org.wormsim.frontend.stormpath.UserFactory;
 
 import javax.servlet.http.HttpServletResponse;
@@ -33,22 +30,19 @@ public class Application {
     public ModelAndView home() {
 
         User user = UserFactory.current();
-
         if(user != null && (user.getWormName() == null || user.getWormName().isEmpty())) {
             return new ModelAndView("redirect:/wormInfo");
+        } else if(user != null) {
+            return new ModelAndView("userhome", getUserMap());
         } else {
-            Map<String, User> modelMap = new HashMap<>();
-            modelMap.put("user", user);
-            return new ModelAndView("home", modelMap);
+            return new ModelAndView("home", getUserMap());
         }
 
     }
 
     @RequestMapping(value = "/wormInfo", method = RequestMethod.GET)
     public ModelAndView setWormInfo() {
-        Map<String, User> modelMap = new HashMap<>();
-        modelMap.put("user", UserFactory.current());
-        return new ModelAndView("setWormInfo", modelMap);
+        return new ModelAndView("setWormInfo", getUserMap());
     }
 
     @RequestMapping(value = "/wormInfo", method = RequestMethod.POST)
@@ -61,13 +55,19 @@ public class Application {
         UserFactory.setSessionUser(currentUser);
 
         //TODO: redirect to org.geppetto.frontend if worminfo is set successfully (use bundleContext)
-        return new ModelAndView("redirect:/simulator");
+        return new ModelAndView("redirect:/");
     }
 
     @RequestMapping(value = "/simulator", method = RequestMethod.GET)
     public void simulator(HttpServletResponse response) {
         response.setStatus(302);
         response.setHeader("Location", "/org.geppetto.frontend");
+    }
+
+    private Map<String, User> getUserMap() {
+        Map<String, User> modelMap = new HashMap<>();
+        modelMap.put("user", UserFactory.current());
+        return modelMap;
     }
 
 }
