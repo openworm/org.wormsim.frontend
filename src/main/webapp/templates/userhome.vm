@@ -3,17 +3,15 @@
     #set($title = "Wormsim")
     #parse("templates/head.vm")
 
-<body>
+<body class="user-home">
 
     #parse("templates/navHeader.vm")
 
-    <div class="simulation-nav user-home">
-        <h2 class="top-heading">Customize your WormSim!</h2>
-        <div class="worm-model-container"></div>
+    <div class="simulation-nav create-worm user-home">
+        <div class="worm-model-container" id="worm-model-container"></div>
         <form action="" method="POST" >
-
-            <h2>Choose a color:</h2>
-            <div class="form-group ">
+            <input type="text" class="user-home-name" value="$user.wormName" />
+            <div class="form-group user-home-color">
                 <select name="wormColor">
                     <option value="#7bd148">Green</option>
                     <option value="#5484ed">Bold blue</option>
@@ -30,23 +28,71 @@
                 </select>
                 <span class="help-block"></span>
             </div>
-
-            <div class="input-group input-group-lg">
-
-                #if($user && $user.wormName)
-                    <input type="text" class="form-control" name="wormName" value="$user.wormName">
-                #else
-                    <input type="text" class="form-control" name="wormName" value="" placeholder="Name your worm">
-                #end
-                <span class="input-group-btn">
-                        <button class="btn btn-danger" type="submit">Submit</button>
-                    </span>
-            </div>
-
         </form>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <a class="btn btn-danger goto-simulator" href="/simulator">Explore my nervous system</a>
+                </div>
+                <div class="col-md-6">
+                    <a class="btn btn-danger goto-simulator" href="/simulator">Explore my musculoskeletal system</a>
+                </div>
+            </div>
+        </div>
     </div>
 
-
     #parse("templates/loginModal.vm")
+
+<script src="/org.wormsim.frontend/resources/js/vendor/jquery-simplecolorpicker.js"></script>
+<link rel="stylesheet" href="/org.wormsim.frontend/resources/css/jquery-simplecolorpicker.css">
+
+<script src="/org.wormsim.frontend/resources/js/vendor/three.js"></script>
+<script src="/org.wormsim.frontend/resources/js/vendor/ColladaLoader.js"></script>
+<script src="/org.wormsim.frontend/resources/js/vendor/Detector.js"></script>
+<script src="/org.wormsim.frontend/resources/js/vendor/TrackBallControls.js"></script>
+<script src="/org.wormsim.frontend/resources/js/cuticle.js"></script>
+
+<script>
+        #if($user && $user.wormColor)
+        var selectedColor = "$user.wormColor";
+        #else
+        var selectedColor = "#7bd148";
+        #end
+
+    $(function(){
+
+        var colorPicker = $('select[name="wormColor"]'), nameInput = $('.user-home-name');
+        colorPicker.simplecolorpicker({picker: true, theme: 'glyphicons'});
+        colorPicker.simplecolorpicker('selectColor', selectedColor);
+
+        $().setWormColor(selectedColor);
+
+        function setWormInfo(property, value) {
+            var data = {};
+            data[property] = value;
+
+            $.ajax({
+                url:'/org.wormsim.frontend/setWormInfo',
+                data: JSON.stringify(data),
+                type:'POST',
+                contentType: 'application/json',
+                dataType: 'json'
+            });
+        }
+
+        colorPicker.on('change', function(e) {
+            $().setWormColor($(colorPicker).val());
+            setWormInfo('wormColor', $(colorPicker).val());
+        }.bind(this));
+
+        nameInput.on('change', function(){
+            setWormInfo('wormName', nameInput.val());
+
+        }.bind(this));
+    });
+
+</script>
+
+
 </body>
 </html>

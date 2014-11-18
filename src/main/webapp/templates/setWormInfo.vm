@@ -3,13 +3,13 @@
     #set($title = "Wormsim Set Info")
     #parse("templates/head.vm")
 
-<body>
+<body class="user-home">
 
     #parse("templates/navHeader.vm")
 
-    <div class="simulation-nav well create-worm">
+    <div class="simulation-nav create-worm user-home">
             <h2 class="top-heading">Customize your WormSim!</h2>
-            <div class="worm-model-container"></div>
+            <div class="worm-model-container" id="worm-model-container"></div>
             <form action="" method="POST" >
 
                 <h2>Choose a color:</h2>
@@ -30,9 +30,8 @@
                     </select>
                     <span class="help-block"></span>
                 </div>
-
+                <h2>Choose a name:</h2>
                 <div class="input-group input-group-lg">
-
                     #if($user && $user.wormName)
                         <input type="text" class="form-control" name="wormName" value="$user.wormName">
                     #else
@@ -48,6 +47,11 @@
 
     <script src="/org.wormsim.frontend/resources/js/vendor/jquery-simplecolorpicker.js"></script>
     <link rel="stylesheet" href="/org.wormsim.frontend/resources/css/jquery-simplecolorpicker.css">
+    <script src="/org.wormsim.frontend/resources/js/vendor/three.js"></script>
+    <script src="/org.wormsim.frontend/resources/js/vendor/ColladaLoader.js"></script>
+    <script src="/org.wormsim.frontend/resources/js/vendor/Detector.js"></script>
+    <script src="/org.wormsim.frontend/resources/js/vendor/TrackBallControls.js"></script>
+    <script src="/org.wormsim.frontend/resources/js/cuticle.js"></script>
 
     <script>
         #if($user && $user.wormColor)
@@ -57,8 +61,16 @@
         #end
 
         $(function(){
-            $('select[name="wormColor"]').simplecolorpicker();
-            $('select[name="wormColor"]').simplecolorpicker('selectColor', selectedColor);
+
+            var colorPicker = $('select[name="wormColor"]');
+            colorPicker.simplecolorpicker();
+            colorPicker.simplecolorpicker('selectColor', selectedColor);
+
+            $().setWormColor(selectedColor);
+
+            colorPicker.on('change', function(e) {
+                $().setWormColor($(colorPicker).val());
+            }.bind(this));
         });
     </script>
 </body>

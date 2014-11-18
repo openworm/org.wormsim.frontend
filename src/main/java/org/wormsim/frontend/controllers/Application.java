@@ -2,12 +2,10 @@ package org.wormsim.frontend.controllers;
 
 import org.osgi.framework.BundleContext;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.wormsim.frontend.models.User;
 import org.wormsim.frontend.models.WormInfo;
@@ -56,6 +54,23 @@ public class Application {
 
         //TODO: redirect to org.geppetto.frontend if worminfo is set successfully (use bundleContext)
         return new ModelAndView("redirect:/");
+    }
+
+    @RequestMapping(value = "/setWormInfo", method = RequestMethod.POST)
+    @ResponseBody
+    public void ajaxSetWormInfo(@RequestBody WormInfo wormInfo) {
+        User currentUser = UserFactory.current();
+
+        String name = wormInfo.getWormName(), color = wormInfo.getWormColor();
+        if(name != null && !name.isEmpty()) {
+            currentUser.setWormName(name);
+        }
+        if(color != null && !color.isEmpty()) {
+            currentUser.setWormColor(color);
+        }
+
+        currentUser.save();
+        UserFactory.setSessionUser(currentUser);
     }
 
     @RequestMapping(value = "/simulator", method = RequestMethod.GET)
