@@ -2,7 +2,7 @@
 
 # Wormsim Frontend
 
-<p>Bundle for wormsim frontend
+<p>Bundle for wormsim frontend</p>.
 
 <p>OpenWorm pioneered open science crowdfunding by successfully running a <a href="https://www.kickstarter.com/projects/openworm/openworm-a-digital-organism-in-your-browser" target="_blank">Kickstarter campaign</a> in 2014. Here you can find our wall of crowdfunding heroes to be remembered for the ages, the open science activists who got our back when it mattered.</p>
 
