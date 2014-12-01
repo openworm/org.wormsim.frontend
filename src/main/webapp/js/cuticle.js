@@ -49,7 +49,7 @@ $(function() {
 
         setProgressBar(15);
 
-        loader.load('/org.wormsim.frontend/resources/files/cuticle.dae', function(collada) {
+        loader.load('/org.wormsim.frontend/resources/files/cuticleNotBent.dae', function(collada) {
             var dae = collada.scene;
             dae.position.set(0, 0, 0);
             dae.scale.set(0.7, 0.7, 0.7);

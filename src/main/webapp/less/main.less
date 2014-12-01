@@ -60,7 +60,8 @@ input.user-home-name {
   right: 0;
   padding-top: 20px;
   position: absolute;
-  background: rgba(0, 0, 0, 0.6);
+  z-index:999;
+  background: rgba(61, 158, 55, 0.6);
   .header {
     border: none;
   }
@@ -73,6 +74,14 @@ input.user-home-name {
   height: 60px;
   position: relative;
   bottom: 12px;
+}
+
+.worm-model-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .simulation-nav {
@@ -91,10 +100,12 @@ input.user-home-name {
   &.create-worm {
     max-width: 660px;
     padding-bottom: 30px;
-  }
-
-  .worm-model-container {
-    height: 375px;
+    position: absolute;
+    bottom: 0;
+    height: 50px;
+    top: 78%;
+    left: 15%;
+    right: 15%;
   }
 
   a {
