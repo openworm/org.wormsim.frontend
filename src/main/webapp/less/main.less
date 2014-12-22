@@ -1,19 +1,57 @@
 html {
-  height:100%;
+  height: 100%;
 }
 
 body {
   padding-top: 40px;
   padding-bottom: 40px;
-  height:100%;
+  height: 100%;
   background-color: #B3B3B3;
 }
 
-#video-bg {
-  position:absolute;
-  top:0;
-  left:0;
+body.user-home {
+  background-color: #00230a;
+}
+
+a.goto-simulator {
   width:100%;
+}
+
+input.user-home-name {
+  background: rgba(0, 0, 0, 0);
+  border: none;
+  font-size: 45px;
+  width: 80%;
+  text-align: center;
+
+  &:focus {
+    outline:none;
+  }
+}
+
+.form-group.user-home-color {
+  margin-top:10px;
+  float: right;
+}
+
+.simulation-nav.well.choose-simulation, .simulation-nav.user-home {
+  max-width: 600px;
+  text-align: center;
+
+  a {
+    margin-bottom: 5px;
+  }
+
+  i {
+    color: #fff;
+  }
+}
+
+#video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 .header-container {
@@ -22,7 +60,8 @@ body {
   right: 0;
   padding-top: 20px;
   position: absolute;
-  background: rgba(0,0,0,0.6);
+  z-index:999;
+  background: rgba(61, 158, 55, 0.6);
   .header {
     border: none;
   }
@@ -37,38 +76,65 @@ body {
   bottom: 12px;
 }
 
+.worm-model-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
 .simulation-nav {
+  border: none;
+  color: #fff;
+  max-width: 340px;
+  margin-left: auto;
+  margin-right: auto;
+  top: 100px;
+  position: relative;
+
   &.well {
     background-color: rgba(0, 0, 0, 0.6);
-    border: none;
-    color: #fff;
-    width: 340px;
-    margin-left: auto;
-    margin-right: auto;
-    top: 100px;
-    position: relative;
   }
+
+  &.create-worm {
+    max-width: 660px;
+    padding-bottom: 30px;
+    position: absolute;
+    bottom: 0;
+    height: 50px;
+    top: 78%;
+    left: 15%;
+    right: 15%;
+  }
+
   a {
     font-family: 'Lato', sans-serif;
   }
+
   h2 {
     text-align: center;
   }
+
+  h2.top-heading {
+    margin-top: 0;
+  }
+
   li a.sim-nav {
-    width:145px;
+    width: 145px;
     text-align: center;
-    color:#333333;
+    color: #333333;
     background-color: rgba(219, 219, 219, 0.9);
   }
   li a.sim-nav:hover {
     background-color: rgba(240, 240, 240, 0.9);
   }
   li.active a.sim-nav:hover {
-    background-color:#42CA63;
+    background-color: #42CA63;
     color: #ffffff;
   }
   li.active a.sim-nav {
-    background-color:#42CA63;
+    background-color: #42CA63;
     color: #ffffff;
   }
 
@@ -76,13 +142,14 @@ body {
     width: 100%;
   }
   .tab-pane {
-    padding:10px 0 10px 0;
+    padding: 10px 0 10px 0;
   }
   .worminfo-submit {
     width: 100%;
     margin-top: 20px;
   }
 }
+
 .modal {
   .modal-header {
     border-bottom: none;
@@ -92,7 +159,7 @@ body {
     color: #fff;
   }
   button.close {
-    color:#fff;
+    color: #fff;
     opacity: 1;
     text-shadow: none;
   }
@@ -100,10 +167,10 @@ body {
 
 #worm-info-modal {
   .modal-body {
-    padding-top:0;
+    padding-top: 0;
   }
   h3 {
-    margin-top:0;
+    margin-top: 0;
   }
   button#worm-info-submit {
     margin-top: 15px;
@@ -137,16 +204,16 @@ body {
   }
 
 }
+
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
   margin-bottom: 10px;
 }
 
-
 .login-container {
   max-width: 500px;
   min-height: 280px;
-  padding:30px;
+  padding: 30px;
   margin-left: auto;
   margin-right: auto;
   border: 1px solid #129900;
@@ -158,19 +225,19 @@ body {
 
   h2 {
     text-align: center;
-    margin-top:0;
+    margin-top: 0;
   }
   small {
-    font-size:16px;
+    font-size: 16px;
   }
 
   .btn {
-    width:100%;
-    margin-top:10px;
+    width: 100%;
+    margin-top: 10px;
   }
 
   .submit-group {
-    margin-bottom:0;
+    margin-bottom: 0;
   }
 }
 
@@ -193,6 +260,7 @@ body {
   }
 
 }
+
 /* Custom page footer */
 .footer {
   padding-top: 19px;
@@ -206,11 +274,10 @@ body {
     max-width: 730px;
   }
 }
+
 .container-narrow > hr {
   margin: 30px 0;
 }
-
-
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
@@ -221,10 +288,12 @@ body {
     padding-right: 0;
     padding-left: 0;
   }
+
   /* Space out the masthead */
   .header {
     margin-bottom: 30px;
   }
+
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;

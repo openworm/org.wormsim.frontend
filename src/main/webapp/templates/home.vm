@@ -5,99 +5,33 @@
 
 <body>
 
-<video autoplay loop preload="auto" class="video-playing" id="video-bg">
-    <source src="resources/videos/worm-loc-out.mp4" type="video/mp4">
-    <source src="resources/videos/worm-loc-out.webm" type="video/webm">
-</video>
-<div class="header-container">
-    <div class="container">
-        <div class="header">
+    <video autoplay loop preload="auto" class="video-playing" id="video-bg">
+        <source src="resources/videos/worm-loc-out.mp4" type="video/mp4">
+        <source src="resources/videos/worm-loc-out.webm" type="video/webm">
+    </video>
 
-            <div class="wormsim-logo pull-left"></div>
+    #parse("templates/navHeader.vm")
 
-            #if($user)
-                <ul class="nav nav-pills pull-right navbar-right">
-                    <li>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-lg btn-success dropdown-toggle" data-toggle="dropdown">
-                                 <i class="fa fa-bars"></i>
-                            </button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a data-toggle="modal" data-target="#worm-info-modal">Worm Settings</a></li>
-                                <li class="divider"></li>
-                                <li><a href="logout">Log out</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            #else
-                <button type="button" class="btn btn-danger btn-large dropdown-toggle pull-right" data-toggle="modal"
-                        data-target="#login-modal">
-                    Login
-                </button>
-            #end
+        <div class="simulation-nav well">
 
-        </div>
-    </div>
-</div>
-<div class="simulation-nav well">
+            <h2>Welcome to WormSim</h2>
 
-    #if($user)
-        <h2>Choose a Simulation</h2>
-
-        <ul class="nav nav-pills" role="tablist">
-            <li class="active pull-left"><a href="#mechanical" role="tab" data-toggle="tab"
-                                            class="sim-nav">Mechanical</a></li>
-            <li class="pull-right"><a href="#neural" role="tab" data-toggle="tab" class="sim-nav">Neural</a></li>
-        </ul>
-
-        <div class="tab-content">
-            <div class="tab-pane fade in active" id="mechanical">
+            <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum.
-            </div>
-            <div class="tab-pane fade" id="neural">
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-                id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua.
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+                anim id est laborum.
+            </p>
+
+            <div class="input-group input-group-lg">
+                <input type="text" class="form-control" placeholder="Enter your email">
+                <span class="input-group-btn">
+                    <button class="btn btn-danger" type="button">Submit</button>
+                </span>
             </div>
         </div>
-
-        #if($user.wormName)
-            <a class="btn btn-lg btn-danger large" href="/org.wormsim.frontend/simulator" role="button">Launch</a>
-        #else
-            <a class="btn btn-lg btn-danger large" data-toggle="modal" data-target="#worm-info-modal">
-                Launch
-            </a>
-        #end
-
-    #else
-
-        <h2>Welcome to WormSim</h2>
-
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
-        </p>
-
-        <div class="input-group input-group-lg">
-            <input type="text" class="form-control" placeholder="Enter your email">
-            <span class="input-group-btn">
-                <button class="btn btn-danger" type="button">Submit</button>
-            </span>
-        </div>
-    #end
-</div>
 
     #parse("templates/loginModal.vm")
-    #parse("templates/wormInfoModal.vm")
 </body>
 </html>

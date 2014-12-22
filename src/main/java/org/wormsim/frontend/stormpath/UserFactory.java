@@ -9,7 +9,7 @@ import org.wormsim.frontend.models.User;
 public class UserFactory {
 
     public static User create(String email, String password, String firstName, String lastName) {
-        return new User(ClientFactory.createAccount(email, password, firstName, lastName));
+        return new User(ClientFactory.getInstance().createAccount(email, password, firstName, lastName));
     }
 
     public static User login(String email, String password) throws AccountNotFoundException {
@@ -17,7 +17,7 @@ public class UserFactory {
         UsernamePasswordToken token = new UsernamePasswordToken(email, password);
         token.setRememberMe(true);
         currentUser.login(token);
-        User user = new User(ClientFactory.getAccount(email));
+        User user = new User(ClientFactory.getInstance().getAccount(email));
         setSessionUser(user);
         return user;
     }

@@ -42,7 +42,7 @@ public class User {
 
         if (account == null) {
             try {
-                account = ClientFactory.getAccount(this.email);
+                account = ClientFactory.getInstance().getAccount(this.email);
             } catch (AccountNotFoundException e) {
                 e.printStackTrace();
                 return;
