@@ -9,7 +9,7 @@
 
     <div class="worm-model-container" id="worm-model-container"></div>
 
-    <div class="simulation-nav create-worm user-home">
+    <div class="simulation-nav create-worm-settings user-home">
         <form action="" method="POST" >
             <input type="text" class="user-home-name" value="$user.wormName" />
             <div class="form-group user-home-color">

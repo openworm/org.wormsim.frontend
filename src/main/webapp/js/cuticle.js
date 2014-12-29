@@ -1,6 +1,6 @@
 $(function() {
 
-    var camera, scene, renderer, controls, ambient, $container, $progressBar = $('.progress-bar'), rotate;
+    var camera, scene, renderer, controls, directionalLight, $container, $progressBar = $('.progress-bar'), rotate;
     load();
     animate();
 
@@ -22,10 +22,10 @@ $(function() {
         camera.position.z = 5;
 
         scene = new THREE.Scene();
-        ambient = new THREE.AmbientLight(0x101030);
+        var ambient = new THREE.AmbientLight(0x101030);
         scene.add(ambient);
 
-        var directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
+        directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
         directionalLight.position.set( 10, 10, 10 );
 
         scene.add(directionalLight);
@@ -85,7 +85,7 @@ $(function() {
      */
     $.fn.setWormColor = function(color) {
         //Chop off leading #
-        ambient.color.setHex('0x' + color.substr(1, color.length));
+        directionalLight.color.setHex('0x' + color.substr(1, color.length));
         render();
     }.bind(this);
 
