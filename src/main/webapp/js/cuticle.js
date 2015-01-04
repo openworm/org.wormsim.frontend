@@ -1,7 +1,7 @@
 $(function() {
 
-    var camera, scene, renderer, controls, directionalLight, $container, $progressBar = $('.progress-bar'), rotate;
-    load();
+    var camera, scene,dae,renderer, controls, directionalLight, $container, $progressBar = $('.progress-bar'), rotate;
+    start();
     animate();
 
 
@@ -9,13 +9,27 @@ $(function() {
         // $progressBar.css('width', percent + '%').attr('aria-valuenow', ''+percent);
     }
 
-    function load() {
+    function start() {
 
         rotate = false;
         $container = $('#worm-model-container');
         $container.html('');
         $container.on('mousedown', function() {
             rotate = false;
+        });
+        
+        $('#body').on('click', function(){
+        	alert("muscles");
+        	load("/org.wormsim.frontend/resources/files/cuticleNotBent.dae");
+        });
+        
+        $('#muscles').on('click', function(){
+        	alert("muscles");
+        	load("/org.wormsim.frontend/resources/files/muscles.dae");
+        });
+        
+        $('#nerves').on('click', function(){
+        	load("/org.wormsim.frontend/resources/files/neurons.dae");
         });
 
         camera = new THREE.PerspectiveCamera(45, $container.innerWidth() / $container.innerHeight(), 0.1, 500000);
@@ -40,17 +54,29 @@ $(function() {
         controls.keys = [ 65, 83, 68 ];
         controls.addEventListener('change', render);
 
-        var manager = new THREE.LoadingManager();
+        
+        load('/org.wormsim.frontend/resources/files/cuticleNotBent.dae');
+
+        renderer = new THREE.WebGLRenderer();
+        renderer.setSize($container.innerWidth(), $container.innerHeight());
+
+    }
+
+    function load(daeLocation){
+    	var manager = new THREE.LoadingManager();
         manager.onProgress = function(item, loaded, total) {
             console.log(item, loaded, total);
         };
-        var loader = new THREE.ColladaLoader(manager);
+        
+    	var loader = new THREE.ColladaLoader(manager);
         loader.options.convertUpAxis = true;
 
         setProgressBar(15);
 
-        loader.load('/org.wormsim.frontend/resources/files/cuticleNotBent.dae', function(collada) {
-            var dae = collada.scene;
+        scene.remove(dae);
+        
+        loader.load(daeLocation, function(collada) {
+            dae = collada.scene;
             dae.position.set(0, 0, 0);
             dae.scale.set(0.7, 0.7, 0.7);
             dae.rotation.set(0.2, -0.2, 0.2);
@@ -61,12 +87,8 @@ $(function() {
         }, function(progress) {
             setProgressBar(Math.min(90, Math.floor(100 * progress.loaded / parseInt(progress.total, 10))));
         });
-
-        renderer = new THREE.WebGLRenderer();
-        renderer.setSize($container.innerWidth(), $container.innerHeight());
-
     }
-
+    
     function animate() {
         requestAnimationFrame(animate);
 
