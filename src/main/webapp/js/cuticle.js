@@ -1,6 +1,6 @@
 $(function() {
 
-    var camera, scene,dae,renderer, controls, directionalLight, $container, $progressBar = $('.progress-bar'), rotate;
+    var camera, scene,dae,renderer, controls, topLight, bottomLight, $container, $progressBar = $('.progress-bar'), rotate;
     start();
     animate();
 
@@ -37,10 +37,15 @@ $(function() {
         var ambient = new THREE.AmbientLight(0x101030);
         scene.add(ambient);
 
-        directionalLight = new THREE.DirectionalLight( 0xffffff, 1.0 );
-        directionalLight.position.set( 10, 10, 10 );
+        topLight = new THREE.DirectionalLight( 0xffffff, 1.0 );
+        topLight.position.set( 0, 1, 0 );
 
-        scene.add(directionalLight);
+        scene.add(topLight);
+        
+        bottomLight = new THREE.DirectionalLight( 0xffffff, 1.0 );
+        bottomLight.position.set( 0, -1, 0 );
+
+        scene.add(bottomLight);
 
         controls = new THREE.TrackballControls(camera, $container.get(0));
         controls.zoomSpeed = 1.2;
@@ -105,7 +110,9 @@ $(function() {
      */
     $.fn.setWormColor = function(color) {
         //Chop off leading #
-        directionalLight.color.setHex('0x' + color.substr(1, color.length));
+        topLight.color.setHex('0x' + color.substr(1, color.length));
+        bottomLight.color.setHex('0x' + color.substr(1, color.length));
+        
         render();
     }.bind(this);
 
