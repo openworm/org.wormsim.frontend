@@ -1,13 +1,24 @@
 $(function() {
 
-    var camera, scene,dae,renderer, controls, topLight, bottomLight, $container, $progressBar = $('.progress-bar'), rotate;
+    var camera, 
+    	scene,
+    	dae,
+    	renderer,
+    	controls, 
+    	topLight, 
+    	bottomLight, 
+    	$container, 
+    	rotate;
+    
+    // model names
+    var CUTICLE = "cuticle", MUSCLES = "muscles", NEURONS ="neurons";
+    var modelMap = {};
+    modelMap[CUTICLE] = "/org.wormsim.frontend/resources/files/cuticleNotBent.dae";
+    modelMap[MUSCLES] = "/org.wormsim.frontend/resources/files/muscles.dae";
+    modelMap[NEURONS] = "/org.wormsim.frontend/resources/files/neurons.dae";
+    
     start();
     animate();
-
-
-    function setProgressBar(percent) {
-        // $progressBar.css('width', percent + '%').attr('aria-valuenow', ''+percent);
-    }
 
     function start() {
 
@@ -19,15 +30,54 @@ $(function() {
         });
         
         $('#body').on('click', function(){
-        	load("/org.wormsim.frontend/resources/files/cuticleNotBent.dae");
+        	
+        	// make all groups visible
+        	for (var i=0; i < scene.children.length; i++) {
+        		
+        		child = scene.children[i];
+        		
+        		if (child.name === CUTICLE || child.name === MUSCLES || child.name === NEURONS ){
+        			child.visible = true;
+        		}
+        	}
+        	
+        	render();
         });
         
         $('#muscles').on('click', function(){
-        	load("/org.wormsim.frontend/resources/files/muscles.dae");
+        	
+        	// make muscles and neurons visible
+        	for (var i=0; i < scene.children.length; i++) {
+        		
+        		child = scene.children[i];
+        		
+        		if (child.name === MUSCLES || child.name === NEURONS ){
+        			child.visible = true;
+        		} else if (child.name === CUTICLE) {
+        			child.visible = false;
+        		}
+        		
+        	}
+        	
+        	render();
         });
         
         $('#nerves').on('click', function(){
-        	load("/org.wormsim.frontend/resources/files/neurons.dae");
+        	
+        	// make only neurons visible
+        	for (var i=0; i < scene.children.length; i++) {
+        		
+        		child = scene.children[i];
+        		
+        		if (child.name === NEURONS ){
+        			child.visible = true;
+        		} else if (child.name === CUTICLE || child.name === MUSCLES) {
+        			child.visible = false;
+        		}
+        		
+        	}
+        	
+        	render();
         });
 
         camera = new THREE.PerspectiveCamera(45, $container.innerWidth() / $container.innerHeight(), 0.1, 500000);
@@ -58,14 +108,16 @@ $(function() {
         controls.addEventListener('change', render);
 
         
-        load('/org.wormsim.frontend/resources/files/cuticleNotBent.dae');
+        load(CUTICLE, modelMap.cuticle);
+        load(MUSCLES, modelMap.muscles);
+        load(NEURONS, modelMap.neurons);
 
         renderer = new THREE.WebGLRenderer();
         renderer.setSize($container.innerWidth(), $container.innerHeight());
 
     }
 
-    function load(daeLocation){
+    function load(groupName, daeLocation){
     	var manager = new THREE.LoadingManager();
         manager.onProgress = function(item, loaded, total) {
             console.log(item, loaded, total);
@@ -73,22 +125,21 @@ $(function() {
         
     	var loader = new THREE.ColladaLoader(manager);
         loader.options.convertUpAxis = true;
-
-        setProgressBar(15);
-
-        scene.remove(dae);
         
         loader.load(daeLocation, function(collada) {
             dae = collada.scene;
+            dae.name = groupName;
             dae.position.set(0, 0, 0);
             dae.scale.set(0.7, 0.7, 0.7);
             dae.rotation.set(0.2, -0.2, 0.2);
+            
             $container.html(renderer.domElement);
+            
             scene.add(dae);
-            setProgressBar(100);
+            
             render();
         }, function(progress) {
-            setProgressBar(Math.min(90, Math.floor(100 * progress.loaded / parseInt(progress.total, 10))));
+            // TODO: show some progress if this is taking long
         });
     }
     
@@ -115,5 +166,5 @@ $(function() {
         
         render();
     }.bind(this);
-
+   
 });
