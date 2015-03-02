@@ -107,14 +107,13 @@ $(function() {
         controls.keys = [ 65, 83, 68 ];
         controls.addEventListener('change', render);
 
-        
         load(CUTICLE, modelMap.cuticle);
         load(MUSCLES, modelMap.muscles);
         load(NEURONS, modelMap.neurons);
 
-        renderer = new THREE.WebGLRenderer();
+        renderer = new THREE.WebGLRenderer({ antialias: true });
         renderer.setSize($container.innerWidth(), $container.innerHeight());
-
+        renderer.autoClear = true;
     }
 
     function load(groupName, daeLocation){
@@ -166,5 +165,18 @@ $(function() {
         
         render();
     }.bind(this);
+    
+    /*
+    Resize canvas when the user manually resizes window
+    */
+    window.addEventListener('resize', function() {
+    	var width = $container.width();
+        var height = $container.height();
+        
+        camera.aspect = (width) / (height);
+        camera.updateProjectionMatrix();
+
+    	renderer.setSize(width, height);
+    }, false);
    
 });
