@@ -177,6 +177,8 @@ $(function() {
         camera.updateProjectionMatrix();
 
     	renderer.setSize(width, height);
+    	
+    	render();
     }, false);
    
 });
