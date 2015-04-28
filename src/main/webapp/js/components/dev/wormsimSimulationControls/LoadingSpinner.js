@@ -1,5 +1,5 @@
 define(function(require) {
-
+	console.log("LoadingSpinner - gets called?");
 	var React = require('react'),
 		GEPPETTO = require('geppetto');
 	

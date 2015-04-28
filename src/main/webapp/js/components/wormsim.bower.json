@@ -6,6 +6,7 @@
         "**/*.txt"
     ],
     "dependencies": {
+    	"customrenderer": "https://github.com/openworm/org.wormsim.bower/wormsimCustomRendere.zip",
         "simulationcontrols": "https://github.com/openworm/org.wormsim.bower/raw/master/wormsimSimulationControls.zip",
         "logos": "https://github.com/openworm/org.wormsim.bower/raw/master/wormsimLogo.zip",
         "cameracontrols": "https://github.com/openworm/org.geppetto.bower/raw/master/cameracontrols.zip",
