@@ -1,78 +1,52 @@
 <!DOCTYPE html>
 <html lang="@lang().code()">
     #set($title = "Wormsim Set Info")
-    #parse("templates/head.vm")
+	#parse("templates/head.vm")
+    
+<style>
+.flex-center-right {
+  float:right;
+  background: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: auto;
+  width:40%;
+  resize: vertical;
+  overflow: auto;
+  margin-top:200px;
+  z-index:100;
+}
+.flex-center p {
+  margin: 0;
+  padding: 20px;
+}
+</style>
+<body class="user-home" style="background:black">
 
-<body class="user-home">
+ 	#parse("templates/navHeader.vm")
+	
 
-    #parse("templates/navHeader.vm")
-
-	<div class="worm-model-container" id="worm-model-container"></div>
-
-    <div class="simulation-nav create-worm-settings user-home">
-            <h2 class="top-heading">Customize your WormSim!</h2>
-            <form action="" method="POST" class="color-form">
-
-                <h2>Choose a color:</h2>
-                <div class="form-group ">
-                    <select name="wormColor">
-                        <option value="#7bd148">Green</option>
-                        <option value="#5484ed">Bold blue</option>
-                        <option value="#a4bdfc">Blue</option>
-                        <option value="#46d6db">Turquoise</option>
-                        <option value="#7ae7bf">Light green</option>
-                        <option value="#51b749">Bold green</option>
-                        <option value="#fbd75b">Yellow</option>
-                        <option value="#ffb878">Orange</option>
-                        <option value="#ff887c">Red</option>
-                        <option value="#dc2127">Bold red</option>
-                        <option value="#dbadff">Purple</option>
-                        <option value="#e1e1e1">Gray</option>
-                    </select>
-                    <span class="help-block"></span>
-                </div>
-                <h2>Choose a name:</h2>
-                <div class="input-group input-group-lg">
-                    #if($user && $user.wormName)
-                        <input type="text" class="form-control" name="wormName" value="$user.wormName">
-                    #else
-                        <input type="text" class="form-control" name="wormName" value="" placeholder="Name your worm">
-                    #end
-                    <span class="input-group-btn">
-                        <button class="btn btn-danger" type="submit">Submit</button>
-                    </span>
-                </div>
-
-            </form>
+    <div class="flex-center-right"> 
+    <p>
+    <h1 style="color:white">Hi and welcome!</h1>
+    <h2 style="color:white">
+    	That's me under the spotlight.</br>
+    	I am a model of the C. elegans,</br>
+    	a tiny worm!
+    </h2>
+    </p>
     </div>
-
-    <script src="/org.wormsim.frontend/resources/js/vendor/jquery-simplecolorpicker.js"></script>
-    <link rel="stylesheet" href="/org.wormsim.frontend/resources/css/jquery-simplecolorpicker.css">
+    
+    <div class="worm-model-container" id="worm-model-container" style="opacity: 0.4;filter: alpha(opacity=40);"></div>
+    
     <script src="/org.wormsim.frontend/resources/js/vendor/three.js"></script>
     <script src="/org.wormsim.frontend/resources/js/vendor/ColladaLoader.js"></script>
     <script src="/org.wormsim.frontend/resources/js/vendor/Detector.js"></script>
     <script src="/org.wormsim.frontend/resources/js/vendor/TrackBallControls.js"></script>
     <script src="/org.wormsim.frontend/resources/js/cuticle.js"></script>
 
-    <script>
-        #if($user && $user.wormColor)
-        var selectedColor = "$user.wormColor";
-        #else
-        var selectedColor = "#7bd148";
-        #end
-
-        $(function(){
-
-            var colorPicker = $('select[name="wormColor"]');
-            colorPicker.simplecolorpicker();
-            colorPicker.simplecolorpicker('selectColor', selectedColor);
-
-            $().setWormColor(selectedColor);
-
-            colorPicker.on('change', function(e) {
-                $().setWormColor($(colorPicker).val());
-            }.bind(this));
-        });
-    </script>
+    
 </body>
 </html>

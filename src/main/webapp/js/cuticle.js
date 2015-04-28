@@ -1,4 +1,4 @@
-$(function() {
+
 
     var camera, 
     	scene,
@@ -13,6 +13,7 @@ $(function() {
     // model names
     var CUTICLE = "cuticle", MUSCLES = "muscles", NEURONS ="neurons";
     var modelMap = {};
+    var loadedModelMap = {};
     modelMap[CUTICLE] = "/org.wormsim.frontend/resources/files/cuticleNotBent.dae";
     modelMap[MUSCLES] = "/org.wormsim.frontend/resources/files/muscles.dae";
     modelMap[NEURONS] = "/org.wormsim.frontend/resources/files/neurons.dae";
@@ -81,7 +82,9 @@ $(function() {
         });
 
         camera = new THREE.PerspectiveCamera(45, $container.innerWidth() / $container.innerHeight(), 0.1, 500000);
-        camera.position.z = 5;
+        camera.position.x = -3.08;
+        camera.position.y = 0.33;
+        camera.position.z = -16;
 
         scene = new THREE.Scene();
         var ambient = new THREE.AmbientLight(0x101030);
@@ -107,11 +110,22 @@ $(function() {
         controls.keys = [ 65, 83, 68 ];
         controls.addEventListener('change', render);
 
+        var spotLight = new THREE.SpotLight( 0xffffff );
+        spotLight.position.set( 100, 1000, 100 );
+        spotLight.castShadow = true;
+        spotLight.shadowMapWidth = 1024;
+        spotLight.shadowMapHeight = 1024;
+        spotLight.shadowCameraNear = 500;
+        spotLight.shadowCameraFar = 4000;
+        spotLight.shadowCameraFov = 30;
+        scene.add( spotLight );
+        
         load(CUTICLE, modelMap.cuticle);
-        load(MUSCLES, modelMap.muscles);
-        load(NEURONS, modelMap.neurons);
+        //load(MUSCLES, modelMap.muscles);
+        //load(NEURONS, modelMap.neurons);
 
-        renderer = new THREE.WebGLRenderer({ antialias: true });
+        // new renderer, required for streaming animation files
+        renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
         renderer.setSize($container.innerWidth(), $container.innerHeight());
         renderer.autoClear = true;
     }
@@ -128,13 +142,13 @@ $(function() {
         loader.load(daeLocation, function(collada) {
             dae = collada.scene;
             dae.name = groupName;
-            dae.position.set(0, 0, 0);
+            dae.position.set(4,-2.5,-1);
             dae.scale.set(0.7, 0.7, 0.7);
-            dae.rotation.set(0.2, -0.2, 0.2);
+            dae.rotation.set(0, -0.2, 0.2);
             
             $container.html(renderer.domElement);
-            
-            scene.add(dae);
+            loadedModelMap[groupName] = dae;
+            scene.add(loadedModelMap[groupName]);
             
             render();
         }, function(progress) {
@@ -181,4 +195,3 @@ $(function() {
     	render();
     }, false);
    
-});

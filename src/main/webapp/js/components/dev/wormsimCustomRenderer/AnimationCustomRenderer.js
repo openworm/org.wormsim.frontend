@@ -1,7 +1,8 @@
 define(function(require) {
 
 	var React = require('react'), GEPPETTO = require('geppetto');
-
+	GEPPETTO.VARS.customRendererClass = AnimationCustomRenderer;
+	
 	return React.createClass({
 
 		AnimationCustomRenderer : function ( parameters ) {

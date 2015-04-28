@@ -26,8 +26,11 @@ public class Application {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView home() {
-
+    	// force going through worminfo each time
         User user = UserFactory.current();
+        if(user!=null) user.setWormName(null);
+        return setWormInfo();
+        /*
         if(user != null && (user.getWormName() == null || user.getWormName().isEmpty())) {
             return new ModelAndView("redirect:/wormInfo");
         } else if(user != null) {
@@ -35,7 +38,7 @@ public class Application {
         } else {
             return new ModelAndView("home", getUserMap());
         }
-
+		*/
     }
 
     @RequestMapping(value = "/wormInfo", method = RequestMethod.GET)

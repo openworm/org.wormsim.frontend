@@ -1,3 +1,3 @@
 $(function() {
-    console.log("hi");
+    console.log("hi custom wormsim");
 });
