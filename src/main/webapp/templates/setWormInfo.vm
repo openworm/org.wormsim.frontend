@@ -3,49 +3,188 @@
     #set($title = "Wormsim Set Info")
 	#parse("templates/head.vm")
     
-<style>
-.flex-center-right {
-  float:right;
-  background: black;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: auto;
-  width:40%;
-  resize: vertical;
-  overflow: auto;
-  margin-top:200px;
-  z-index:100;
-}
-.flex-center p {
-  margin: 0;
-  padding: 20px;
-}
-</style>
+
 <body class="user-home" style="background:black">
 
  	#parse("templates/navHeader.vm")
 	
 
-    <div class="flex-center-right"> 
-    <p>
-    <h1 style="color:white">Hi and welcome!</h1>
-    <h2 style="color:white">
-    	That's me under the spotlight.</br>
-    	I am a model of the C. elegans,</br>
-    	a tiny worm!
-    </h2>
-    </p>
-    </div>
+     <div class="header-container">
+            <div class="container">
+                <div class="header">
+
+                    <div class="wormsim-logo pull-left"></div>
+
+                    <button type="button" class="btn btn-danger btn-large dropdown-toggle pull-right" data-toggle="modal"
+                            data-target="#login-modal">
+                        Login
+                    </button>
+
+                </div>
+            </div>
+        </div>	
+
+        <div id="slide-one" class="slide-one">
+            <h1 style="font-size: 2vw;">Hi and welcome!</h1>
+            <h2 style="font-size: 2vw;">
+                That's me under the spotlight.</br>
+                I am a model of the C. elegans,</br>
+                a tiny worm!
+            </h2>
+        </div>
+
+        <div id="slide-two" class="slide-two">
+            <h1 style="font-size: 2vw; text-align: center">
+                First of all, before i start teaching you some of the biology of the worm 
+                I would really appreciate if you could pick a nice color for my cuticle,
+                i never liked being transparent
+            </h1>
+            <div class="circle" onclick="colorChange(this)" style="background:#7bd148; "></div>
+            <div class="circle" onclick="colorChange(this)" style="background:#5484ed; "></div>
+            <div class="circle" onclick="colorChange(this)" style="background:#a4bdfc; "></div>
+            <div class="circle" onclick="colorChange(this)" style="background:#46d6db; "></div>
+            <div class="circle" onclick="colorChange(this)" style="background:#7ae7bf; "></div>
+            <div class="circle" onclick="colorChange(this)" style="background:#51b749; "></div>
+            <div class="circle" onclick="colorChange(this)" style="background:#fbd75b; "></div>
+            <div class="circle" onclick="colorChange(this)" style="background:#ffb878; "></div>
+            <div class="circle" onclick="colorChange(this)" style="background:#ff887c; "></div>
+            <div class="circle" onclick="colorChange(this)" style="background:#dc2127; "></div>
+            <div class="circle" onclick="colorChange(this)" style="background:#dbadff; "></div>
+            <div class="circle" onclick="colorChange(this)" style="background:#e1e1e1; "></div>
+
+        </div>
+
+        <div id="slide-three" class="slide-three">
+            <h1 style="color:white; text-align: center;vertical-align: middle;font-size: 2vw;">
+                Thanks, much better! Now I'm afraid i have a last favour to ask,
+                it's not that i don't fancy being called C. elegans and all but imagine
+                if everyone would call you Homo Sapiens, not super cool right?
+                Go ahead and give me a name! <br/>
+                <input id="worm-name-input" type='text' value="Spock" />
+            </h1>
+        </div>
+
+        <div id="slide-four" class="slide-four">
+            <h1 style="color:white; text-align: center;vertical-align: middle;font-size: 2vw;">
+                <div id="worm-name-confirmed">Spock</div><br/>
+                Wow, look at me, i am probably the fanciest C. elegans the world has ever seen, thank you for the nice touch!
+                Spock and George, i like the sound of it!<br/>
+                What do you say buddy?
+            </h1>
+        </div>
     
-    <div class="worm-model-container" id="worm-model-container" style="opacity: 0.4;filter: alpha(opacity=40);"></div>
-    
-    <script src="/org.wormsim.frontend/resources/js/vendor/three.js"></script>
-    <script src="/org.wormsim.frontend/resources/js/vendor/ColladaLoader.js"></script>
-    <script src="/org.wormsim.frontend/resources/js/vendor/Detector.js"></script>
-    <script src="/org.wormsim.frontend/resources/js/vendor/TrackBallControls.js"></script>
-    <script src="/org.wormsim.frontend/resources/js/cuticle.js"></script>
+   <div class="worm-model-container" id="worm-model-container" style="opacity: 0.4;filter: alpha(opacity=40);z-index: 100"></div>
+
+        <p id="right-arrow" onclick="prevSlide()" class='left'> < </p>
+        <p id="left-arrow" onclick="nextSlide()" class='right'> > </p>
+
+        <script src="/org.wormsim.frontend/resources/js/vendor/three.js"></script>
+        <script src="/org.wormsim.frontend/resources/js/vendor/ColladaLoader.js"></script>
+        <script src="/org.wormsim.frontend/resources/js/vendor/Detector.js"></script>
+        <script src="/org.wormsim.frontend/resources/js/vendor/TrackBallControls.js"></script>
+        <script src="/org.wormsim.frontend/resources/js/vendor/FlyControls.js"></script>
+        <script src="/org.wormsim.frontend/resources/js/cuticle.js"></script>
+        <script src="/org.wormsim.frontend/resources/js/vendor/TransformControls.js"></script>
+        <script src="/org.wormsim.frontend/resources/js/vendor/OrbitControls.js"></script>
+        <script src="/org.wormsim.frontend/resources/js/vendor/Tween.js"></script>
+
+        <script>
+
+            var userSelectedColor = "";
+            var userSelectedName = "Spock";
+
+            var currentSlide = 0;
+            var noOfSlides = 4;
+
+            var slidesArray = new Array();
+            slidesArray[0] = document.getElementById("slide-one");
+            slidesArray[1] = document.getElementById("slide-two");
+            slidesArray[2] = document.getElementById("slide-three");
+            slidesArray[3] = document.getElementById("slide-four");
+
+            var leftArrow = document.getElementById("left-arrow");
+            var rightArrow = document.getElementById("right-arrow");
+
+            init();
+
+            function init() {
+                console.log("init running");
+                makeVisibleOnlyOne(0);
+                setArrowsVisibility();
+            }
+
+            function makeVisibleOnlyOne(visibleIndex) {
+                for (var i = 0; i < slidesArray.length; i++) {
+                    if (i != visibleIndex)
+                    {
+                        slidesArray[i].style.zIndex = 300 + i;
+                        slidesArray[i].style.visibility = "hidden";
+                    }
+                    else
+                    {
+                        slidesArray[i].style.zIndex = 999;
+                        slidesArray[i].style.visibility = "visible";
+                    }
+                }
+            }
+
+            function setArrowsVisibility() {
+                if (currentSlide == 0)
+                    updateArrowVisibility("visible", "hidden");
+                else
+                if (currentSlide == noOfSlides - 1)
+                    updateArrowVisibility("hidden", "visible");
+                else
+                    updateArrowVisibility("visible", "visible");
+            }
+
+            function updateArrowVisibility(leftArrowVisible, rightArrowVisible) {
+                rightArrow.style.visibility = rightArrowVisible;
+                leftArrow.style.visibility = leftArrowVisible;
+                console.log(leftArrow.style.visibility + " leftArrow.style.visibility");
+                console.log(rightArrow.style.visibility + " rightArrow.style.visibility");
+            }
+
+            function nextSlide() {
+                if (currentSlide < noOfSlides - 1) {
+                    currentSlide++;
+                    setArrowsVisibility();
+                    makeVisibleOnlyOne(currentSlide);
+                }
+            }
+
+            function prevSlide() {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    setArrowsVisibility();
+                    makeVisibleOnlyOne(currentSlide);
+                }
+            }
+
+            function colorChange(id) {
+                nextSlide();
+                userSelectedColor = id.style.background;
+                console.log(userSelectedColor + " userSelectedColor");
+                document.getElementById("worm-name-input").style.color = userSelectedColor;
+                document.getElementById("worm-name-confirmed").style.color = userSelectedColor;
+                $.fn.setWormColor(rgb2hex(userSelectedColor));
+            }
+
+            var hexDigits = new Array
+                    ("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f");
+
+            //Function to convert hex format to a rgb color
+            function rgb2hex(rgb) {
+                rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+                return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+            }
+
+            function hex(x) {
+                return isNaN(x) ? "00" : hexDigits[(x - x % 16) / 16] + hexDigits[x % 16];
+            }       
+
+        </script>
+
 
     
 </body>
