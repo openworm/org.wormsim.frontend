@@ -87,6 +87,7 @@
         <script src="/org.wormsim.frontend/resources/js/vendor/TransformControls.js"></script>
         <script src="/org.wormsim.frontend/resources/js/vendor/OrbitControls.js"></script>
         <script src="/org.wormsim.frontend/resources/js/vendor/Tween.js"></script>
+        <script src="/org.wormsim.frontend/resources/js/vendor/tween.min.js"></script>
 
         <script>
 
