@@ -14,9 +14,13 @@ var clock = new THREE.Clock();
 var CUTICLE = "cuticle", MUSCLES = "muscles", NEURONS = "neurons";
 var modelMap = {};
 var loadedModelMap = {};
-modelMap[CUTICLE] = "http://localhost:8383/openworm-info-flow/resources/files/cuticleNotBent.dae";
-modelMap[MUSCLES] = "http://localhost:8383/openworm-info-flow/resources/files/muscles.dae";
-modelMap[NEURONS] = "http://localhost:8383/openworm-info-flow/resources/files/neurons.dae";
+modelMap[CUTICLE] = "/org.wormsim.frontend/resources/files/cuticleNotBent.dae";
+modelMap[MUSCLES] = "/org.wormsim.frontend/resources/files/muscles.dae";
+modelMap[NEURONS] = "/org.wormsim.frontend/resources/files/neurons.dae";
+
+var spotLight;
+
+
 
 start();
 animate();
@@ -104,15 +108,10 @@ function start() {
 
     scene.add(bottomLight);
 
-    var spotLight = new THREE.SpotLight(0xffffff);
-    spotLight.position.set(100, 1000, 100);
+    spotLight = new THREE.SpotLight(0xffffff);
+    spotLight.position.set(0, 10, 0);
     spotLight.castShadow = true;
-    spotLight.intensity = 0;
-    spotLight.shadowMapWidth = 1024;
-    spotLight.shadowMapHeight = 1024;
-    spotLight.shadowCameraNear = 500;
-    spotLight.shadowCameraFar = 4000;
-    spotLight.shadowCameraFov = 30;
+    spotLight.intensity = .1;
     scene.add(spotLight);
 
     load(CUTICLE, modelMap.cuticle);
@@ -139,10 +138,10 @@ function load(groupName, daeLocation) {
         dae.name = groupName;
         //dae.scale.set(0.7, 0.7, 0.7);
         //dae.rotation.set(0, -0.2, 0.2);
-
+        spotLight.target = dae;
         $container.html(renderer.domElement);
         loadedModelMap[groupName] = dae;
-        loadedModelMap[groupName].position.set(-2, -1.5, -20);
+        loadedModelMap[groupName].position.set(-3, 0, -20);
         loadedModelMap[groupName].rotation.set(0,0.9,0);
         scene.add(loadedModelMap[groupName]);
         render();
@@ -158,7 +157,8 @@ function animate() {
 
 function render() {
     var timer = Date.now() * 0.00005;
-    if(loadedModelMap[CUTICLE]) loadedModelMap[CUTICLE].rotation.y = Math.cos( timer ) * 10;
+    if(loadedModelMap[CUTICLE]) loadedModelMap[CUTICLE].rotation.y += 0.008;
+    if(loadedModelMap[CUTICLE]) if(TWEEN) TWEEN.update();
     renderer.render(scene, camera);
 }
 
@@ -173,6 +173,23 @@ $.fn.setWormColor = function (color) {
     console.log(color + " color");
     render();
 }.bind(this);
+
+function moveWormToPosition(xx,yy,zz) {
+    console.log("cuticle.js move worm to position");
+    console.log(loadedModelMap[CUTICLE]);
+    var position = { x:loadedModelMap[CUTICLE].position.x, y:loadedModelMap[CUTICLE].position.y, z:loadedModelMap[CUTICLE].position.z};
+    var target = {x:xx,y:yy,z:zz};
+    
+    var tween = new TWEEN.Tween(position).to(target, 500);
+    
+    tween.onUpdate(function() {
+        console.log("update");
+        loadedModelMap[CUTICLE].position.x = position.x;
+        loadedModelMap[CUTICLE].position.y = position.y;
+        loadedModelMap[CUTICLE].position.z = position.z;
+    })
+    tween.start();
+}
 
 /*
  Resize canvas when the user manually resizes window

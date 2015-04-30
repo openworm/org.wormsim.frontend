@@ -147,6 +147,7 @@
 
             function nextSlide() {
                 if (currentSlide < noOfSlides - 1) {
+                    notifyWormNewSlide(currentSlide, currentSlide+1);
                     currentSlide++;
                     setArrowsVisibility();
                     makeVisibleOnlyOne(currentSlide);
@@ -155,6 +156,7 @@
 
             function prevSlide() {
                 if (currentSlide > 0) {
+                    notifyWormNewSlide(currentSlide, currentSlide-1);
                     currentSlide--;
                     setArrowsVisibility();
                     makeVisibleOnlyOne(currentSlide);
@@ -162,12 +164,28 @@
             }
 
             function colorChange(id) {
-                nextSlide();
+                //nextSlide();
                 userSelectedColor = id.style.background;
                 console.log(userSelectedColor + " userSelectedColor");
                 document.getElementById("worm-name-input").style.color = userSelectedColor;
                 document.getElementById("worm-name-confirmed").style.color = userSelectedColor;
                 $.fn.setWormColor(rgb2hex(userSelectedColor));
+            }
+
+            function wormNameChange(newName) {
+                userSelectedName = newName;
+                document.getElementById("worm-name-confirmed").innerHTML = newName;
+            }
+
+            function notifyWormNewSlide(oldSlideIndex, newSlideIndex) {
+                console.log("moving from slide " +oldSlideIndex+" to "+newSlideIndex);
+                if(oldSlideIndex==0 && newSlideIndex==1) {
+                    moveWormToPosition(0,0,-10);
+                }
+                
+                if(oldSlideIndex==1 && newSlideIndex==0) {
+                    moveWormToPosition(-3, 0, -20);
+                }
             }
 
             var hexDigits = new Array
@@ -182,7 +200,6 @@
             function hex(x) {
                 return isNaN(x) ? "00" : hexDigits[(x - x % 16) / 16] + hexDigits[x % 16];
             }       
-
         </script>
 
 
