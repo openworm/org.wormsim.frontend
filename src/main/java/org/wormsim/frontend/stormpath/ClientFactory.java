@@ -1,5 +1,8 @@
 package org.wormsim.frontend.stormpath;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.stormpath.sdk.account.Account;
 import com.stormpath.sdk.account.AccountList;
 import com.stormpath.sdk.api.ApiKeys;
@@ -8,11 +11,10 @@ import com.stormpath.sdk.application.ApplicationList;
 import com.stormpath.sdk.application.Applications;
 import com.stormpath.sdk.client.Client;
 import com.stormpath.sdk.client.Clients;
+import com.stormpath.sdk.group.Group;
+import com.stormpath.sdk.group.GroupCriteria;
+import com.stormpath.sdk.group.Groups;
 import com.stormpath.sdk.resource.ResourceException;
-import org.wormsim.frontend.models.User;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class ClientFactory {
 
@@ -52,6 +54,15 @@ public class ClientFactory {
         return APPLICATION.createAccount(account);
     }
 
+    public Account createLandingPageAccount(String email) {
+    	Account account = CLIENT.instantiate(Account.class);
+    	GroupCriteria gc = Groups.where(Groups.name().eqIgnoreCase("Landing page users"));
+    	Group group = APPLICATION.getGroups(gc).iterator().next();
+    	account.addGroup(group);
+    	
+    	return APPLICATION.createAccount(account);
+    }
+    
     public Account getAccount(String email) throws AccountNotFoundException {
         Map<String, Object> queryParams = new HashMap<>();
         queryParams.put("email", email);
