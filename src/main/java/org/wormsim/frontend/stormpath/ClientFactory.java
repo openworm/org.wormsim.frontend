@@ -55,12 +55,19 @@ public class ClientFactory {
     }
 
     public Account createLandingPageAccount(String email) {
+    	System.out.println(email);
     	Account account = CLIENT.instantiate(Account.class);
+    	account.setGivenName("landingpage");
+        account.setSurname("landingpage");
+    	account.setEmail(email);
+    	account.setPassword("parola12");
+    	Account returnedAccount = APPLICATION.createAccount(account);
+
     	GroupCriteria gc = Groups.where(Groups.name().eqIgnoreCase("Landing page users"));
     	Group group = APPLICATION.getGroups(gc).iterator().next();
     	account.addGroup(group);
     	
-    	return APPLICATION.createAccount(account);
+    	return returnedAccount;
     }
     
     public Account getAccount(String email) throws AccountNotFoundException {

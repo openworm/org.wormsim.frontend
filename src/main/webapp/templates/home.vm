@@ -19,13 +19,14 @@
             <p>
                 Get notified when the WormSim becomes available for public access!
             </p>
-
+			<form action="" method="POST">
             <div class="input-group input-group-lg">
-                <input type="text" class="form-control" placeholder="Enter your email">
+                <input name="email" type="text" class="form-control" placeholder="Enter your email">
                 <span class="input-group-btn">
-                    <button class="btn btn-danger" type="button">Submit</button>
+                    <button class="btn btn-danger" type="submit">Submit</button>
                 </span>
             </div>
+            </form>
         </div>
 
     #parse("templates/loginModal.vm")

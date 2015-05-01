@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.wormsim.frontend.models.User;
 import org.wormsim.frontend.models.WormInfo;
+import org.wormsim.frontend.stormpath.ClientFactory;
 import org.wormsim.frontend.stormpath.UserFactory;
 
 import javax.servlet.http.HttpServletResponse;
@@ -38,6 +39,12 @@ public class Application {
 
     }
 
+    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @ResponseBody
+    public void ajaxSetLandingPageEmail(@RequestBody String email) {
+    	ClientFactory.getInstance().createLandingPageAccount(email);
+    }
+    
     @RequestMapping(value = "/wormInfo", method = RequestMethod.GET)
     public ModelAndView setWormInfo() {
         return new ModelAndView("setWormInfo", getUserMap());
