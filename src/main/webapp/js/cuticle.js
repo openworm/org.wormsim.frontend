@@ -14,9 +14,9 @@ var clock = new THREE.Clock();
 var CUTICLE = "cuticle", MUSCLES = "muscles", NEURONS = "neurons";
 var modelMap = {};
 var loadedModelMap = {};
-modelMap[CUTICLE] = "/webapp/files/cuticleNotBent.dae";
-modelMap[MUSCLES] = "/webapp/files/muscles.dae";
-modelMap[NEURONS] = "/webapp/files/neurons.dae";
+modelMap[CUTICLE] = "/org.wormsim.frontend/resources/files/cuticleNotBent.dae";
+modelMap[MUSCLES] = "/org.wormsim.frontend/resources/files/muscles.dae";
+modelMap[NEURONS] = "/org.wormsim.frontend/resources/files/neurons.dae";
 
 var spotLight;
 
