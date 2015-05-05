@@ -1,18 +1,18 @@
-p.left {
+a.left {
             position:absolute;
             bottom:0;
             left:5%;
-            font-size: 600%;
+            font-size: 4vw;
             color:white; 
             background-color:black;
             z-index:9999;
         }
 
-        p.right {
+        a.right {
             position:absolute;
             bottom:0;
             right:5%;
-            font-size: 600%;
+            font-size: 4vw;
             color:white; 
             background-color:black;
             z-index:9999;
@@ -20,7 +20,7 @@ p.left {
 
 .slide-one {
     position:absolute;
-    top:35%;
+    top:25%;
     float:right;
     right: 1%;
     color: white;
@@ -80,7 +80,9 @@ body {
     height: 100%;
     background-color: #B3B3B3;
 }
-
+.worminfocontainer {
+    font-family: 'helvetica_neueregular';
+}
 body.user-home {
     background-color: #00230a;
 }
@@ -150,8 +152,8 @@ input.user-home-name:focus {
 
 .worm-model-container {
     position: absolute;
-    width: 90%;
-    height: 90%;
+    width: 100%;
+    height: 100%;
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
@@ -389,8 +391,36 @@ p.clear {
     -moz-border-radius: 50%; 
     -webkit-border-radius: 50%; 
     border-radius: 50%;
-    float:left;
     padding: 4%;
+    display: inline-block;
+    *display: inline;
+    vertical-align: top;
+}
+
+#container-circles {
+    height: auto;    
+    text-align: justify;
+    -ms-text-justify: distribute-all-lines;
+    text-justify: distribute-all-lines;    
+    /* just for demo */
+    min-width: 612px;
+}
+
+.box1, .box2, .box3, .box4 {
+    width: 150px;
+    height: 150px;
+    vertical-align: top;
+    display: inline-block;
+    *display: inline;
+    zoom: 1
+}
+
+#container-circles:after {
+    content: '';
+    width: 100%;
+    display: inline-block;
+    font-size: 0;
+    line-height: 0
 }
 
 input {
@@ -421,3 +451,28 @@ input {
     }
 }
 
+@font-face {
+    font-family: 'helvetica_neueregular';
+    src: url('helveticaneue-ultralight-webfont.eot');
+    src: url('helveticaneue-ultralight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('helveticaneue-ultralight-webfont.woff2') format('woff2'),
+         url('helveticaneue-ultralight-webfont.woff') format('woff'),
+         url('helveticaneue-ultralight-webfont.ttf') format('truetype'),
+         url('helveticaneue-ultralight-webfont.svg#helvetica_neueregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'alice_in_wonderlandregular';
+    src: url('alice_in_wonderland_3-webfont.eot');
+    src: url('alice_in_wonderland_3-webfont.eot?#iefix') format('embedded-opentype'),
+         url('alice_in_wonderland_3-webfont.woff2') format('woff2'),
+         url('alice_in_wonderland_3-webfont.woff') format('woff'),
+         url('alice_in_wonderland_3-webfont.ttf') format('truetype'),
+         url('alice_in_wonderland_3-webfont.svg#alice_in_wonderlandregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

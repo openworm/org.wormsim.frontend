@@ -4,12 +4,9 @@
 	#parse("templates/head.vm")
     
 
-<body class="user-home" style="background:black">
+ <body class="user-home" style="background:black">
 
- 	#parse("templates/navHeader.vm")
-	
-
-     <div class="header-container">
+        <div class="header-container">
             <div class="container">
                 <div class="header">
 
@@ -23,10 +20,10 @@
                 </div>
             </div>
         </div>	
-
+        <div class="worminfocontainer">
         <div id="slide-one" class="slide-one">
-            <h1 style="font-size: 2vw;">Hi and welcome!</h1>
-            <h2 style="font-size: 2vw;">
+            <h1 style="font-size: 5vw;">Hi and welcome!</h1><br/><br/>
+            <h2 style="font-size: 2.5vw;">
                 That's me under the spotlight.</br>
                 I am a model of the C. elegans,</br>
                 a tiny worm!
@@ -34,65 +31,63 @@
         </div>
 
         <div id="slide-two" class="slide-two">
-            <h1 style="font-size: 2vw; text-align: center">
+            <h1 style="font-size: 3vw; text-align: center">
                 First of all, before i start teaching you some of the biology of the worm 
                 I would really appreciate if you could pick a nice color for my cuticle,
                 i never liked being transparent
             </h1>
-            <div class="circle" onclick="colorChange(this)" style="background:#7bd148; "></div>
-            <div class="circle" onclick="colorChange(this)" style="background:#5484ed; "></div>
-            <div class="circle" onclick="colorChange(this)" style="background:#a4bdfc; "></div>
-            <div class="circle" onclick="colorChange(this)" style="background:#46d6db; "></div>
-            <div class="circle" onclick="colorChange(this)" style="background:#7ae7bf; "></div>
-            <div class="circle" onclick="colorChange(this)" style="background:#51b749; "></div>
-            <div class="circle" onclick="colorChange(this)" style="background:#fbd75b; "></div>
-            <div class="circle" onclick="colorChange(this)" style="background:#ffb878; "></div>
-            <div class="circle" onclick="colorChange(this)" style="background:#ff887c; "></div>
-            <div class="circle" onclick="colorChange(this)" style="background:#dc2127; "></div>
-            <div class="circle" onclick="colorChange(this)" style="background:#dbadff; "></div>
-            <div class="circle" onclick="colorChange(this)" style="background:#e1e1e1; "></div>
-
+            <br/><br/>
+            <div id="container-circles">
+            <div class="circle" onclick="colorChange(this)" style="background:#ff4000; "></div>
+            <div class="circle" onclick="colorChange(this)" style="background:#ff7e00; "></div>
+            <div class="circle" onclick="colorChange(this)" style="background:#f6ff00; "></div>            
+            <div class="circle" onclick="colorChange(this)" style="background:#6fe100; "></div>
+            <div class="circle" onclick="colorChange(this)" style="background:#00d4e1; "></div>
+            <div class="circle" onclick="colorChange(this)" style="background:#3e63ff; "></div>
+            <div class="circle" onclick="colorChange(this)" style="background:#b123f5; "></div>
+            </div>
         </div>
 
         <div id="slide-three" class="slide-three">
-            <h1 style="color:white; text-align: center;vertical-align: middle;font-size: 2vw;">
+            <h1 style="color:white; text-align: center;vertical-align: middle;font-size: 2.5vw;">
                 Thanks, much better! Now I'm afraid i have a last favour to ask,
                 it's not that i don't fancy being called C. elegans and all but imagine
                 if everyone would call you Homo Sapiens, not super cool right?
                 Go ahead and give me a name! <br/>
-                <input id="worm-name-input" type='text' value="Spock" />
+                <input style="font-size:3vw" id="worm-name-input" type='text' value="Spock" onchange="wormNameChange(this.value)" />
             </h1>
         </div>
 
         <div id="slide-four" class="slide-four">
-            <h1 style="color:white; text-align: center;vertical-align: middle;font-size: 2vw;">
-                <div id="worm-name-confirmed">Spock</div><br/>
+            <h1 style="color:white; text-align: center;vertical-align: middle;font-size: 2.5vw;">
+                <span id="worm-name-confirmed" style="font-family: 'alice_in_wonderlandregular';font-size: 4vw;">Spock</span><br/>
                 Wow, look at me, i am probably the fanciest C. elegans the world has ever seen, thank you for the nice touch!
-                Spock and George, i like the sound of it!<br/>
+                Spock and <span id="userSurnameDisplay">Mihai</span>, i like the sound of it!<br/>
                 What do you say buddy?
             </h1>
         </div>
-    
-   <div class="worm-model-container" id="worm-model-container" style="opacity: 0.4;filter: alpha(opacity=40);z-index: 100"></div>
 
-        <p id="right-arrow" onclick="prevSlide()" class='left'> < </p>
-        <p id="left-arrow" onclick="nextSlide()" class='right'> > </p>
+        <div class="worm-model-container" id="worm-model-container" style="opacity: 0.4;filter: alpha(opacity=40);z-index: 100"></div>
 
-        <script src="/org.wormsim.frontend/resources/js/vendor/three.js"></script>
-        <script src="/org.wormsim.frontend/resources/js/vendor/ColladaLoader.js"></script>
-        <script src="/org.wormsim.frontend/resources/js/vendor/Detector.js"></script>
-        <script src="/org.wormsim.frontend/resources/js/vendor/TrackBallControls.js"></script>
-        <script src="/org.wormsim.frontend/resources/js/vendor/FlyControls.js"></script>
-        <script src="/org.wormsim.frontend/resources/js/cuticle.js"></script>
-        <script src="/org.wormsim.frontend/resources/js/vendor/TransformControls.js"></script>
-        <script src="/org.wormsim.frontend/resources/js/vendor/OrbitControls.js"></script>
-        <script src="/org.wormsim.frontend/resources/js/vendor/Tween.js"></script>
-        <script src="/org.wormsim.frontend/resources/js/vendor/tween.min.js"></script>
-
+        <a id="right-arrow" onclick="prevSlide()" class='left' href="#"> < </a>
+        <a id="left-arrow" onclick="nextSlide()" class='right' href="#"> > </a>
+        </div>
+        <script src="http://localhost:8383/openworm-info-flow/js/vendor/three.js"></script>
+        <script src="http://localhost:8383/openworm-info-flow/js/vendor/ColladaLoader.js"></script>
+        <script src="http://localhost:8383/openworm-info-flow/js/vendor/Detector.js"></script>
+        <script src="http://localhost:8383/openworm-info-flow/js/vendor/TrackBallControls.js"></script>
+        <script src="http://localhost:8383/openworm-info-flow/js/vendor/FlyControls.js"></script>
+        <script src="http://localhost:8383/openworm-info-flow/js/cuticle.js"></script>
+        <script src="http://localhost:8383/openworm-info-flow/js/vendor/TransformControls.js"></script>
+        <script src="http://localhost:8383/openworm-info-flow/js/vendor/OrbitControls.js"></script>
+        <script src="http://localhost:8383/openworm-info-flow/js/vendor/tween.min.js"></script>
+        
         <script>
 
             var userSelectedColor = "";
             var userSelectedName = "Spock";
+            var userSurname = "Mihai";
+            
 
             var currentSlide = 0;
             var noOfSlides = 4;
@@ -105,6 +100,9 @@
 
             var leftArrow = document.getElementById("left-arrow");
             var rightArrow = document.getElementById("right-arrow");
+
+            var initialWormPosition = {x: -6, y: 0, z: -25};
+            var afterWormPosition = {x: 0, y: 3, z: -12};
 
             init();
 
@@ -134,7 +132,7 @@
                     updateArrowVisibility("visible", "hidden");
                 else
                 if (currentSlide == noOfSlides - 1)
-                    updateArrowVisibility("hidden", "visible");
+                    updateArrowVisibility("visible", "visible");
                 else
                     updateArrowVisibility("visible", "visible");
             }
@@ -176,16 +174,17 @@
             function wormNameChange(newName) {
                 userSelectedName = newName;
                 document.getElementById("worm-name-confirmed").innerHTML = newName;
+                document.getElementById("userSurnameDisplay").innerHtml = "userSurname";
             }
 
             function notifyWormNewSlide(oldSlideIndex, newSlideIndex) {
                 console.log("moving from slide " +oldSlideIndex+" to "+newSlideIndex);
                 if(oldSlideIndex==0 && newSlideIndex==1) {
-                    moveWormToPosition(0,0,-10);
+                    moveWormToPosition(afterWormPosition,false);
                 }
                 
                 if(oldSlideIndex==1 && newSlideIndex==0) {
-                    moveWormToPosition(-3, 0, -20);
+                    moveWormToPosition(initialWormPosition,true);
                 }
             }
 
@@ -201,7 +200,9 @@
             function hex(x) {
                 return isNaN(x) ? "00" : hexDigits[(x - x % 16) / 16] + hexDigits[x % 16];
             }       
+
         </script>
+
 
 
     
