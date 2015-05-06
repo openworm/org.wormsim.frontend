@@ -60,8 +60,7 @@ public class ClientFactory {
 
 	public Account createLandingPageAccount(String email) {
 		Application landingPageApp;
-		ApplicationList applications = CLIENT.getApplications(Applications
-				.where(Applications.name().eqIgnoreCase("LandingPage")));
+		ApplicationList applications = CLIENT.getApplications(Applications.where(Applications.name().eqIgnoreCase("LandingPage")));
 
 		landingPageApp = applications.iterator().next();
 		Account account = CLIENT.instantiate(Account.class);
