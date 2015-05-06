@@ -3,6 +3,36 @@
     #set($title = "Wormsim")
     #parse("templates/head.vm")
 
+<script>
+$(function() {
+    var form = $('#emailLanding');
+	var confMessage = $('#form-info');
+	var emailField = $('#emailField');
+	confMessage.css('visibility','hidden');
+    $('#submitEmail').click(function(event) {
+    	// Stop the browser from submitting the form.
+    	event.preventDefault();
+$.ajax({
+    type: 'POST',
+    url: 'ajaxSetLandingPageEmail',
+    data: { 'email': $("#emailField").val() }
+}).done(function (response) {
+	confMessage.css('visibility','visible');
+	confMessage.text(response);    
+	if(response.indexOf("Error")!=0) confMessage.css('color','green');
+	else confMessage.css('color','red');
+	emailField.text('');
+}).fail(function (data) {    
+	confMessage.css('visibility','visible');
+	confMessage.text("Network error!");
+	confMessage.css('color','red');
+	emailField.text('');
+});
+    	
+	});
+});
+</script>
+
 <body>
 
     <video autoplay loop preload="auto" class="video-playing" id="video-bg">
@@ -19,13 +49,14 @@
             <p>
                 Get notified when the WormSim becomes available for public access!
             </p>
-
             <div class="input-group input-group-lg">
-                <input type="text" class="form-control" placeholder="Enter your email">
+                <input name="email" type="text" class="form-control" placeholder="Enter your email" id="emailField">
                 <span class="input-group-btn">
-                    <button class="btn btn-danger" type="button">Submit</button>
+                    <button class="btn btn-danger" type="submit" id="submitEmail">Submit</button>
                 </span>
             </div>
+            <br/>
+                <span id = "form-info" style="color:red;font-weight: bold;" ></span>
         </div>
 
     #parse("templates/loginModal.vm")
