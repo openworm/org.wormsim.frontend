@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html lang="@lang().code()">
+    #set($title = "Wormsim Custom Renderer Test")
+    <script data-main="js/components/dev/wormsimCustomRenderer/AnimationCustomRenderer.js" src="js/vendor/require.js"></script>
+<body>
+This is a test.
+</body>
+</html>
