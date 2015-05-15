@@ -1,64 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
-    #set($title = "Wormsim")
-    #parse("templates/head.vm")
+<html lang="@lang().code()">
+    <head>
+        <title>Wormsim Set Info</title>
 
-<script>
-$(function() {
-    var form = $('#emailLanding');
-	var confMessage = $('#form-info');
-	var emailField = $('#emailField');
-	confMessage.css('visibility','hidden');
-    $('#submitEmail').click(function(event) {
-    	// Stop the browser from submitting the form.
-    	event.preventDefault();
-$.ajax({
-    type: 'POST',
-    url: 'ajaxSetLandingPageEmail',
-    data: { 'email': $("#emailField").val() }
-}).done(function (response) {
-	confMessage.css('visibility','visible');
-	confMessage.text(response);    
-	if(response.indexOf("Error")!=0) confMessage.css('color','green');
-	else confMessage.css('color','red');
-	emailField.text('');
-}).fail(function (data) {    
-	confMessage.css('visibility','visible');
-	confMessage.text("Network error!");
-	confMessage.css('color','red');
-	emailField.text('');
-});
-    	
-	});
-});
-</script>
+        <!-- Le meta -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+        <meta name="author" content="Matt Olson">
 
-<body>
+        <script src="https://code.createjs.com/tweenjs-0.6.0.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <!--TODO: Un-hardwire the bundle name-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link href="/org.wormsim.frontend/resources/css/unsemantic-grid-responsive.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="/org.wormsim.frontend/resources/css/main.css">
 
-    <video autoplay loop preload="auto" class="video-playing" id="video-bg">
-        <source src="resources/videos/worm-loc-out.mp4" type="video/mp4">
-        <source src="resources/videos/worm-loc-out.webm" type="video/webm">
-    </video>
- 
-    #parse("templates/navHeader.vm")
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-        <div class="simulation-nav well">
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
 
-            <h2>Welcome to WormSim</h2>
+    </head>
+    <script>
+        $(function () {
+            var form = $('#emailLanding');
+            var confMessage = $('#form-info');
+            var emailField = $('#emailField');
+            confMessage.css('visibility', 'hidden');
+            $('#submitEmail').click(function (event) {
+                // Stop the browser from submitting the form.
+                event.preventDefault();
+                $.ajax({
+                    type: 'POST',
+                    url: 'ajaxSetLandingPageEmail',
+                    data: {'email': $("#emailField").val()}
+                }).done(function (response) {
+                    confMessage.css('visibility', 'visible');
+                    confMessage.text(response);
+                    if (response.indexOf("Error") != 0)
+                        confMessage.css('color', 'green');
+                    else
+                        confMessage.css('color', 'red');
+                    emailField.text('');
+                }).fail(function (data) {
+                    confMessage.css('visibility', 'visible');
+                    confMessage.text("Network error!");
+                    confMessage.css('color', 'red');
+                    emailField.text('');
+                });
 
-            <p>
-                Get notified when the WormSim becomes available for public access!
-            </p>
-            <div class="input-group input-group-lg">
-                <input name="email" type="text" class="form-control" placeholder="Enter your email" id="emailField">
-                <span class="input-group-btn">
-                    <button class="btn btn-danger" type="submit" id="submitEmail">Submit</button>
-                </span>
+            });
+        });
+    </script>
+
+    <body class="wormsim-bg">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="main-container col-md-8 col-sm-12 col-md-offset-2">
+                    <div class="home-container">
+                        <div class="the-worm"></div>
+                        <div id="logo-container" style="margin-bottom: 20px">
+                            <div class="openworm-logo"></div>
+                            <div class="play-button" onclick="playVideo()" ></div>
+                            <div class="wormsim-font"></div>
+                        </div>
+
+                        <div class="email-input"></div>
+                        <div class='row'>
+                            <div class='col-md-6 col-md-offset-1 col-sm-8 col-xs-10'>                              
+                                <input type="email" class="input-wormsim" id="emailLanding" placeholder="your@email.com">
+                            </div>
+                            <div class='col-md-4 col-sm-4 hidden-xs'>
+                                <div class="green-button" id="submitEmail">Request</div>
+                            </div>
+                            <div class='col-xs-10 visible-xs-block'>
+                                <div class="green-button" style='width: 100%; margin-left: 12%; margin-top:10px;'>Request</div>
+                            </div>
+                        </div>
+                        <div class='row'> <span id = "form-info" style="color:red;font-weight: bold;" ></span>  </div>
+                        <span class="green-span" style="margin-bottom: 20px">Don't have a login? Request an invitation to have your own WormSim subscription </span>
+                    </div>
+                    <div class="row" style="display:block;">
+                        <div class="home-font col-md-4 col-sm-4">Learn the biology of the C. elegans with your own WormSim</div>
+                        <div class="home-font col-md-4 col-sm-4">Learn the biology of the C. elegans with your own WormSim</div>
+                        <div class="home-font col-md-4 col-sm-4">Learn the biology of the C. elegans with your own WormSim</div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-2 green-button login-button-fix" style="float:right">Login</div>
+
             </div>
-            <br/>
-                <span id = "form-info" style="color:red;font-weight: bold;" ></span>
+
         </div>
 
-    #parse("templates/loginModal.vm")
-</body>
+        <script>
+            function playVideo() {
+                $('#logo-container').css('display', 'none');
+                $('#youtube-player').css('display', 'block');
+                var videoURL = $('#youtube-player').prop('src');
+                videoURL += "&autoplay=1";
+                $('#youtube-player').prop('src', videoURL);
+            }
+
+
+        </script>
+    </body>
 </html>
