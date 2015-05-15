@@ -87,6 +87,7 @@ public class Application {
 			ClientFactory.getInstance().createLandingPageAccount(
 					req.getParameter("email"));
 		} catch (Exception e) {
+			System.out.println(e.getMessage());
 			callSucceeded = false;
 		}
 		try {

@@ -71,7 +71,7 @@
                         <div class="email-input"></div>
                         <div class='row'>
                             <div class='col-md-6 col-md-offset-1 col-sm-8 col-xs-10'>                              
-                                <input type="email" class="input-wormsim" id="emailLanding" placeholder="your@email.com">
+                                <input type="email" class="input-wormsim" id="emailField" placeholder="your@email.com">
                             </div>
                             <div class='col-md-4 col-sm-4 hidden-xs'>
                                 <div class="green-button" id="submitEmail">Request</div>
