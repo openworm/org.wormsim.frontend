@@ -72,15 +72,15 @@
         <a id="right-arrow" onclick="prevSlide()" class='left' href="#"> < </a>
         <a id="left-arrow" onclick="nextSlide()" class='right' href="#"> > </a>
         </div>
-        <script src="http://localhost:8383/openworm-info-flow/js/vendor/three.js"></script>
-        <script src="http://localhost:8383/openworm-info-flow/js/vendor/ColladaLoader.js"></script>
-        <script src="http://localhost:8383/openworm-info-flow/js/vendor/Detector.js"></script>
-        <script src="http://localhost:8383/openworm-info-flow/js/vendor/TrackBallControls.js"></script>
-        <script src="http://localhost:8383/openworm-info-flow/js/vendor/FlyControls.js"></script>
-        <script src="http://localhost:8383/openworm-info-flow/js/cuticle.js"></script>
-        <script src="http://localhost:8383/openworm-info-flow/js/vendor/TransformControls.js"></script>
-        <script src="http://localhost:8383/openworm-info-flow/js/vendor/OrbitControls.js"></script>
-        <script src="http://localhost:8383/openworm-info-flow/js/vendor/tween.min.js"></script>
+        <script src="/org.wormsim.frontend/resources/js/vendor/three.js"></script>
+        <script src="/org.wormsim.frontend/resources/js/vendor/ColladaLoader.js"></script>
+        <script src="/org.wormsim.frontend/resources/js/vendor/Detector.js"></script>
+        <script src="/org.wormsim.frontend/resources/js/vendor/TrackBallControls.js"></script>
+        <script src="/org.wormsim.frontend/resources/js/vendor/FlyControls.js"></script>
+        <script src="/org.wormsim.frontend/resources/js/cuticle.js"></script>
+        <script src="/org.wormsim.frontend/resources/js/vendor/TransformControls.js"></script>
+        <script src="/org.wormsim.frontend/resources/js/vendor/OrbitControls.js"></script>
+        <script src="/org.wormsim.frontend/resources/js/vendor/tween.min.js"></script>
         
         <script>
 
