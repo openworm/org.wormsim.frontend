@@ -141,13 +141,22 @@
 
             function nextSlide() {
                 if (currentSlide < noOfSlides - 1) {
-                    notifyWormNewSlide(currentSlide, currentSlide+1);
+                    notifyWormNewSlide(currentSlide, currentSlide + 1);
                     currentSlide++;
                     setArrowsVisibility();
                     makeVisibleOnlyOne(currentSlide);
                 }
-                else if(currentSlide == noOfSlides - 1) {
-                	// save worm info and send to next slide
+                else if (currentSlide == noOfSlides - 1) {
+                    // save worm info and send to next slide
+                    $.ajax({
+                        type: 'POST',
+                        url: 'setWormInfo',
+                        data: {'color': userSelectedColor, 'name': userSelectedName}
+                    }).done(function (response) {
+                        alert("done");
+                    }).fail(function (data) {
+                        alert("fail");
+                    });
                 }
             }
 
