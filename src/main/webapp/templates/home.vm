@@ -89,7 +89,10 @@
                         <div class="home-font col-md-4 col-sm-4">Learn the biology of the C. elegans with your own WormSim</div>
                     </div>
                 </div>
-                <div class="col-md-2 col-sm-2 green-button login-button-fix" style="float:right">Login</div>
+                
+               
+                <div class="col-md-2 col-sm-2 green-button login-button-fix" style="float:right" data-toggle="modal"
+                        data-target="#login-modal">Login</div>
 
             </div>
 
@@ -106,5 +109,6 @@
 
 
         </script>
+        #parse("templates/loginModal.vm")
     </body>
 </html>
