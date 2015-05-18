@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="@lang().code()">
-    #set($title = "Wormsim Set Info")
+    #set($title = "Wormsim")
 	#parse("templates/head.vm")
     
 
- <body class="user-home" style="background:black">
+  <body class="user-home" style="background:black">
 
         <div class="header-container">
             <div class="container">
@@ -12,134 +12,141 @@
 
                     <div class="wormsim-logo pull-left"></div>
 
+                    <button type="button" class="btn btn-danger btn-large dropdown-toggle pull-right" data-toggle="modal"
+                            data-target="#login-modal">
+                        Login
+                    </button>
+
                 </div>
             </div>
         </div>	
         <div class="worminfocontainer">
-        <div id="slide-one" class="slide-one">
-            <h1 style="font-size: 5vw;">Hi and welcome!</h1><br/><br/>
-            <h2 style="font-size: 2.5vw;">
-                That's me under the spotlight.</br>
-                I am a model of the C. elegans,</br>
-                a tiny worm!
-            </h2>
-        </div>
-
-        <div id="slide-two" class="slide-two">
-            <h1 style="font-size: 3vw; text-align: center">
-                First of all, before i start teaching you some of the biology of the worm 
-                I would really appreciate if you could pick a nice color for my cuticle,
-                i never liked being transparent
-            </h1>
-            <br/><br/>
-            <div id="container-circles">
-            <div class="circle" onclick="colorChange(this)" style="background:#ff4000; "></div>
-            <div class="circle" onclick="colorChange(this)" style="background:#ff7e00; "></div>
-            <div class="circle" onclick="colorChange(this)" style="background:#f6ff00; "></div>            
-            <div class="circle" onclick="colorChange(this)" style="background:#6fe100; "></div>
-            <div class="circle" onclick="colorChange(this)" style="background:#00d4e1; "></div>
-            <div class="circle" onclick="colorChange(this)" style="background:#3e63ff; "></div>
-            <div class="circle" onclick="colorChange(this)" style="background:#b123f5; "></div>
+            <div id="slide-one" class="slide-one">
+                <h1 style="font-size: 5vw;">Hi and welcome!</h1><br/><br/>
+                <h2 style="font-size: 2.5vw;">
+                    That's me under the spotlight.</br>
+                    I am a model of the C. elegans,</br>
+                    a tiny worm!
+                </h2>
             </div>
-        </div>
 
-        <div id="slide-three" class="slide-three">
-            <h1 style="color:white; text-align: center;vertical-align: middle;font-size: 2.5vw;">
-                Thanks, much better! Now I'm afraid i have a last favour to ask,
-                it's not that i don't fancy being called C. elegans and all but imagine
-                if everyone would call you Homo Sapiens, not super cool right?
-                Go ahead and give me a name! <br/>
-                <input style="font-size:3vw" id="worm-name-input" type='text' value="Spock" onchange="wormNameChange(this.value)" />
-            </h1>
-        </div>
+            <div id="slide-two" class="slide-two">
+                <h1 style="font-size: 3vw; text-align: center">
+                    First of all, before i start teaching you some of the biology of the worm 
+                    I would really appreciate if you could pick a nice color for my cuticle,
+                    i never liked being transparent
+                </h1>
+                <br/><br/>
+                <div id="container-circles">
+                    <div class="circle circle-active" onclick="colorChange(0)" id="color1" style="background:#ff4000; "></div>
+                    <div class="circle" onclick="colorChange(1)" id="color2" style="background:#ff7e00; "></div>
+                    <div class="circle" onclick="colorChange(2)" id="color3" style="background:#f6ff00; "></div>            
+                    <div class="circle" onclick="colorChange(3)" id="color4" style="background:#6fe100; "></div>
+                    <div class="circle" onclick="colorChange(4)" id="color5" style="background:#00d4e1; "></div>
+                    <div class="circle" onclick="colorChange(5)" id="color6" style="background:#3e63ff; "></div>
+                    <div class="circle" onclick="colorChange(6)" id="color7" style="background:#b123f5; "></div>
+                </div>
+            </div>
 
-        <div id="slide-four" class="slide-four">
-            <h1 style="color:white; text-align: center;vertical-align: middle;font-size: 2.5vw;">
-                <span id="worm-name-confirmed" style="font-family: 'alice_in_wonderlandregular';font-size: 4vw;">Spock</span><br/>
-                Wow, look at me, i am probably the fanciest C. elegans the world has ever seen, thank you for the nice touch!
-                Spock and <span id="userSurnameDisplay">Mihai</span>, i like the sound of it!<br/>
-                What do you say buddy?
-            </h1>
-        </div>
+            <div id="slide-three" class="slide-three">
+                <h1 style="color:white; text-align: center;vertical-align: middle;font-size: 2.5vw;">
+                    Thanks, much better! Now I'm afraid i have a last favour to ask,
+                    it's not that i don't fancy being called C. elegans and all but imagine
+                    if everyone would call you Homo Sapiens, not super cool right?
+                    Go ahead and give me a name! <br/>
+                    <input style="font-size:3vw" id="worm-name-input" type='text' value="Spock" onchange="wormNameChange(this.value)" />
+                </h1>
+            </div>
 
-        <div class="worm-model-container" id="worm-model-container" style="opacity: 0.4;filter: alpha(opacity=40);z-index: 100"></div>
+            <div id="slide-four" class="slide-four">
+                <h1 style="color:white; text-align: center;vertical-align: middle;font-size: 2.5vw;">
+                    <span id="worm-name-confirmed" style="font-family: 'alice_in_wonderlandregular';font-size: 4vw;">Spock</span><br/>
+                    Wow, look at me, i am probably the fanciest C. elegans the world has ever seen, thank you for the nice touch!
+                    Spock and <span id="userSurnameDisplay">Mihai</span>, i like the sound of it!<br/>
+                    What do you say buddy?
+                </h1>
+            </div>
 
-        <a id="right-arrow" onclick="prevSlide()" class='left' href="#"> < </a>
-        <a id="left-arrow" onclick="nextSlide()" class='right' href="#"> > </a>
+            <div class="worm-model-container" id="worm-model-container" style="opacity: 0.4;filter: alpha(opacity=40);z-index: 100"></div>
+
+            <a id="right-arrow" onclick="prevSlide()" class='left' href="#"> < </a>
+            <a id="left-arrow" onclick="nextSlide()" class='right' href="#"> > </a>
         </div>
-        <script src="/org.wormsim.frontend/resources/js/vendor/three.js"></script>
-        <script src="/org.wormsim.frontend/resources/js/vendor/ColladaLoader.js"></script>
-        <script src="/org.wormsim.frontend/resources/js/vendor/Detector.js"></script>
-        <script src="/org.wormsim.frontend/resources/js/vendor/TrackBallControls.js"></script>
-        <script src="/org.wormsim.frontend/resources/js/vendor/FlyControls.js"></script>
-        <script src="/org.wormsim.frontend/resources/js/cuticle.js"></script>
-        <script src="/org.wormsim.frontend/resources/js/vendor/TransformControls.js"></script>
-        <script src="/org.wormsim.frontend/resources/js/vendor/OrbitControls.js"></script>
-        <script src="/org.wormsim.frontend/resources/js/vendor/tween.min.js"></script>
-        
+<script src="/org.wormsim.frontend/resources/js/vendor/three.js"></script>
+<script src="/org.wormsim.frontend/resources/js/vendor/ColladaLoader.js"></script>
+<script src="/org.wormsim.frontend/resources/js/vendor/Detector.js"></script>
+<script src="/org.wormsim.frontend/resources/js/vendor/TrackBallControls.js"></script>
+<script src="/org.wormsim.frontend/resources/js/vendor/FlyControls.js"></script>
+<script src="/org.wormsim.frontend/resources/js/cuticle.js"></script>
+<script src="/org.wormsim.frontend/resources/js/vendor/TransformControls.js"></script>
+<script src="/org.wormsim.frontend/resources/js/vendor/OrbitControls.js"></script>
+<script src="/org.wormsim.frontend/resources/js/vendor/tween.min.js"></script>
+
         <script>
 
-            var userSelectedColor = "";
-            var userSelectedName = "Spock";
-            var userSurname = "Mihai";
-            
+                var userSelectedColor = "";
+                var userSelectedName = "Spock";
+                var userSurname = "Mihai";
 
-            var currentSlide = 0;
-            var noOfSlides = 4;
 
-            var slidesArray = new Array();
-            slidesArray[0] = document.getElementById("slide-one");
-            slidesArray[1] = document.getElementById("slide-two");
-            slidesArray[2] = document.getElementById("slide-three");
-            slidesArray[3] = document.getElementById("slide-four");
+                
 
-            var leftArrow = document.getElementById("left-arrow");
-            var rightArrow = document.getElementById("right-arrow");
+                var currentSlide = 0;
+                var noOfSlides = 4;
 
-            var initialWormPosition = {x: -6, y: 0, z: -25};
-            var afterWormPosition = {x: 0, y: 3, z: -12};
+                var slidesArray = new Array();
+                slidesArray[0] = document.getElementById("slide-one");
+                slidesArray[1] = document.getElementById("slide-two");
+                slidesArray[2] = document.getElementById("slide-three");
+                slidesArray[3] = document.getElementById("slide-four");
 
-            init();
+                var leftArrow = document.getElementById("left-arrow");
+                var rightArrow = document.getElementById("right-arrow");
 
-            function init() {
-                console.log("init running");
-                makeVisibleOnlyOne(0);
-                setArrowsVisibility();
-            }
+                var initialWormPosition = {x: -6, y: 0, z: -25};
+                var afterWormPosition = {x: 0, y: 3, z: -12};
 
-            function makeVisibleOnlyOne(visibleIndex) {
-                for (var i = 0; i < slidesArray.length; i++) {
-                    if (i != visibleIndex)
-                    {
-                        slidesArray[i].style.zIndex = 300 + i;
-                        slidesArray[i].style.visibility = "hidden";
-                    }
-                    else
-                    {
-                        slidesArray[i].style.zIndex = 999;
-                        slidesArray[i].style.visibility = "visible";
+                init();
+
+                function init() {
+                    console.log("init running");
+                    makeVisibleOnlyOne(0);
+                    setArrowsVisibility();
+                }
+
+                function makeVisibleOnlyOne(visibleIndex) {
+                    for (var i = 0; i < slidesArray.length; i++) {
+                        if (i != visibleIndex)
+                        {
+                            slidesArray[i].style.zIndex = 300 + i;
+                            slidesArray[i].style.visibility = "hidden";
+                        }
+                        else
+                        {
+                            slidesArray[i].style.zIndex = 999;
+                            slidesArray[i].style.visibility = "visible";
+                        }
                     }
                 }
-            }
 
-            function setArrowsVisibility() {
-                if (currentSlide == 0)
-                    updateArrowVisibility("visible", "hidden");
-                else
-                if (currentSlide == noOfSlides - 1)
-                    updateArrowVisibility("visible", "visible");
-                else
-                    updateArrowVisibility("visible", "visible");
-            }
+                function setArrowsVisibility() {
+                    if (currentSlide == 0)
+                        updateArrowVisibility("visible", "hidden");
+                    else
+                    if (currentSlide == noOfSlides - 1)
+                        updateArrowVisibility("visible", "visible");
+                    else
+                        updateArrowVisibility("visible", "visible");
+                }
 
-            function updateArrowVisibility(leftArrowVisible, rightArrowVisible) {
-                rightArrow.style.visibility = rightArrowVisible;
-                leftArrow.style.visibility = leftArrowVisible;
-                console.log(leftArrow.style.visibility + " leftArrow.style.visibility");
-                console.log(rightArrow.style.visibility + " rightArrow.style.visibility");
-            }
+                function updateArrowVisibility(leftArrowVisible, rightArrowVisible) {
+                    rightArrow.style.visibility = rightArrowVisible;
+                    leftArrow.style.visibility = leftArrowVisible;
+                    console.log(leftArrow.style.visibility + " leftArrow.style.visibility");
+                    console.log(rightArrow.style.visibility + " rightArrow.style.visibility");
+                }
 
-            function nextSlide() {
+                function nextSlide() {
                 if (currentSlide < noOfSlides - 1) {
                     notifyWormNewSlide(currentSlide, currentSlide + 1);
                     currentSlide++;
@@ -153,65 +160,84 @@
                         url: 'setWormInfo',
                         data: {'color': userSelectedColor, 'name': userSelectedName}
                     }).done(function (response) {
-                        alert("done");
+                        window.location.assign("http://localhost:8080/org.wormsim.frontend/");
                     }).fail(function (data) {
                         alert("fail");
                     });
                 }
             }
 
-            function prevSlide() {
-                if (currentSlide > 0) {
-                    notifyWormNewSlide(currentSlide, currentSlide-1);
-                    currentSlide--;
-                    setArrowsVisibility();
-                    makeVisibleOnlyOne(currentSlide);
+                function prevSlide() {
+                    if (currentSlide > 0) {
+                        notifyWormNewSlide(currentSlide, currentSlide - 1);
+                        currentSlide--;
+                        setArrowsVisibility();
+                        makeVisibleOnlyOne(currentSlide);
+                    }
                 }
-            }
 
-            function colorChange(id) {
-                //nextSlide();
-                userSelectedColor = id.style.background;
-                console.log(userSelectedColor + " userSelectedColor");
-                document.getElementById("worm-name-input").style.color = userSelectedColor;
-                document.getElementById("worm-name-confirmed").style.color = userSelectedColor;
-                $.fn.setWormColor(rgb2hex(userSelectedColor));
-            }
+                var colorsArray = new Array();
+                colorsArray[0] = ("color1");
+                colorsArray[1] = ("color2");
+                colorsArray[2] = ("color3");
+                colorsArray[3] = ("color4");
+                colorsArray[4] = ("color5");
+                colorsArray[5] = ("color6");
+                colorsArray[6] = ("color7");
 
-            function wormNameChange(newName) {
-                userSelectedName = newName;
-                document.getElementById("worm-name-confirmed").innerHTML = newName;
-                document.getElementById("userSurnameDisplay").innerHtml = "userSurname";
-            }
-
-            function notifyWormNewSlide(oldSlideIndex, newSlideIndex) {
-                console.log("moving from slide " +oldSlideIndex+" to "+newSlideIndex);
-                if(oldSlideIndex==0 && newSlideIndex==1) {
-                    moveWormToPosition(afterWormPosition,false);
+                function defaultColorChange() {
+                    colorChange(0);
                 }
-                
-                if(oldSlideIndex==1 && newSlideIndex==0) {
-                    moveWormToPosition(initialWormPosition,true);
+
+                function unmarkAllColorBubbles() {
+                    for (var i = 0; i < colorsArray.length; i++) {
+                        $( "#"+colorsArray[i]).toggleClass( "circle-active", false);
+                    }
                 }
-            }
 
-            var hexDigits = new Array
-                    ("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f");
+                function colorChange(id) {
+                    unmarkAllColorBubbles();
+                    //nextSlide();
+                    //console.log( $("#"+colorsArray[id]).css("background-color") + " ---------");
+                    userSelectedColor = $("#"+colorsArray[id]).css("background-color");
+                    $("#"+colorsArray[id]).toggleClass("circle-active",true);
+                    document.getElementById("worm-name-input").style.color = userSelectedColor;
+                    document.getElementById("worm-name-confirmed").style.color = userSelectedColor;
+                    $.fn.setWormColor(rgb2hex(userSelectedColor));
+                }
 
-            //Function to convert hex format to a rgb color
-            function rgb2hex(rgb) {
-                rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
-                return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
-            }
+                function wormNameChange(newName) {
+                    userSelectedName = newName;
+                    document.getElementById("worm-name-confirmed").innerHTML = newName;
+                    document.getElementById("userSurnameDisplay").innerHtml = "userSurname";
+                }
 
-            function hex(x) {
-                return isNaN(x) ? "00" : hexDigits[(x - x % 16) / 16] + hexDigits[x % 16];
-            }       
+                function notifyWormNewSlide(oldSlideIndex, newSlideIndex) {
+                    console.log("moving from slide " + oldSlideIndex + " to " + newSlideIndex);
+                    if (oldSlideIndex == 0 && newSlideIndex == 1) {
+                        moveWormToPosition(afterWormPosition, false);
+                    }
+
+                    if (oldSlideIndex == 1 && newSlideIndex == 0) {
+                        moveWormToPosition(initialWormPosition, true);
+                    }
+                }
+
+                var hexDigits = new Array
+                        ("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f");
+
+                //Function to convert hex format to a rgb color
+                function rgb2hex(rgb) {
+                    rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+                    return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+                }
+
+                function hex(x) {
+                    console.log(x);
+                    return isNaN(x) ? "00" : hexDigits[(x - x % 16) / 16] + hexDigits[x % 16];
+                }
 
         </script>
 
-
-
-    
-</body>
+    </body>
 </html>

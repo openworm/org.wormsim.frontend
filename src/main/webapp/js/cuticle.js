@@ -260,7 +260,7 @@ function moveWormToPosition(targetCoordinates, shouldMoveWormParam) {
             loadedModelMap[CUTICLE].rotation.y = position.rotationY;
     });
     tween.onComplete(function () {
-
+    	defaultColorChange();
     })
     tween.start();
 

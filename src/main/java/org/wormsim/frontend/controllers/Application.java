@@ -33,6 +33,7 @@ public class Application {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView home() {
 		User user = UserFactory.current();
+				
 		if (user != null
 				&& (user.getWormName() == null || user.getWormName().isEmpty())) {
 			return new ModelAndView("redirect:/wormInfo");
@@ -49,7 +50,7 @@ public class Application {
 	}
 
 	@RequestMapping(value = "/setWormInfo", method = RequestMethod.POST)
-	public ModelAndView ajaxSetWormInfo(HttpServletRequest req, HttpServletResponse res) {
+	public void ajaxSetWormInfo(HttpServletRequest req, HttpServletResponse res) {
 		boolean callSucceeded = true;
 		try {
 			User currentUser = UserFactory.current();
@@ -74,8 +75,6 @@ public class Application {
 		} catch (Exception ex) {
 
 		}
-
-		return new ModelAndView("userhome", getUserMap());
 	}
 
 	@RequestMapping(value = "/ajaxSetLandingPageEmail", method = RequestMethod.POST)
