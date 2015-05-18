@@ -43,7 +43,7 @@
 
                 <div class="worm-canvas " style="text-align: center">
                     <div class="rotated-text">
-                        <span id="worm-name">{{user.wormName}}</span> <span id="worm-mm" style="font-family:helvetica_neueregular;">1 mm</span>
+                        <span id="worm-name">$user.wormName</span> <span id="worm-mm" style="font-family:helvetica_neueregular;">1 mm</span>
                     </div>
                     <div class="length-bar" id="length-bar">
 
@@ -90,8 +90,8 @@
             </div>
 
             <div class="simulation-type grid-40 ">
-                <div class="sim-font push-right">
-                    Hello Giovanni
+                <div class="sim-font middle-text">
+                    Hello $user.firstName
                 </div>
 
                 <div class="sim-font middle-text">
