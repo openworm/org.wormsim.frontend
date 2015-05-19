@@ -1,106 +1,183 @@
 <!DOCTYPE html>
-<html lang="en">
-    #set($title = "Wormsim")
-    #parse("templates/head.vm")
+<html lang="@lang().code()">
+    <head>
+        <title>Wormsim Set Info</title>
 
-<body class="user-home">
+        <!-- Le meta -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+        <meta name="author" content="Matt Olson">
 
-    #parse("templates/navHeader.vm")
+        <script src="https://code.createjs.com/tweenjs-0.6.0.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script src="https://code.createjs.com/tweenjs-0.6.0.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script src="/org.wormsim.frontend/resources/js/vendor/three.js"></script>
+        <script src="/org.wormsim.frontend/resources/js/vendor/ColladaLoader.js"></script>
+        <script src="/org.wormsim.frontend/resources/js/vendor/Detector.js"></script>
+        <script src="/org.wormsim.frontend/resources/js/vendor/TrackBallControls.js"></script>
+        <script src="/org.wormsim.frontend/resources/js/vendor/FlyControls.js"></script>
+        <script src="/org.wormsim.frontend/resources/js/vendor/TransformControls.js"></script>
+        <script src="/org.wormsim.frontend/resources/js/vendor/OrbitControls.js"></script>
+        <!--TODO: Un-hardwire the bundle name-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link href="/org.wormsim.frontend/resources/css/unsemantic-grid-responsive.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="/org.wormsim.frontend/resources/css/main.css">
 
-    <div class="worm-model-container" id="worm-model-container"></div>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-	<div class="cuticle-controls btn-group-lg" role="group" aria-label="...">
-  		<button type="button" class="btn btn-warning" id="body">Body</button>
-  		<button type="button" class="btn btn-warning" id="muscles">Muscles</button>
-  		<button type="button" class="btn btn-warning" id="nerves">Nerves</button>
-	</div>
-                    
-    </div>
-    <div class="simulation-nav create-worm user-home">
-        <form action="" method="POST" >
-            <input type="text" class="user-home-name" value="$user.wormName" />
-            <div class="form-group user-home-color">
-                <select name="wormColor">
-                    <option value="#7bd148">Green</option>
-                    <option value="#5484ed">Bold blue</option>
-                    <option value="#a4bdfc">Blue</option>
-                    <option value="#46d6db">Turquoise</option>
-                    <option value="#7ae7bf">Light green</option>
-                    <option value="#51b749">Bold green</option>
-                    <option value="#fbd75b">Yellow</option>
-                    <option value="#ffb878">Orange</option>
-                    <option value="#ff887c">Red</option>
-                    <option value="#dc2127">Bold red</option>
-                    <option value="#dbadff">Purple</option>
-                    <option value="#e1e1e1">Gray</option>
-                </select>
-                <span class="help-block"></span>
-            </div>
-        </form>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="col-md-6">
-                    <a class="btn btn-danger goto-simulator" href="/org.geppetto.frontend?sim=https://raw.githubusercontent.com/openworm/org.geppetto.samples/development/wormsim/GEPPETTO.xml">Explore the crawling worm!</a>
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+    <body class="wormsim-bg">
+
+        <div class="grid-container clearfix">
+
+            <div class="simulation-container grid-60  grid-parent">
+                <div class="wormsim-logo logo-sim-fix pull-left grid-100 logo-fix"></div>
+                <div class="clear"></div>
+
+                <div class="worm-canvas " style="text-align: center">
+                    <div class="rotated-text">
+                        <span id="worm-name">$user.wormName</span> <span id="worm-mm" style="font-family:helvetica_neueregular;">1 mm</span>
+                    </div>
+                    <div class="length-bar" id="length-bar">
+
+                        <div class="worm-length" id="worm-length"></div>
+                    </div>
+
+                    <div class="worm-canvas-circle">
+                        <div class="top-buttons">
+                            <div class="round-button-multiplier grid-50 plus-button" >
+                                <div class="round-button-circle " onclick="increaseSize()">
+                                    <span>+</span>
+                                </div>
+                            </div>
+                            <div class="round-button-multiplier grid-50 minus-button">
+                                <div class="round-button-circle " onclick="decreaseSize()">
+                                    <span>-</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="worm-render" id="worm-in-circle">
+                        </div>
+
+
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <a class="btn btn-danger goto-simulator" href="/org.geppetto.frontend?sim=https://raw.githubusercontent.com/openworm/org.geppetto.samples/master/LEMS/C302/GEPPETTO.xml">Explore the nervous system!</a>
+
+                <div class="bottom-buttons">
+                    <div class="round-button grid-25" >
+                        <div id="skinButton" class="round-button-circle" onclick="skinClick()">
+                            <span>Skin</span>
+                        </div>
+                    </div>
+                    <div class="round-button grid-25">
+                        <div id="musclesButton" class="round-button-circle " onclick="musclesClick()">
+                            <span>Muscles</span>
+                        </div>
+                    </div>
+                    <div class="round-button grid-25">
+                        <div id="neuronsButton" class="round-button-circle " onclick="neuronsClick()">
+                            <span>Neurons</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="simulation-type grid-40 ">
+                <div class="sim-font middle-text">
+                    Hello $user.firstName
+                </div>
+
+                <div class="sim-font middle-text">
+                    Explore my simulations and learn where the magic comes from!
+                </div>
+                <div class="buttons-container">
+                    <a href="#" class="category-button" onclick="">Simplified nervous system</a>
+                    <a href="#" class="category-button" onclick="">Muscular system</a>
+                    <a href="#" class="category-button" onclick="">New progress</a>
                 </div>
             </div>
         </div>
-    </div>
+        <script>
+            
+            var skinVisible = true, musclesVisible = true, neuronsVisible = true;
+            
+            function skinClick() {
+                skinVisible = !skinVisible;
+                loadedModelMap[CUTICLE].visible = skinVisible;
+                $("#skinButton").toggleClass("active-button");
+            }
+            
+            function musclesClick() {
+                musclesVisible = !musclesVisible;
+                loadedModelMap[MUSCLES].visible = musclesVisible;    
+                $("#musclesButton").toggleClass("active-button");            
+            }
+            
+            function neuronsClick() {
+                neuronsVisible = !neuronsVisible;
+                loadedModelMap[NEURONS].visible = neuronsVisible;   
+                $("#neuronsButton").toggleClass("active-button");             
+            }
+            
+            var progressValue = 50; //in pixels
+            var maxLength = parseInt($('#length-bar').css('height'), 10);
+            var minHeight = 50;
 
-    #parse("templates/loginModal.vm")
+            var newZ = 0;
 
-<script src="/org.wormsim.frontend/resources/js/vendor/jquery-simplecolorpicker.js"></script>
-<link rel="stylesheet" href="/org.wormsim.frontend/resources/css/jquery-simplecolorpicker.css">
-
-<script src="/org.wormsim.frontend/resources/js/vendor/three.js"></script>
-<script src="/org.wormsim.frontend/resources/js/vendor/ColladaLoader.js"></script>
-<script src="/org.wormsim.frontend/resources/js/vendor/Detector.js"></script>
-<script src="/org.wormsim.frontend/resources/js/vendor/TrackBallControls.js"></script>
-<script src="/org.wormsim.frontend/resources/js/cuticle.js"></script>
-
-<script>
-        #if($user && $user.wormColor)
-        var selectedColor = "$user.wormColor";
-        #else
-        var selectedColor = "#7bd148";
-        #end
-
-    $(function(){
-
-        var colorPicker = $('select[name="wormColor"]'), nameInput = $('.user-home-name');
-        colorPicker.simplecolorpicker({picker: true, theme: 'glyphicons'});
-        colorPicker.simplecolorpicker('selectColor', selectedColor);
-
-        $().setWormColor(selectedColor);
-
-        function setWormInfo(property, value) {
-            var data = {};
-            data[property] = value;
-
-            $.ajax({
-                url:'/org.wormsim.frontend/setWormInfo',
-                data: JSON.stringify(data),
-                type:'POST',
-                contentType: 'application/json',
-                dataType: 'json'
-            });
-        }
-
-        colorPicker.on('change', function(e) {
-            $().setWormColor($(colorPicker).val());
-            setWormInfo('wormColor', $(colorPicker).val());
-        }.bind(this));
-
-        nameInput.on('change', function(){
-            setWormInfo('wormName', nameInput.val());
-
-        }.bind(this));
-    });
-
-</script>
+            function increaseSize() {
+                //get current height and transform it to integer
+                var currentHeight = parseInt($("#worm-length").css("height"), 10);
+                var wormLength = parseInt($('#worm-mm').text(), 10);
+                //check if current height can smaller than max length
+                if (currentHeight < maxLength) {
+                    var newHeight = currentHeight + progressValue;
+                    $("#worm-length").css("height", newHeight + "px");
+                    $("#worm-length").css("margin-top", "-" + (newHeight / 2) + "px");
+                    $('#worm-mm').text((wormLength + 1) + "  mm");
+                    // there can be only 6 zoom ins
+                    if(newZ < 6 ) newZ++;
+                    setNewWormZ(+1);
+                }
+                else {
+                    $("#worm-length").css("height", maxLength + "px");
+                    $("#worm-length").css("margin-top", "-" + (maxLength / 2) + "px");
+                    $('#worm-mm').text(wormLength + "  mm");
+                }
 
 
-</body>
+            }
+
+            function decreaseSize() {
+                //get current height and transform it to integer
+                var wormLength = parseInt($('#worm-mm').text(), 10);
+                var currentHeight = parseInt($("#worm-length").css("height"), 10);
+                //check if current height can smaller than max height
+                if (currentHeight > minHeight) {
+                    var newHeight = currentHeight - progressValue;
+                    $("#worm-length").css("height", newHeight + "px");
+                    $("#worm-length").css("margin-top", "-" + (newHeight / 2) + "px");
+                    $('#worm-mm').text((wormLength - 1) + "  mm");                    
+                    if(newZ > 0 ) newZ--;
+                    setNewWormZ(-1);
+                }
+                else {
+                    $("#worm-length").css("height", minHeight + "px");
+                    $("#worm-length").css("margin-top", "-" + (minHeight / 2) + "px");
+                    $('#worm-mm').text(wormLength + "  mm");
+                }
+
+
+            }
+
+        </script>
+        <script src="/org.wormsim.frontend/resources/js/worm-zoom.js"></script>
+    </body>
 </html>

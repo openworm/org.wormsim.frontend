@@ -22,3 +22,4 @@ src/main/webapp/css/main.css
 .settings/
 /target
 *~
+/bin/
