@@ -18,20 +18,14 @@ import com.stormpath.sdk.resource.ResourceException;
 public class ClientFactory {
 
 	private static final String APP_NAME = "Wormsim";
-	private static final String APIKEY_FILEPATH = System
-			.getProperty("user.home") + "/.stormpath/apiKey.properties";
+	private static final String APIKEY_FILEPATH = System.getProperty("user.home") + "/.stormpath/apiKey.properties";
 	private static final Client CLIENT;
 	private static final Application APPLICATION;
 
 	static {
-		CLIENT = Clients
-				.builder()
-				.setApiKey(
-						ApiKeys.builder().setFileLocation(APIKEY_FILEPATH)
-								.build()).build();
+		CLIENT = Clients.builder().setApiKey(ApiKeys.builder().setFileLocation(APIKEY_FILEPATH).build()).build();
 
-		ApplicationList applications = CLIENT.getApplications(Applications
-				.where(Applications.name().eqIgnoreCase(APP_NAME)));
+		ApplicationList applications = CLIENT.getApplications(Applications.where(Applications.name().eqIgnoreCase(APP_NAME)));
 
 		APPLICATION = applications.iterator().next();
 	}
@@ -60,8 +54,7 @@ public class ClientFactory {
 
 	public Account createLandingPageAccount(String email) {
 		Application landingPageApp;
-		ApplicationList applications = CLIENT.getApplications(Applications
-				.where(Applications.name().eqIgnoreCase("LandingPage")));
+		ApplicationList applications = CLIENT.getApplications(Applications.where(Applications.name().eqIgnoreCase("LandingPage")));
 
 		landingPageApp = applications.iterator().next();
 		Account account = CLIENT.instantiate(Account.class);
@@ -96,8 +89,7 @@ public class ClientFactory {
 		if (accounts.iterator().hasNext()) {
 			return accounts.iterator().next();
 		} else {
-			throw new AccountNotFoundException("Account not found for email "
-					+ email);
+			throw new AccountNotFoundException("Account not found for email " + email);
 		}
 	}
 
