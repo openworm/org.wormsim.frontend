@@ -68,7 +68,7 @@
                             <div class="wormsim-font"></div>
                         </div>
 
-						<iframe id="youtube-player" style="display:none; margin-top:120px; margin-bottom: 20px" width="540" height="304" src="https://www.youtube.com/embed/_4xhuV3iXqE?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>                        
+						<iframe id="youtube-player" style="display:none; margin-top:120px; margin-bottom: 20px" width="540" height="304" src="https://www.youtube.com/embed/_4xhuV3iXqE?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>                        
                         <div class="email-input"></div>
                         <div class='row'>
                             <div class='col-md-6 col-md-offset-1 col-sm-8 col-xs-10'>                              
@@ -91,9 +91,16 @@
                     </div>
                 </div>
                 
-               
+               #if($user)
+            <button type="button" class="btn btn-danger btn-large dropdown-toggle pull-right" >
+                    <a class="none" href="logout">Log out</a>
+                </button>
+            #else
                 <div class="col-md-2 col-sm-2 green-button login-button-fix" style="float:right" data-toggle="modal"
                         data-target="#login-modal">Login</div>
+            #end
+            
+                
 
             </div>
 

@@ -31,9 +31,14 @@ public class Application {
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView home() {
+	public ModelAndView home() throws Exception {
 		User user = UserFactory.current();
-				
+			
+		if (user != null) {
+			user.setWormColor(null);
+			user.setWormName(null);
+		}
+		
 		if (user != null
 				&& (user.getWormName() == null || user.getWormName().isEmpty())) {
 			return new ModelAndView("redirect:/wormInfo");

@@ -1,7 +1,31 @@
 <!DOCTYPE html>
 <html lang="@lang().code()">
     #set($title = "Wormsim")
-	#parse("templates/head.vm")
+	<head>
+    #if($title)
+        <title>$title</title>
+    #else
+        <title>Wormsim</title>
+    #end
+
+    <!-- Le meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Mihai Raulea">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <!--TODO: Un-hardwire the bundle name-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/org.wormsim.frontend/resources/css/main.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
     
 
   <body class="user-home" style="background:black">
@@ -12,10 +36,9 @@
 
                     <div class="wormsim-logo pull-left"></div>
 
-                    <button type="button" class="btn btn-danger btn-large dropdown-toggle pull-right" data-toggle="modal"
-                            data-target="#login-modal">
-                        Login
-                    </button>
+                    <button type="button" class="btn btn-danger btn-large dropdown-toggle pull-right" >
+                    <a class="none" href="logout">Log out</a>
+                </button>
 
                 </div>
             </div>
@@ -38,13 +61,13 @@
                 </h1>
                 <br/><br/>
                 <div id="container-circles">
-                    <div class="circle circle-active" onclick="colorChange(0)" id="color1" style="background:#ff4000; "></div>
-                    <div class="circle" onclick="colorChange(1)" id="color2" style="background:#ff7e00; "></div>
-                    <div class="circle" onclick="colorChange(2)" id="color3" style="background:#f6ff00; "></div>            
-                    <div class="circle" onclick="colorChange(3)" id="color4" style="background:#6fe100; "></div>
-                    <div class="circle" onclick="colorChange(4)" id="color5" style="background:#00d4e1; "></div>
-                    <div class="circle" onclick="colorChange(5)" id="color6" style="background:#3e63ff; "></div>
-                    <div class="circle" onclick="colorChange(6)" id="color7" style="background:#b123f5; "></div>
+                    <div class="circle" onclick="colorChange(0)" id="color1" style="background:#ff4000; cursor:pointer"></div>
+                    <div class="circle" onclick="colorChange(1)" id="color2" style="background:#ff7e00; cursor:pointer"></div>
+                    <div class="circle" onclick="colorChange(2)" id="color3" style="background:#f6ff00; cursor:pointer"></div>            
+                    <div class="circle" onclick="colorChange(3)" id="color4" style="background:#6fe100; cursor:pointer"></div>
+                    <div class="circle" onclick="colorChange(4)" id="color5" style="background:#00d4e1; cursor:pointer"></div>
+                    <div class="circle" onclick="colorChange(5)" id="color6" style="background:#3e63ff; cursor:pointer"></div>
+                    <div class="circle" onclick="colorChange(6)" id="color7" style="background:#b123f5; cursor:pointer"></div>
                 </div>
             </div>
 
@@ -54,13 +77,14 @@
                     it's not that i don't fancy being called C. elegans and all but imagine
                     if everyone would call you Homo Sapiens, not super cool right?
                     Go ahead and give me a name! <br/>
-                    <input style="font-size:3vw" id="worm-name-input" type='text' value="Spock" onchange="wormNameChange(this.value)" />
+                    
+                    <span style="text-align: center;"><input style="font-size:3vw;width:100%;text-align: center;" id="worm-name-input" type='text' value="Spock" onchange="wormNameChange(this.value)" /></span>
                 </h1>
             </div>
 
             <div id="slide-four" class="slide-four">
                 <h1 style="color:white; text-align: center;vertical-align: middle;font-size: 2.5vw;">
-                    <span id="worm-name-confirmed" style="font-family: 'alice_in_wonderlandregular';font-size: 4vw;">Spock</span><br/>
+                    <span id="worm-name-confirmed" style="font-family: 'alice_in_wonderlandregular';font-size: 4vw;with:auto">Spock</span><br/>
                     Wow, look at me, i am probably the fanciest C. elegans the world has ever seen, thank you for the nice touch!
                     Spock and <span id="userSurnameDisplay">Mihai</span>, i like the sound of it!<br/>
                     What do you say buddy?
@@ -69,8 +93,8 @@
 
             <div class="worm-model-container" id="worm-model-container" style="opacity: 0.4;filter: alpha(opacity=40);z-index: 100"></div>
 
-            <a id="right-arrow" onclick="prevSlide()" class='left' href="#"> < </a>
-            <a id="left-arrow" onclick="nextSlide()" class='right' href="#"> > </a>
+            <a id="right-arrow" onclick="prevSlide()" class='left' href="#"><div class="hov-class"> < </div></a>
+            <a id="left-arrow" onclick="nextSlide()" class='right' href="#"><div class="hov-class" id="nextSlideSymbol"> > </div></a>
         </div>
 <script src="/org.wormsim.frontend/resources/js/vendor/three.js"></script>
 <script src="/org.wormsim.frontend/resources/js/vendor/ColladaLoader.js"></script>
@@ -165,6 +189,7 @@
                         alert("fail");
                     });
                 }
+                slideChanged();
             }
 
                 function prevSlide() {
@@ -174,7 +199,20 @@
                         setArrowsVisibility();
                         makeVisibleOnlyOne(currentSlide);
                     }
+                    slideChanged();
                 }
+
+				function slideChanged() {
+					if(currentSlide==2) {					
+						$('#worm-name-input').select();
+					}
+					if(currentSlide==3) {
+						$('#nextSlideSymbol').text('Save');
+					}
+					if(currentSlide!=3) {
+						$('#nextSlideSymbol').text(' > ');
+					}
+				}
 
                 var colorsArray = new Array();
                 colorsArray[0] = ("color1");

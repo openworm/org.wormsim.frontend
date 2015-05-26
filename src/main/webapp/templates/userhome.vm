@@ -31,12 +31,16 @@
         <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
+        
+        
 
     </head>
     <body class="wormsim-bg">
 
         <div class="grid-container clearfix">
-
+		<button type="button" class="btn btn-danger btn-large dropdown-toggle pull-right" >
+                    <a class="none" href="logout">Log out</a>
+                </button>
             <div class="simulation-container grid-60  grid-parent">
                 <div class="wormsim-logo logo-sim-fix pull-left grid-100 logo-fix"></div>
                 <div class="clear"></div>
