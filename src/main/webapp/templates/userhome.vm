@@ -102,8 +102,8 @@ Hello $user.firstName
 Explore my simulations and learn where the magic comes from!
 </div>
 <div class="buttons-container">
-<a href="#" class="category-button" onclick="">Simplified nervous system</a>
-<a href="#" class="category-button" onclick="">Muscular system</a>
+<a href="/org.geppetto.frontend?sim=https://raw.githubusercontent.com/openworm/org.geppetto.samples/master/LEMS/C302/GEPPETTO.xml" class="category-button" onclick="">Simplified nervous system</a>
+<a href="/org.geppetto.frontend?sim=https://raw.githubusercontent.com/openworm/org.geppetto.samples/development/wormsim/GEPPETTO.xml" class="category-button" onclick="">Muscular system</a>
 </div>
 </div>
 </div>
