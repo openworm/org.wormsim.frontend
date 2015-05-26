@@ -32,12 +32,10 @@ public class Application {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView home() throws Exception {
-		User user = UserFactory.current();
+		User user = UserFactory.login("mihairaulea@gmail.com", "mypassmypass");
 			
-		if (user != null) {
-			user.setWormColor(null);
-			user.setWormName(null);
-		}
+		user.setWormName("Spock");
+		user.save();
 		
 		if (user != null
 				&& (user.getWormName() == null || user.getWormName().isEmpty())) {
