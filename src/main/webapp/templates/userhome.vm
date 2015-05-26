@@ -57,12 +57,12 @@
 <div class="worm-canvas-circle">
 <div class="top-buttons">
 <div class="round-button-multiplier grid-50 plus-button" >
-<div class="round-button-circle " onclick="increaseSize()">
+<div class="round-button-circle " onclick="increaseSize()" style="cursor:pointer">
 <span>+</span>
 </div>
 </div>
 <div class="round-button-multiplier grid-50 minus-button">
-<div class="round-button-circle " onclick="decreaseSize()">
+<div class="round-button-circle " onclick="decreaseSize()" style="cursor:pointer">
 <span>-</span>
 </div>
 </div>
@@ -76,17 +76,17 @@
 
 <div class="bottom-buttons">
 <div class="round-button grid-25" >
-<div id="skinButton" class="round-button-circle" onclick="skinClick()">
+<div id="skinButton" class="round-button-circle" onclick="skinClick()" style="cursor:pointer">
 <span>Skin</span>
 </div>
 </div>
 <div class="round-button grid-25">
-<div id="musclesButton" class="round-button-circle " onclick="musclesClick()">
+<div id="musclesButton" class="round-button-circle " onclick="musclesClick()" style="cursor:pointer">
 <span>Muscles</span>
 </div>
 </div>
 <div class="round-button grid-25">
-<div id="neuronsButton" class="round-button-circle " onclick="neuronsClick()">
+<div id="neuronsButton" class="round-button-circle " onclick="neuronsClick()" style="cursor:pointer">
 <span>Neurons</span>
 </div>
 </div>
