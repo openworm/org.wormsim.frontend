@@ -86,6 +86,8 @@ function start() {
     renderer.autoClear = true;
 }
 
+var loadedItems = 0;
+
 function load(groupName, daeLocation) {
     var manager = new THREE.LoadingManager();
     manager.onProgress = function (item, loaded, total) {
@@ -109,9 +111,12 @@ function load(groupName, daeLocation) {
 
         scene.add(loadedModelMap[groupName]);
         if (groupName == CUTICLE) {
+        	setWormColor(rgb2hex(wormColor));
             worm = dae;
-            controls.target.set( worm.position.x, worm.position.y, worm.position.z );
+            controls.target.set( worm.position.x, worm.position.y, worm.position.z );     
         }
+        loadedItems++;
+        if(loadedItems==3) skinClick();
         render();
     }, function (progress) {
         // TODO: show some progress if this is taking long
@@ -130,21 +135,29 @@ function render() {
 
 function setNewWormZ(newZ) {
     controls.noZoom = false;
-    if(newZ<0) controls.incrementZoomEnd(0.13);
-    else controls.incrementZoomEnd(-0.13);
+    if(newZ<0) controls.incrementZoomEnd(0.115);
+    else controls.incrementZoomEnd(-0.115);
     controls.update();
     controls.noZoom = true;
 }
 
+var hexDigits = new Array("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f");
+
+function rgb2hex(rgb) {
+    rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+    return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+}
+
+function hex(x) {
+    console.log(x);
+    return isNaN(x) ? "00" : hexDigits[(x - x % 16) / 16] + hexDigits[x % 16];
+}
+
+
 /*
  Set the ambient light to the given color. Accepts argument in the form of '#XXXXXX'
  */
-$.fn.setWormColor = function (color) {
-    //Chop off leading #
-    //topLight.color.setHex('0x' + color.substr(1, color.length));
-    //bottomLight.color.setHex('0x' + color.substr(1, color.length));
-    //var material = new THREE.MeshBasicMaterial({color: '0x' + color.substr(1, color.length) });
-    //material.doubleSided = true;
+function setWormColor(color) {
     var color = new THREE.Color(color);
     console.log(color);
     setMaterial(loadedModelMap[CUTICLE], color);
@@ -161,7 +174,7 @@ $.fn.setWormColor = function (color) {
         }
 
     }
-}.bind(this);
+}
 
 /*
  Resize canvas when the user manually resizes window

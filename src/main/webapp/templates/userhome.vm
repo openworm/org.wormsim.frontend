@@ -1,187 +1,210 @@
 <!DOCTYPE html>
 <html lang="@lang().code()">
-    <head>
-        <title>Wormsim Set Info</title>
+<head>
+<title>Wormsim Set Info</title>
 
-        <!-- Le meta -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
-        <meta name="author" content="Matt Olson">
+<!-- Le meta -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+<meta name="author" content="Matt Olson">
 
-        <script src="https://code.createjs.com/tweenjs-0.6.0.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-        <script src="https://code.createjs.com/tweenjs-0.6.0.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-        <script src="/org.wormsim.frontend/resources/js/vendor/three.js"></script>
-        <script src="/org.wormsim.frontend/resources/js/vendor/ColladaLoader.js"></script>
-        <script src="/org.wormsim.frontend/resources/js/vendor/Detector.js"></script>
-        <script src="/org.wormsim.frontend/resources/js/vendor/TrackBallControls.js"></script>
-        <script src="/org.wormsim.frontend/resources/js/vendor/FlyControls.js"></script>
-        <script src="/org.wormsim.frontend/resources/js/vendor/TransformControls.js"></script>
-        <script src="/org.wormsim.frontend/resources/js/vendor/OrbitControls.js"></script>
-        <!--TODO: Un-hardwire the bundle name-->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link href="/org.wormsim.frontend/resources/css/unsemantic-grid-responsive.css" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/org.wormsim.frontend/resources/css/main.css">
+<script src="https://code.createjs.com/tweenjs-0.6.0.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="https://code.createjs.com/tweenjs-0.6.0.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/org.wormsim.frontend/resources/js/vendor/three.js"></script>
+<script src="/org.wormsim.frontend/resources/js/vendor/ColladaLoader.js"></script>
+<script src="/org.wormsim.frontend/resources/js/vendor/Detector.js"></script>
+<script src="/org.wormsim.frontend/resources/js/vendor/TrackBallControls.js"></script>
+<script src="/org.wormsim.frontend/resources/js/vendor/FlyControls.js"></script>
+<script src="/org.wormsim.frontend/resources/js/vendor/TransformControls.js"></script>
+<script src="/org.wormsim.frontend/resources/js/vendor/OrbitControls.js"></script>
+<!--TODO: Un-hardwire the bundle name-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link href="/org.wormsim.frontend/resources/css/unsemantic-grid-responsive.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="/org.wormsim.frontend/resources/css/main.css">
 
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-        <!--[if lt IE 9]>
-        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-        
-        
-
-    </head>
-    <body class="wormsim-bg">
-
-        <div class="grid-container clearfix">
-		<button type="button" class="btn btn-danger btn-large dropdown-toggle pull-right" >
-                    <a class="none" href="logout">Log out</a>
-                </button>
-            <div class="simulation-container grid-60  grid-parent">
-                <div class="wormsim-logo logo-sim-fix pull-left grid-100 logo-fix"></div>
-                <div class="clear"></div>
-
-                <div class="worm-canvas " style="text-align: center">
-                    <div class="rotated-text">
-                        <span id="worm-name">$user.wormName</span> <span id="worm-mm" style="font-family:helvetica_neueregular;">1 mm</span>
-                    </div>
-                    <div class="length-bar" id="length-bar">
-
-                        <div class="worm-length" id="worm-length"></div>
-                    </div>
-
-                    <div class="worm-canvas-circle">
-                        <div class="top-buttons">
-                            <div class="round-button-multiplier grid-50 plus-button" >
-                                <div class="round-button-circle " onclick="increaseSize()">
-                                    <span>+</span>
-                                </div>
-                            </div>
-                            <div class="round-button-multiplier grid-50 minus-button">
-                                <div class="round-button-circle " onclick="decreaseSize()">
-                                    <span>-</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="worm-render" id="worm-in-circle">
-                        </div>
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
 
 
-                    </div>
-                </div>
 
-                <div class="bottom-buttons">
-                    <div class="round-button grid-25" >
-                        <div id="skinButton" class="round-button-circle" onclick="skinClick()">
-                            <span>Skin</span>
-                        </div>
-                    </div>
-                    <div class="round-button grid-25">
-                        <div id="musclesButton" class="round-button-circle " onclick="musclesClick()">
-                            <span>Muscles</span>
-                        </div>
-                    </div>
-                    <div class="round-button grid-25">
-                        <div id="neuronsButton" class="round-button-circle " onclick="neuronsClick()">
-                            <span>Neurons</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+</head>
+<body class="wormsim-bg">
 
-            <div class="simulation-type grid-40 ">
-                <div class="sim-font middle-text">
-                    Hello $user.firstName
-                </div>
+<div class="grid-container clearfix">
+<button type="button" class="btn btn-danger btn-large dropdown-toggle pull-right" style="position:absolute;z-index:9999;right:0px">
+<a class="none" href="logout">Log out</a>
+</button>
+<div class="simulation-container grid-60  grid-parent">
+<div class="wormsim-logo logo-sim-fix pull-left grid-100 logo-fix"></div>
+<div class="clear"></div>
 
-                <div class="sim-font middle-text">
-                    Explore my simulations and learn where the magic comes from!
-                </div>
-                <div class="buttons-container">
-                    <a href="#" class="category-button" onclick="">Simplified nervous system</a>
-                    <a href="#" class="category-button" onclick="">Muscular system</a>
-                    <a href="#" class="category-button" onclick="">New progress</a>
-                </div>
-            </div>
-        </div>
-        <script>
-            
-            var skinVisible = true, musclesVisible = true, neuronsVisible = true;
-            
-            function skinClick() {
-                skinVisible = !skinVisible;
-                loadedModelMap[CUTICLE].visible = skinVisible;
-                $("#skinButton").toggleClass("active-button");
-            }
-            
-            function musclesClick() {
-                musclesVisible = !musclesVisible;
-                loadedModelMap[MUSCLES].visible = musclesVisible;    
-                $("#musclesButton").toggleClass("active-button");            
-            }
-            
-            function neuronsClick() {
-                neuronsVisible = !neuronsVisible;
-                loadedModelMap[NEURONS].visible = neuronsVisible;   
-                $("#neuronsButton").toggleClass("active-button");             
-            }
-            
-            var progressValue = 50; //in pixels
-            var maxLength = parseInt($('#length-bar').css('height'), 10);
-            var minHeight = 50;
+<div class="worm-canvas " style="text-align: center">
+<div class="rotated-text">
+<span id="worm-name">$user.wormName</span> <span id="worm-mm" style="font-family:helvetica_neueregular;">1 mm</span>
+</div>
+<div class="length-bar" id="length-bar">
 
-            var newZ = 0;
+<div class="worm-length" id="worm-length"></div>
+</div>
 
-            function increaseSize() {
-                //get current height and transform it to integer
-                var currentHeight = parseInt($("#worm-length").css("height"), 10);
-                var wormLength = parseInt($('#worm-mm').text(), 10);
-                //check if current height can smaller than max length
-                if (currentHeight < maxLength) {
-                    var newHeight = currentHeight + progressValue;
-                    $("#worm-length").css("height", newHeight + "px");
-                    $("#worm-length").css("margin-top", "-" + (newHeight / 2) + "px");
-                    $('#worm-mm').text((wormLength + 1) + "  mm");
-                    // there can be only 6 zoom ins
-                    if(newZ < 6 ) newZ++;
-                    setNewWormZ(+1);
-                }
-                else {
-                    $("#worm-length").css("height", maxLength + "px");
-                    $("#worm-length").css("margin-top", "-" + (maxLength / 2) + "px");
-                    $('#worm-mm').text(wormLength + "  mm");
-                }
+<div class="worm-canvas-circle">
+<div class="top-buttons">
+<div class="round-button-multiplier grid-50 plus-button" >
+<div class="round-button-circle " onclick="increaseSize()">
+<span>+</span>
+</div>
+</div>
+<div class="round-button-multiplier grid-50 minus-button">
+<div class="round-button-circle " onclick="decreaseSize()">
+<span>-</span>
+</div>
+</div>
+</div>
+<div class="worm-render" id="worm-in-circle">
+</div>
 
 
-            }
+</div>
+</div>
 
-            function decreaseSize() {
-                //get current height and transform it to integer
-                var wormLength = parseInt($('#worm-mm').text(), 10);
-                var currentHeight = parseInt($("#worm-length").css("height"), 10);
-                //check if current height can smaller than max height
-                if (currentHeight > minHeight) {
-                    var newHeight = currentHeight - progressValue;
-                    $("#worm-length").css("height", newHeight + "px");
-                    $("#worm-length").css("margin-top", "-" + (newHeight / 2) + "px");
-                    $('#worm-mm').text((wormLength - 1) + "  mm");                    
-                    if(newZ > 0 ) newZ--;
-                    setNewWormZ(-1);
-                }
-                else {
-                    $("#worm-length").css("height", minHeight + "px");
-                    $("#worm-length").css("margin-top", "-" + (minHeight / 2) + "px");
-                    $('#worm-mm').text(wormLength + "  mm");
-                }
+<div class="bottom-buttons">
+<div class="round-button grid-25" >
+<div id="skinButton" class="round-button-circle" onclick="skinClick()">
+<span>Skin</span>
+</div>
+</div>
+<div class="round-button grid-25">
+<div id="musclesButton" class="round-button-circle " onclick="musclesClick()">
+<span>Muscles</span>
+</div>
+</div>
+<div class="round-button grid-25">
+<div id="neuronsButton" class="round-button-circle " onclick="neuronsClick()">
+<span>Neurons</span>
+</div>
+</div>
+</div>
+</div>
+
+<div class="simulation-type grid-40 ">
+<div class="sim-font middle-text">
+Hello $user.firstName
+</div>
+
+<div class="sim-font middle-text">
+Explore my simulations and learn where the magic comes from!
+</div>
+<div class="buttons-container">
+<a href="#" class="category-button" onclick="">Simplified nervous system</a>
+<a href="#" class="category-button" onclick="">Muscular system</a>
+</div>
+</div>
+</div>
+<script>
+var skinVisible = true, musclesVisible = true, neuronsVisible = true;
 
 
-            }
+var wormColor = "${user.wormColor}";
 
-        </script>
-        <script src="/org.wormsim.frontend/resources/js/worm-zoom.js"></script>
-    </body>
+function skinClick() {
+	untoggleAll();
+    skinVisible = true;
+    toggleUntoggle();
+    loadedModelMap[CUTICLE].visible = true;
+    if(loadedModelMap[MUSCLES]) loadedModelMap[MUSCLES].visible = true;
+    if(loadedModelMap[NEURONS]) loadedModelMap[NEURONS].visible = true;
+}
+
+function musclesClick() {
+	untoggleAll();
+    musclesVisible = true;
+    toggleUntoggle();
+    loadedModelMap[CUTICLE].visible = false;  
+    loadedModelMap[MUSCLES].visible = true;  
+    loadedModelMap[NEURONS].visible = true;             
+}
+
+function neuronsClick() {
+	untoggleAll();
+    neuronsVisible = true;
+    toggleUntoggle();
+    loadedModelMap[CUTICLE].visible = false; 
+    loadedModelMap[MUSCLES].visible = false; 
+    loadedModelMap[NEURONS].visible = true;              
+}
+
+function untoggleAll() {
+    skinVisible = false;
+    musclesVisible = false;
+    neuronsVisible = false;
+    toggleUntoggle();
+}
+
+function toggleUntoggle() {
+    $("#skinButton").toggleClass("active-button", skinVisible);  
+    $("#musclesButton").toggleClass("active-button", musclesVisible); 
+    $("#neuronsButton").toggleClass("active-button", neuronsVisible);   	
+}
+
+var progressValue = 50; //in pixels
+var maxLength = parseInt($('#length-bar').css('height'), 10);
+var minHeight = 50;
+
+var newZ = 0;
+
+function increaseSize() {
+    //get current height and transform it to integer
+    var currentHeight = parseInt($("#worm-length").css("height"), 10);
+    var wormLength = parseInt($('#worm-mm').text(), 10);
+    //check if current height can smaller than max length
+    if (currentHeight < maxLength) {
+        var newHeight = currentHeight + progressValue;
+        $("#worm-length").css("height", newHeight + "px");
+        $("#worm-length").css("margin-top", "-" + (newHeight / 2) + "px");
+        $('#worm-mm').text((wormLength + 1) + "  mm");
+        // there can be only 6 zoom ins
+        if(newZ < 6 ) newZ++;
+        setNewWormZ(+1);
+    }
+    else {
+        $("#worm-length").css("height", maxLength + "px");
+        $("#worm-length").css("margin-top", "-" + (maxLength / 2) + "px");
+        $('#worm-mm').text(wormLength + "  mm");
+    }
+
+
+}
+
+function decreaseSize() {
+    //get current height and transform it to integer
+    var wormLength = parseInt($('#worm-mm').text(), 10);
+    var currentHeight = parseInt($("#worm-length").css("height"), 10);
+    //check if current height can smaller than max height
+    if (currentHeight > minHeight) {
+        var newHeight = currentHeight - progressValue;
+        $("#worm-length").css("height", newHeight + "px");
+        $("#worm-length").css("margin-top", "-" + (newHeight / 2) + "px");
+        $('#worm-mm').text((wormLength - 1) + "  mm");                    
+        if(newZ > 0 ) newZ--;
+        setNewWormZ(-1);
+    }
+    else {
+        $("#worm-length").css("height", minHeight + "px");
+        $("#worm-length").css("margin-top", "-" + (minHeight / 2) + "px");
+        $('#worm-mm').text(wormLength + "  mm");
+    }
+
+
+}
+
+</script>
+<script src="/org.wormsim.frontend/resources/js/worm-zoom.js"></script>
+</body>
 </html>
