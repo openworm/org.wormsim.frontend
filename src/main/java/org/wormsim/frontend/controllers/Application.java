@@ -34,7 +34,7 @@ public class Application {
 	public ModelAndView home() throws Exception {
 		User user = UserFactory.login("mihairaulea@gmail.com", "mypassmypass");
 			
-		user.setWormName(null);
+		user.setWormName("Spcok");
 		user.setFirstName("FirstName");
 		user.save();
 		
@@ -83,6 +83,28 @@ public class Application {
 
 	@RequestMapping(value = "/ajaxSetLandingPageEmail", method = RequestMethod.POST)
 	public void ajaxSetLandingPageEmail(HttpServletRequest req,
+			HttpServletResponse res) {
+		boolean callSucceeded = true;
+		try {
+			ClientFactory.getInstance().createLandingPageAccount(
+					req.getParameter("email"));
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			callSucceeded = false;
+		}
+		try {
+			res.getWriter().print(
+					(!callSucceeded ? "Error: Email may be in use."
+							: "Success: We got your email.")// req.getParameter("email")
+					);
+			res.getWriter().flush();
+		} catch (Exception ex) {
+
+		}
+	}
+	
+	@RequestMapping(value = "/ajaxSetLandingPageEmail", method = RequestMethod.POST)
+	public void ajaxSetTutorialFinished(HttpServletRequest req,
 			HttpServletResponse res) {
 		boolean callSucceeded = true;
 		try {

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="@lang().code()">
-<head>
-<title>Wormsim Set Info</title>
+<html lang="en">
+	<head>
+		<title>Wormsim Set Info</title>
 
 <!-- Le meta -->
 <meta charset="utf-8">
@@ -34,177 +34,268 @@
 
 
 
-</head>
-<body class="wormsim-bg">
+	</head>
+	<body class="wormsim-bg">
 
-<div class="grid-container clearfix">
-<button type="button" class="btn btn-danger btn-large dropdown-toggle pull-right" style="position:absolute;z-index:9999;right:0px">
-<a class="none" href="logout">Log out</a>
-</button>
-<div class="simulation-container grid-60  grid-parent">
-<div class="wormsim-logo logo-sim-fix pull-left grid-100 logo-fix"></div>
-<div class="clear"></div>
+		<div class="grid-container clearfix">
+			<button type="button" class="btn btn-danger btn-large dropdown-toggle pull-right" style="position:absolute;z-index:9999;right:0px">
+				<a class="none" href="logout">Log out</a>
+			</button>
+			<div class="simulation-container grid-60  grid-parent">
+				<div class="wormsim-logo logo-sim-fix pull-left grid-100 logo-fix"></div>
+				<div class="clear"></div>
 
-<div class="worm-canvas " style="text-align: center">
-<div class="rotated-text">
-<span id="worm-name">$user.wormName</span> <span id="worm-mm" style="font-family:helvetica_neueregular;">1 mm</span>
-</div>
-<div class="length-bar" id="length-bar">
-
-<div class="worm-length" id="worm-length"></div>
-</div>
-
-<div class="worm-canvas-circle">
-<div class="top-buttons">
-<div class="round-button-multiplier grid-50 plus-button" >
-<div class="round-button-circle " onclick="increaseSize()" style="cursor:pointer">
-<span>+</span>
-</div>
-</div>
-<div class="round-button-multiplier grid-50 minus-button">
-<div class="round-button-circle " onclick="decreaseSize()" style="cursor:pointer">
-<span>-</span>
-</div>
-</div>
-</div>
-<div class="worm-render" id="worm-in-circle">
-</div>
+				<div class="worm-canvas " style="text-align: center">
+					<div class="rotated-text">
+						<span id="worm-name">$user.wormName</span> <span id="worm-mm" style="font-family:helvetica_neueregular;">1 mm</span>
+					</div>
 
 
-</div>
-</div>
-
-<div class="bottom-buttons">
-<div class="round-button grid-25" >
-<div id="skinButton" class="round-button-circle" onclick="skinClick()" style="cursor:pointer">
-<span>Skin</span>
-</div>
-</div>
-<div class="round-button grid-25">
-<div id="musclesButton" class="round-button-circle " onclick="musclesClick()" style="cursor:pointer">
-<span>Muscles</span>
-</div>
-</div>
-<div class="round-button grid-25">
-<div id="neuronsButton" class="round-button-circle " onclick="neuronsClick()" style="cursor:pointer">
-<span>Neurons</span>
-</div>
-</div>
-</div>
-</div>
-
-<div class="simulation-type grid-40 ">
-<div class="sim-font middle-text">
-Hello $user.firstName
-</div>
-
-<div class="sim-font middle-text">
-Explore my simulations and learn where the magic comes from!
-</div>
-<div class="buttons-container">
-<a href="/org.geppetto.frontend?sim=https://raw.githubusercontent.com/openworm/org.geppetto.samples/master/LEMS/C302/GEPPETTO.xml" class="category-button" onclick="">Simplified nervous system</a>
-<a href="/org.geppetto.frontend?sim=https://raw.githubusercontent.com/openworm/org.geppetto.samples/development/wormsim/GEPPETTO.xml" class="category-button" onclick="">Muscular system</a>
-</div>
-</div>
-</div>
-<script>
-var skinVisible = true, musclesVisible = true, neuronsVisible = true;
+					<div class="worm-canvas-circle">
+						<div class="length-bar" id="length-bar">
+							<div class="worm-length" id="worm-length"></div>
+						</div>
+						<div class="top-buttons">
+							<div class="round-button-multiplier grid-50 plus-button" >
+								<div class="round-button-circle " onclick="increaseSize()" style="cursor:pointer">
+									<span>+</span>
+								</div>
+							</div>
+							<div class="round-button-multiplier grid-50 minus-button">
+								<div class="round-button-circle " onclick="decreaseSize()" style="cursor:pointer">
+									<span>-</span>
+								</div>
+							</div>
+						</div>
+						<div class="worm-render" id="worm-in-circle">
+						</div>
 
 
-var wormColor = "${user.wormColor}";
+					</div>
+				</div>
 
-function skinClick() {
-	untoggleAll();
-    skinVisible = true;
-    toggleUntoggle();
-    loadedModelMap[CUTICLE].visible = true;
-    if(loadedModelMap[MUSCLES]) loadedModelMap[MUSCLES].visible = true;
-    if(loadedModelMap[NEURONS]) loadedModelMap[NEURONS].visible = true;
-}
+				<div class="bottom-buttons">
+					<div class="round-button grid-25" >
+						<div id="skinButton" class="round-button-circle" onclick="skinClick()" style="cursor:pointer">
+							<span>Skin</span>
+						</div>
+					</div>
+					<div class="round-button grid-25">
+						<div id="musclesButton" class="round-button-circle " onclick="musclesClick()" style="cursor:pointer">
+							<span>Muscles</span>
+						</div>
+					</div>
+					<div class="round-button grid-25">
+						<div id="neuronsButton" class="round-button-circle " onclick="neuronsClick()" style="cursor:pointer">
+							<span>Neurons</span>
+						</div>
+					</div>
+				</div>
+			</div>
 
-function musclesClick() {
-	untoggleAll();
-    musclesVisible = true;
-    toggleUntoggle();
-    loadedModelMap[CUTICLE].visible = false;  
-    loadedModelMap[MUSCLES].visible = true;  
-    loadedModelMap[NEURONS].visible = true;             
-}
+			<div class="simulation-type grid-40 ">
+				<div class="sim-font middle-text">
+					Hello $user.firstName
+				</div>
+				<div class="row middle-text">
+					<div class="col-md-1 col-sm-1">
+						<i class="fa fa-angle-left fa-4x" id="prevArrow" onclick="prevSlide()"></i>
+					</div>
+					<div class="col-md-10 col-sm-10">
+						<div class="sim-font" id="textSnippet">
+							Explore my simulations and learn where the magic comes from!
+						</div>
+					</div>
+					<div class="col-md-1 col-sm-1" onclick="nextSlide()">
+						<i class="fa fa-angle-right fa-4x"></i>
+					</div>
+				</div>
 
-function neuronsClick() {
-	untoggleAll();
-    neuronsVisible = true;
-    toggleUntoggle();
-    loadedModelMap[CUTICLE].visible = false; 
-    loadedModelMap[MUSCLES].visible = false; 
-    loadedModelMap[NEURONS].visible = true;              
-}
+				<div class="buttons-container">
+					<a href="/org.geppetto.frontend?sim=https://raw.githubusercontent.com/openworm/org.geppetto.samples/master/LEMS/C302/GEPPETTO.xml" class="category-button" onclick="">Simplified nervous system</a>
+					<a href="/org.geppetto.frontend?sim=https://raw.githubusercontent.com/openworm/org.geppetto.samples/development/wormsim/GEPPETTO.xml" class="category-button" onclick="">Muscular system</a>
+				</div>
+			</div>
+		</div>
+		<script>
+			var skinVisible = true, musclesVisible = true, neuronsVisible = true;
+			var firstLogin = true;
+			var slidesCounter = 0;
 
-function untoggleAll() {
-    skinVisible = false;
-    musclesVisible = false;
-    neuronsVisible = false;
-    toggleUntoggle();
-}
+			var tutorialList = new Array();
+			var tutorialIndex = 0;
+			tutorialList[0] = "Tutorial: my simulations and learn where the magic comes from!";
+			tutorialList[1] = "Tutorial: my simulations and learn where the magic comes from!2";
+			tutorialList[2] = "Tutorial: my simulations and learn where the magic comes from!3";
+			tutorialList[3] = "Tutorial: my simulations and learn where the magic comes from!4";
+			tutorialList[4] = "Tutorial: my simulations and learn where the magic comes from!5(LAST SLIDE)";
+			
+			var hintList = new Array();
+			var hintIndex = 0;
+			hintList[0] = "Hint: my simulations and learn where the magic comes from!";
+			hintList[1] = "Hint: my simulations and learn where the magic comes from!2";
+			hintList[2] = "Hint: my simulations and learn where the magic comes from!3";
+			hintList[3] = "Hint: my simulations and learn where the magic comes from!4";
+			hintList[4] = "Hint: my simulations and learn where the magic comes from!5";
 
-function toggleUntoggle() {
-    $("#skinButton").toggleClass("active-button", skinVisible);  
-    $("#musclesButton").toggleClass("active-button", musclesVisible); 
-    $("#neuronsButton").toggleClass("active-button", neuronsVisible);   	
-}
+			if(firstLogin === true){
+				$('.buttons-container').css('display' , 'none');
+			}
+			else {
+				$('#prevArrow').css('display' , 'none')
+			}
+		
+			function tutorialFinished() {
+				alert("tutorial finished");
+				notifyServerTutorialFinished();
+				showSimulationButtons();
+				startHints();
+			}
+		
+			function startHints() {
+				$('#prevArrow').css('display' , 'none')
+				firstLogin = false;
+				changeTextSnippet(+1);
+			}
+		
+			function notifyServerTutorialFinished() {
+				
+			}
+			
+			function changeTextSnippet(direction) {
+				if(firstLogin==true) changeTextSnippetTutorial(direction);
+				else changeTextSnippetHint(direction);
+			}
+		
+			function changeTextSnippetTutorial(direction) {
+				tutorialIndex = tutorialIndex + direction;
+				if(tutorialIndex<0) turorialIndex = 0;
+				if(tutorialIndex>tutorialList.length-1) tutorialFinished();
+				$('#textSnippet').text(tutorialList[tutorialIndex]);
+			}
+			
+			function changeTextSnippetHint(direction) {
+				hintIndex = Math.ceil((hintList.length-1)*Math.random())
+				$('#textSnippet').text(hintList[hintIndex]);
+			}
 
-var progressValue = 50; //in pixels
-var maxLength = parseInt($('#length-bar').css('height'), 10);
-var minHeight = 50;
+			function nextSlide () {
+				$('#textSnippet').addClass('animated fadeOutLeft');
+				setTimeout(function(){					
+					changeTextSnippet(+1);
+					$('#textSnippet').removeClass('animated fadeOutLeft')
+					$('#textSnippet').addClass('animated fadeInRight');
+				}, 500);
+			}
 
-var newZ = 0;
+			function prevSlide () {
+				$('#textSnippet').addClass('animated fadeOutRight');
+				setTimeout(function(){
+					changeTextSnippet(-1);
+					$('#textSnippet').removeClass('animated fadeOutRight')
+					$('#textSnippet').addClass('animated fadeInLeft');
+				}, 500);
+			}
 
-function increaseSize() {
-    //get current height and transform it to integer
-    var currentHeight = parseInt($("#worm-length").css("height"), 10);
-    var wormLength = parseInt($('#worm-mm').text(), 10);
-    //check if current height can smaller than max length
-    if (currentHeight < maxLength) {
-        var newHeight = currentHeight + progressValue;
-        $("#worm-length").css("height", newHeight + "px");
-        $("#worm-length").css("margin-top", "-" + (newHeight / 2) + "px");
-        $('#worm-mm').text((wormLength + 1) + "  mm");
-        // there can be only 6 zoom ins
-        if(newZ < 6 ) newZ++;
-        setNewWormZ(+1);
-    }
-    else {
-        $("#worm-length").css("height", maxLength + "px");
-        $("#worm-length").css("margin-top", "-" + (maxLength / 2) + "px");
-        $('#worm-mm').text(wormLength + "  mm");
-    }
+			function showSimulationButtons() {
+				$('.buttons-container').css('display' , 'block');
+				$('.buttons-container').addClass('animated fadeInUpBig')
+			}
+
+			var wormColor = "${user.wormColor}";
+
+			function skinClick() {
+				untoggleAll();
+				skinVisible = true;
+				toggleUntoggle();
+				loadedModelMap[CUTICLE].visible = true;
+				if(loadedModelMap[MUSCLES]) loadedModelMap[MUSCLES].visible = true;
+				if(loadedModelMap[NEURONS]) loadedModelMap[NEURONS].visible = true;
+			}
+
+			function musclesClick() {
+				untoggleAll();
+				musclesVisible = true;
+				toggleUntoggle();
+				loadedModelMap[CUTICLE].visible = false;
+				loadedModelMap[MUSCLES].visible = true;
+				loadedModelMap[NEURONS].visible = true;
+			}
+
+			function neuronsClick() {
+				untoggleAll();
+				neuronsVisible = true;
+				toggleUntoggle();
+				loadedModelMap[CUTICLE].visible = false;
+				loadedModelMap[MUSCLES].visible = false;
+				loadedModelMap[NEURONS].visible = true;
+			}
+
+			function untoggleAll() {
+				skinVisible = false;
+				musclesVisible = false;
+				neuronsVisible = false;
+				toggleUntoggle();
+			}
+
+			function toggleUntoggle() {
+				$("#skinButton").toggleClass("active-button", skinVisible);
+				$("#musclesButton").toggleClass("active-button", musclesVisible);
+				$("#neuronsButton").toggleClass("active-button", neuronsVisible);
+			}
+
+			var progressValue = 50; //in pixels
+			var minHeight = 50;
+
+			var newZ = 0;
+
+			function increaseSize() {
+				var maxLength = parseInt($('#length-bar').css('height'), 10);
+				//get current height and transform it to integer
+				var currentHeight = parseInt($("#worm-length").css("height"), 10);
+				console.log(currentHeight);
+				console.log(maxLength);
+				var wormLength = parseInt($('#worm-mm').text(), 10);
+				//check if current height can smaller than max length
+				if (currentHeight < maxLength) {
+					var newHeight = currentHeight + progressValue;
+					$("#worm-length").css("height", newHeight + "px");
+					$("#worm-length").css("margin-top", "-" + (newHeight / 2) + "px");
+					$('#worm-mm').text((wormLength + 1) + "  mm");
+					// there can be only 6 zoom ins
+					if(newZ < 6 ) newZ++;
+					setNewWormZ(+1);
+				}
+				else {
+					$("#worm-length").css("height", maxLength + "px");
+					$("#worm-length").css("margin-top", "-" + (maxLength / 2) + "px");
+					$('#worm-mm').text(wormLength + "  mm");
+				}
+			}
+
+			function decreaseSize() {
+				//get current height and transform it to integer
+				var wormLength = parseInt($('#worm-mm').text(), 10);
+				var currentHeight = parseInt($("#worm-length").css("height"), 10);
+				//check if current height can smaller than max height
+				if (currentHeight > minHeight) {
+					var newHeight = currentHeight - progressValue;
+					$("#worm-length").css("height", newHeight + "px");
+					$("#worm-length").css("margin-top", "-" + (newHeight / 2) + "px");
+					//$('#worm-mm').text((wormLength - 1) + "  mm");
+					if(newZ > 0 ) newZ--;
+					setNewWormZ(-1);
+				}
+				else {
+					$("#worm-length").css("height", minHeight + "px");
+					$("#worm-length").css("margin-top", "-" + (minHeight / 2) + "px");
+					//$('#worm-mm').text(wormLength + "  mm");
+				}
 
 
-}
+			}
 
-function decreaseSize() {
-    //get current height and transform it to integer
-    var wormLength = parseInt($('#worm-mm').text(), 10);
-    var currentHeight = parseInt($("#worm-length").css("height"), 10);
-    //check if current height can smaller than max height
-    if (currentHeight > minHeight) {
-        var newHeight = currentHeight - progressValue;
-        $("#worm-length").css("height", newHeight + "px");
-        $("#worm-length").css("margin-top", "-" + (newHeight / 2) + "px");
-        $('#worm-mm').text((wormLength - 1) + "  mm");                    
-        if(newZ > 0 ) newZ--;
-        setNewWormZ(-1);
-    }
-    else {
-        $("#worm-length").css("height", minHeight + "px");
-        $("#worm-length").css("margin-top", "-" + (minHeight / 2) + "px");
-        $('#worm-mm').text(wormLength + "  mm");
-    }
-
-
-}
-
-</script>
-<script src="/org.wormsim.frontend/resources/js/worm-zoom.js"></script>
-</body>
+		</script>
+		<script src="/org.wormsim.frontend/resources/js/worm-zoom.js"></script>
+	</body>
 </html>

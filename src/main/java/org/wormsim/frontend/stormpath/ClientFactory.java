@@ -49,6 +49,7 @@ public class ClientFactory {
 		account.setSurname(lastName);
 		account.setEmail(email);
 		account.setPassword(password);
+		account.getCustomData().put("firstLogin", true);
 		return APPLICATION.createAccount(account);
 	}
 
