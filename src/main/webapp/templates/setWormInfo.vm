@@ -86,7 +86,7 @@
                 <h1 style="color:white; text-align: center;vertical-align: middle;font-size: 2.5vw;">
                     <span id="worm-name-confirmed" style="font-family: 'alice_in_wonderlandregular';font-size: 4vw;with:auto">Spock</span><br/>
                     Wow, look at me, i am probably the fanciest C. elegans the world has ever seen, thank you for the nice touch!
-                    Spock and <span id="userSurnameDisplay">Mihai</span>, i like the sound of it!<br/>
+                    <span id="worm-name-confirmed-2">Spock</span> and <span id="userSurnameDisplay">Mihai</span>, i like the sound of it!<br/>
                     What do you say buddy?
                 </h1>
             </div>
@@ -113,8 +113,7 @@
                 var userSurname = "Mihai";
 
 
-                
-
+                var usernameFromServer = "${user.firstName}";
                 var currentSlide = 0;
                 var noOfSlides = 4;
 
@@ -208,6 +207,9 @@
 					}
 					if(currentSlide==3) {
 						$('#nextSlideSymbol').text('Save');
+						$('#userSurnameDisplay').text(usernameFromServer);
+						$('#worm-name-confirmed').text(userSelectedName);
+						$('#worm-name-confirmed-2').text(userSelectedName);
 					}
 					if(currentSlide!=3) {
 						$('#nextSlideSymbol').text(' > ');

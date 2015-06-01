@@ -34,12 +34,13 @@ public class Application {
 	public ModelAndView home() throws Exception {
 		User user = UserFactory.login("mihairaulea@gmail.com", "mypassmypass");
 			
-		user.setWormName("Spock");
+		user.setWormName(null);
+		user.setFirstName("FirstName");
 		user.save();
 		
 		if (user != null
 				&& (user.getWormName() == null || user.getWormName().isEmpty())) {
-			return new ModelAndView("redirect:/wormInfo");
+			return new ModelAndView("redirect:/wormInfo", getUserMap());
 		} else if (user != null) {
 			return new ModelAndView("userhome", getUserMap());
 		} else {
