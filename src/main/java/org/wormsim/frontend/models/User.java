@@ -21,6 +21,8 @@ public class User {
     private String lastName;
     private String wormName;
     private String wormColor;
+    
+    private boolean tutorialLoaded;
 
     private Account account;
 
@@ -53,7 +55,8 @@ public class User {
         account.setEmail(this.email);
         account.setGivenName(this.firstName);
         account.setSurname(this.lastName);
-
+        account.getCustomData().put("tutorialLoaded", tutorialLoaded);
+        
         if (wormName != null && !wormName.isEmpty()) {
             account.getCustomData().put("wormName", wormName);
         }
@@ -108,5 +111,13 @@ public class User {
     public String getDisplayName() {
         return firstName + " " + lastName;
     }
+    
+    public void setTutorialLoaded(boolean tutorialLoaded) {
+    	this.tutorialLoaded = tutorialLoaded;
+    }
 
+    public boolean getTutorailLoaded() {
+    	return this.tutorialLoaded;
+    }
+    
 }

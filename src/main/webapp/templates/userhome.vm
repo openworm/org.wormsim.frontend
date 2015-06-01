@@ -121,7 +121,7 @@
 			var skinVisible = true, musclesVisible = true, neuronsVisible = true;
 			var firstLogin = true;
 			var slidesCounter = 0;
-
+			var uuser = "${user.tutorialLoaded}";
 			var tutorialList = new Array();
 			var tutorialIndex = 0;
 			tutorialList[0] = "Tutorial: my simulations and learn where the magic comes from!";
@@ -257,11 +257,10 @@
 				console.log(maxLength);
 				var wormLength = parseInt($('#worm-mm').text(), 10);
 				//check if current height can smaller than max length
-				if (currentHeight < maxLength) {
+				if ((currentHeight + progressValue) < maxLength) {
 					var newHeight = currentHeight + progressValue;
 					$("#worm-length").css("height", newHeight + "px");
 					$("#worm-length").css("margin-top", "-" + (newHeight / 2) + "px");
-					$('#worm-mm').text((wormLength + 1) + "  mm");
 					// there can be only 6 zoom ins
 					if(newZ < 6 ) newZ++;
 					setNewWormZ(+1);
@@ -269,8 +268,9 @@
 				else {
 					$("#worm-length").css("height", maxLength + "px");
 					$("#worm-length").css("margin-top", "-" + (maxLength / 2) + "px");
-					$('#worm-mm').text(wormLength + "  mm");
 				}
+
+
 			}
 
 			function decreaseSize() {
@@ -278,18 +278,16 @@
 				var wormLength = parseInt($('#worm-mm').text(), 10);
 				var currentHeight = parseInt($("#worm-length").css("height"), 10);
 				//check if current height can smaller than max height
-				if (currentHeight > minHeight) {
+				if ((currentHeight - progressValue)  > minHeight) {
 					var newHeight = currentHeight - progressValue;
 					$("#worm-length").css("height", newHeight + "px");
 					$("#worm-length").css("margin-top", "-" + (newHeight / 2) + "px");
-					//$('#worm-mm').text((wormLength - 1) + "  mm");
 					if(newZ > 0 ) newZ--;
 					setNewWormZ(-1);
 				}
 				else {
 					$("#worm-length").css("height", minHeight + "px");
 					$("#worm-length").css("margin-top", "-" + (minHeight / 2) + "px");
-					//$('#worm-mm').text(wormLength + "  mm");
 				}
 
 

@@ -32,8 +32,7 @@ public class Application {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView home() throws Exception {
-		User user = UserFactory.login("mihairaulea@gmail.com", "mypassmypass");
-			
+		User user = UserFactory.login("testt@gmail.com", "parolamea12!");	
 		user.setWormName("Spcok");
 		user.setFirstName("FirstName");
 		user.save();
@@ -102,22 +101,31 @@ public class Application {
 
 		}
 	}
-	
-	@RequestMapping(value = "/ajaxSetLandingPageEmail", method = RequestMethod.POST)
+
+	@RequestMapping(value = "/ajaxSetTutorialFinished", method = RequestMethod.POST)
 	public void ajaxSetTutorialFinished(HttpServletRequest req,
 			HttpServletResponse res) {
-		boolean callSucceeded = true;
-		try {
-			ClientFactory.getInstance().createLandingPageAccount(
-					req.getParameter("email"));
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			callSucceeded = false;
-		}
+		boolean tutorialLoaded = Boolean.parseBoolean( req.getParameter("tutorialLoaded") );
+		User user = UserFactory.current();
+		user.setTutorialLoaded(tutorialLoaded);
+		user.save();
 		try {
 			res.getWriter().print(
-					(!callSucceeded ? "Error: Email may be in use."
-							: "Success: We got your email.")// req.getParameter("email")
+					"ok"					
+					);
+			res.getWriter().flush();
+		} catch (Exception ex) {
+
+		}
+	}
+	
+	@RequestMapping(value = "/ajaxGetTutorialFinished", method = RequestMethod.POST)
+	public void ajaxGetTutorialFinished(HttpServletRequest req,
+			HttpServletResponse res) {
+			UserFactory.current().getTutorailLoaded();
+		try {
+			res.getWriter().print(
+					UserFactory.current().getTutorailLoaded()					
 					);
 			res.getWriter().flush();
 		} catch (Exception ex) {
