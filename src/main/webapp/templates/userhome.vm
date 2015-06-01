@@ -159,7 +159,27 @@
 			}
 		
 			function notifyServerTutorialFinished() {
-				
+				$.ajax({
+                        type: 'POST',
+                        url: 'ajaxSetTutorialFinished',
+                        data: {'tutorialLoaded': true}
+                    }).done(function (response) {
+                        console.log("response:"+response);
+                    }).fail(function (data) {
+                        alert("fail");
+                    });
+			}
+			
+			function getTutorialState() {
+				$.ajax({
+                        type: 'POST',
+                        url: 'ajaxGetTutorialFinished',
+                        data: {}
+                    }).done(function (response) {
+                        console.log("response:"+response);
+                    }).fail(function (data) {
+                        alert("fail");
+                    });
 			}
 			
 			function changeTextSnippet(direction) {
@@ -255,14 +275,11 @@
 				var currentHeight = parseInt($("#worm-length").css("height"), 10);
 				console.log(currentHeight);
 				console.log(maxLength);
-				var wormLength = parseInt($('#worm-mm').text(), 10);
 				//check if current height can smaller than max length
 				if ((currentHeight + progressValue) < maxLength) {
 					var newHeight = currentHeight + progressValue;
 					$("#worm-length").css("height", newHeight + "px");
 					$("#worm-length").css("margin-top", "-" + (newHeight / 2) + "px");
-					// there can be only 6 zoom ins
-					if(newZ < 6 ) newZ++;
 					setNewWormZ(+1);
 				}
 				else {
@@ -275,14 +292,12 @@
 
 			function decreaseSize() {
 				//get current height and transform it to integer
-				var wormLength = parseInt($('#worm-mm').text(), 10);
 				var currentHeight = parseInt($("#worm-length").css("height"), 10);
 				//check if current height can smaller than max height
 				if ((currentHeight - progressValue)  > minHeight) {
 					var newHeight = currentHeight - progressValue;
 					$("#worm-length").css("height", newHeight + "px");
 					$("#worm-length").css("margin-top", "-" + (newHeight / 2) + "px");
-					if(newZ > 0 ) newZ--;
 					setNewWormZ(-1);
 				}
 				else {

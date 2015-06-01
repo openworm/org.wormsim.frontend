@@ -32,7 +32,7 @@ public class Application {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView home() throws Exception {
-		User user = UserFactory.login("testt@gmail.com", "parolamea12!");	
+		User user = UserFactory.login("bug121dd221@tapitoo.com", "1password12!");	
 		user.setWormName("Spcok");
 		user.setFirstName("FirstName");
 		user.save();

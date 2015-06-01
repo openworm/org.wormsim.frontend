@@ -22,7 +22,7 @@ public class User {
     private String wormName;
     private String wormColor;
     
-    private boolean tutorialLoaded;
+    private boolean tutorialLoaded = false;
 
     private Account account;
 
@@ -38,6 +38,7 @@ public class User {
         CustomData customData = account.getCustomData();
         this.wormName = (String) customData.get("wormName");
         this.wormColor = (String) customData.get("wormColor");
+        this.tutorialLoaded = (boolean) customData.get("tutorialLoaded");
     }
 
     public void save() {
@@ -55,7 +56,6 @@ public class User {
         account.setEmail(this.email);
         account.setGivenName(this.firstName);
         account.setSurname(this.lastName);
-        account.getCustomData().put("tutorialLoaded", tutorialLoaded);
         
         if (wormName != null && !wormName.isEmpty()) {
             account.getCustomData().put("wormName", wormName);
@@ -64,6 +64,9 @@ public class User {
         if(wormColor != null && !wormColor.isEmpty()) {
             account.getCustomData().put("wormColor", wormColor);
         }
+        
+        account.getCustomData().put("tutorialLoaded", tutorialLoaded);
+        System.out.println(tutorialLoaded);
 
         account.save();
     }
