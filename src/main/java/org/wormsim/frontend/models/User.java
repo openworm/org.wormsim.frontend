@@ -21,8 +21,10 @@ public class User {
     private String lastName;
     private String wormName;
     private String wormColor;    
-    private String tutorialLoaded = "false";
+    public String tutorialLoaded = "false";
 
+    public static String TUTORIAL_LOADED = "tutorialLoaded";
+    
     private Account account;
 
     public User() {
@@ -37,7 +39,7 @@ public class User {
         CustomData customData = account.getCustomData();
         this.wormName = (String) customData.get("wormName");
         this.wormColor = (String) customData.get("wormColor");
-        this.tutorialLoaded = (String) customData.get("tutorialLoaded");
+        this.tutorialLoaded = (String) customData.get(TUTORIAL_LOADED);
     }
 
     public void save() {
@@ -64,7 +66,7 @@ public class User {
             account.getCustomData().put("wormColor", wormColor);
         }
         
-        account.getCustomData().put("tutorialLoaded", tutorialLoaded);
+        account.getCustomData().put(TUTORIAL_LOADED, tutorialLoaded);
         account.save();
     }
 
@@ -112,12 +114,5 @@ public class User {
         return firstName + " " + lastName;
     }
     
-    public void setTutorialLoaded(String tutorialLoaded) {
-    	this.tutorialLoaded = tutorialLoaded;
-    }
-
-    public String getTutorailLoaded() {
-    	return this.tutorialLoaded;
-    }
     
 }

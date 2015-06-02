@@ -39,7 +39,7 @@ public class UserFactory {
             ourUser.setLastName((String)session.getAttribute("lastName"));
             ourUser.setWormName((String)session.getAttribute("wormName"));
             ourUser.setWormColor((String)session.getAttribute("wormColor"));
-            ourUser.setTutorialLoaded((String)session.getAttribute("tutorialLoaded"));
+            ourUser.tutorialLoaded = ((String)session.getAttribute(User.TUTORIAL_LOADED));
             return ourUser;
 
         } else {
@@ -57,7 +57,7 @@ public class UserFactory {
             session.setAttribute("lastName", user.getLastName());
             session.setAttribute("wormName", user.getWormName());
             session.setAttribute("wormColor", user.getWormColor());
-            session.setAttribute("tutorialLoaded", user.getTutorailLoaded());
+            session.setAttribute(User.TUTORIAL_LOADED, user.tutorialLoaded);
         }
     }
 }

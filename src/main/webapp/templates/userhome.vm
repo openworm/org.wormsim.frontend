@@ -121,9 +121,8 @@
 			var currentIncrememt = 0;
 		
 			var skinVisible = true, musclesVisible = true, neuronsVisible = true;
-			var firstLogin = true;
+			var tutorialLoaded = "false";
 			var slidesCounter = 0;
-			var uuser = "${user.tutorialLoaded}";
 			var tutorialList = new Array();
 			var tutorialIndex = 0;
 			tutorialList[0] = "Tutorial: my simulations and learn where the magic comes from!";
@@ -143,34 +142,42 @@
 			getTutorialState();
 	
 			function startHintsOrTutorial() {
-				if(firstLogin === true){
-					$('.buttons-container').css('display' , 'none');
+				if(tutorialLoaded != "true"){
+					startTutorial();
 				}
 				else {
-					$('#prevArrow').css('display' , 'none')
+					startHints();
 				}
 			}
 		
 			function tutorialFinished() {
-				alert("tutorial finished");
-				notifyServerTutorialFinished(true);
+				tutorialLoaded = "true";
 				showSimulationButtons();
 				startHints();
+				notifyServerTutorialFinished("true");
 			}
 		
 			function startHints() {
-				$('#prevArrow').css('display' , 'none')
-				firstLogin = false;
-				changeTextSnippet(+1);
+				console.log("start hints");
+				$('#prevArrow').css('display' , 'none');
+				$('.buttons-container').css('display' , 'block');
+				changeTextSnippet(0);
+			}
+			
+			function startTutorial() {
+				console.log("start tutorial");
+				$('.buttons-container').css('display' , 'none');
+				$('#prevArrow').css('display' , 'block');
+				changeTextSnippet(0);
 			}
 		
-			function notifyServerTutorialFinished(tutorialState) {
+			function notifyServerTutorialFinished(tutorialLoaded) {
 				$.ajax({
                         type: 'POST',
                         url: 'ajaxSetTutorialFinished',
-                        data: {'tutorialLoaded': tutorialState}
+                        data: {'tutorialLoaded': tutorialLoaded}
                     }).done(function (response) {
-                        console.log("response:"+response);
+                        
                     }).fail(function (data) {
                        
                     });
@@ -183,8 +190,8 @@
                         data: {}
                     }).done(function (response) {
                         console.log("response:"+response);
-                        if(!response || response==false) firstLogin = true;
-                    	else firstLogin = false;
+                        tutorialLoaded = response;
+                    	console.log(tutorialLoaded+" tutorialLoaded");
                     	startHintsOrTutorial();
                     }).fail(function (data) {
                         
@@ -192,7 +199,7 @@
 			}
 			
 			function changeTextSnippet(direction) {
-				if(firstLogin==true) changeTextSnippetTutorial(direction);
+				if(tutorialLoaded=="false") changeTextSnippetTutorial(direction);
 				else changeTextSnippetHint(direction);
 			}
 		

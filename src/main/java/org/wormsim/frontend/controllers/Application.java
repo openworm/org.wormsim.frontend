@@ -32,7 +32,15 @@ public class Application {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView home() throws Exception {
-		User user = UserFactory.login("m2yemailfortest23@yahoo.com", "password23");	
+		String email = "anothesfsremia22l@yahoo.co";
+		String pass = "parolapizdii22" ;
+		try{
+			UserFactory.create(email, pass,"Nume","Cacat");
+		}
+		catch(Exception e) {
+			
+		}
+		User user = UserFactory.login(email, pass);	
 		
 		if (user != null
 				&& (user.getWormName() == null || user.getWormName().isEmpty())) {
@@ -105,7 +113,7 @@ public class Application {
 		String tutorialLoaded = ( req.getParameter("tutorialLoaded") );
 		System.out.println(tutorialLoaded);
 		User user = UserFactory.current();
-		user.setTutorialLoaded(tutorialLoaded);
+		user.tutorialLoaded = (tutorialLoaded);
 		user.save();
 		try {
 			res.getWriter().print(
@@ -120,14 +128,13 @@ public class Application {
 	@RequestMapping(value = "/ajaxGetTutorialFinished", method = RequestMethod.POST)
 	public void ajaxGetTutorialFinished(HttpServletRequest req,
 			HttpServletResponse res) {
-			UserFactory.current().getTutorailLoaded();
 		try {
 			res.getWriter().print(
-					UserFactory.current().getTutorailLoaded()					
+					UserFactory.current().tutorialLoaded					
 					);
 			res.getWriter().flush();
 		} catch (Exception ex) {
-
+				System.out.println(ex.getMessage());
 		}
 	}
 

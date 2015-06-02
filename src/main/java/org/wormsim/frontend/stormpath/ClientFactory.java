@@ -5,6 +5,8 @@ import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.wormsim.frontend.models.User;
+
 import com.stormpath.sdk.account.Account;
 import com.stormpath.sdk.account.AccountList;
 import com.stormpath.sdk.api.ApiKeys;
@@ -49,7 +51,7 @@ public class ClientFactory {
 		account.setSurname(lastName);
 		account.setEmail(email);
 		account.setPassword(password);
-		account.getCustomData().put("tutorialLoaded", "false");
+		account.getCustomData().put(User.TUTORIAL_LOADED, "false");
 		return APPLICATION.createAccount(account);
 	}
 
