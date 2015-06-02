@@ -31,17 +31,9 @@ public class Application {
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView home() throws Exception {
-		String email = "anothesfsremia22l@yahoo.co";
-		String pass = "parolapizdii22" ;
-		try{
-			UserFactory.create(email, pass,"Nume","Cacat");
-		}
-		catch(Exception e) {
-			
-		}
-		User user = UserFactory.login(email, pass);	
-		
+	public ModelAndView home() {
+
+		User user = UserFactory.current();
 		if (user != null
 				&& (user.getWormName() == null || user.getWormName().isEmpty())) {
 			return new ModelAndView("redirect:/wormInfo", getUserMap());
@@ -50,6 +42,7 @@ public class Application {
 		} else {
 			return new ModelAndView("home", getUserMap());
 		}
+
 	}
 
 	@RequestMapping(value = "/wormInfo", method = RequestMethod.GET)
