@@ -9,7 +9,7 @@ import org.wormsim.frontend.models.User;
 public class UserFactory {
 
     public static User create(String email, String password, String firstName, String lastName) {
-        return new User(ClientFactory.getInstance().createAccount(email, password, firstName, lastName));
+    	return new User(ClientFactory.getInstance().createAccount(email, password, firstName, lastName));
     }
 
     public static User login(String email, String password) throws AccountNotFoundException {
@@ -39,7 +39,7 @@ public class UserFactory {
             ourUser.setLastName((String)session.getAttribute("lastName"));
             ourUser.setWormName((String)session.getAttribute("wormName"));
             ourUser.setWormColor((String)session.getAttribute("wormColor"));
-            ourUser.setTutorialLoaded((boolean)session.getAttribute("tutorialLoaded"));
+            ourUser.setTutorialLoaded((String)session.getAttribute("tutorialLoaded"));
             return ourUser;
 
         } else {

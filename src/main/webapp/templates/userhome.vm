@@ -118,6 +118,8 @@
 			</div>
 		</div>
 		<script>
+			var currentIncrememt = 0;
+		
 			var skinVisible = true, musclesVisible = true, neuronsVisible = true;
 			var firstLogin = true;
 			var slidesCounter = 0;
@@ -138,16 +140,20 @@
 			hintList[3] = "Hint: my simulations and learn where the magic comes from!4";
 			hintList[4] = "Hint: my simulations and learn where the magic comes from!5";
 
-			if(firstLogin === true){
-				$('.buttons-container').css('display' , 'none');
-			}
-			else {
-				$('#prevArrow').css('display' , 'none')
+			getTutorialState();
+	
+			function startHintsOrTutorial() {
+				if(firstLogin === true){
+					$('.buttons-container').css('display' , 'none');
+				}
+				else {
+					$('#prevArrow').css('display' , 'none')
+				}
 			}
 		
 			function tutorialFinished() {
 				alert("tutorial finished");
-				notifyServerTutorialFinished();
+				notifyServerTutorialFinished(true);
 				showSimulationButtons();
 				startHints();
 			}
@@ -158,15 +164,15 @@
 				changeTextSnippet(+1);
 			}
 		
-			function notifyServerTutorialFinished() {
+			function notifyServerTutorialFinished(tutorialState) {
 				$.ajax({
                         type: 'POST',
                         url: 'ajaxSetTutorialFinished',
-                        data: {'tutorialLoaded': true}
+                        data: {'tutorialLoaded': tutorialState}
                     }).done(function (response) {
                         console.log("response:"+response);
                     }).fail(function (data) {
-                        alert("fail");
+                       
                     });
 			}
 			
@@ -177,8 +183,11 @@
                         data: {}
                     }).done(function (response) {
                         console.log("response:"+response);
+                        if(!response || response==false) firstLogin = true;
+                    	else firstLogin = false;
+                    	startHintsOrTutorial();
                     }).fail(function (data) {
-                        alert("fail");
+                        
                     });
 			}
 			
@@ -264,48 +273,39 @@
 				$("#neuronsButton").toggleClass("active-button", neuronsVisible);
 			}
 
-			var progressValue = 50; //in pixels
-			var minHeight = 50;
+		
 
+			var currentIncrememt = 0
 			var newZ = 0;
 
 			function increaseSize() {
 				var maxLength = parseInt($('#length-bar').css('height'), 10);
 				//get current height and transform it to integer
 				var currentHeight = parseInt($("#worm-length").css("height"), 10);
-				console.log(currentHeight);
-				console.log(maxLength);
+
 				//check if current height can smaller than max length
-				if ((currentHeight + progressValue) < maxLength) {
+				if(currentIncrememt < $incrementSteps-1) {
+					currentIncrememt++;
 					var newHeight = currentHeight + progressValue;
 					$("#worm-length").css("height", newHeight + "px");
 					$("#worm-length").css("margin-top", "-" + (newHeight / 2) + "px");
+					// there can be only 6 zoom ins
+					if(newZ < 6 ) newZ++;
 					setNewWormZ(+1);
 				}
-				else {
-					$("#worm-length").css("height", maxLength + "px");
-					$("#worm-length").css("margin-top", "-" + (maxLength / 2) + "px");
-				}
-
-
 			}
 
 			function decreaseSize() {
-				//get current height and transform it to integer
 				var currentHeight = parseInt($("#worm-length").css("height"), 10);
 				//check if current height can smaller than max height
-				if ((currentHeight - progressValue)  > minHeight) {
+				if (currentIncrememt > 0) {
+					currentIncrememt--;
 					var newHeight = currentHeight - progressValue;
 					$("#worm-length").css("height", newHeight + "px");
 					$("#worm-length").css("margin-top", "-" + (newHeight / 2) + "px");
+					if(newZ > 0 ) newZ--;
 					setNewWormZ(-1);
 				}
-				else {
-					$("#worm-length").css("height", minHeight + "px");
-					$("#worm-length").css("margin-top", "-" + (minHeight / 2) + "px");
-				}
-
-
 			}
 
 		</script>

@@ -32,10 +32,7 @@ public class Application {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView home() throws Exception {
-		User user = UserFactory.login("bug121dd221@tapitoo.com", "1password12!");	
-		user.setWormName("Spcok");
-		user.setFirstName("FirstName");
-		user.save();
+		User user = UserFactory.login("m2yemailfortest23@yahoo.com", "password23");	
 		
 		if (user != null
 				&& (user.getWormName() == null || user.getWormName().isEmpty())) {
@@ -105,7 +102,8 @@ public class Application {
 	@RequestMapping(value = "/ajaxSetTutorialFinished", method = RequestMethod.POST)
 	public void ajaxSetTutorialFinished(HttpServletRequest req,
 			HttpServletResponse res) {
-		boolean tutorialLoaded = Boolean.parseBoolean( req.getParameter("tutorialLoaded") );
+		String tutorialLoaded = ( req.getParameter("tutorialLoaded") );
+		System.out.println(tutorialLoaded);
 		User user = UserFactory.current();
 		user.setTutorialLoaded(tutorialLoaded);
 		user.save();

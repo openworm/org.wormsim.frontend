@@ -49,7 +49,7 @@ public class ClientFactory {
 		account.setSurname(lastName);
 		account.setEmail(email);
 		account.setPassword(password);
-		account.getCustomData().put("firstLogin", true);
+		account.getCustomData().put("tutorialLoaded", "false");
 		return APPLICATION.createAccount(account);
 	}
 

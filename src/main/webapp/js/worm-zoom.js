@@ -1,5 +1,7 @@
 
-
+var progressValue,
+	minHeight,
+	$incrementSteps;
 var camera,
 	scene,
 	dae,
@@ -39,6 +41,16 @@ function start() {
 
 	var scaleHeight = $('.worm-render').width();
 	$('#length-bar').css("height", scaleHeight + "px");
+
+	//set number of increments
+	$incrementSteps = 12;
+	//set height of the progress value
+	progressValue = scaleHeight / $incrementSteps;
+	//set min height
+	minHeight = progressValue
+	//set worm length heigh in px dinamcally
+	$('.worm-length').css("height", progressValue + "px");
+	$('.worm-length').css("margin-top", "-"+(progressValue/2)+ "px");
 
 	rotate = false;
 	$container = $('#worm-in-circle');
@@ -117,7 +129,7 @@ function load(groupName, daeLocation) {
 
 		scene.add(loadedModelMap[groupName]);
 		if (groupName == CUTICLE) {
-			//setWormColor(rgb2hex(wormColor));
+			setWormColor(rgb2hex(wormColor));
 			worm = dae;
 			controls.target.set( worm.position.x, worm.position.y, worm.position.z );
 		}
@@ -141,8 +153,8 @@ function render() {
 
 function setNewWormZ(newZ) {
 	controls.noZoom = false;
-	if(newZ<0) controls.incrementZoomEnd(0.2);
-	else controls.incrementZoomEnd(-0.2);
+	if(newZ<0) controls.incrementZoomEnd(0.1);
+	else controls.incrementZoomEnd(-0.1);
 	controls.update();
 	controls.noZoom = true;
 }
