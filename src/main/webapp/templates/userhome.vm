@@ -3,36 +3,33 @@
 	<head>
 		<title>Wormsim Set Info</title>
 
-<!-- Le meta -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
-<meta name="author" content="Matt Olson">
-
-<script src="https://code.createjs.com/tweenjs-0.6.0.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="https://code.createjs.com/tweenjs-0.6.0.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="/org.wormsim.frontend/resources/js/vendor/three.js"></script>
-<script src="/org.wormsim.frontend/resources/js/vendor/ColladaLoader.js"></script>
-<script src="/org.wormsim.frontend/resources/js/vendor/Detector.js"></script>
-<script src="/org.wormsim.frontend/resources/js/vendor/TrackBallControls.js"></script>
-<script src="/org.wormsim.frontend/resources/js/vendor/FlyControls.js"></script>
-<script src="/org.wormsim.frontend/resources/js/vendor/TransformControls.js"></script>
-<script src="/org.wormsim.frontend/resources/js/vendor/OrbitControls.js"></script>
-<!--TODO: Un-hardwire the bundle name-->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link href="/org.wormsim.frontend/resources/css/unsemantic-grid-responsive.css" rel="stylesheet" type="text/css"/>
-<link rel="stylesheet" href="/org.wormsim.frontend/resources/css/main.css">
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-
-<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-<!--[if lt IE 9]>
-<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
-
-
+		<!-- Le meta -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+		
+		<script src="https://code.createjs.com/tweenjs-0.6.0.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script src="https://code.createjs.com/tweenjs-0.6.0.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script src="/org.wormsim.frontend/resources/js/vendor/three.js"></script>
+		<script src="/org.wormsim.frontend/resources/js/vendor/ColladaLoader.js"></script>
+		<script src="/org.wormsim.frontend/resources/js/vendor/Detector.js"></script>
+		<script src="/org.wormsim.frontend/resources/js/vendor/TrackBallControls.js"></script>
+		<script src="/org.wormsim.frontend/resources/js/vendor/FlyControls.js"></script>
+		<script src="/org.wormsim.frontend/resources/js/vendor/TransformControls.js"></script>
+		<script src="/org.wormsim.frontend/resources/js/vendor/OrbitControls.js"></script>
+		<!--TODO: Un-hardwire the bundle name-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link href="/org.wormsim.frontend/resources/css/unsemantic-grid-responsive.css" rel="stylesheet" type="text/css"/>
+		<link rel="stylesheet" href="/org.wormsim.frontend/resources/css/main.css">
+		
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+		
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
 
 	</head>
 	<body class="wormsim-bg">
