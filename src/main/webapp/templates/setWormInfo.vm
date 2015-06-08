@@ -33,13 +33,11 @@
         <div class="header-container">
             <div class="container">
                 <div class="header">
-
                     <div class="wormsim-logo pull-left"></div>
 
-                    <button type="button" class="btn btn-danger btn-large dropdown-toggle pull-right" >
-                    <a class="none" href="logout">Log out</a>
-                </button>
-
+                    <button id="logoutBtn" type="button" class="btn btn-danger btn-large dropdown-toggle pull-right" >
+                    	<a id="logoutElem" class="none" href="logout">Log out</a>
+               		</button>
                 </div>
             </div>
         </div>	
@@ -55,9 +53,9 @@
 
             <div id="slide-two" class="slide-two">
                 <h1 style="font-size: 3vw; text-align: center">
-                    First of all, before i start teaching you some of the biology of the worm 
+                    First of all, before I start teaching you some of the biology of the worm 
                     I would really appreciate if you could pick a nice color for my cuticle,
-                    i never liked being transparent
+                    I never liked being transparent!
                 </h1>
                 <br/><br/>
                 <div id="container-circles">
@@ -73,10 +71,10 @@
 
             <div id="slide-three" class="slide-three">
                 <h1 style="color:white; text-align: center;vertical-align: middle;font-size: 2.5vw;">
-                    Thanks, much better! Now I'm afraid i have a last favour to ask,
-                    it's not that i don't fancy being called C. elegans and all but imagine
-                    if everyone would call you Homo Sapiens, not super cool right?
-                    Go ahead and give me a name! <br/>
+                    Thanks, much better! Now I'm afraid I have a last favour to ask,
+                    it's not that I don't fancy being called C. elegans and all but imagine
+                    if everyone called you Homo Sapiens, not super cool right?
+                    Go ahead and give me a cute name! <br/>
                     
                     <span style="text-align: center;"><input style="font-size:3vw;width:100%;text-align: center;" id="worm-name-input" type='text' value="Spock" onchange="wormNameChange(this.value)" /></span>
                 </h1>
@@ -85,8 +83,8 @@
             <div id="slide-four" class="slide-four">
                 <h1 style="color:white; text-align: center;vertical-align: middle;font-size: 2.5vw;">
                     <span id="worm-name-confirmed" style="font-family: 'alice_in_wonderlandregular';font-size: 4vw;with:auto">Spock</span><br/>
-                    Wow, look at me, i am probably the fanciest C. elegans the world has ever seen, thank you for the nice touch!
-                    <span id="worm-name-confirmed-2">Spock</span> and <span id="userSurnameDisplay">Mihai</span>, i like the sound of it!<br/>
+                    WOW, look at me, I am probably the fanciest C. elegans the world has ever seen, thank you for the nice touch!
+                    <span id="worm-name-confirmed-2"></span> and <span id="userSurnameDisplay"></span>, I like the sound of it!<br/>
                     What do you say buddy?
                 </h1>
             </div>

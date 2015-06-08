@@ -35,8 +35,8 @@
 	<body class="wormsim-bg">
 
 		<div class="grid-container clearfix">
-			<button type="button" class="btn btn-danger btn-large dropdown-toggle pull-right" style="position:absolute;z-index:9999;right:0px">
-				<a class="none" href="logout">Log out</a>
+			<button id="logoutBtn" type="button" class="btn btn-danger btn-large dropdown-toggle pull-right" style="position:absolute;z-index:9999;right:0px">
+				<a id="logoutElem" href="logout">Log out</a>
 			</button>
 			<div class="simulation-container grid-60  grid-parent">
 				<div class="wormsim-logo logo-sim-fix pull-left grid-100 logo-fix"></div>
@@ -132,7 +132,7 @@
 			var hintIndex = 0;
 			hintList[0] = "Tip: C. elegans is made up of only 1000 cells... 959 to be precise!";
 			hintList[1] = "Tip: C. elegans only has 302 neurons.";
-			hintList[2] = "Tip: Many human diseases can be modeled and studies in C. elegans.";
+			hintList[2] = "Tip: Many human diseases can be modeled and studied in C. elegans.";
 			hintList[3] = "Tip: 3 Nobel prizes were assigned for work on C. elegans.";
 			hintList[4] = "Tip: There are more than 400 labs that study C. elegans all over the world!";
 			hintList[5] = "Tip: The OpenWorm project started in January 2011... from a tweet!";
@@ -141,6 +141,8 @@
 			hintList[8] = "Tip: The majority of C. elegans are hermaphrodite, but males also exist.";
 			hintList[9] = "Tip: C. elegans is the most studied and better understood organism in all of biology.";
 			hintList[10] = "Tip: C. elegans is only about 1mm long.";
+			hintList[11] = "Tip: C. elegans was the first multicellular organism to have its whole genome sequenced."
+			hintList[12] = "Tip: C. elegans is the first and only animal whose brain wiring diagram (connectome) is fully known."
 
 			getTutorialState();
 	
