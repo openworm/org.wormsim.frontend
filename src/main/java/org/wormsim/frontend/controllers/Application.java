@@ -34,8 +34,7 @@ public class Application {
 	public ModelAndView home() {
 
 		User user = UserFactory.current();
-		if (user != null
-				&& (user.getWormName() == null || user.getWormName().isEmpty())) {
+		if (user != null && (user.getWormName() == null || user.getWormName().isEmpty())) {
 			return new ModelAndView("redirect:/wormInfo", getUserMap());
 		} else if (user != null) {
 			return new ModelAndView("userhome", getUserMap());

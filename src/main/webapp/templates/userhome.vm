@@ -191,7 +191,6 @@
                     }).done(function (response) {
                         console.log("response:"+response);
                         tutorialLoaded = response;
-                    	console.log(tutorialLoaded+" tutorialLoaded");
                     	startHintsOrTutorial();
                     }).fail(function (data) {
                         

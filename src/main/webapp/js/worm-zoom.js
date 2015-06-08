@@ -153,8 +153,8 @@ function render() {
 
 function setNewWormZ(newZ) {
 	controls.noZoom = false;
-	if(newZ<0) controls.incrementZoomEnd(0.1);
-	else controls.incrementZoomEnd(-0.1);
+	if(newZ<0) controls.incrementZoomEnd(+0.2);
+	else controls.incrementZoomEnd(-0.2);
 	controls.update();
 	controls.noZoom = true;
 }

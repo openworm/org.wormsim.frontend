@@ -39,7 +39,9 @@ public class User {
         CustomData customData = account.getCustomData();
         this.wormName = (String) customData.get("wormName");
         this.wormColor = (String) customData.get("wormColor");
-        this.tutorialLoaded = (String) customData.get(TUTORIAL_LOADED);
+        
+        String tutorialCompleted = (String) customData.get(TUTORIAL_LOADED);
+        this.tutorialLoaded = (String) (tutorialCompleted != null ? tutorialCompleted : "false");
     }
 
     public void save() {
