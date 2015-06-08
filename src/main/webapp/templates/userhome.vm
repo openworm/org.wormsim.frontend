@@ -106,8 +106,8 @@
 							Explore my simulations and learn where the magic comes from!
 						</div>
 					</div>
-					<div class="col-md-1 col-sm-1" onclick="nextSlide()">
-						<i class="fa fa-angle-right fa-4x"></i>
+					<div class="col-md-1 col-sm-1">
+						<i class="fa fa-angle-right fa-4x" id="nextArrow" onclick="nextSlide()"></i>
 					</div>
 				</div>
 
@@ -133,11 +133,14 @@
 			
 			var hintList = new Array();
 			var hintIndex = 0;
-			hintList[0] = "Hint: my simulations and learn where the magic comes from!";
-			hintList[1] = "Hint: my simulations and learn where the magic comes from!2";
-			hintList[2] = "Hint: my simulations and learn where the magic comes from!3";
-			hintList[3] = "Hint: my simulations and learn where the magic comes from!4";
-			hintList[4] = "Hint: my simulations and learn where the magic comes from!5";
+			hintList[0] = "Tip: C. elegans is made up of a total of 956 cells!";
+			hintList[1] = "Tip: C. elegans only has 302 neurons.";
+			hintList[2] = "Tip: Many human disease can be modeled in C. elegans.";
+			hintList[3] = "Tip: 3 Nobel prizes were assigned for work on C. elegans.";
+			hintList[4] = "Tip: There are more than 400 labs that study in C. elegans all over the world!";
+			hintList[5] = "Tip: The OpenWorm project started in January 2011... from a tweet!";
+			hintList[6] = "Tip: The OpenWorm project has more than 100 contributors from 13 different countries!";
+			hintList[7] = "Tip: The OpenWorm project was recently featured on Through the Wormhole narrated by Morgan Freeman!";
 
 			getTutorialState();
 	
@@ -198,14 +201,32 @@
 			}
 			
 			function changeTextSnippet(direction) {
-				if(tutorialLoaded=="false") changeTextSnippetTutorial(direction);
-				else changeTextSnippetHint(direction);
+				if(tutorialLoaded=="false") {
+					changeTextSnippetTutorial(direction);
+				} else { 
+					changeTextSnippetHint(direction);
+				}
 			}
 		
 			function changeTextSnippetTutorial(direction) {
 				tutorialIndex = tutorialIndex + direction;
-				if(tutorialIndex<0) turorialIndex = 0;
-				if(tutorialIndex>tutorialList.length-1) tutorialFinished();
+				
+				// NOTE: this should never happen
+				if(tutorialIndex < 0) {
+					turorialIndex = 0;
+				}
+				
+				if(tutorialIndex > 0) {
+					$('#prevArrow').css('display', 'block');
+				}
+				else {
+					$('#prevArrow').css('display', 'none');
+				}
+				
+				if(tutorialIndex > tutorialList.length-1) {
+					tutorialFinished();
+				}
+				
 				$('#textSnippet').text(tutorialList[tutorialIndex]);
 			}
 			
