@@ -11,8 +11,10 @@ var camera,
 	bottomLight,
 	$container,
 	rotate;
+
 var clock = new THREE.Clock();
 clock.start();
+
 // model names
 var CUTICLE = "cuticle", MUSCLES = "muscles", NEURONS = "neurons";
 var modelMap = {};
@@ -29,14 +31,11 @@ var constant = 0;
 
 var shouldMoveWorm = true;
 
-
 $container = document.getElementById('worm-in-circle');
-
 
 start();
 animate();
 
-//alert("worm zoom");
 function start() {
 
 	var scaleHeight = $('.worm-render').width();
@@ -48,7 +47,7 @@ function start() {
 	progressValue = scaleHeight / $incrementSteps;
 	//set min height
 	minHeight = progressValue
-	//set worm length heigh in px dinamcally
+	//set worm length height in px dynamically
 	$('.worm-length').css("height", progressValue + "px");
 	$('.worm-length').css("margin-top", "-"+(progressValue/2)+ "px");
 
@@ -59,9 +58,6 @@ function start() {
 	});
 
 	camera = new THREE.PerspectiveCamera(45, $container.innerWidth() / $container.innerHeight(), 1, 1000);
-	//camera.position.x = 0;
-	//camera.position.y = 1;
-	//camera.position.z = 0;
 
 	scene = new THREE.Scene();
 	var ambient = new THREE.AmbientLight(0x101030);
@@ -96,12 +92,9 @@ function start() {
 	load(MUSCLES, modelMap.muscles);
 	load(NEURONS, modelMap.neurons);
 
-	// new renderer, required for streaming animation files
 	renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
 	renderer.setSize($container.innerWidth(), $container.innerHeight());
 	renderer.autoClear = true;
-
-
 }
 
 var loadedItems = 0;
@@ -118,8 +111,7 @@ function load(groupName, daeLocation) {
 	loader.load(daeLocation, function (collada) {
 		dae = collada.scene;
 		dae.name = groupName;
-		//dae.scale.set(0.7, 0.7, 0.7);
-		//dae.rotation.set(0, -0.2, 0.2);
+
 		$container.html(renderer.domElement);
 		loadedModelMap[groupName] = dae;
 
@@ -128,13 +120,19 @@ function load(groupName, daeLocation) {
 		dae.rotation.z = 1
 
 		scene.add(loadedModelMap[groupName]);
+		
 		if (groupName == CUTICLE) {
 			setWormColor(rgb2hex(wormColor));
 			worm = dae;
 			controls.target.set( worm.position.x, worm.position.y, worm.position.z );
 		}
+		
 		loadedItems++;
-		if(loadedItems==3) skinClick();
+		
+		if(loadedItems==3) {
+			skinClick();
+		}
+		
 		render();
 	}, function (progress) {
 		// TODO: show some progress if this is taking long
@@ -152,10 +150,19 @@ function render() {
 }
 
 function setNewWormZ(newZ) {
+	// enable zooming
 	controls.noZoom = false;
-	if(newZ<0) controls.incrementZoomEnd(+0.2);
-	else controls.incrementZoomEnd(-0.2);
+	
+	// set zoom increment
+	if(newZ < 0) {
+		controls.incrementZoomEnd(+0.2625);
+	} else {
+		controls.incrementZoomEnd(-0.2);
+	}
+	
 	controls.update();
+	
+	// disable zooming
 	controls.noZoom = true;
 }
 
@@ -193,20 +200,3 @@ function setWormColor(color) {
 
 	}
 }
-
-/*
- Resize canvas when the user manually resizes window
-
- window.addEventListener('resize', function () {
- var width = $container.width();
- var height = $container.height();
-
- camera.aspect = (width) / (height);
- camera.updateProjectionMatrix();
-
- renderer.setSize(width, height);
-
- render();
- }, false);
-
- */

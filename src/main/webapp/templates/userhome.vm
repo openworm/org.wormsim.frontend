@@ -302,10 +302,7 @@
 				$("#neuronsButton").toggleClass("active-button", neuronsVisible);
 			}
 
-		
-
 			var currentIncrememt = 0
-			var newZ = 0;
 
 			function increaseSize() {
 				var maxLength = parseInt($('#length-bar').css('height'), 10);
@@ -315,11 +312,11 @@
 				//check if current height can smaller than max length
 				if(currentIncrememt < $incrementSteps-1) {
 					currentIncrememt++;
+					
 					var newHeight = currentHeight + progressValue;
 					$("#worm-length").css("height", newHeight + "px");
 					$("#worm-length").css("margin-top", "-" + (newHeight / 2) + "px");
-					// there can be only 6 zoom ins
-					if(newZ < 6 ) newZ++;
+
 					setNewWormZ(+1);
 				}
 			}
@@ -329,10 +326,11 @@
 				//check if current height can smaller than max height
 				if (currentIncrememt > 0) {
 					currentIncrememt--;
+					
 					var newHeight = currentHeight - progressValue;
 					$("#worm-length").css("height", newHeight + "px");
 					$("#worm-length").css("margin-top", "-" + (newHeight / 2) + "px");
-					if(newZ > 0 ) newZ--;
+
 					setNewWormZ(-1);
 				}
 			}
