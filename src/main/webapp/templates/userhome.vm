@@ -47,7 +47,6 @@
 						<span id="worm-name">$user.wormName</span> <span id="worm-mm" style="font-family:helvetica_neueregular;">1 mm</span>
 					</div>
 
-
 					<div class="worm-canvas-circle">
 						<div class="length-bar" id="length-bar">
 							<div class="worm-length" id="worm-length"></div>
@@ -122,27 +121,27 @@
 			var slidesCounter = 0;
 			var tutorialList = new Array();
 			var tutorialIndex = 0;
-			tutorialList[0] = "Tutorial: my simulations and learn where the magic comes from!";
-			tutorialList[1] = "Tutorial: my simulations and learn where the magic comes from!2";
-			tutorialList[2] = "Tutorial: my simulations and learn where the magic comes from!3";
-			tutorialList[3] = "Tutorial: my simulations and learn where the magic comes from!4";
-			tutorialList[4] = "Tutorial: my simulations and learn where the magic comes from!5(LAST SLIDE)";
+			tutorialList[0] = "Tutorial: explore my simulations and learn where the magic comes from!1";
+			tutorialList[1] = "Tutorial: explore my simulations and learn where the magic comes from!2";
+			tutorialList[2] = "Tutorial: explore my simulations and learn where the magic comes from!3";
+			tutorialList[3] = "Tutorial: explore my simulations and learn where the magic comes from!4";
+			tutorialList[4] = "Tutorial: explore my simulations and learn where the magic comes from!5(LAST SLIDE)";
 			
 			var hintList = new Array();
 			var hintIndex = 0;
-			hintList[0] = "Tip: C. elegans is made up of only 1000 cells... 959 to be precise!";
-			hintList[1] = "Tip: C. elegans only has 302 neurons.";
-			hintList[2] = "Tip: Many human diseases can be modeled and studied in C. elegans.";
-			hintList[3] = "Tip: 3 Nobel prizes were assigned for work on C. elegans.";
-			hintList[4] = "Tip: There are more than 400 labs that study C. elegans all over the world!";
-			hintList[5] = "Tip: The OpenWorm project started in January 2011... from a tweet!";
-			hintList[6] = "Tip: The OpenWorm project has more than 100 contributors from 13 different countries!";
-			hintList[7] = "Tip: The OpenWorm project was recently featured on Through the Wormhole narrated by Morgan Freeman!";
-			hintList[8] = "Tip: The majority of C. elegans are hermaphrodite, but males also exist.";
-			hintList[9] = "Tip: C. elegans is the most studied and better understood organism in all of biology.";
-			hintList[10] = "Tip: C. elegans is only about 1mm long.";
-			hintList[11] = "Tip: C. elegans was the first multicellular organism to have its whole genome sequenced."
-			hintList[12] = "Tip: C. elegans is the first and only animal whose brain wiring diagram (connectome) is fully known."
+			hintList[0] = "Did you know: C. elegans is made up of only 1000 cells... 959 to be precise!";
+			hintList[1] = "Did you know: C. elegans only has 302 neurons.";
+			hintList[2] = "Did you know: Many human diseases can be modeled and studied in C. elegans.";
+			hintList[3] = "Did you know: 3 Nobel prizes were assigned for work on C. elegans.";
+			hintList[4] = "Did you know: There are more than 400 labs that study C. elegans all over the world!";
+			hintList[5] = "Did you know: The OpenWorm project started in January 2011... from a tweet!";
+			hintList[6] = "Did you know: The OpenWorm project has more than 100 contributors from 13 different countries!";
+			hintList[7] = "Did you know: The OpenWorm project was recently featured on Through the Wormhole narrated by Morgan Freeman!";
+			hintList[8] = "Did you know: The majority of C. elegans are hermaphrodite, but males also exist.";
+			hintList[9] = "Did you know: C. elegans is the most studied and better understood organism in all of biology.";
+			hintList[10] = "Did you know: C. elegans is only about 1mm long.";
+			hintList[11] = "Did you know: C. elegans was the first multicellular organism to have its whole genome sequenced."
+			hintList[12] = "Did you know: C. elegans is the first and only animal whose brain wiring diagram (connectome) is fully known."
 
 			getTutorialState();
 	

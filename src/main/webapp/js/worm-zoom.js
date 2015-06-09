@@ -42,7 +42,7 @@ function start() {
 	$('#length-bar').css("height", scaleHeight + "px");
 
 	//set number of increments
-	$incrementSteps = 12;
+	$incrementSteps = 10;
 	//set height of the progress value
 	progressValue = scaleHeight / $incrementSteps;
 	//set min height
