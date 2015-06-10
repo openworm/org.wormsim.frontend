@@ -1,5 +1,6 @@
 package org.wormsim.frontend.controllers;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,17 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 import org.osgi.framework.BundleContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.wormsim.frontend.models.User;
-import org.wormsim.frontend.models.WormInfo;
 import org.wormsim.frontend.stormpath.ClientFactory;
 import org.wormsim.frontend.stormpath.UserFactory;
+import org.wormsim.frontend.validators.SimpleEmailValidator;
 
 @Controller
 public class Application {
@@ -78,24 +75,37 @@ public class Application {
 	}
 
 	@RequestMapping(value = "/ajaxSetLandingPageEmail", method = RequestMethod.POST)
-	public void ajaxSetLandingPageEmail(HttpServletRequest req,
-			HttpServletResponse res) {
-		boolean callSucceeded = true;
-		try {
-			ClientFactory.getInstance().createLandingPageAccount(
-					req.getParameter("email"));
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			callSucceeded = false;
+	public void ajaxSetLandingPageEmail(HttpServletRequest req, HttpServletResponse res) {
+		
+		boolean emailValid = false;
+		String displayMsg = "Success: We got your email.";
+		
+		// get email from request
+		String email = req.getParameter("email");
+		
+		// validate
+		emailValid = SimpleEmailValidator.isValidEmailAddress(email);
+		
+		if(emailValid)
+		{
+			try 
+			{
+				ClientFactory.getInstance().createLandingPageAccount(email);
+			} 
+			catch (Exception e) 
+			{
+				displayMsg = "Error: Email may be in use.";
+			}
 		}
+		else 
+		{
+			displayMsg = "Error: Invalid email!";
+		}
+		
 		try {
-			res.getWriter().print(
-					(!callSucceeded ? "Error: Email may be in use."
-							: "Success: We got your email.")// req.getParameter("email")
-					);
-			res.getWriter().flush();
-		} catch (Exception ex) {
-
+			res.getWriter().print((displayMsg));
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 
@@ -108,9 +118,7 @@ public class Application {
 		user.tutorialLoaded = (tutorialLoaded);
 		user.save();
 		try {
-			res.getWriter().print(
-					"ok"					
-					);
+			res.getWriter().print("ok");
 			res.getWriter().flush();
 		} catch (Exception ex) {
 
@@ -118,15 +126,12 @@ public class Application {
 	}
 	
 	@RequestMapping(value = "/ajaxGetTutorialFinished", method = RequestMethod.POST)
-	public void ajaxGetTutorialFinished(HttpServletRequest req,
-			HttpServletResponse res) {
+	public void ajaxGetTutorialFinished(HttpServletRequest req, HttpServletResponse res) {
 		try {
-			res.getWriter().print(
-					UserFactory.current().tutorialLoaded					
-					);
+			res.getWriter().print(UserFactory.current().tutorialLoaded);
 			res.getWriter().flush();
 		} catch (Exception ex) {
-				System.out.println(ex.getMessage());
+			System.out.println(ex.getMessage());
 		}
 	}
 
@@ -141,5 +146,4 @@ public class Application {
 		modelMap.put("user", UserFactory.current());
 		return modelMap;
 	}
-
 }

@@ -4526,7 +4526,7 @@ THREE.WormWebGLRenderer = function ( parameters ) {
 								   modelMatrix[1], modelMatrix[5], modelMatrix[9], modelMatrix[13],
 								   modelMatrix[2], modelMatrix[6], modelMatrix[10], modelMatrix[14],
 								   modelMatrix[3], modelMatrix[7], modelMatrix[11], modelMatrix[15]);
-						for (var m = 0; m < OW_NUM_NODES; m++){
+						for (var m = 0; m < (currentMatrix.length / 16); m++){
 							var mCurrent = new THREE.Matrix4();
 							mCurrent.set(currentMatrix[m * 16 + 0], currentMatrix[m * 16 + 4], currentMatrix[m * 16 + 8], currentMatrix[m * 16 + 12],
 							   		     currentMatrix[m * 16 + 1], currentMatrix[m * 16 + 5], currentMatrix[m * 16 + 9], currentMatrix[m * 16 + 13],
