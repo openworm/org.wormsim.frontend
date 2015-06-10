@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.wormsim.frontend.models.User;
-
 import com.stormpath.sdk.account.Account;
 import com.stormpath.sdk.account.AccountList;
 import com.stormpath.sdk.api.ApiKeys;
@@ -26,7 +25,6 @@ public class ClientFactory {
 
 	static {
 		CLIENT = Clients.builder().setApiKey(ApiKeys.builder().setFileLocation(APIKEY_FILEPATH).build()).build();
-
 		ApplicationList applications = CLIENT.getApplications(Applications.where(Applications.name().eqIgnoreCase(APP_NAME)));
 
 		APPLICATION = applications.iterator().next();
@@ -44,8 +42,7 @@ public class ClientFactory {
 		return _instance;
 	}
 
-	public Account createAccount(String email, String password,
-			String firstName, String lastName) {
+	public Account createAccount(String email, String password, String firstName, String lastName) {
 		Account account = CLIENT.instantiate(Account.class);
 		account.setGivenName(firstName);
 		account.setSurname(lastName);
