@@ -82,12 +82,12 @@
                             </div>
                         </div>
                         <div class='row'> <span id = "form-info" style="color:red;font-weight: bold;" ></span>  </div>
-                        <span class="green-span" style="margin-bottom: 20px">Don't have a login? Request an invitation to have your own WormSim subscription </span>
+                        <span class="green-span" style="margin-bottom: 20px">Don't have a login? Request an invitation to purchase your own WormSim subscription and support OpenWorm.</span>
                     </div>
                     <div class="row" style="display:block;">
-                        <div class="home-font col-md-4 col-sm-4">Learn the biology of the C. elegans with your own WormSim</div>
-                        <div class="home-font col-md-4 col-sm-4">Learn the biology of the C. elegans with your own WormSim</div>
-                        <div class="home-font col-md-4 col-sm-4">Learn the biology of the C. elegans with your own WormSim</div>
+                        <div class="home-font col-md-4 col-sm-4">Learn the biology of C. elegans with your own WormSim</div>
+                        <div class="home-font col-md-4 col-sm-4">Explore dynamic visualizations of the first digital organism</div>
+                        <div class="home-font col-md-4 col-sm-4">Simulate to understand how the worm moves and how its brain works</div>
                     </div>
                 </div>
                 
