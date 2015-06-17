@@ -18,4 +18,10 @@ public class AuthService implements IAuthService {
     public String authFailureRedirect() {
         return "/org.wormsim.frontend";
     }
+
+	@Override
+	public boolean isDefault() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
