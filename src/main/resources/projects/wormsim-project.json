@@ -1,0 +1,51 @@
+{
+  id: 666,
+  name: "WormSim",
+  geppettoModel: {
+    id: 666,
+    url: "https://www.dropbox.com/s/rdh6hlhg02g7nvk/wormsim-model.xml?dl=1",
+    type: "GEPPETTO_PROJECT"
+  },
+  experiments: [ 
+  {
+  	id:1,      
+  	name: "SPH recording",
+  	status: "COMPLETED",
+  	aspectConfigurations: [
+    {
+  		id:1,
+  		aspect: {
+            id: 1,
+            entityInstancePath: "wormsim",
+            aspect: "mechanical",
+            localInstancePath: ""
+        },
+        watchedVariables:[
+	        {
+	            id: 1,
+	            entityInstancePath: "wormsim.muscle_0",
+	            aspect: "mechanical.SimulationTree",
+	            localInstancePath: "activation"
+	        }
+        ]
+  	}
+  	],
+  	simulationResults: [
+  	{
+  		id:1,
+  		aspect: {
+            id: 1,
+            entityInstancePath: "wormsim",
+            aspect: "mechanical",
+            localInstancePath: ""
+        },
+        result: {
+          id: 1,
+          url: "https://www.dropbox.com/s/itwnvs6qgt922cz/10downsampled_wormsim_recording_flat.h5?dl=1",
+          type: "RECORDING"
+        }
+  	} 
+  	]
+  }
+  ]
+}
