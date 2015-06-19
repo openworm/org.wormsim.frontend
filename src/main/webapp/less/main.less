@@ -154,10 +154,21 @@ input.user-home-name:focus {
 .wormsim-logo {
   background: url('../images/wormsim-logo.png') no-repeat;
   width: 200px;
-  height: 60px;
+  height: 67px;
   position: relative;
   bottom: 12px;
 }
+
+
+@media 
+(-webkit-min-device-pixel-ratio: 2), 
+(min-resolution: 192dpi) { 
+    .wormsim-logo {
+   		background: url('../images/wormsim-logo@2x.png') no-repeat;
+        background-size: 200px 67px;
+    }
+}
+
 
 .worm-model-container {
   position: absolute;
