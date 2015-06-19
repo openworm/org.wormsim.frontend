@@ -85,9 +85,9 @@
                         <span class="green-span" style="margin-bottom: 20px">Request an invitation.</span>
                     </div>
                     <div class="row" style="display:block;">
-                        <div class="home-font col-md-4 col-sm-4">Name and color your personal WormSim!</div>
-                        <div class="home-font col-md-4 col-sm-4">Play with <a href="http://www.openworm.org" target="_blank">OpenWorm's</a> simulated worm in your browser!</div>
-                        <div class="home-font col-md-4 col-sm-4">Explore a digital organism's muscles and brain cells!</div>
+                        <div class="home-font col-md-4 col-sm-4">Create and customize your own WormSim</div>
+                        <div class="home-font col-md-4 col-sm-4">Play with a simulated worm in your browser</div>
+                        <div class="home-font col-md-4 col-sm-4">Explore a digital organism's muscles and brain</div>
                     </div>
                 </div>
                 
