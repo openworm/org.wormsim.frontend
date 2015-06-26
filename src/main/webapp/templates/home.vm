@@ -108,7 +108,14 @@
             </div>
 
         </div>
-
+        <footer class="footer">
+          <div class="container">
+            <p>(c) 2011-2015 <a href="http://openworm.org" target="_blank">OpenWorm</a> - All rights reserved.</p>
+            <p>
+                    Code licensed under <a href="http://opensource.org/licenses/MIT" target="_blank">MIT</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a>.
+                </p>
+          </div>
+        </footer>
         <script>
             function playVideo() {
                 $('#logo-container').css('display', 'none');
@@ -121,5 +128,6 @@
 
         </script>
         #parse("templates/loginModal.vm")
+
     </body>
 </html>
