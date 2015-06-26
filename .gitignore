@@ -25,3 +25,5 @@ src/main/webapp/css/main.css
 /bin/
 
 src/main/webapp/WEB-INF/shiro.ini
+
+src/main/webapp/WEB-INF/shiro.ini
