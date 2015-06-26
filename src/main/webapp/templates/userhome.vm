@@ -140,19 +140,33 @@
 			hintList[0] = "Did you know: C. elegans is made up of only 1000 cells... 959 to be precise!";
 			hintList[1] = "Did you know: C. elegans only has 302 neurons.";
 			hintList[2] = "Did you know: Many human diseases can be modeled and studied in C. elegans.";
-			hintList[3] = "Did you know: 3 Nobel prizes were assigned for work on C. elegans.";
-			hintList[4] = "Did you know: There are more than 400 labs that study C. elegans all over the world!";
-			hintList[5] = "Did you know: The OpenWorm project started in January 2011... from a tweet!";
+			hintList[3] = "Did you know: 3 Nobel prizes were awarded for work on C. elegans.";
+			hintList[4] = "Did you know: There are more than 900 labs that study C. elegans around the world!";
+			hintList[5] = "Did you know: The OpenWorm project started in January 2011... with a tweet!";
 			hintList[6] = "Did you know: The OpenWorm project has more than 100 contributors from 13 different countries!";
 			hintList[7] = "Did you know: The OpenWorm project was recently featured on Through the Wormhole narrated by Morgan Freeman!";
 			hintList[8] = "Did you know: The majority of C. elegans are hermaphrodite, but males also exist.";
-			hintList[9] = "Did you know: C. elegans is the most studied and better understood organism in all of biology.";
-			hintList[10] = "Did you know: C. elegans is only about 1mm long.";
+			hintList[9] = "Did you know: C. elegans is probably the most studied and best understood organism in all of biology.";
+			hintList[10] = "Did you know: C. elegans is only about 1 millimeter long.";
 			hintList[11] = "Did you know: C. elegans was the first multicellular organism to have its whole genome sequenced."
 			hintList[12] = "Did you know: C. elegans is the first and only animal whose brain wiring diagram (connectome) is fully known."
 			hintList[13] = "Did you know: New buttons will appear below when new simulation of worm models are released by OpenWorm."
 			hintList[14] = "Did you know: The first scientist that tried to look inside me was the biologist Sydney Brenner."
 			hintList[15] = "Did you know: Brenner, Horvitz and Sulston won a Nobel prize in 2002 for their work on C. elegans."
+			hintList[16] = "Did you know: You can follow the recent progress of the OpenWorm project on its Twitter account."
+			hintList[17] = "Did you know: The code for the OpenWorm project consists of more than 45 repositories on GitHub!"
+			hintList[18] = "Did you know: Even though C. elegans has a thoroughly studied "brain", scientists still don't know how it crawls!"
+			hintList[19] = "Did you know: To do genetic experiments on C. elegans, you can just feed it bacteria with the new genes you want to give it!"
+			hintList[20] = "Did you know: The C. elegans has transparent skin -- all the better to see you with, my dear!"
+			hintList[21] = "Did you know: The C. elegans can be infused with fluorescent molecules from a jellyfish to make its insides glow!"
+			hintList[22] = "Did you know: The neurons of the C. elegans can be made sensitive to laser light, enabling scientists to remotely control its living brain!"
+			hintList[23] = "Did you know: Scientists at MIT have been able to watch all of C. elegans' neurons glowing with activity while still in the living, moving animal!"
+
+
+
+
+
+
 
 			getTutorialState();
 	
