@@ -20,10 +20,10 @@
 
                     <div class="form-group submit-group row">
                         <div class="col-sm-6">
-                            <button type="button" class="btn btn-lg" id="login-submit" data-loading-text="Submitting...">Log in</button>
+                            <a href="javascript:void(0);" onclick="window.location.href = '/org.wormsim.frontend/user/reset';" class="btn btn-link">Forgot Password</a>
                         </div>
                         <div class="col-sm-6">
-                            <a href="javascript:void(0);" onclick="window.location.href = '/org.wormsim.frontend/user/reset';" class="btn btn-info pull-right btn-lg">Forgot Password</a>
+                            <button type="button" class="btn btn-info pull-right btn-lg" id="login-submit" data-loading-text="Submitting...">Log in</button>
                         </div>
                     </div>
                 </form>
