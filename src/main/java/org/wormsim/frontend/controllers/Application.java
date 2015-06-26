@@ -76,32 +76,32 @@ public class Application {
 
 	@RequestMapping(value = "/ajaxSetLandingPageEmail", method = RequestMethod.POST)
 	public void ajaxSetLandingPageEmail(HttpServletRequest req, HttpServletResponse res) {
-		
+
 		boolean emailValid = false;
-		String displayMsg = "Success: We got your email.";
-		
+		String displayMsg = "Success: You are signed up!";
+
 		// get email from request
 		String email = req.getParameter("email");
-		
+
 		// validate
 		emailValid = SimpleEmailValidator.isValidEmailAddress(email);
-		
+
 		if(emailValid)
 		{
-			try 
+			try
 			{
 				ClientFactory.getInstance().createLandingPageAccount(email);
-			} 
-			catch (Exception e) 
+			}
+			catch (Exception e)
 			{
 				displayMsg = "Error: Email may be in use.";
 			}
 		}
-		else 
+		else
 		{
 			displayMsg = "Error: Invalid email!";
 		}
-		
+
 		try {
 			res.getWriter().print((displayMsg));
 		} catch (IOException e) {
@@ -124,7 +124,7 @@ public class Application {
 
 		}
 	}
-	
+
 	@RequestMapping(value = "/ajaxGetTutorialFinished", method = RequestMethod.POST)
 	public void ajaxGetTutorialFinished(HttpServletRequest req, HttpServletResponse res) {
 		try {
