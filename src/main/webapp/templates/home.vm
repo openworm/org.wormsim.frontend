@@ -18,10 +18,13 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
+        <link rel="icon" type="image/png" href="resources/images/favicon.png"/>
+
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
+
 
     </head>
     <script>
@@ -68,10 +71,10 @@
                             <div class="wormsim-font"></div>
                         </div>
 
-						<iframe id="youtube-player" style="display:none; margin-top:120px; margin-bottom: 20px" width="540" height="304" src="https://www.youtube.com/embed/_4xhuV3iXqE?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>                        
+						<iframe id="youtube-player" style="display:none; margin-top:120px; margin-bottom: 20px" width="540" height="304" src="https://www.youtube.com/embed/_4xhuV3iXqE?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
                         <div class="email-input"></div>
                         <div class='row'>
-                            <div class='col-md-6 col-md-offset-1 col-sm-8 col-xs-10'>                              
+                            <div class='col-md-6 col-md-offset-1 col-sm-8 col-xs-10'>
                                 <input type="email" class="input-wormsim" id="emailField" placeholder="your@email.com">
                             </div>
                             <div class='col-md-4 col-sm-4 hidden-xs'>
@@ -90,7 +93,7 @@
                         <div class="home-font col-md-4 col-sm-4">Explore a digital organism's muscles and brain</div>
                     </div>
                 </div>
-                
+
                #if($user)
             <button type="button" class="btn btn-danger btn-large dropdown-toggle pull-right" >
                     <a class="none" href="logout">Log out</a>
@@ -99,8 +102,8 @@
                 <div class="col-md-2 col-sm-2 green-button login-button-fix" style="float:right" data-toggle="modal"
                         data-target="#login-modal">Login</div>
             #end
-            
-                
+
+
 
             </div>
 
