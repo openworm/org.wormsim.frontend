@@ -86,6 +86,7 @@
                         </div>
                         <div class='row'> <span id = "form-info" style="color:red;font-weight: bold;" ></span>  </div>
                         <span class="green-span" style="margin-bottom: 20px">Request an invitation.</span>
+                        <a tabindex="0" class="btn btn-link" role="button" template='<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>' html="true" data-toggle="popover" data-trigger="focus" title="Why do I need to request?" data-placement="bottom" data-content="Our <a href='https://www.kickstarter.com/projects/openworm/openworm-a-digital-organism-in-your-browser'  target='_blank'>Kickstarter backers</a> have first dibs ">Why?</a>
                     </div>
                     <div class="row" style="display:block;">
                         <div class="home-font col-md-4 col-sm-4">Explore a digital organism!</div>
@@ -124,8 +125,10 @@
                 videoURL += "&autoplay=1";
                 $('#youtube-player').prop('src', videoURL);
             }
-
-
+            //Enable popover functionality
+            $(function () {
+              $('[data-toggle="popover"]').popover()
+            })
         </script>
         #parse("templates/loginModal.vm")
 
