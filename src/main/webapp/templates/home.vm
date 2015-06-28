@@ -88,6 +88,50 @@
                         <span class="green-span" style="margin-bottom: 20px">Request an invitation.</span>
                         <a tabindex="0" class="btn btn-link" role="button" template='<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>' html="true" data-toggle="popover" data-trigger="focus" title="Why do I need to request?" data-placement="bottom" data-content="Our <a href='https://www.kickstarter.com/projects/openworm/openworm-a-digital-organism-in-your-browser'  target='_blank'>Kickstarter backers</a> have first dibs ">Why?</a>
                     </div>
+                    <!-- /container -->
+                    <div class="bs-docs-social">
+                      <div id="fb-root"></div>
+                      <script>(function(d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id)) return;
+                        js = d.createElement(s); js.id = id;
+                        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+                        fjs.parentNode.insertBefore(js, fjs);
+                      }(document, 'script', 'facebook-jssdk'));
+                      </script>
+                      <script>
+                      ! function(d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (!d.getElementById(id)) {
+                          js = d.createElement(s);
+                          js.id = id;
+                          js.src = "//platform.twitter.com/widgets.js";
+                          fjs.parentNode.insertBefore(js, fjs);
+                        }
+                      }(document, "script", "twitter-wjs");
+                    </script>
+                    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+                      <div class="container">
+                        <ul class="bs-docs-social-buttons">
+                          <li>
+                            <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=openworm&repo=org.wormsim.frontend&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+                          </li>
+                          <li>
+                            <div class="fb-like" data-href="http://www.facebook.com/OpenWorm" data-send="false" data-layout="button_count" data-width="75" data-show-faces="false"></div>
+                          </li>
+                          <li class="follow-btn">
+                            <a href="https://twitter.com/openworm" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="true">Follow @openworm</a>
+                          </li>
+                          <li class="tweet-btn">
+                            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.openworm.org/" data-text="Check out WormSim by @OpenWorm: http://wormsim.org">Tweet</a>
+                          </li>
+                          <!-- Place this tag where you want the +1 button to render. -->
+                          <li>
+                            <div class="g-plusone" data-size="medium" data-href="https://plus.google.com/117948341754627144949"></div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
                     <div class="row" style="display:block;">
                         <div class="home-font col-md-4 col-sm-4">Explore a digital organism!</div>
                         <div class="home-font col-md-4 col-sm-4">Play with OpenWorm in your browser!</div>
