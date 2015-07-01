@@ -6,7 +6,9 @@
         <!-- Le meta -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
-        <meta name="author" content="Matt Olson">
+        <meta property="og:title" content="WormSim: A Digital Organism In Your Browser" />
+        <meta property="og:description" content="OpenWorm is building the first complete simulation of an entire organism and bringing it to your web browser" />
+        <meta property="og:image" content="resources/images/worm.png" />
 
         <script src="https://code.createjs.com/tweenjs-0.6.0.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
@@ -86,11 +88,30 @@
                         </div>
                         <div class='row'> <span id = "form-info" style="color:red;font-weight: bold;" ></span>  </div>
                         <span class="green-span" style="margin-bottom: 20px">Request an invitation.</span>
+                        <a tabindex="0" class="btn btn-link green-link" role="button" template='<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-title popover-custom"></h3><div class="popover-content popover-custom"></div></div>' data-html="true" data-toggle="popover" data-trigger="focus" title="Why do I need to?" data-placement="bottom" data-content="WormSim is currently open in a limited fashion exclusively to <a href='https://www.kickstarter.com/projects/openworm/openworm-a-digital-organism-in-your-browser'  target='_blank'>our Kickstarter</a> backers.  If you didn't back the Kickstarter, request an invite here and we'll do our best to get you in as soon as possible.">Why?</a>
                     </div>
+                    <!-- /container -->
+                    <center>
+                      <div class="tweet-btn">
+                        <span class="custom-tweet-button">
+                          <a href="https://twitter.com/intent/tweet?url=http://wormsim.org&amp;text=Check out WormSim by @OpenWorm:" target="_blank" alt ="Tweet">
+                            <i class="btn-icon"></i>
+                            <span class="btn-text">Tweet</span>
+                          </a>
+                          <a href="http://www.facebook.com/sharer.php?u=http://wormsim.org" target="_blank">
+                                <img src="resources/images/share.png" alt="Facebook"></a>
+                          <a href="https://plus.google.com/share?url=http://wormsim.org" target="_blank">
+                            <img src="resources/images/google.png" alt="Google"></a>
+                          <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://wormsim.org" target="_blank">
+                            <img src="resources/images/linkedin.png" alt="LinkedIn"></a>
+                        </span>
+                      </div>
+                  </center>
+
                     <div class="row" style="display:block;">
                         <div class="home-font col-md-4 col-sm-4">Explore a digital organism!</div>
                         <div class="home-font col-md-4 col-sm-4">Play with OpenWorm in your browser!</div>
-                        <div class="home-font col-md-4 col-sm-4">Create and customize your own WormSim!</div>
+                        <div class="home-font col-md-4 col-sm-4">Create &amp; customize your own WormSim!</div>
                     </div>
                 </div>
 
@@ -110,10 +131,8 @@
         </div>
         <footer class="footer">
           <div class="container">
-            <p>(c) 2011-2015 <a href="http://openworm.org" target="_blank">OpenWorm</a> - All rights reserved.</p>
-            <p>
-                    Code licensed under <a href="http://opensource.org/licenses/MIT" target="_blank">MIT</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a>.
-                </p>
+            <p>(c) 2011-2015 <a href="http://openworm.org" target="_blank">OpenWorm</a> - All rights reserved.  Code licensed under <a href="http://opensource.org/licenses/MIT" target="_blank">MIT</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a>.
+            </p>
           </div>
         </footer>
         <script>
@@ -124,8 +143,10 @@
                 videoURL += "&autoplay=1";
                 $('#youtube-player').prop('src', videoURL);
             }
-
-
+            //Enable popover functionality
+            $(function () {
+              $('[data-toggle="popover"]').popover()
+            })
         </script>
         #parse("templates/loginModal.vm")
 

@@ -83,6 +83,7 @@ body {
   padding-bottom: 40px;
   height: 100%;
   background-color: #B3B3B3;
+  margin-bottom: 60px;
 }
 
 .worminfocontainer {
@@ -290,7 +291,6 @@ p.clear {
 
 .modal .modal-content {
   background-color: #292929;
-  color: #fff;
 }
 
 .modal button.close {
@@ -381,11 +381,12 @@ p.clear {
 .header,
 .marketing,
 .footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
+  font-size: 12px;
   width: 100%;
   /* Set the fixed height of the footer here */
-  height: 80px;
+  height: 20px;
   background-color: #f5f5f5;
 }
 
@@ -403,7 +404,7 @@ p.clear {
 
 /* Custom page footer */
 .footer {
-  padding-top: 19px;
+  padding-top: 0px;
   color: #777;
   border-top: 1px solid #e5e5e5;
 }
@@ -549,7 +550,6 @@ body {
   background: url(../images/bg3.png) no-repeat center center fixed;
   background-repeat: no-repeat;
   background-attachment: scroll;
-  color: #fff;
 }
 
 .simulation-container {
@@ -788,7 +788,7 @@ HOME PAGE
 
 .home-container {
   display: block;
-  margin-bottom: 25px;
+  margin-bottom: 0px;
   text-align: center;
 }
 
@@ -796,6 +796,7 @@ HOME PAGE
   font-family: helvetica_neueregular;
   text-align: center;
   font-size: 30px;
+  color: white;
 }
 
 .green-span {
@@ -803,6 +804,14 @@ HOME PAGE
   font-weight: bold;
   text-align: center;
   font-size: 20px;
+  color: #9fb522;
+}
+
+.green-link {
+  font-family: helvetica_neueregular;
+  text-align: center;
+  font-weight: bold;
+  padding-bottom: 11px;
   color: #9fb522;
 }
 
@@ -919,6 +928,93 @@ HOME PAGE
   margin-top: 20px;
   margin-right: 20px;
 }
+
+/* Social proof buttons from GitHub & Twitter */
+.bs-docs-social {
+  padding: 5px 0;
+  text-align: center;
+  /*background-color: #f5f5f5;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #ddd;*/
+}
+
+/* Quick links on Home */
+.bs-docs-social-buttons {
+  margin-left: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+.bs-docs-social-buttons li {
+  display: inline-block;
+  padding: 5px 8px;
+  line-height: 1;
+  *display: inline;
+  *zoom: 1;
+}
+
+.custom-tweet-button,
+.custom-follow-button {
+  width: 200px;
+  margin: 1em auto 2em;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  text-align: center;
+}
+.custom-tweet-button a,
+.custom-follow-button a {
+  position: relative;
+  display: inline-block;
+  height: 22px;
+  padding: 2px;
+  border: 1px solid #ccc;
+  font-size: 11px;
+  color: #333;
+  text-decoration: none;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+  font-weight: bold;
+  background-color: #F8F8F8;
+  background-image: -webkit-gradient(linear,left top,left     bottom,from(#FFF),to(#DEDEDE));
+  background-image: -moz-linear-gradient(top,#FFF,#DEDEDE);
+  background-image: -o-linear-gradient(top,#FFF,#DEDEDE);
+  background-image: -ms-linear-gradient(top,#FFF,#DEDEDE);
+  border: #CCC solid 1px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  cursor: pointer;
+  overflow: hidden;
+}
+.custom-tweet-button a:hover,
+.custom-follow-button a:hover  {
+  border-color: #BBB;
+  background-color: #F8F8F8;
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#F8F8F8),to(#D9D9D9));
+  background-image: -moz-linear-gradient(top,#F8F8F8,#D9D9D9);
+  background-image: -o-linear-gradient(top,#F8F8F8,#D9D9D9);
+  background-image: -ms-linear-gradient(top,#F8F8F8,#D9D9D9);
+  background-image: linear-gradient(top,#F8F8F8,#D9D9D9);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.custom-tweet-button a .btn-icon,
+.custom-follow-button a .btn-icon{
+  position: absolute;
+  width: 16px;
+  height: 13px;
+  top: 50%;
+  left: 3px;
+  margin-top: -6px;
+  background: url('https://twitter.com/favicons/favicon.ico') 1px center no-repeat;
+  background-size: 13px;
+}
+.custom-tweet-button a .btn-text,
+.custom-follow-button a .btn-text{
+  display: inline-block;
+  padding: 2px 3px 0 20px;
+}
+
 
 #worm-in-circle canvas {
   border-radius: 50%;
