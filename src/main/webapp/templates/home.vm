@@ -6,7 +6,9 @@
         <!-- Le meta -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
-        <meta name="author" content="Matt Olson">
+        <meta property="og:title" content="WormSim: A Digital Organism In Your Browser" />
+        <meta property="og:description" content="OpenWorm is building the first complete simulation of an entire organism and bringing it to your web browser" />
+        <meta property="og:image" content="resources/images/worm.png" />
 
         <script src="https://code.createjs.com/tweenjs-0.6.0.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
@@ -109,7 +111,7 @@
                     <div class="row" style="display:block;">
                         <div class="home-font col-md-4 col-sm-4">Explore a digital organism!</div>
                         <div class="home-font col-md-4 col-sm-4">Play with OpenWorm in your browser!</div>
-                        <div class="home-font col-md-4 col-sm-4">Create and customize your own WormSim!</div>
+                        <div class="home-font col-md-4 col-sm-4">Create &amp; customize your own WormSim!</div>
                     </div>
                 </div>
 
