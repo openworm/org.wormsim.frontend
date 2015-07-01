@@ -86,7 +86,7 @@
                         </div>
                         <div class='row'> <span id = "form-info" style="color:red;font-weight: bold;" ></span>  </div>
                         <span class="green-span" style="margin-bottom: 20px">Request an invitation.</span>
-                        <a tabindex="0" class="btn btn-link" role="button" template='<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-title popover-custom"></h3><div class="popover-content popover-custom"></div></div>' data-html="true" data-toggle="popover" data-trigger="focus" title="Why do I need to request?" data-placement="bottom" data-content="Our <a href='https://www.kickstarter.com/projects/openworm/openworm-a-digital-organism-in-your-browser'  target='_blank'>Kickstarter backers</a> have first dibs ">Why?</a>
+                        <a tabindex="0" class="btn btn-link green-link" role="button" template='<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-title popover-custom"></h3><div class="popover-content popover-custom"></div></div>' data-html="true" data-toggle="popover" data-trigger="focus" title="Why do I need to request?" data-placement="bottom" data-content="Our <a href='https://www.kickstarter.com/projects/openworm/openworm-a-digital-organism-in-your-browser'  target='_blank'>Kickstarter backers</a> have first dibs ">Why?</a>
                     </div>
                     <!-- /container -->
                     <center>
