@@ -89,16 +89,22 @@
                         <a tabindex="0" class="btn btn-link" role="button" template='<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-title popover-custom"></h3><div class="popover-content popover-custom"></div></div>' data-html="true" data-toggle="popover" data-trigger="focus" title="Why do I need to request?" data-placement="bottom" data-content="Our <a href='https://www.kickstarter.com/projects/openworm/openworm-a-digital-organism-in-your-browser'  target='_blank'>Kickstarter backers</a> have first dibs ">Why?</a>
                     </div>
                     <!-- /container -->
-                    <div class="tweet-btn">
-                      <div class="custom-tweet-button">
-                        <a href="http://www.facebook.com/sharer.php?u=http://wormsim.org" target="_blank">
-                              <img src="resources/images/share.png" alt="Facebook"></a>
-                        <a href="https://twitter.com/intent/tweet?url=http://wormsim.org&amp;text=Check out WormSim by @OpenWorm: " target="_blank" alt ="Tweet">
-                          <i class="btn-icon"></i>
-                          <span class="btn-text">Tweet</span>
-                        </a>
+                    <center>
+                      <div class="tweet-btn">
+                        <span class="custom-tweet-button">
+                          <a href="https://twitter.com/intent/tweet?url=http://wormsim.org&amp;text=Check out WormSim by @OpenWorm:" target="_blank" alt ="Tweet">
+                            <i class="btn-icon"></i>
+                            <span class="btn-text">Tweet</span>
+                          </a>
+                          <a href="http://www.facebook.com/sharer.php?u=http://wormsim.org" target="_blank">
+                                <img src="resources/images/share.png" alt="Facebook"></a>
+                          <a href="https://plus.google.com/share?url=http://wormsim.org" target="_blank">
+                            <img src="resources/images/google.png" alt="Google"></a>
+                          <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://wormsim.org" target="_blank">
+                            <img src="resources/images/linkedin.png" alt="LinkedIn"></a>
+                        </span>
                       </div>
-                    </div>
+                  </center>
 
                     <div class="row" style="display:block;">
                         <div class="home-font col-md-4 col-sm-4">Explore a digital organism!</div>
