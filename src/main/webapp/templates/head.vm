@@ -9,13 +9,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="OpenWorm">
-    <meta property="og:title" content="WormSim: A Digital Organism In Your Browser" />
-    <meta property="og:description" content="OpenWorm is building the first complete simulation of an entire organism and bringing it to your web browser" />
-    <meta property="og:image" content="resources/images/worm.png" />
+    <meta property="og:title" content="A Digital Organism In Your Browser" />
+    <meta property="og:description" content="OpenWorm is building the first complete simulation of an entire organism and bringing it to your web browser.  You can benefit from a tremendous amount of open access research and three years of effort to build a model of the worm within the OpenWorm project.  Your browser will receive a streamed version of the latest simulation as if you were watching a movie on Netflix, but you are alsoable to interact with it, explore the simulation dynamically in 3D, and look at the activity of individual cells." />
+    <meta property="og:image" content="http://wormsim.org/resources/images/worm.png" />
+    <meta property="og:url" content="http://wormsim.org" />
 
-    <meta property="image" content="resources/images/worm.png" />
-    <meta property="title" content="WormSim: A Digital Organism In Your Browser" />
-    <meta property="description" content="OpenWorm is building the first complete simulation of an entire organism and bringing it to your web browser" />
+    <meta property="url" content="http://wormsim.org" />
+    <meta property="image" content="http://wormsim.org/resources/images/worm.png" />
+    <meta property="title" content="A Digital Organism In Your Browser" />
+    <meta property="description" content="OpenWorm is building the first complete simulation of an entire organism and bringing it to your web browser.  You can benefit from a tremendous amount of open access research and three years of effort to build a model of the worm within the OpenWorm project.  Your browser will receive a streamed version of the latest simulation as if you were watching a movie on Netflix, but you are alsoable to interact with it, explore the simulation dynamically in 3D, and look at the activity of individual cells." />
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <!--TODO: Un-hardwire the bundle name-->
