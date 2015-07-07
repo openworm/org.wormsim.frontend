@@ -11,17 +11,17 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script src="https://code.createjs.com/tweenjs-0.6.0.min.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-		<script src="/org.wormsim.frontend/resources/js/vendor/three.js"></script>
-		<script src="/org.wormsim.frontend/resources/js/vendor/ColladaLoader.js"></script>
-		<script src="/org.wormsim.frontend/resources/js/vendor/Detector.js"></script>
-		<script src="/org.wormsim.frontend/resources/js/vendor/TrackBallControls.js"></script>
-		<script src="/org.wormsim.frontend/resources/js/vendor/FlyControls.js"></script>
-		<script src="/org.wormsim.frontend/resources/js/vendor/TransformControls.js"></script>
-		<script src="/org.wormsim.frontend/resources/js/vendor/OrbitControls.js"></script>
+		<script src="/resources/js/vendor/three.js"></script>
+		<script src="/resources/js/vendor/ColladaLoader.js"></script>
+		<script src="/resources/js/vendor/Detector.js"></script>
+		<script src="/resources/js/vendor/TrackBallControls.js"></script>
+		<script src="/resources/js/vendor/FlyControls.js"></script>
+		<script src="/resources/js/vendor/TransformControls.js"></script>
+		<script src="/resources/js/vendor/OrbitControls.js"></script>
 		<!--TODO: Un-hardwire the bundle name-->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-		<link href="/org.wormsim.frontend/resources/css/unsemantic-grid-responsive.css" rel="stylesheet" type="text/css"/>
-		<link rel="stylesheet" href="/org.wormsim.frontend/resources/css/main.css">
+		<link href="/resources/css/unsemantic-grid-responsive.css" rel="stylesheet" type="text/css"/>
+		<link rel="stylesheet" href="/resources/css/main.css">
 		
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -360,6 +360,6 @@
 			}
 
 		</script>
-		<script src="/org.wormsim.frontend/resources/js/worm-zoom.js"></script>
+		<script src="/resources/js/worm-zoom.js"></script>
 	</body>
 </html>

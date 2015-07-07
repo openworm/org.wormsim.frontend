@@ -16,7 +16,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <!--TODO: Un-hardwire the bundle name-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/org.wormsim.frontend/resources/css/main.css">
+    <link rel="stylesheet" href="/resources/css/main.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
@@ -94,15 +94,15 @@
             <a id="right-arrow" onclick="prevSlide()" class='left' href="#"><div class="hov-class"> < </div></a>
             <a id="left-arrow" onclick="nextSlide()" class='right' href="#"><div class="hov-class" id="nextSlideSymbol"> > </div></a>
         </div>
-<script src="/org.wormsim.frontend/resources/js/vendor/three.js"></script>
-<script src="/org.wormsim.frontend/resources/js/vendor/ColladaLoader.js"></script>
-<script src="/org.wormsim.frontend/resources/js/vendor/Detector.js"></script>
-<script src="/org.wormsim.frontend/resources/js/vendor/TrackBallControls.js"></script>
-<script src="/org.wormsim.frontend/resources/js/vendor/FlyControls.js"></script>
-<script src="/org.wormsim.frontend/resources/js/cuticle.js"></script>
-<script src="/org.wormsim.frontend/resources/js/vendor/TransformControls.js"></script>
-<script src="/org.wormsim.frontend/resources/js/vendor/OrbitControls.js"></script>
-<script src="/org.wormsim.frontend/resources/js/vendor/tween.min.js"></script>
+<script src="/resources/js/vendor/three.js"></script>
+<script src="/resources/js/vendor/ColladaLoader.js"></script>
+<script src="/resources/js/vendor/Detector.js"></script>
+<script src="/resources/js/vendor/TrackBallControls.js"></script>
+<script src="/resources/js/vendor/FlyControls.js"></script>
+<script src="/resources/js/cuticle.js"></script>
+<script src="/resources/js/vendor/TransformControls.js"></script>
+<script src="/resources/js/vendor/OrbitControls.js"></script>
+<script src="/resources/js/vendor/tween.min.js"></script>
 
         <script>
 

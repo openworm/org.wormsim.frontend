@@ -20,8 +20,8 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
         <!--TODO: Un-hardwire the bundle name-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link href="/org.wormsim.frontend/resources/css/unsemantic-grid-responsive.css" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/org.wormsim.frontend/resources/css/main.css">
+        <link href="/resources/css/unsemantic-grid-responsive.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="/resources/css/main.css">
 
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">

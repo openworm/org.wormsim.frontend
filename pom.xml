@@ -8,7 +8,7 @@
 	<packaging>war</packaging>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<contextPath>org.wormsim.frontend</contextPath>
+		<contextPath>/</contextPath>
 		<spring.version>3.1.3.RELEASE</spring.version>
     </properties>
 	<dependencies>
@@ -298,7 +298,7 @@
                         <Bundle-Name>${project.name}</Bundle-Name>
                         <Bundle-Version>${project.version}</Bundle-Version>
                         <Bundle-ClassPath>.,{maven-dependencies},WEB-INF/classes</Bundle-ClassPath>
-                        <Web-ContextPath>org.wormsim.frontend</Web-ContextPath>
+                        <Web-ContextPath>${contextPath}</Web-ContextPath>
                         <Import-Package>
                             javax.naming,org.apache.http.conn,
                             com.stormpath.sdk.impl.tenant,
