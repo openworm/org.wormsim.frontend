@@ -52,7 +52,7 @@
                     confMessage.css('visibility', 'visible');
                     confMessage.text(response);
                     if (response.indexOf("Error") != 0)
-                        confMessage.css('color', 'green');
+                        confMessage.css('color', 'white');
                     else
                         confMessage.css('color', 'red');
                     emailField.text('');
