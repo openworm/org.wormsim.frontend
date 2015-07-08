@@ -2,7 +2,8 @@
     "name": "wormsimLogo",
     "version": "0.0.1",
     "authors": [
-        "Matt Olson <mattlolson@gmail.com>"
+        "Matt Olson <mattlolson@gmail.com>",
+        "Giovanni Idili <giovanni@metacell.us>"
     ],
     "description": "geppetto wormsim logo",
     "moduleType": [
