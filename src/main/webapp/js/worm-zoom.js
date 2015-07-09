@@ -19,9 +19,9 @@ clock.start();
 var CUTICLE = "cuticle", MUSCLES = "muscles", NEURONS = "neurons";
 var modelMap = {};
 var loadedModelMap = {};
-modelMap[CUTICLE] ="/org.wormsim.frontend/resources/files/cuticleNotBent.dae";
-modelMap[MUSCLES] = "/org.wormsim.frontend/resources/files/muscles.dae";
-modelMap[NEURONS] = "/org.wormsim.frontend/resources/files/neurons.dae";
+modelMap[CUTICLE] ="/resources/files/cuticleNotBent.dae";
+modelMap[MUSCLES] = "/resources/files/muscles.dae";
+modelMap[NEURONS] = "/resources/files/neurons.dae";
 
 var worm;
 

@@ -4,7 +4,7 @@ $(function() {
   wormInfoSubmit.click(function() {
     wormInfoSubmit.button('loading');
     $.ajax({
-      url: '/org.wormsim.frontend/wormInfo',
+      url: '/wormInfo',
       type: 'post',
       dataType: 'json',
       data: $('form#worm-info-form').serialize(),
