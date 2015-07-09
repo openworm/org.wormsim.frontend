@@ -8,11 +8,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
         <meta property="og:title" content="A Digital Organism In Your Browser" />
         <meta property="og:description" content="OpenWorm is building the first complete simulation of an entire organism and bringing it to your web browser.  You can benefit from a tremendous amount of open access research and three years of effort to build a model of the worm within the OpenWorm project.  Your browser will receive a streamed version of the latest simulation as if you were watching a movie on Netflix, but you'll also be able to interact with it, explore the simulation dynamically in 3D, and look at the activity of muscle cells." />
-        <meta property="og:image" content="http://wormsim.org/resources/images/worm.png" />
+        <meta property="og:image" content="http://wormsim.org/resources/images/wormsim-worm-logos.png" />
         <meta property="og:url" content="http://wormsim.org" />
 
         <meta property="url" content="http://wormsim.org" />
-        <meta property="image" content="http://wormsim.org/resources/images/worm.png" />
+        <meta property="image" content="http://wormsim.org/resources/images/wormsim-worm-logos.png" />
         <meta property="title" content="A Digital Organism In Your Browser" />
         <meta property="description" content="OpenWorm is building the first complete simulation of an entire organism and bringing it to your web browser.  You can benefit from a tremendous amount of open access research and three years of effort to build a model of the worm within the OpenWorm project.  Your browser will receive a streamed version of the latest simulation as if you were watching a movie on Netflix, but you'll also be able to interact with it, explore the simulation dynamically in 3D, and look at the activity of muscle cells." />
 
@@ -52,7 +52,7 @@
                     confMessage.css('visibility', 'visible');
                     confMessage.text(response);
                     if (response.indexOf("Error") != 0)
-                        confMessage.css('color', 'green');
+                        confMessage.css('color', 'white');
                     else
                         confMessage.css('color', 'red');
                     emailField.text('');
@@ -73,7 +73,7 @@
                 <div class="main-container col-md-8 col-sm-12 col-md-offset-2">
                     <div class="home-container">
                         <div class="the-worm"></div>
-                        <div id="logo-container" style="margin-bottom: 20px">
+                        <div id="logo-container">
                             <div class="openworm-logo"></div>
                             <div class="play-button" onclick="playVideo()" ></div>
                             <div class="wormsim-font"></div>
@@ -81,6 +81,25 @@
 
 						<iframe id="youtube-player" style="display:none; margin-top:120px; margin-bottom: 20px" width="540" height="304" src="https://www.youtube.com/embed/_4xhuV3iXqE?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
                         <div class="email-input"></div>
+
+                        <!-- /container -->
+                        <center>
+                          <div class="social">
+                            <span class="custom-tweet-button">
+                              <a href="https://twitter.com/intent/tweet?text=Check out WormSim by @OpenWorm: http://wormsim.org" target="_blank" alt ="Tweet">
+                                <i class="btn-icon"></i>
+                                <span class="btn-text">Tweet</span>
+                              </a>
+                              <a href="http://www.facebook.com/sharer.php?u=http://wormsim.org" target="_blank">
+                                    <img src="resources/images/share.png" alt="Facebook"></a>
+                              <a href="https://plus.google.com/share?url=http://wormsim.org" target="_blank">
+                                <img src="resources/images/google.png" alt="Google"></a>
+                              <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://wormsim.org" target="_blank">
+                                <img src="resources/images/linkedin.png" alt="LinkedIn"></a>
+                            </span>
+                          </div>
+                      </center>
+
                         <div class='row'>
                             <div class='col-md-6 col-md-offset-1 col-sm-8 col-xs-10'>
                                 <input type="email" class="input-wormsim" id="emailField" placeholder="your@email.com">
@@ -96,23 +115,7 @@
                         <span class="green-span" style="margin-bottom: 20px">Request an invitation.</span>
                         <a tabindex="0" class="btn btn-link green-link" role="button" template='<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-title popover-custom"></h3><div class="popover-content popover-custom"></div></div>' data-html="true" data-toggle="popover" data-trigger="focus" title="Why do I need to?" data-placement="bottom" data-content="WormSim is currently open in a limited fashion exclusively to <a href='https://www.kickstarter.com/projects/openworm/openworm-a-digital-organism-in-your-browser'  target='_blank'>our Kickstarter</a> backers.  If you didn't back the Kickstarter, request an invite here and we'll do our best to get you in as soon as possible.">Why?</a>
                     </div>
-                    <!-- /container -->
-                    <center>
-                      <div class="tweet-btn">
-                        <span class="custom-tweet-button">
-                          <a href="https://twitter.com/intent/tweet?text=Check out WormSim by @OpenWorm: http://wormsim.org" target="_blank" alt ="Tweet">
-                            <i class="btn-icon"></i>
-                            <span class="btn-text">Tweet</span>
-                          </a>
-                          <a href="http://www.facebook.com/sharer.php?u=http://wormsim.org" target="_blank">
-                                <img src="resources/images/share.png" alt="Facebook"></a>
-                          <a href="https://plus.google.com/share?url=http://wormsim.org" target="_blank">
-                            <img src="resources/images/google.png" alt="Google"></a>
-                          <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://wormsim.org" target="_blank">
-                            <img src="resources/images/linkedin.png" alt="LinkedIn"></a>
-                        </span>
-                      </div>
-                  </center>
+
 
                     <div class="row" style="display:block;">
                         <div class="home-font col-md-4 col-sm-4">Explore a digital organism!</div>
