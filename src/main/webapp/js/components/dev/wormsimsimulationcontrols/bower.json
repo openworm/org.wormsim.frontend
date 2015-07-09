@@ -1,12 +1,12 @@
 {
   "name": "simulationcontrols",
   "version": "0.0.1",
-  "author": {
-    "name":"Matt Olson",
-    "email":"matt@metacell.us"
-  }
+  "authors": [
+        "Matt Olson <matt@metacell.us>",
+        "Giovanni Idili <giovanni@metacell.us>"
+    ],
   ,
-  "description": "Simulation controls component (load, start, stop, pause, home buttons)",
+  "description": "WormSim Simulation controls component (play, stop, pause)",
   "moduleType": [
     "amd"
   ],

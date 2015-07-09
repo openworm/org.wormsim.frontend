@@ -6,17 +6,17 @@ define(function (require) {
     return React.createClass({
         mixins: [require('mixins/TutorialMixin'), require('mixins/Button')],
 
-        popoverTitle: 'Start Simulation',
+        popoverTitle: 'Play Experiment',
 
         popoverContent: "Once you have loaded a simulation, it's time to see it in action by pressing Start. Click it now to see the simulation in action",
 
         onClick: function() {
-            GEPPETTO.Console.executeCommand("Simulation.start()");
+            GEPPETTO.Console.executeCommand("Project.getActiveExperiment().play({step:1});");
         },
 
         componentDidMount: function() {
             GEPPETTO.on('start:tutorial', (function() {               
-                GEPPETTO.once('simulation:modelloaded', (function(){
+                GEPPETTO.once('experiment:loaded', (function(){
                     if(GEPPETTO.tutorialEnabled) {
                         this.showPopover;
                     }
@@ -26,9 +26,9 @@ define(function (require) {
 
         getDefaultProps: function() {
             return {
-                label: 'Start',
+                label: 'Play',
                 className: 'pull-right',
-                icon: 'icon-play',
+                icon: 'fa fa-play',
                 onClick: this.onClick
             };
         }
