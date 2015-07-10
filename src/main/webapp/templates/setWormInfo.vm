@@ -36,7 +36,7 @@
                     <div class="wormsim-logo pull-left"></div>
 
                     <button id="logoutBtn" type="button" class="btn btn-danger btn-large dropdown-toggle pull-right" >
-                    	<a id="logoutElem" class="none" href="logout">Log out</a>
+                    	<a id="logoutElem" class="none" href="/logout">Log out</a>
                		</button>
                 </div>
             </div>

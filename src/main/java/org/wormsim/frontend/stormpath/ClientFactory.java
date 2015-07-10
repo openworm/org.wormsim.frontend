@@ -5,7 +5,9 @@ import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.wormsim.frontend.models.User;
+
 import com.stormpath.sdk.account.Account;
 import com.stormpath.sdk.account.AccountList;
 import com.stormpath.sdk.api.ApiKeys;
@@ -17,6 +19,9 @@ import com.stormpath.sdk.client.Clients;
 import com.stormpath.sdk.resource.ResourceException;
 
 public class ClientFactory {
+	
+	@Autowired
+	public UserFactory userFactory;
 
 	private static final String APP_NAME = "Wormsim";
 	private static final String APIKEY_FILEPATH = System.getProperty("user.home") + "/.stormpath/apiKey.properties";
@@ -100,7 +105,7 @@ public class ClientFactory {
 	public void resetPassword(String token, String newPassword) {
 		try {
 			Account account = APPLICATION.resetPassword(token, newPassword);
-			UserFactory.login(account.getEmail(), newPassword);
+			userFactory.login(account.getEmail(), newPassword);
 		} catch (AccountNotFoundException e) {
 			// ignore
 		}

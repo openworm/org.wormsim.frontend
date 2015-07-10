@@ -126,7 +126,7 @@
 
                #if($user)
             <button type="button" class="btn btn-danger btn-large dropdown-toggle pull-right" >
-                    <a class="none" href="logout">Log out</a>
+                    <a class="none" href="/logout">Log out</a>
                 </button>
             #else
                 <div class="col-md-2 col-sm-2 green-button login-button-fix" style="float:right" data-toggle="modal"

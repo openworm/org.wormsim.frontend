@@ -4,10 +4,11 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.osgi.framework.BundleContext;
+import org.geppetto.core.auth.IAuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,63 +20,89 @@ import org.wormsim.frontend.stormpath.UserFactory;
 import org.wormsim.frontend.validators.SimpleEmailValidator;
 
 @Controller
-public class Application {
+public class Application
+{
 
 	@Autowired
-	BundleContext bundleContext;
+	IAuthService authService;
 
-	public Application() {
-	}
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView home() {
-
-		User user = UserFactory.current();
-		if (user != null && (user.getWormName() == null || user.getWormName().isEmpty())) {
-			return new ModelAndView("redirect:/wormInfo", getUserMap());
-		} else if (user != null) {
-			return new ModelAndView("userhome", getUserMap());
-		} else {
-			return new ModelAndView("home", getUserMap());
+	public ModelAndView home(HttpServletRequest response, HttpServletRequest req)
+	{
+		User user = (User) authService.getUser();
+		if(user != null)
+		{
+			boolean auth = false;
+			for(Cookie c : req.getCookies())
+			{
+				if(c.getName().equals(authService.getSessionId()))
+				{
+					auth = authService.isAuthenticated(c.getValue()) && c.getValue().equals(user.getName());
+					break;
+				}
+			}
+			if(auth)
+			{
+				if(user.getWormName() == null || user.getWormName().isEmpty())
+				{
+					return new ModelAndView("redirect:/wormInfo", getUserMap());
+				}
+				else
+				{
+					return new ModelAndView("userhome", getUserMap());
+				}
+			}
 		}
 
+		return new ModelAndView("home", getUserMap());
 	}
 
 	@RequestMapping(value = "/wormInfo", method = RequestMethod.GET)
-	public ModelAndView setWormInfo() {
+	public ModelAndView setWormInfo()
+	{
 		return new ModelAndView("setWormInfo", getUserMap());
 	}
 
 	@RequestMapping(value = "/setWormInfo", method = RequestMethod.POST)
-	public void ajaxSetWormInfo(HttpServletRequest req, HttpServletResponse res) {
+	public void ajaxSetWormInfo(HttpServletRequest req, HttpServletResponse res)
+	{
 		boolean callSucceeded = true;
-		try {
+		try
+		{
 			User currentUser = UserFactory.current();
 
-			String name = req.getParameter("name"), color = req
-					.getParameter("color");
-			if (name != null && !name.isEmpty()) {
+			String name = req.getParameter("name"), color = req.getParameter("color");
+			if(name != null && !name.isEmpty())
+			{
 				currentUser.setWormName(name);
 			}
-			if (color != null && !color.isEmpty()) {
+			if(color != null && !color.isEmpty())
+			{
 				currentUser.setWormColor(color);
 			}
 
 			currentUser.save();
 			UserFactory.setSessionUser(currentUser);
-		} catch (Exception e) {
+		}
+		catch(Exception e)
+		{
 			callSucceeded = false;
 		}
-		try {
+		try
+		{
 			res.getWriter().print(!callSucceeded ? "success" : "fail");
 			res.getWriter().flush();
-		} catch (Exception ex) {
+		}
+		catch(Exception ex)
+		{
 
 		}
 	}
 
 	@RequestMapping(value = "/ajaxSetLandingPageEmail", method = RequestMethod.POST)
-	public void ajaxSetLandingPageEmail(HttpServletRequest req, HttpServletResponse res) {
+	public void ajaxSetLandingPageEmail(HttpServletRequest req, HttpServletResponse res)
+	{
 
 		boolean emailValid = false;
 		String displayMsg = "Success: You are signed up!";
@@ -92,7 +119,7 @@ public class Application {
 			{
 				ClientFactory.getInstance().createLandingPageAccount(email);
 			}
-			catch (Exception e)
+			catch(Exception e)
 			{
 				displayMsg = "Error: Email may be in use.";
 			}
@@ -102,48 +129,54 @@ public class Application {
 			displayMsg = "Error: Invalid email!";
 		}
 
-		try {
+		try
+		{
 			res.getWriter().print((displayMsg));
-		} catch (IOException e) {
+		}
+		catch(IOException e)
+		{
 			e.printStackTrace();
 		}
 	}
 
 	@RequestMapping(value = "/ajaxSetTutorialFinished", method = RequestMethod.POST)
-	public void ajaxSetTutorialFinished(HttpServletRequest req,
-			HttpServletResponse res) {
-		String tutorialLoaded = ( req.getParameter("tutorialLoaded") );
+	public void ajaxSetTutorialFinished(HttpServletRequest req, HttpServletResponse res)
+	{
+		String tutorialLoaded = (req.getParameter("tutorialLoaded"));
 		System.out.println(tutorialLoaded);
 		User user = UserFactory.current();
 		user.tutorialLoaded = (tutorialLoaded);
 		user.save();
-		try {
+		try
+		{
 			res.getWriter().print("ok");
 			res.getWriter().flush();
-		} catch (Exception ex) {
+		}
+		catch(Exception ex)
+		{
 
 		}
 	}
 
 	@RequestMapping(value = "/ajaxGetTutorialFinished", method = RequestMethod.POST)
-	public void ajaxGetTutorialFinished(HttpServletRequest req, HttpServletResponse res) {
-		try {
+	public void ajaxGetTutorialFinished(HttpServletRequest req, HttpServletResponse res)
+	{
+		try
+		{
 			res.getWriter().print(UserFactory.current().tutorialLoaded);
 			res.getWriter().flush();
-		} catch (Exception ex) {
+		}
+		catch(Exception ex)
+		{
 			System.out.println(ex.getMessage());
 		}
 	}
 
-	@RequestMapping(value = "/simulator", method = RequestMethod.GET)
-	public void simulator(HttpServletResponse response) {
-		response.setStatus(302);
-		response.setHeader("Location", "/org.geppetto.frontend");
-	}
-
-	private Map<String, User> getUserMap() {
+	private Map<String, User> getUserMap()
+	{
 		Map<String, User> modelMap = new HashMap<>();
-		modelMap.put("user", UserFactory.current());
+		modelMap.put("user", (User) authService.getUser());
 		return modelMap;
 	}
+
 }

@@ -1,27 +1,54 @@
 package org.wormsim.frontend.service;
 
 import org.geppetto.core.auth.IAuthService;
+import org.geppetto.core.data.model.IUser;
 import org.springframework.stereotype.Service;
-import org.wormsim.frontend.stormpath.UserFactory;
 
 @Service
 public class AuthService implements IAuthService {
 
-    public AuthService() {}
+    public static final String NOBODY = "_____";
 
-    @Override
-    public Boolean isAuthenticated() {
-        return UserFactory.current() != null;
-    }
+	public AuthService() {}
+      
+    private IUser user=null;
+    
+    private static String cn="WSIDUS";
 
     @Override
     public String authFailureRedirect() {
-        return "/../org.wormsim.frontend";
+        return "http://wormsim.org";
     }
 
 	@Override
 	public boolean isDefault() {
-		// TODO Auto-generated method stub
 		return false;
+	}
+	
+	/**
+	 * @param user
+	 */
+	@Override
+	public void setUser(IUser user)
+	{
+		this.user=user;
+	}
+
+	@Override
+	public IUser getUser() {
+		return this.user;
+	}
+
+	@Override
+	public Boolean isAuthenticated(String sessionValue)
+	{
+		return !sessionValue.isEmpty() && !sessionValue.equals(NOBODY);
+	}
+	
+
+	@Override
+	public String getSessionId()
+	{
+		return cn;
 	}
 }

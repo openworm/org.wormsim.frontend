@@ -5,7 +5,7 @@
             <div class="wormsim-logo pull-left"></div>
 
             #if($user)
-            <button type="button" class="btn btn-danger btn-large dropdown-toggle pull-right" href="logout">
+            <button type="button" class="btn btn-danger btn-large dropdown-toggle pull-right" href="/logout">
                     Log out
                 </button>
             #else

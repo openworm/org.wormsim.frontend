@@ -35,7 +35,7 @@
     </bean>
 
     <!-- Exports the service implementation to other bundles by its service interface -->
-    <osgi:service id="IAuthService" ref="authService" interface="org.geppetto.core.auth.IAuthService"/>
+    <osgi:service id="AuthService" ref="authService" interface="org.geppetto.core.auth.IAuthService"/>
     <bean id="authService" scope="session" class="org.wormsim.frontend.service.AuthService">
         <aop:scoped-proxy proxy-target-class="false"/>
     </bean>
