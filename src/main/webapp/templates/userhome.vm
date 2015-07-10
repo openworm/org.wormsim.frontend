@@ -108,7 +108,7 @@
 				</div>
 
 				<div class="buttons-container">
-					<a href="/org.geppetto.frontend?sim=https://raw.githubusercontent.com/openworm/org.geppetto.samples/master/LEMS/C302/GEPPETTO.xml" class="category-button" onclick="">Simplified nervous system</a>
+					<a href="/org.geppetto.frontend?load_project_from_id=6" class="category-button" onclick="">Simplified nervous system</a>
 					<a href="/org.geppetto.frontend?sim=https://raw.githubusercontent.com/openworm/org.geppetto.samples/development/wormsim/GEPPETTO.xml" class="category-button" onclick="">Muscular system</a>
 				</div>
 			</div>
