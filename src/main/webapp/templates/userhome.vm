@@ -109,7 +109,7 @@
 
 				<div class="buttons-container">
 					<a href="/org.geppetto.frontend?load_project_from_id=6" class="category-button" onclick="">Simplified nervous system</a>
-					<a href="/org.geppetto.frontend?sim=https://raw.githubusercontent.com/openworm/org.geppetto.samples/development/wormsim/GEPPETTO.xml" class="category-button" onclick="">Muscular system</a>
+					<a href="/org.geppetto.frontend?load_project_from_url=SERVER_ROOT/appdata/wormsim/wormsim-project.json" class="category-button" onclick="">Muscular system</a>
 				</div>
 			</div>
 		</div>
@@ -155,7 +155,7 @@
 			hintList[15] = "Did you know: Brenner, Horvitz and Sulston won a Nobel prize in 2002 for their work on C. elegans."
 			hintList[16] = "Did you know: You can follow the recent progress of the OpenWorm project on its Twitter account."
 			hintList[17] = "Did you know: The code for the OpenWorm project consists of more than 45 repositories on GitHub!"
-			hintList[18] = 'Did you know: Even though C. elegans has a thoroughly studied "brain", scientists still don't know how it crawls!'
+			hintList[18] = "Did you know: Even though C. elegans has a thoroughly studied brain, scientists still don't know how it crawls!"
 			hintList[19] = "Did you know: To do genetic experiments on C. elegans, you can just feed it bacteria with the new genes you want to give it!"
 			hintList[20] = "Did you know: The C. elegans has transparent skin -- all the better to see you with, my dear!"
 			hintList[21] = "Did you know: The C. elegans can be infused with fluorescent molecules from a jellyfish to make its insides glow!"
