@@ -6496,6 +6496,7 @@ GEPPETTO.getVARS().customRendererClass = customRendererClass;
 console.log('customRendererClass set');
 
 GEPPETTO.getVARS().canvasCreated = false;
+GEPPETTO.getVARS().listenersCreated = false;
 var webGLStarted = GEPPETTO.init(GEPPETTO.FE.createContainer());
 GEPPETTO.FE.update(webGLStarted);
 
