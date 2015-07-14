@@ -115,7 +115,7 @@
 			</div>
 		</div>
 		
-		<!-- TODO: refactor our these scripts from down here -->
+		<!-- TODO: refactor out these scripts from down here and move into head -->
 		<script>
 		// declare vars here so they are visible everywhere
 		var wormColor = "${user.wormColor}";

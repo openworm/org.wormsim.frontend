@@ -67,8 +67,8 @@
         });
     </script>
 
-    <body class="wormsim-bg">
-        <div class="container-fluid">
+    <body>
+        <div class="container-fluid wormsim-bg">
             <div class="row">
             	#if($user)
             	<button type="button" class="btn btn-danger btn-large dropdown-toggle pull-right" >
@@ -79,7 +79,7 @@
             	#end
                 <div class="main-container col-md-8 col-sm-12 col-md-offset-2">
                     <div class="home-container">
-                        <div class="the-worm"></div>
+                    	<div class="the-worm"></div>
                         <div id="logo-container">
                             <div class="openworm-logo"></div>
                             <div class="play-button" onclick="playVideo()" ></div>
@@ -124,7 +124,7 @@
                     </div>
 
 
-                    <div class="row" style="display:block;">
+                    <div class="row" style="display:block; margin-top: 30px;">
                         <div class="home-font col-md-4 col-sm-4">Explore a digital organism!</div>
                         <div class="home-font col-md-4 col-sm-4">Play with OpenWorm in your browser!</div>
                         <div class="home-font col-md-4 col-sm-4">Create &amp; customize your own WormSim!</div>
