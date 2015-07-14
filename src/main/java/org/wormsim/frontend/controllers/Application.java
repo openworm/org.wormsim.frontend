@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.wormsim.frontend.models.User;
 import org.wormsim.frontend.stormpath.ClientFactory;
-import org.wormsim.frontend.stormpath.UserFactory;
+import org.wormsim.frontend.stormpath.UserManager;
 import org.wormsim.frontend.validators.SimpleEmailValidator;
 
 @Controller
@@ -70,7 +70,7 @@ public class Application
 		boolean callSucceeded = true;
 		try
 		{
-			User currentUser = UserFactory.current();
+			User currentUser = (User) authService.getUser();
 
 			String name = req.getParameter("name"), color = req.getParameter("color");
 			if(name != null && !name.isEmpty())
@@ -83,7 +83,6 @@ public class Application
 			}
 
 			currentUser.save();
-			UserFactory.setSessionUser(currentUser);
 		}
 		catch(Exception e)
 		{
@@ -143,8 +142,7 @@ public class Application
 	public void ajaxSetTutorialFinished(HttpServletRequest req, HttpServletResponse res)
 	{
 		String tutorialLoaded = (req.getParameter("tutorialLoaded"));
-		System.out.println(tutorialLoaded);
-		User user = UserFactory.current();
+		User user = (User) authService.getUser();
 		user.tutorialLoaded = (tutorialLoaded);
 		user.save();
 		try
@@ -163,7 +161,8 @@ public class Application
 	{
 		try
 		{
-			res.getWriter().print(UserFactory.current().tutorialLoaded);
+			User user = (User) authService.getUser();
+			res.getWriter().print(user.tutorialLoaded);
 			res.getWriter().flush();
 		}
 		catch(Exception ex)

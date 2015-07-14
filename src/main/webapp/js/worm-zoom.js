@@ -1,20 +1,3 @@
-
-var progressValue,
-	minHeight,
-	$incrementSteps;
-var camera,
-	scene,
-	dae,
-	renderer,
-	controls,
-	topLight,
-	bottomLight,
-	$container,
-	rotate;
-
-var clock = new THREE.Clock();
-clock.start();
-
 // model names
 var CUTICLE = "cuticle", MUSCLES = "muscles", NEURONS = "neurons";
 var modelMap = {};
@@ -97,8 +80,6 @@ function start() {
 	renderer.autoClear = true;
 }
 
-var loadedItems = 0;
-
 function load(groupName, daeLocation) {
 	var manager = new THREE.LoadingManager();
 	manager.onProgress = function (item, loaded, total) {
@@ -125,11 +106,6 @@ function load(groupName, daeLocation) {
 			setWormColor(rgb2hex(wormColor));
 			worm = dae;
 			controls.target.set( worm.position.x, worm.position.y, worm.position.z );
-		}
-		
-		loadedItems++;
-		
-		if(loadedItems==3) {
 			skinClick();
 		}
 		

@@ -21,7 +21,7 @@ import com.stormpath.sdk.resource.ResourceException;
 public class ClientFactory {
 	
 	@Autowired
-	public UserFactory userFactory;
+	public UserManager userFactory;
 
 	private static final String APP_NAME = "Wormsim";
 	private static final String APIKEY_FILEPATH = System.getProperty("user.home") + "/.stormpath/apiKey.properties";

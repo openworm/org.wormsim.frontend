@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.wormsim.frontend.models.User;
 import org.wormsim.frontend.service.AuthService;
-import org.wormsim.frontend.stormpath.UserFactory;
+import org.wormsim.frontend.stormpath.UserManager;
 
 @Controller
 public class Login
@@ -60,7 +60,7 @@ public class Login
 		// TODO: Better exception handling
 		try
 		{
-			authService.setUser(UserFactory.login(user.getEmail(), user.getPassword()));
+			authService.setUser(UserManager.login(user.getEmail(), user.getPassword()));
 			setSessionCookie(request, response);
 		}
 		catch(AuthenticationException e)

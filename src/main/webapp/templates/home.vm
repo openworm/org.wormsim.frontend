@@ -70,6 +70,13 @@
     <body class="wormsim-bg">
         <div class="container-fluid">
             <div class="row">
+            	#if($user)
+            	<button type="button" class="btn btn-danger btn-large dropdown-toggle pull-right" >
+                    <a class="none" href="/logout">Log out</a>
+                </button>
+           		 #else
+                <div class="col-md-2 col-sm-2 green-button login-button-fix" style="float:right" data-toggle="modal" data-target="#login-modal">Login</div>
+            	#end
                 <div class="main-container col-md-8 col-sm-12 col-md-offset-2">
                     <div class="home-container">
                         <div class="the-worm"></div>
@@ -123,17 +130,6 @@
                         <div class="home-font col-md-4 col-sm-4">Create &amp; customize your own WormSim!</div>
                     </div>
                 </div>
-
-               #if($user)
-            <button type="button" class="btn btn-danger btn-large dropdown-toggle pull-right" >
-                    <a class="none" href="/logout">Log out</a>
-                </button>
-            #else
-                <div class="col-md-2 col-sm-2 green-button login-button-fix" style="float:right" data-toggle="modal"
-                        data-target="#login-modal">Login</div>
-            #end
-
-
 
             </div>
 

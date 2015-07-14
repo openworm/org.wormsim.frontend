@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.wormsim.frontend.models.User;
-import org.wormsim.frontend.stormpath.UserFactory;
+import org.wormsim.frontend.stormpath.UserManager;
 
 @Controller
 public class CreateAccount {
@@ -34,8 +34,8 @@ public class CreateAccount {
         }
 
         try {
-            UserFactory.create(user.getEmail(), user.getPassword(), user.getFirstName(), user.getLastName());
-            UserFactory.login(user.getEmail(), user.getPassword());
+            UserManager.create(user.getEmail(), user.getPassword(), user.getFirstName(), user.getLastName());
+            UserManager.login(user.getEmail(), user.getPassword());
             return new ModelAndView("home");
         }catch (Exception e) {
             //TODO: handle signup failure
