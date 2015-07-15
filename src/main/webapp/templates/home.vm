@@ -1,27 +1,38 @@
 <!DOCTYPE html>
 <html lang="@lang().code()">
     <head>
-        <title>Wormsim Set Info</title>
+        <title>WormSim</title>
 
         <!-- Le meta -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
-        <meta name="author" content="Matt Olson">
+        <meta property="og:title" content="A Digital Organism In Your Browser" />
+        <meta property="og:description" content="OpenWorm is building the first complete simulation of an entire organism and bringing it to your web browser.  You can benefit from a tremendous amount of open access research and three years of effort to build a model of the worm within the OpenWorm project.  Your browser will receive a streamed version of the latest simulation as if you were watching a movie on Netflix, but you'll also be able to interact with it, explore the simulation dynamically in 3D, and look at the activity of muscle cells." />
+        <meta property="og:image" content="http://wormsim.org/resources/images/wormsim-worm-logos.png" />
+        <meta property="og:url" content="http://wormsim.org" />
+
+        <meta property="url" content="http://wormsim.org" />
+        <meta property="image" content="http://wormsim.org/resources/images/wormsim-worm-logos.png" />
+        <meta property="title" content="A Digital Organism In Your Browser" />
+        <meta property="description" content="OpenWorm is building the first complete simulation of an entire organism and bringing it to your web browser.  You can benefit from a tremendous amount of open access research and three years of effort to build a model of the worm within the OpenWorm project.  Your browser will receive a streamed version of the latest simulation as if you were watching a movie on Netflix, but you'll also be able to interact with it, explore the simulation dynamically in 3D, and look at the activity of muscle cells." />
 
         <script src="https://code.createjs.com/tweenjs-0.6.0.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
         <!--TODO: Un-hardwire the bundle name-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link href="/org.wormsim.frontend/resources/css/unsemantic-grid-responsive.css" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="/org.wormsim.frontend/resources/css/main.css">
+        <link href="/resources/css/unsemantic-grid-responsive.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="/resources/css/main.css">
 
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+        <link rel="icon" type="image/png" href="resources/images/favicon.png"/>
 
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
+
 
     </head>
     <script>
@@ -41,7 +52,7 @@
                     confMessage.css('visibility', 'visible');
                     confMessage.text(response);
                     if (response.indexOf("Error") != 0)
-                        confMessage.css('color', 'green');
+                        confMessage.css('color', 'white');
                     else
                         confMessage.css('color', 'red');
                     emailField.text('');
@@ -56,22 +67,48 @@
         });
     </script>
 
-    <body class="wormsim-bg">
-        <div class="container-fluid">
+    <body>
+        <div class="container-fluid wormsim-bg">
             <div class="row">
+            	#if($user)
+            	<button type="button" class="btn btn-danger btn-large dropdown-toggle pull-right" >
+                    <a class="none" href="/logout">Log out</a>
+                </button>
+           		 #else
+                <div class="col-md-2 col-sm-2 green-button login-button-fix" style="float:right" data-toggle="modal" data-target="#login-modal">Login</div>
+            	#end
                 <div class="main-container col-md-8 col-sm-12 col-md-offset-2">
                     <div class="home-container">
-                        <div class="the-worm"></div>
-                        <div id="logo-container" style="margin-bottom: 20px">
+                    	<div class="the-worm"></div>
+                        <div id="logo-container">
                             <div class="openworm-logo"></div>
                             <div class="play-button" onclick="playVideo()" ></div>
                             <div class="wormsim-font"></div>
                         </div>
 
-						<iframe id="youtube-player" style="display:none; margin-top:120px; margin-bottom: 20px" width="540" height="304" src="https://www.youtube.com/embed/_4xhuV3iXqE?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>                        
+						<iframe id="youtube-player" style="display:none; margin-top:120px; margin-bottom: 20px" width="540" height="304" src="https://www.youtube.com/embed/_4xhuV3iXqE?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
                         <div class="email-input"></div>
+
+                        <!-- /container -->
+                        <center>
+                          <div class="social">
+                            <span class="custom-tweet-button">
+                              <a href="https://twitter.com/intent/tweet?text=Check out WormSim by @OpenWorm: http://wormsim.org" target="_blank" alt ="Tweet">
+                                <i class="btn-icon"></i>
+                                <span class="btn-text">Tweet</span>
+                              </a>
+                              <a href="http://www.facebook.com/sharer.php?u=http://wormsim.org" target="_blank">
+                                    <img src="resources/images/share.png" alt="Facebook"></a>
+                              <a href="https://plus.google.com/share?url=http://wormsim.org" target="_blank">
+                                <img src="resources/images/google.png" alt="Google"></a>
+                              <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://wormsim.org" target="_blank">
+                                <img src="resources/images/linkedin.png" alt="LinkedIn"></a>
+                            </span>
+                          </div>
+                      </center>
+
                         <div class='row'>
-                            <div class='col-md-6 col-md-offset-1 col-sm-8 col-xs-10'>                              
+                            <div class='col-md-6 col-md-offset-1 col-sm-8 col-xs-10'>
                                 <input type="email" class="input-wormsim" id="emailField" placeholder="your@email.com">
                             </div>
                             <div class='col-md-4 col-sm-4 hidden-xs'>
@@ -83,29 +120,26 @@
                         </div>
                         <div class='row'> <span id = "form-info" style="color:red;font-weight: bold;" ></span>  </div>
                         <span class="green-span" style="margin-bottom: 20px">Request an invitation.</span>
+                        <a tabindex="0" class="btn btn-link green-link" role="button" template='<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-title popover-custom"></h3><div class="popover-content popover-custom"></div></div>' data-html="true" data-toggle="popover" data-trigger="focus" title="Why do I need to?" data-placement="bottom" data-content="WormSim is currently open in a limited fashion exclusively to <a href='https://www.kickstarter.com/projects/openworm/openworm-a-digital-organism-in-your-browser'  target='_blank'>our Kickstarter</a> backers.  If you didn't back the Kickstarter, request an invite here and we'll do our best to get you in as soon as possible.">Why?</a>
                     </div>
-                    <div class="row" style="display:block;">
-                        <div class="home-font col-md-4 col-sm-4">Name and color your personal WormSim!</div>
-                        <div class="home-font col-md-4 col-sm-4">Play with <a href="http://www.openworm.org" target="_blank">OpenWorm's</a> simulated worm in your browser!</div>
-                        <div class="home-font col-md-4 col-sm-4">Explore a digital organism's muscles and brain cells!</div>
+
+
+                    <div class="row" style="display:block; margin-top: 30px;">
+                        <div class="home-font col-md-4 col-sm-4">Explore a digital organism!</div>
+                        <div class="home-font col-md-4 col-sm-4">Play with OpenWorm in your browser!</div>
+                        <div class="home-font col-md-4 col-sm-4">Create &amp; customize your own WormSim!</div>
                     </div>
                 </div>
-                
-               #if($user)
-            <button type="button" class="btn btn-danger btn-large dropdown-toggle pull-right" >
-                    <a class="none" href="logout">Log out</a>
-                </button>
-            #else
-                <div class="col-md-2 col-sm-2 green-button login-button-fix" style="float:right" data-toggle="modal"
-                        data-target="#login-modal">Login</div>
-            #end
-            
-                
 
             </div>
 
         </div>
-
+        <footer class="footer">
+          <div class="container">
+            <p>(c) 2011-2015 <a href="http://openworm.org" target="_blank">OpenWorm</a> - All rights reserved.  Code licensed under <a href="http://opensource.org/licenses/MIT" target="_blank">MIT</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a>.
+            </p>
+          </div>
+        </footer>
         <script>
             function playVideo() {
                 $('#logo-container').css('display', 'none');
@@ -114,9 +148,12 @@
                 videoURL += "&autoplay=1";
                 $('#youtube-player').prop('src', videoURL);
             }
-
-
+            //Enable popover functionality
+            $(function () {
+              $('[data-toggle="popover"]').popover()
+            })
         </script>
         #parse("templates/loginModal.vm")
+
     </body>
 </html>

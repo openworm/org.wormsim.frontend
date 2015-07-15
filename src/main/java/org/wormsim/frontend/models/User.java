@@ -1,15 +1,20 @@
 package org.wormsim.frontend.models;
 
-import com.stormpath.sdk.account.Account;
-import com.stormpath.sdk.account.AccountStatus;
-import com.stormpath.sdk.directory.CustomData;
-import org.wormsim.frontend.stormpath.AccountNotFoundException;
-import org.wormsim.frontend.stormpath.ClientFactory;
+import java.util.List;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-public class User {
+import org.geppetto.core.data.model.IGeppettoProject;
+import org.geppetto.core.data.model.IUser;
+import org.wormsim.frontend.stormpath.AccountNotFoundException;
+import org.wormsim.frontend.stormpath.ClientFactory;
+
+import com.stormpath.sdk.account.Account;
+import com.stormpath.sdk.account.AccountStatus;
+import com.stormpath.sdk.directory.CustomData;
+
+public class User implements IUser {
 
     @NotNull
     private String email;
@@ -115,6 +120,54 @@ public class User {
     public String getDisplayName() {
         return firstName + " " + lastName;
     }
+
+	@Override
+	public long getId()
+	{
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String getLogin()
+	{
+		return email;
+	}
+
+	@Override
+	public String getName()
+	{
+		return getDisplayName();
+	}
+
+	@Override
+	public List<? extends IGeppettoProject> getGeppettoProjects()
+	{
+		return null;
+	}
+
+	@Override
+	public long getSpaceAllowance()
+	{
+		return 0;
+	}
+
+	@Override
+	public long getSimulationTimeAllowance()
+	{
+		return 0;
+	}
+
+	@Override
+	public String getDropboxToken()
+	{
+		return null;
+	}
+
+	@Override
+	public void setDropboxToken(String token)
+	{
+	}
     
     
 }

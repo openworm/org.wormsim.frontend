@@ -4,7 +4,7 @@ $(function() {
   loginSubmit.click(function() {
     loginSubmit.button('loading');
     $.ajax({
-      url: '/org.wormsim.frontend/login',
+      url: '/login',
       type: 'post',
       dataType: 'json',
       data: $('form#login-form').serialize(),

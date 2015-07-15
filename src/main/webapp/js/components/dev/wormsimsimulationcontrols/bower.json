@@ -1,0 +1,26 @@
+{
+  "name": "simulationcontrols",
+  "version": "0.0.1",
+  "authors": [
+        "Matt Olson <matt@metacell.us>",
+        "Giovanni Idili <giovanni@metacell.us>"
+    ],
+  ,
+  "description": "WormSim Simulation controls component (play, stop, pause)",
+  "moduleType": [
+    "amd"
+  ],
+  "main": "SimulationControls",
+  "keywords": [
+    "simulationcontrols"
+  ],
+  "license": "MIT",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

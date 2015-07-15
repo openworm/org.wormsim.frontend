@@ -1,3 +1,7 @@
+#loginModalLabel {
+	color: white;
+}
+
 a.left {
   position: absolute;
   bottom: 0;
@@ -79,10 +83,7 @@ html {
 }
 
 body {
-  padding-top: 40px;
-  padding-bottom: 40px;
-  height: 100%;
-  background-color: #B3B3B3;
+  background-color: rgb(42, 112, 113);
 }
 
 .worminfocontainer {
@@ -154,10 +155,22 @@ input.user-home-name:focus {
 .wormsim-logo {
   background: url('../images/wormsim-logo.png') no-repeat;
   width: 200px;
-  height: 60px;
+  height: 67px;
   position: relative;
   bottom: 12px;
+  background-size: contain;
 }
+
+
+@media
+(-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    .wormsim-logo {
+   		background: url('../images/wormsim-logo@2x.png') no-repeat;
+        background-size: 200px 67px;
+    }
+}
+
 
 .worm-model-container {
   position: absolute;
@@ -279,7 +292,6 @@ p.clear {
 
 .modal .modal-content {
   background-color: #292929;
-  color: #fff;
 }
 
 .modal button.close {
@@ -366,12 +378,17 @@ p.clear {
   margin-bottom: 0;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-right: 15px;
-  padding-left: 15px;
+.footer{
+  padding: 0;
+  margin: 0;
+  position: fixed;
+  bottom: 0px;
+  font-size: 12px;
+  width: 100%;
+  min-height: 20px;
+  max-height: 20px;
+  background-color: #f5f5f5;
+  text-align: center;
 }
 
 /* Custom page header */
@@ -388,7 +405,7 @@ p.clear {
 
 /* Custom page footer */
 .footer {
-  padding-top: 19px;
+  padding-top: 0px;
   color: #777;
   border-top: 1px solid #e5e5e5;
 }
@@ -465,12 +482,12 @@ input {
     padding-right: 0;
     padding-left: 0;
   }
-  
+
   /* Space out the masthead */
   .header {
     margin-bottom: 30px;
   }
-  
+
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;
@@ -528,13 +545,13 @@ body {
 }
 
 .wormsim-bg {
-  padding: 0;
+  height: 98vh;
+  min-height: 750px;
   background: #222;
   background-color: #222;
   background: url(../images/bg3.png) no-repeat center center fixed;
   background-repeat: no-repeat;
   background-attachment: scroll;
-  color: #fff;
 }
 
 .simulation-container {
@@ -682,6 +699,7 @@ body {
 #worm-mm {
   font-family: helvetica_neueregular;
   font-size: 16px;
+  color: white;
 }
 
 .length-bar {
@@ -703,6 +721,7 @@ body {
   font-family: helvetica_neueregular;
   text-align: center;
   font-size: 32px;
+  color: white;
 }
 
 .push-right {
@@ -768,12 +787,12 @@ HOME PAGE
   height: 580px;
   width: 70%;
   top: 0;
-  z-index: -10000;
+  z-index: 0;
 }
 
 .home-container {
   display: block;
-  margin-bottom: 25px;
+  margin-bottom: 0px;
   text-align: center;
 }
 
@@ -781,6 +800,7 @@ HOME PAGE
   font-family: helvetica_neueregular;
   text-align: center;
   font-size: 30px;
+  color: white;
 }
 
 .green-span {
@@ -791,9 +811,21 @@ HOME PAGE
   color: #9fb522;
 }
 
-#logo-container {
-  margin-top: 120px;
+.green-link {
+  font-family: helvetica_neueregular;
   text-align: center;
+  font-weight: bold;
+  padding-bottom: 11px;
+  color: #9fb522;
+}
+.green-link:hover, .green-link:focus {
+  color: #BEE840
+}
+
+#logo-container {
+  margin-top: 85px;
+  text-align: center;
+  margin-bottom: 0px;
 }
 
 #youtube-player,
@@ -811,6 +843,7 @@ HOME PAGE
   background-position: center center;
   height: 110px;
   margin-bottom: 14px;
+  position: relative;
 }
 
 .wormsim-font {
@@ -818,7 +851,19 @@ HOME PAGE
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
+  width: 391px;
   height: 130px;
+  margin: 0 auto;
+  position: relative;
+}
+
+@media
+(-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    .wormsim-font {
+   		background: url('../images/wormsim-logo@2x.png') no-repeat;
+        background-size: 391px 130px;
+    }
 }
 
 .play-button {
@@ -830,6 +875,7 @@ HOME PAGE
   width: 50px;
   text-align: center;
   margin: auto;
+  visibility: hidden;
 }
 
 .play-button:hover {
@@ -893,6 +939,75 @@ HOME PAGE
   margin-right: 20px;
 }
 
+/* Social proof buttons from GitHub & Twitter */
+.social {
+  margin-bottom: 25px;
+}
+
+
+.custom-tweet-button,
+.custom-follow-button {
+  width: 200px;
+  margin: 1em auto 2em;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  text-align: center;
+}
+.custom-tweet-button a,
+.custom-follow-button a {
+  position: relative;
+  display: inline-block;
+  height: 22px;
+  padding: 2px;
+  border: 1px solid #ccc;
+  font-size: 11px;
+  color: #333;
+  text-decoration: none;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+  font-weight: bold;
+  background-color: #F8F8F8;
+  background-image: -webkit-gradient(linear,left top,left     bottom,from(#FFF),to(#DEDEDE));
+  background-image: -moz-linear-gradient(top,#FFF,#DEDEDE);
+  background-image: -o-linear-gradient(top,#FFF,#DEDEDE);
+  background-image: -ms-linear-gradient(top,#FFF,#DEDEDE);
+  border: #CCC solid 1px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  cursor: pointer;
+  overflow: hidden;
+}
+.custom-tweet-button a:hover,
+.custom-follow-button a:hover  {
+  border-color: #BBB;
+  background-color: #F8F8F8;
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#F8F8F8),to(#D9D9D9));
+  background-image: -moz-linear-gradient(top,#F8F8F8,#D9D9D9);
+  background-image: -o-linear-gradient(top,#F8F8F8,#D9D9D9);
+  background-image: -ms-linear-gradient(top,#F8F8F8,#D9D9D9);
+  background-image: linear-gradient(top,#F8F8F8,#D9D9D9);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.custom-tweet-button a .btn-icon,
+.custom-follow-button a .btn-icon{
+  position: absolute;
+  width: 16px;
+  height: 13px;
+  top: 50%;
+  left: 3px;
+  margin-top: -6px;
+  background: url('https://twitter.com/favicons/favicon.ico') 1px center no-repeat;
+  background-size: 13px;
+}
+.custom-tweet-button a .btn-text,
+.custom-follow-button a .btn-text{
+  display: inline-block;
+  padding: 2px 3px 0 20px;
+}
+
+
 #worm-in-circle canvas {
   border-radius: 50%;
 }
@@ -903,10 +1018,12 @@ HOME PAGE
 
 #prevArrow{
 	cursor: pointer;
+	color: grey;
 }
 
 #nextArrow{
 	cursor: pointer;
+	color: grey;
 }
 
 #prevArrow:hover{
