@@ -11,12 +11,16 @@
     <!-- Le meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Mihai Raulea">
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <!--TODO: Un-hardwire the bundle name-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/resources/css/main.css">
+
+    <link rel="stylesheet/less" type="text/css" href="/resources/less/main.less" />
+    <script src="resources/js/vendor/less-1.7.5.min.js" type="text/javascript"></script>
+    
+    <!-- USE THIS IN PRODUCTION <link rel="stylesheet" href="/resources/css/main.css">-->
+    
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
@@ -28,19 +32,12 @@
 </head>
     
 
-  <body class="user-home" style="background:black">
+  <body class="user-home">
 
-        <div class="header-container">
-            <div class="container">
-                <div class="header">
-                    <div class="wormsim-logo pull-left"></div>
-
-                    <button id="logoutBtn" type="button" class="btn btn-danger btn-large dropdown-toggle pull-right" >
-                    	Log out
-               		</button>
-                </div>
-            </div>
-        </div>	
+       <div class="wormsim-logo pull-left"></div>
+        <button id="logoutBtn" type="button" class="btn btn-danger btn-large dropdown-toggle pull-right" >
+        	Log out
+   		</button>
         <div class="worminfocontainer">
             <div id="slide-one" class="slide-one">
                 <h1 style="font-size: 5vw;">Hi and welcome!</h1><br/><br/>

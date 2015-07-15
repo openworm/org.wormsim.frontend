@@ -18,8 +18,10 @@ slidesArray[3] = document.getElementById("slide-four");
 var leftArrow = document.getElementById("left-arrow");
 var rightArrow = document.getElementById("right-arrow");
 
-var initialWormPosition = {x: -6, y: 0, z: -25};
-var afterWormPosition = {x: 0, y: 3, z: -12};
+var initialCameraPosition = {x: 8, y: 16, z: 25};
+var initialCameraRotation={x: -0.5, y: 0, z: 0};
+var afterCameraPosition = {x: 0, y: 5, z: 16};
+var afterCameraRotation={x:-0.5, y: 0, z: 0};
 
 init();
 
@@ -145,11 +147,11 @@ function wormNameChange(newName) {
 function notifyWormNewSlide(oldSlideIndex, newSlideIndex) {
     console.log("moving from slide " + oldSlideIndex + " to " + newSlideIndex);
     if (oldSlideIndex == 0 && newSlideIndex == 1) {
-        moveWormToPosition(afterWormPosition, false);
+        moveCameraToPosition(afterCameraPosition,afterCameraRotation);
     }
 
     if (oldSlideIndex == 1 && newSlideIndex == 0) {
-        moveWormToPosition(initialWormPosition, true);
+        moveCameraToPosition(initialCameraPosition,initialCameraRotation);
     }
 }
 

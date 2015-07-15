@@ -4,27 +4,24 @@
 
 a.left {
   position: absolute;
-  bottom: 0;
+  bottom: 20px;
   left: 5%;
   font-size: 4vw;
   color: white;
-  background-color: black;
-  z-index: 9999;
+  z-index:1999;
 }
 
 .hov-class:hover {
   font-size: 4.2vw;
-  color: green;
 }
 
 a.right {
   position: absolute;
-  bottom: 0;
+  bottom: 20px;
   right: 5%;
   font-size: 4vw;
   color: white;
-  background-color: black;
-  z-index: 9999;
+  z-index:1999;
 }
 
 .slide-one {
@@ -82,16 +79,13 @@ html {
   height: 100%;
 }
 
-body {
-  background-color: rgb(42, 112, 113);
-}
 
 .worminfocontainer {
   font-family: 'helvetica_neueregular';
 }
 
 body.user-home {
-  background-color: #00230a;
+  background-color: #1E464A;
 }
 
 a.goto-simulator {
@@ -139,13 +133,7 @@ input.user-home-name:focus {
 }
 
 .header-container {
-  top: 0;
-  left: 0;
-  right: 0;
   padding-top: 20px;
-  position: absolute;
-  z-index: 1999;
-  background: rgba(61, 158, 55, 0.6);
 }
 
 .header-container .header {
@@ -156,9 +144,10 @@ input.user-home-name:focus {
   background: url('../images/wormsim-logo.png') no-repeat;
   width: 200px;
   height: 67px;
-  position: relative;
-  bottom: 12px;
-  background-size: contain;
+  top:10px;
+  left:20px;
+  position:absolute;
+  z-index:1999;
 }
 
 
@@ -410,12 +399,6 @@ p.clear {
   border-top: 1px solid #e5e5e5;
 }
 
-/* Customize container */
-@media (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
-}
 
 .circle {
   width: 5%;
@@ -425,8 +408,14 @@ p.clear {
   border-radius: 50%;
   padding: 4%;
   display: inline-block;
-  *display: inline;
+  *display: inline; 
   vertical-align: top;
+  cursor:pointer;
+}
+
+.circle:hover{
+  border-color: #ffffff;
+  border: 4px solid;
 }
 
 .circle-active {
@@ -496,16 +485,15 @@ input {
 
 @font-face {
   font-family: 'helvetica_neueregular';
-  src: url('helveticaneue-ultralight-webfont.eot');
-  src: url('helveticaneue-ultralight-webfont.eot?#iefix') format('embedded-opentype'), url('helveticaneue-ultralight-webfont.woff2') format('woff2'), url('helveticaneue-ultralight-webfont.woff') format('woff'), url('helveticaneue-ultralight-webfont.ttf') format('truetype'), url('helveticaneue-ultralight-webfont.svg#helvetica_neueregular') format('svg');
+  src: url('../font/helveticaneue-ultralight-webfont.eot');
+  src: url('../font/helveticaneue-ultralight-webfont.eot?#iefix') format('embedded-opentype'), url('../font/helveticaneue-ultralight-webfont.woff2') format('woff2'), url('../font/helveticaneue-ultralight-webfont.woff') format('woff'), url('../font/helveticaneue-ultralight-webfont.ttf') format('truetype'), url('../font/helveticaneue-ultralight-webfont.svg#helvetica_neueregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
   font-family: 'alice_in_wonderlandregular';
-  src: url('alice_in_wonderland_3-webfont.eot');
-  src: url('alice_in_wonderland_3-webfont.eot?#iefix') format('embedded-opentype'), url('alice_in_wonderland_3-webfont.woff2') format('woff2'), url('alice_in_wonderland_3-webfont.woff') format('woff'), url('alice_in_wonderland_3-webfont.ttf') format('truetype'), url('alice_in_wonderland_3-webfont.svg#alice_in_wonderlandregular') format('svg');
+  src: url('../font/alice_in_wonderland_3-webfont.eot');
+  src: url('../font/alice_in_wonderland_3-webfont.eot?#iefix') format('embedded-opentype'), url('../font/alice_in_wonderland_3-webfont.woff2') format('woff2'), url('../font/alice_in_wonderland_3-webfont.woff') format('woff'), url('../font/alice_in_wonderland_3-webfont.ttf') format('truetype'), url('../font/alice_in_wonderland_3-webfont.svg#alice_in_wonderlandregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -1035,7 +1023,10 @@ HOME PAGE
 }
 
 #logoutBtn{
-	margin: 10px;
+	position:absolute;
+	top:20px;
+	right:20px;
+	z-index:1999;
 }
 
 #logoutElem{

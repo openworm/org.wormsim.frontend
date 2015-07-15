@@ -1,14 +1,4 @@
-
-
-var camera,
-        scene,
-        dae,
-        renderer,
-        controls,
-        topLight,
-        bottomLight,
-        $container,
-        rotate;
+var camera, scene, dae, renderer, controls, topLight, bottomLight, $container, rotate;
 var clock = new THREE.Clock();
 clock.start();
 // model names
@@ -19,267 +9,263 @@ modelMap[CUTICLE] = "/resources/files/cuticleNotBent.dae";
 modelMap[MUSCLES] = "/resources/files/muscles.dae";
 modelMap[NEURONS] = "/resources/files/neurons.dae";
 
-var spotlight;
+var light;
 var radius = 20;
 var constant = 0;
-var plane;
-
-var shouldMoveWorm = true;
+var floor;
 
 start();
 animate();
 
-var position = {x: 0, y: 300};
-var target = {x: 400, y: 50};
-
 function start() {
 
-    rotate = false;
-    $container = $('#worm-model-container');
-    $container.html('');
-    $container.on('mousedown', function () {
-        rotate = false;
-    });
+	rotate = false;
+	$container = $('#worm-model-container');
+	$container.html('');
+	$container.on('mousedown', function() {
+		rotate = false;
+	});
 
-    $('#body').on('click', function () {
+	$('#body').on(
+			'click',
+			function() {
 
-        // make all groups visible
-        for (var i = 0; i < scene.children.length; i++) {
+				// make all groups visible
+				for (var i = 0; i < scene.children.length; i++) {
 
-            child = scene.children[i];
+					child = scene.children[i];
 
-            if (child.name === CUTICLE || child.name === MUSCLES || child.name === NEURONS) {
-                child.visible = true;
-            }
-        }
+					if (child.name === CUTICLE || child.name === MUSCLES
+							|| child.name === NEURONS) {
+						child.visible = true;
+					}
+				}
 
-        render();
-    });
+				render();
+			});
 
-    $('#muscles').on('click', function () {
+	$('#muscles').on('click', function() {
 
-        // make muscles and neurons visible
-        for (var i = 0; i < scene.children.length; i++) {
+		// make muscles and neurons visible
+		for (var i = 0; i < scene.children.length; i++) {
 
-            child = scene.children[i];
+			child = scene.children[i];
 
-            if (child.name === MUSCLES || child.name === NEURONS) {
-                child.visible = true;
-            } else if (child.name === CUTICLE) {
-                child.visible = false;
-            }
+			if (child.name === MUSCLES || child.name === NEURONS) {
+				child.visible = true;
+			} else if (child.name === CUTICLE) {
+				child.visible = false;
+			}
 
-        }
+		}
 
-        render();
-    });
+		render();
+	});
 
-    $('#nerves').on('click', function () {
+	$('#nerves').on('click', function() {
 
-        // make only neurons visible
-        for (var i = 0; i < scene.children.length; i++) {
+		// make only neurons visible
+		for (var i = 0; i < scene.children.length; i++) {
 
-            child = scene.children[i];
+			child = scene.children[i];
 
-            if (child.name === NEURONS) {
-                child.visible = true;
-            } else if (child.name === CUTICLE || child.name === MUSCLES) {
-                child.visible = false;
-            }
+			if (child.name === NEURONS) {
+				child.visible = true;
+			} else if (child.name === CUTICLE || child.name === MUSCLES) {
+				child.visible = false;
+			}
 
-        }
+		}
 
-        render();
-    });
+		render();
+	});
 
-    camera = new THREE.PerspectiveCamera(45, $container.innerWidth() / $container.innerHeight(), 1, 1000);
-    camera.position.x = 0;
-    camera.position.y = 1;
-    camera.position.z = 0;
+	camera = new THREE.PerspectiveCamera(45, $container.innerWidth()
+			/ $container.innerHeight(), 1, 500);
 
-    scene = new THREE.Scene();
-    var ambient = new THREE.AmbientLight(0x101030);
-    scene.add(ambient);
+	camera.position.x = 8;
+	camera.position.y = 16;
+	camera.position.z = 25;
+	camera.rotation.x = -0.5;
+	camera.rotation.y = 0;
+	camera.rotation.z = 0;
 
-    plane = createMesh(new THREE.PlaneGeometry(200, 200, Math.round(2), Math.round(2)));
-    plane.rotation.x = 2
-    // add it to the scene.
-    scene.add(plane);
-    /*
-    var line_material = new THREE.LineBasicMaterial({color: 0x303030}),
-            geometry = new THREE.Geometry(),
-            floor = -75, step = 25;
+	scene = new THREE.Scene();
 
-    for (var i = 0; i <= 40; i++) {
+	var floorMaterial = new THREE.MeshPhongMaterial({
+		color : 0xAAAAAA,
+		side : THREE.DoubleSide
+	});
+	floor = new THREE.Mesh(new THREE.PlaneGeometry(30000, 30000, 1, 1),
+			floorMaterial);
+	floor.rotation.x = Math.PI / 2;
 
-        geometry.vertices.push(new THREE.Vector3(-500, floor, i * step - 500));
-        geometry.vertices.push(new THREE.Vector3(500, floor, i * step - 500));
+	scene.add(floor);
 
-        geometry.vertices.push(new THREE.Vector3(i * step - 500, floor, -500));
-        geometry.vertices.push(new THREE.Vector3(i * step - 500, floor, 500));
+	light = new THREE.SpotLight(0xffffff);
+	light.position.set(0, 10, 0);
+	light.lookAt(floor);
+	light.angle = Math.PI / 4;
+	light.intensity = 1.2;
+	light.distance = 0;
 
-    }
+	light.castShadow = true; // only necessary if you want to cast shadows
 
-    var line = new THREE.Line(geometry, line_material, THREE.LinePieces);
-    scene.add(line);
-    */
-    topLight = new THREE.DirectionalLight(0xffffff, 1.0);
-    topLight.position.set(0, 1, 0);
+	light.exponent = 0; // useful for narrowing the beam
+	light.shadowCameraNear = 1;
+	light.shadowCameraFar = 60;
+	light.shadowCameraFov = 30;
+	light.shadowDarkness = 0.9; // default is 0.5
 
-    scene.add(topLight);
+	scene.add(light);
 
-    bottomLight = new THREE.DirectionalLight(0xffffff, 1.0);
-    bottomLight.position.set(0, -1, 0);
+	var cone = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 10, 20, 1000),
+			new THREE.MeshBasicMaterial({
+				color : new THREE.Color(0xffffff),
+				transparent : true,
+				opacity : 0.15,
+			}));
+	scene.add(cone);
+	cone.position.setY(cone.geometry.parameters.height / 2);
 
-    scene.add(bottomLight);
+	// var axisHelper = new THREE.AxisHelper( 5 );
+	// scene.add( axisHelper );
 
-    spotlight = new THREE.SpotLight(0xffffff, 4, 40);
-    camera.add(spotlight);
-    spotlight.position.set(-6, 0, -25);
-    spotlight.target = camera;
+	load(CUTICLE, modelMap.cuticle);
 
-    load(CUTICLE, modelMap.cuticle);
-    //load(MUSCLES, modelMap.muscles);
-    //load(NEURONS, modelMap.neurons);
-
-    // new renderer, required for streaming animation files
-    renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
-    renderer.setSize($container.innerWidth(), $container.innerHeight());
-    renderer.autoClear = true;
-}
-
-function createMesh(geom) {
-    // assign two materials
-    var meshMaterial = new THREE.MeshPhongMaterial({color: 0x000000});
-    meshMaterial.castShadow = true;
-    var wireFrameMat = new THREE.MeshBasicMaterial();
-    wireFrameMat.wireframe = true;
-
-    // create a multimaterial
-    var plane = THREE.SceneUtils.createMultiMaterialObject(geom, [meshMaterial]);
-
-    return plane;
+	// new renderer, required for streaming animation files
+	renderer = new THREE.WebGLRenderer({
+		antialias : true,
+		alpha : true
+	});
+	renderer.domElement.style.position = "relative";
+	renderer.setSize(window.innerWidth, window.innerHeight);
+	renderer.autoClear = true;
 }
 
 function load(groupName, daeLocation) {
-    var manager = new THREE.LoadingManager();
-    manager.onProgress = function (item, loaded, total) {
-        console.log(item, loaded, total);
-    };
+	var manager = new THREE.LoadingManager();
+	manager.onProgress = function(item, loaded, total) {
+		console.log(item, loaded, total);
+	};
 
-    var loader = new THREE.ColladaLoader(manager);
-    loader.options.convertUpAxis = true;
+	var loader = new THREE.ColladaLoader(manager);
+	loader.options.convertUpAxis = true;
 
-    loader.load(daeLocation, function (collada) {
-        dae = collada.scene;
-        dae.name = groupName;
-        //dae.scale.set(0.7, 0.7, 0.7);
-        //dae.rotation.set(0, -0.2, 0.2);
-        $container.html(renderer.domElement);
-        loadedModelMap[groupName] = dae;
-        loadedModelMap[groupName].position.set(-6, 0, -25);
-        loadedModelMap[groupName].rotation.set(0.4, 0.9, 1.5);
-        plane.position.z = loadedModelMap[groupName].position.z;
-        scene.add(loadedModelMap[groupName]);
-        render();
-    }, function (progress) {
-        // TODO: show some progress if this is taking long
-    });
+	loader.load(daeLocation, function(collada) {
+		dae = collada.scene;
+		dae.name = groupName;
+		dae.scale.set(2, 2, 2);
+		$container.html(renderer.domElement);
+		dae.children[0].children[0].material = new THREE.MeshPhongMaterial({
+			color : 0xAAAAAA,
+			transparent : true,
+			shading:THREE.SmoothShading,
+			shininess : 10,
+			overdraw : 0.5,
+			opacity : 0.9
+		});
+		loadedModelMap[groupName] = dae;
+		loadedModelMap[groupName].position.set(0, 1, 0);
+		loadedModelMap[groupName].rotation.set(0, 0, Math.PI / 2);
+		floor.position.z = loadedModelMap[groupName].position.z - 10;
+		scene.add(loadedModelMap[groupName]);
+		render();
+	}, function(progress) {
+		// TODO: show some progress if this is taking long
+	});
 }
 
 function animate() {
-    requestAnimationFrame(animate);
-    render();
+	requestAnimationFrame(animate);
+	render();
 }
 
 function render() {
-    var timer = Date.now() * 0.00005;
-    //if (loadedModelMap[CUTICLE])
-    if (loadedModelMap[CUTICLE])
-    {
-        if (shouldMoveWorm)
-            loadedModelMap[CUTICLE].rotation.y += 0.01;
-        if (TWEEN)
-            TWEEN.update();
-        renderer.render(scene, camera);
+	var timer = Date.now() * 0.00005;
 
-        /*
-         if (loadedModelMap[CUTICLE])
-         camera.position.x = -3 + loadedModelMap[CUTICLE].position.x + radius * Math.cos(constant);
-         if (loadedModelMap[CUTICLE])
-         camera.position.z = loadedModelMap[CUTICLE].position.z + radius * Math.sin(constant);
-         constant += 0.001;
-         if (loadedModelMap[CUTICLE])
-         camera.lookAt(loadedModelMap[CUTICLE].position);
-         */
-    }
+	if (loadedModelMap[CUTICLE]) {
+		loadedModelMap[CUTICLE].rotation.y += 0.01;
+		if (TWEEN)
+			TWEEN.update();
+
+		renderer.render(scene, camera);
+
+	}
 
 }
 
 /*
- Set the ambient light to the given color. Accepts argument in the form of '#XXXXXX'
+ * Set the ambient light to the given color. Accepts argument in the form of
+ * '#XXXXXX'
  */
-$.fn.setWormColor = function (color) {
-    //Chop off leading #
-    //topLight.color.setHex('0x' + color.substr(1, color.length));
-    //bottomLight.color.setHex('0x' + color.substr(1, color.length));
-    //var material = new THREE.MeshBasicMaterial({color: '0x' + color.substr(1, color.length) });
-    //material.doubleSided = true;
-    var color = new THREE.Color( color );
-    console.log(color);
-    setMaterial(loadedModelMap[CUTICLE], color);
-    
-    function setMaterial(node, color) {
-        if(node.material ) for(var i=0;i<node.material.materials.length;i++)
-                                node.material.materials[i].color = color;
-               
-        if (node.children) {
-            for (var i = 0; i < node.children.length; i++) {
-                setMaterial(node.children[i], color);
-            }
-        }
-        
-    }
+$.fn.setWormColor = function(color) {
+	var color = new THREE.Color(color);
+	console.log(color);
+	setMaterial(loadedModelMap[CUTICLE], color);
+
+	function setMaterial(node, color) {
+		if (node.material) {
+			node.material.color = color;
+			node.material.transparent = false;
+		}
+		if (node.children) {
+			for (var i = 0; i < node.children.length; i++) {
+				setMaterial(node.children[i], color);
+			}
+		}
+
+	}
 }.bind(this);
 
-function moveWormToPosition(targetCoordinates, shouldMoveWormParam) {
-    shouldMoveWorm = shouldMoveWormParam;
-    console.log("cuticle.js move worm to position");
-    console.log(loadedModelMap[CUTICLE]);
-    var position = {x: loadedModelMap[CUTICLE].position.x, y: loadedModelMap[CUTICLE].position.y, z: loadedModelMap[CUTICLE].position.z, rotationY: loadedModelMap[CUTICLE].rotation.y};
-    var target = {x: targetCoordinates.x, y: targetCoordinates.y, z: targetCoordinates.z, rotationY: 6.2};
+function moveCameraToPosition(targetCoordinates, targetRotation) {
+	console.log("cuticle.js move worm to position");
+	console.log(loadedModelMap[CUTICLE]);
 
-    var tween = new TWEEN.Tween(position).to(target, 500);
+	var start = {
+		"position.x" : camera.position.x,
+		"position.y" : camera.position.y,
+		"position.z" : camera.position.z,
+		"rotation.x" : camera.rotation.x,
+		"rotation.y" : camera.rotation.y,
+		"rotation.z" : camera.rotation.z
+	};
+	var target = {
+		"position.x" : targetCoordinates.x,
+		"position.y" : targetCoordinates.y,
+		"position.z" : targetCoordinates.z,
+		"rotation.x" : targetRotation.x,
+		"rotation.y" : targetRotation.y,
+		"rotation.z" : targetRotation.z
+	};
 
-    tween.onUpdate(function () {
-        console.log("update");
-        loadedModelMap[CUTICLE].position.x = position.x;
-        loadedModelMap[CUTICLE].position.y = position.y;
-        loadedModelMap[CUTICLE].position.z = position.z;
-        if (shouldMoveWorm == false)
-            loadedModelMap[CUTICLE].rotation.y = position.rotationY;
-    });
-    tween.onComplete(function () {
-    	defaultColorChange();
-    })
-    tween.start();
+	var tween = new TWEEN.Tween(start).to(target, 1000);
 
+	tween.onUpdate(function() {
+		console.log("update");
+		camera.position.x = start["position.x"];
+		camera.position.y = start["position.y"];
+		camera.position.z = start["position.z"];
+		camera.rotation.x = start["rotation.x"];
+		camera.rotation.y = start["rotation.y"];
+		camera.rotation.z = start["rotation.z"];
 
+	});
+	tween.start();
 
 }
 
 /*
- Resize canvas when the user manually resizes window
+ * Resize canvas when the user manually resizes window
  */
-window.addEventListener('resize', function () {
-    var width = $container.width();
-    var height = $container.height();
+window.addEventListener('resize', function() {
+	var width = $container.width();
+	var height = $container.height();
 
-    camera.aspect = (width) / (height);
-    camera.updateProjectionMatrix();
+	camera.aspect = (width) / (height);
+	camera.updateProjectionMatrix();
 
-    renderer.setSize(width, height);
+	renderer.setSize(width, height);
 
-    render();
+	render();
 }, false);
-
