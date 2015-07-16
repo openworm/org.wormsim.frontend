@@ -38,15 +38,12 @@
 
 	</head>
 	<body class="wormsim-bg">
-
-		<div class="grid-container clearfix">
-			<div id="logoutBtn" type="button" class="btn btn-danger btn-large dropdown-toggle pull-right" style="position:absolute;z-index:9999;right:0px">	
-				Log out
-			</div>
+		<div class="wormsim-logo pull-left"></div>
+        <button id="logoutBtn" type="button" class="btn btn-danger btn-large dropdown-toggle pull-right" >
+        	Log out
+   		</button>
+		<div class="grid-container">
 			<div class="simulation-container grid-60  grid-parent">
-				<div class="wormsim-logo logo-sim-fix pull-left grid-100 logo-fix"></div>
-				<div class="clear"></div>
-
 				<div class="worm-canvas " style="text-align: center">
 					<div class="rotated-text">
 						<span id="worm-name">$user.wormName</span> <span id="worm-mm" style="font-family:helvetica_neueregular;">1 mm</span>
