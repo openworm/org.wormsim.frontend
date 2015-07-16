@@ -6,8 +6,11 @@
         <wb-resource deploy-path="/js/" source-path="/src/main/webapp/js"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/font/" source-path="/src/main/webapp/font"/>
+        <dependent-module archiveName="core-0.2.4.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/org.geppetto.core/org.geppetto.core">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="java-output-path" value="/org.wormsim.frontend/bin"/>
         <property name="component.exclusion.patterns" value="WEB-INF/lib/*.jar"/>
-        <property name="context-root"  value="org.wormsim.frontend"/>
+        <property name="context-root" value="org.wormsim.frontend"/>
     </wb-module>
 </project-modules>
