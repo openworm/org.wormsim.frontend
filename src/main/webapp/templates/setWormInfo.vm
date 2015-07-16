@@ -67,19 +67,19 @@
             </div>
 
             <div id="slide-three" class="slide-three">
-                <h1 style="color:white; text-align: center;vertical-align: middle;font-size: 2.5vw;">
+                <h1>
                     Thanks, much better! Now I'm afraid I have a last favour to ask,
                     it's not that I don't fancy being called C. elegans and all but imagine
                     if everyone called you Homo Sapiens, not super cool right?
                     Go ahead and give me a cute name! <br/>
                     
-                    <span style="text-align: center;"><input style="font-size:3vw;width:100%;text-align: center;" id="worm-name-input" type='text' value="Spock" onchange="wormNameChange(this.value)" /></span>
+                    <span style="text-align: center;"><input style="font-size:6vw;margin-top:15px;width:100%;text-align: center;" id="worm-name-input" type='text' value="Spock" onchange="wormNameChange(this.value)" /></span>
                 </h1>
             </div>
 
             <div id="slide-four" class="slide-four">
-                <h1 style="color:white; text-align: center;vertical-align: middle;font-size: 2.5vw;">
-                    <span id="worm-name-confirmed" style="font-family: 'alice_in_wonderlandregular';font-size: 4vw;with:auto">Spock</span><br/>
+                <h1>
+                    <span id="worm-name-confirmed" >Spock</span><br/>
                     WOW, look at me, I am probably the fanciest C. elegans the world has ever seen, thank you for the nice touch!
                     <span id="worm-name-confirmed-2"></span> and <span id="userSurnameDisplay"></span>, I like the sound of it!<br/>
                     What do you say buddy?

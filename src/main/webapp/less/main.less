@@ -41,6 +41,7 @@ a.right {
   bottom: 10%;
   color: white;
   width: 60%;
+  height:300px;
   overflow: auto;
   z-index: 301;
   visibility: hidden;
@@ -53,9 +54,11 @@ a.right {
   position: absolute;
   bottom: 10%;
   color: white;
-  width: 60%;
+  width: 80%;
+  text-align:center;
+  height:300px;
   overflow: auto;
-  z-index: 302;
+  z-index: 301;
   visibility: hidden;
   margin: 0 auto;
   left: 0;
@@ -66,7 +69,8 @@ a.right {
   position: absolute;
   bottom: 10%;
   color: white;
-  width: 60%;
+  width: 80%;
+  text-align:center;
   overflow: auto;
   z-index: 303;
   visibility: hidden;
@@ -79,13 +83,20 @@ html {
   height: 100%;
 }
 
+#worm-name-confirmed{
+font-family: 'alice_in_wonderlandregular';
+font-size: 12vw;
+color: rgb(62, 99, 255);
+-webkit-text-stroke-width: 2px;
+-webkit-text-stroke-color: white;
+}
 
 .worminfocontainer {
   font-family: 'helvetica_neueregular';
 }
 
 body.user-home {
-  background-color: #1E464A;
+  background-color: #404040;
 }
 
 a.goto-simulator {
@@ -406,7 +417,8 @@ p.clear {
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
-  padding: 4%;
+  height:60px;
+  width:60px;
   display: inline-block;
   *display: inline; 
   vertical-align: top;
@@ -424,7 +436,8 @@ p.clear {
 }
 
 #container-circles {
-  height: auto;
+  position:relative;
+  margin-top:-10px;
   text-align: justify;
   -ms-text-justify: distribute-all-lines;
   text-justify: distribute-all-lines;
@@ -454,7 +467,6 @@ input {
   border: 0;
   outline: 0;
   background: transparent;
-  border-bottom: 2px solid black;
   width: 20%;
 }
 
