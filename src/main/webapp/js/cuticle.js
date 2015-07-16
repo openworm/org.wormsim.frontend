@@ -99,6 +99,8 @@ function start() {
 	floor = new THREE.Mesh(new THREE.PlaneGeometry(30000, 30000, 1, 1),
 			floorMaterial);
 	floor.rotation.x = Math.PI / 2;
+	floor.receiveShadow = true;
+	floorMaterial.receiveShadow = true;
 
 	scene.add(floor);
 
@@ -118,6 +120,9 @@ function start() {
 	light.shadowDarkness = 0.9; // default is 0.5
 
 	scene.add(light);
+	
+	scene.fog = new THREE.Fog( 0xffffff, 1, 5000 );
+	scene.fog.color.setHSL( 0.6, 0, 1 );
 
 	var cone = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 10, 20, 1000),
 			new THREE.MeshBasicMaterial({
@@ -125,6 +130,7 @@ function start() {
 				transparent : true,
 				opacity : 0.15,
 			}));
+
 	scene.add(cone);
 	cone.position.setY(cone.geometry.parameters.height / 2);
 
@@ -138,6 +144,15 @@ function start() {
 		antialias : true,
 		alpha : true
 	});
+	renderer.shadowMapBias = 0.0039;
+	renderer.shadowMapDarkness = 0.5;
+	renderer.shadowMapWidth = 1024;
+	renderer.shadowMapHeight = 1024;
+	renderer.gammaInput = true;
+	renderer.gammaOutput = true;
+	renderer.shadowMapEnabled = true;
+	renderer.shadowMapSoft = true;
+	renderer.shadowMapCullFace = THREE.CullFaceBack;
 	renderer.domElement.style.position = "relative";
 	renderer.setSize(window.innerWidth, window.innerHeight);
 	renderer.autoClear = true;
@@ -156,14 +171,14 @@ function load(groupName, daeLocation) {
 		dae = collada.scene;
 		dae.name = groupName;
 		dae.scale.set(2, 2, 2);
+		
+
 		$container.html(renderer.domElement);
 		dae.children[0].children[0].material = new THREE.MeshPhongMaterial({
 			color : 0xAAAAAA,
-			transparent : true,
+			transparent : false,
 			shading:THREE.SmoothShading,
-			shininess : 10,
-			overdraw : 0.5,
-			opacity : 0.9
+			shininess : 50, 
 		});
 		loadedModelMap[groupName] = dae;
 		loadedModelMap[groupName].position.set(0, 1, 0);
