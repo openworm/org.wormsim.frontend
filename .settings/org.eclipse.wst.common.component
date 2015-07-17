@@ -10,7 +10,7 @@
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="java-output-path" value="/org.wormsim.frontend/bin"/>
-        <property name="component.exclusion.patterns" value="WEB-INF/lib/*.jar"/>
         <property name="context-root" value="org.wormsim.frontend"/>
+        <property name="component.exclusion.patterns"/>
     </wb-module>
 </project-modules>

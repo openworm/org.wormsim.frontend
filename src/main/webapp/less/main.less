@@ -42,7 +42,7 @@ a.right {
   color: white;
   width: 60%;
   height:300px;
-  overflow: auto;
+  overflow: hidden;
   z-index: 301;
   visibility: hidden;
   margin: 0 auto;
@@ -153,6 +153,7 @@ input.user-home-name:focus {
 
 .wormsim-logo {
   background: url('../images/wormsim-logo.png') no-repeat;
+  background-size: cover;
   width: 200px;
   height: 67px;
   top:10px;
@@ -522,7 +523,7 @@ body {
   /* make transparent link selection, adjust last value opacity 0 to 1.0 */
   text-decoration: none !important;
   -webkit-touch-callout: none;
-  -webkit-user-select: none;
+  -webkit-user-select: auto;
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
