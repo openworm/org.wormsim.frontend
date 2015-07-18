@@ -42,7 +42,7 @@
             <div id="slide-one" class="slide-one">
                 <h1 style="font-size: 5vw;">Hi and welcome!</h1><br/><br/>
                 <h2 style="font-size: 2.5vw;">
-                    That's me under the spotlight.</br>
+                    That's me in the spotlight.</br>
                     I am a model of the C. elegans,</br>
                     a tiny worm!
                 </h2>
@@ -51,8 +51,8 @@
             <div id="slide-two" class="slide-two">
                 <h1 style="font-size: 3vw; text-align: center">
                     First of all, before I start teaching you some of the biology of the worm 
-                    I would really appreciate if you could pick a nice color for my cuticle,
-                    I never liked being transparent!
+                    I would really appreciate if you could pick a nice color for my skin,
+                    Grey is so boring!
                 </h1>
                 <br/><br/>
                 <div id="container-circles">
@@ -68,21 +68,17 @@
 
             <div id="slide-three" class="slide-three">
                 <h1>
-                    Thanks, much better! Now I'm afraid I have a last favour to ask,
-                    it's not that I don't fancy being called C. elegans and all but imagine
-                    if everyone called you Homo Sapiens, not super cool right?
-                    Go ahead and give me a cute name! <br/>
-                    
-                    <span style="text-align: center;"><input style="font-size:6vw;margin-top:15px;width:100%;text-align: center;" id="worm-name-input" type='text' value="Spock" onchange="wormNameChange(this.value)" /></span>
+                    Thanks, much better! Now, my scientific name is Caenorhabditis elegans - C. elegans for short. But I could really use a friendlier nickname :) Could you give me one?<br/>       
+                    <span style="text-align: center;"><input style="font-size:6vw;margin-top:15px;width:100%;text-align: center;" id="worm-name-input" type='text' maxlength="14" value="type here" onchange="wormNameChange(this.value)" /></span>
                 </h1>
             </div>
 
             <div id="slide-four" class="slide-four">
                 <h1>
                     <span id="worm-name-confirmed" >Spock</span><br/>
-                    WOW, look at me, I am probably the fanciest C. elegans the world has ever seen, thank you for the nice touch!
+                    WOW, look at me, I am probably the fanciest C. elegans the world has ever seen. Thank you for the nice touch!
                     <span id="worm-name-confirmed-2"></span> and <span id="userSurnameDisplay"></span>, I like the sound of it!<br/>
-                    What do you say buddy?
+                    Let's make it official!
                 </h1>
             </div>
 

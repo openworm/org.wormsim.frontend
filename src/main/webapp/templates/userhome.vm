@@ -110,8 +110,8 @@
 				</div>
 
 				<div class="buttons-container">
-					<a href="/org.geppetto.frontend/geppetto?load_project_from_id=6" class="category-button">Simplified nervous system</a>
 					<a href="/org.geppetto.frontend/geppetto?load_project_from_url=SERVER_ROOT/appdata/wormsim/wormsim-project.json" class="category-button">Muscular system</a>
+					<a href="/org.geppetto.frontend/geppetto?load_project_from_id=6" class="category-button">Simplified nervous system</a>
 				</div>
 			</div>
 		</div>

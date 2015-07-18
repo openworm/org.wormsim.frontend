@@ -8,17 +8,17 @@ var tutorialIndex = 0;
 
 tutorialList[0] = "Now, before we move on, let me tell you something about myself...";
 tutorialList[1] = "The first scientist that tried to look inside me was the biologist Sydney Brenner. He and his colleagues, Robert Horvitz and John Sulston, shared the Nobel prize in 2002.";
-tutorialList[2] = "They were trying to understand how my genes work, and in his acceptance speech Brenner referred to C. elegans as nature's gift to science.";
+tutorialList[2] = "They were trying to understand how my genes work, and in his acceptance speech Brenner referred to me, the C. elegans, as nature's gift to science.";
 tutorialList[3] = "I earned this praise because I am a relatively simple animal that can be very well studied in the laboratory.";
-tutorialList[4] = "For example, I am the only animal for which scientists know the entire connectome. That is, which neurons are connected to which.";
+tutorialList[4] = "For example, I am the only animal for which scientists know the entire connectome. That is, which neurons are connected to which in my brain.";
 tutorialList[5] = "The OpenWorm team is dedicated to creating a virtual equivalent of a real C. elegans - a daunting but exciting task.";
-tutorialList[6] = "You can explore my anatomy using the virtual petri dish on the left - go on, give it a go, and don't be shy with the zoom, I don't mind!";
+tutorialList[6] = "You can explore my anatomy using the virtual petri dish on the left - you can click and drag in order to rotate me around and don't be shy with the zoom, I don't mind!";
 tutorialList[7] = "I, the WormSim, am the first step on the long road towards a virtual worm that behaves just like the real one.";
-tutorialList[8] = "Building a computer model of any animal is a very difficult task due to the countless interactions in around and between cells.";
+tutorialList[8] = "Building a computer model of any animal is a very difficult task due to the complex interactions in around and between cells.";
 tutorialList[9] = "To simulate me, the OpenWorm folks are focusing on what is essential to the worm's crawling behavior: muscles and a nervous system!";
-tutorialList[10] = "At the end of our chat, buttons will appear right below that will let you explore how my muscles make me crawl and how my brain spikes.";
-tutorialList[11] = "New buttons will appear below when new simulation of worm models are released by the OpenWorm team.";
-tutorialList[12] = "That's it - now have fun exploring WormSim!";
+tutorialList[10] = "At the end of our chat, buttons will appear right below that will let you explore how my muscles make me crawl and how my brain cells are connected.";
+tutorialList[11] = "New buttons will appear below when new simulations of worm models are released by the OpenWorm team.";
+tutorialList[12] = "Alright that's it, let's go have a closer look at my insides!";
 
 var hintList = new Array();
 var hintIndex = 0;
