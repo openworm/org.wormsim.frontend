@@ -20,11 +20,11 @@
 
                     <div class="form-group submit-group row">
                         <div class="col-sm-6">
-                            <a tabindex="0" class="btn btn-link" role="button" onclick="return false" data-html="true" data-toggle="popover" data-trigger="focus" title="Did you back the Kickstarter?" data-placement="bottom" data-content="Your login information will be sent to you via email.  Please email <a href='mailto:info@openworm.org'>info@openworm.org</a> with any additional questions">Kickstarter backer?</a>
-                            <a href="javascript:void(0);" onclick="window.location.href = '/user/reset';" class="btn btn-link">Forgot Password</a>
+                            <a tabindex="0" class="btn btn-link green-link" role="button" onclick="return false" data-html="true" data-toggle="popover" data-trigger="focus" title="Did you back the Kickstarter?" data-placement="bottom" data-content="Your login information will be sent to you via email.  Please email <a href='mailto:info@openworm.org'>info@openworm.org</a> with any additional questions">Kickstarter backer?</a>
+                            <a href="javascript:void(0);" onclick="window.location.href = '/user/reset';" class="btn btn-link green-link">Forgot Password</a>
                         </div>
                         <div class="col-sm-6">
-                            <button type="button" class="btn btn-info pull-right btn-lg" id="login-submit" data-loading-text="Submitting...">Log in</button>
+                            <button type="button" class="btn pull-right btn-lg green-btn" id="login-submit" data-loading-text="Submitting...">Log in</button>
                         </div>
                     </div>
                 </form>
