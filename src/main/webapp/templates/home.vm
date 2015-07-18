@@ -127,6 +127,7 @@
                         </div>
                         <span class="green-span" style="margin-bottom: 20px">Request an invitation.</span>
 						<a tabindex="0" 
+							id="why-link"
 							class="btn btn-link green-link" 
 							role="button" 
 							onclick="return false"
@@ -138,7 +139,6 @@
 							data-content="WormSim is currently open in a limited fashion exclusively to <a href='https://www.kickstarter.com/projects/openworm/openworm-a-digital-organism-in-your-browser'  target='_blank'>our Kickstarter</a> backers.  If you didn't back the Kickstarter, request an invite here and we'll do our best to get you in as soon as possible." 
 							data-original-title="Why do I need to?">Why?</a>
                     </div>
-
 
                     <div class="row" style="display:block; margin-top: 30px;">
                         <div class="home-font col-md-4 col-sm-4">Explore a digital organism!</div>
