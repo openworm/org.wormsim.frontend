@@ -1,0 +1,109 @@
+{
+    "id": 6,
+    "name": "c302 network of integrate and fire neurons",
+    "activeExperimentId": 1,
+    "experiments": [
+        {
+            "id": 1,
+            "name": "OpenWorm Connectome",
+            "description" : "This network represents the full connectome of C. elegans.",
+            "status": "COMPLETED",
+            "lastModified":"1436102517799",
+            "script": "SERVER_ROOT/appdata/wormsim/scripts/wormsim-c302.js",
+            aspectConfigurations: [
+            {
+              id:1,
+              aspect: {
+                    id: 1,
+                    entityInstancePath: "c302",
+                    aspect: "electrical",
+                    localInstancePath: ""
+                },
+                simulatorConfiguration: {
+                  id: 1,
+                  simulatorId: "neuronSimulator",
+                  conversionServiceId: "lemsConversion",
+                  timestep: 0.0001,
+                  length: 0.5,
+                  parameters: {target: "c302_A"}
+                },
+                watchedVariables:[
+                  {
+                      "id": 1,
+                      "entityInstancePath": "c302.ADAL_0",
+                      "aspect": "electrical.SimulationTree",
+                      "localInstancePath": "generic_iaf_cell.v"
+                  },
+                  {
+                      "id": 2,
+                      "entityInstancePath": "c302.ADAR_0",
+                      "aspect": "electrical.SimulationTree",
+                      "localInstancePath": "generic_iaf_cell.v"
+                  },
+                  {
+                      "id": 3,
+                      "entityInstancePath": "c302.BDUR_0",
+                      "aspect": "electrical.SimulationTree",
+                      "localInstancePath": "generic_iaf_cell.v"
+                  },
+                  {
+                      "id": 4,
+                      "entityInstancePath": "c302.I1R_0",
+                      "aspect": "electrical.SimulationTree",
+                      "localInstancePath": "generic_iaf_cell.v"
+                  },
+                  {
+                      "id": 5,
+                      "entityInstancePath": "c302.I2L_0",
+                      "aspect": "electrical.SimulationTree",
+                      "localInstancePath": "generic_iaf_cell.v"
+                  },
+                  {
+                      "id": 6,
+                      "entityInstancePath": "c302.PVDR_0",
+                      "aspect": "electrical.SimulationTree",
+                      "localInstancePath": "generic_iaf_cell.v"
+                  }
+                ]
+            }
+
+            ],
+		  	simulationResults: [
+		  	{
+		  		id:1,
+		  		format: "GEPPETTO_RECORDING",
+		  		aspect: {
+		            id: 1,
+		            entityInstancePath: "c302",
+		            aspect: "electrical",
+		            localInstancePath: ""
+		        },
+		        result: {
+		          id: 1,
+		          url: "SERVER_ROOT/appdata/wormsim/recordings/wormsim-c302-results.h5",
+		          type: "RECORDING"
+		        }
+		  	},
+		  	  	{
+		  		id:2,
+		  		format: "RAW",
+		  		aspect: {
+		            id: 1,
+		            entityInstancePath: "c302",
+		            aspect: "electrical",
+		            localInstancePath: ""
+		        },
+		        result: {
+		          id: 2,
+		          url: "SERVER_ROOT/appdata/wormsim/recordings/wormsim-c302-rawrecording.zip",
+		          type: "RECORDING"
+		        }
+		  	}]
+        }
+    ],
+    "geppettoModel": {
+        "id": 6,
+        "url": "SERVER_ROOT/appdata/wormsim/models/wormsim-c302-model.xml",
+        "type": "GEPPETTO_PROJECT"
+    }
+}

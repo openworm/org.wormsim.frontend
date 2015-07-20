@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+    <asset>
+        <contributor>
+            <author>open-worm</author>
+        </contributor>
+        <created>2015-07-15</created>
+        <modified>2015-07-15</modified>
+        <Y_UP>Y_UP</Y_UP>
+    </asset>
+    <library_animations>
+        <animation id="node_transform">
+            <source id="node_transform-input">
+                <float_array id="node_transform-input-array" count="2">0 1</float_array>
+                <technique_common>
+                    <accessor source="#node_transform-input-array" count="2" stride="1">
+                        <param name="TIME" type="float"/>
+                    </accessor>
+                </technique_common>
+            </source>
+            <source id="node_transform-output">
+                <float_array id="node_transform-input-array" count="2">0 100</float_array>
+                <technique_common>
+                    <accessor source="#node_transform-input-array" count="2" stride="1">
+                        <param name="TIME" type="float"/>
+                    </accessor>
+                </technique_common>
+            </source>
+            <source id="node_transform-interpolations">
+                <Name_array id="node_transform-interpolations-array" count="2">LINEAR LINEAR</Name_array>
+                <technique_common>
+                    <accessor source="#node_transform-input-array" count="2" stride="1">
+                        <param name="INTERPOLATION" type="Name"/>
+                    </accessor>
+                </technique_common>
+            </source>
+            <sampler id="node_transform-input-sampler">
+                <input semantic="INPUT" source="#node_transform-input"/>
+                <input semantic="OUTPUT" source="#node_transform-output"/>
+                <input semantic="INTERPOLATION" source="#node_transform-interpolations"/>
+            </sampler>
+            <channel source="#node_transform-input-sampler" target="skeleton_root_0/translate.X"/>
+        </animation>
+    </library_animations>
+    <library_animation_clips>
+        <animation_clip id="AnimationClip" start="0" end="1">
+            <instance_animation url="node_transform"/>
+        </animation_clip>
+    </library_animation_clips>
+    <library_geometries>
+        <geometry id="muscle_anim33-mesh_0" name="muscle_anim33-mesh_0">
+            <mesh>
+                <source id="positions_0" name="positions_0">
+                    <float_array id="positions_0-array" count="252">43.6923 370.74 -12.6683 42.5611 372.41 -13.8682 43.7224 372.41 -12.6728 44.6288 372.41 -14.082 41.6452 374.08 -15.2472 42.5904 374.08 -13.8706 43.754 374.08 -12.6775 43.5505 374.08 -15.3342 44.66 374.08 -14.0862 41.6737 375.75 -15.2483 42.6211 375.75 -13.8732 43.787 375.75 -12.6825 43.5803 375.75 -15.3361 44.6927 375.75 -14.0907 41.7035 377.42 -15.2494 42.6531 377.42 -13.876 43.8216 377.42 -12.6877 43.6115 377.42 -15.3382 44.727 377.42 -14.0954 41.7345 379.09 -15.2507 42.6865 379.09 -13.8788 43.8578 379.09 -12.6931 43.6439 379.09 -15.3403 44.7628 379.09 -14.1003 41.7668 380.76 -15.2519 42.7213 380.76 -13.8818 43.8953 380.76 -12.6989 43.6778 380.76 -15.3425 44.8 380.76 -14.1054 41.8004 382.43 -15.2533 42.7575 382.43 -13.885 43.9345 382.43 -12.7049 43.713 382.43 -15.3449 44.8387 382.43 -14.1109 41.8353 384.1 -15.2547 42.7951 384.1 -13.8883 43.9752 384.1 -12.7111 43.7496 384.1 -15.3474 44.8789 384.1 -14.1166 41.8716 385.77 -15.2562 42.8342 385.77 -13.8918 44.0175 385.77 -12.7177 43.7876 385.77 -15.35 44.9207 385.77 -14.1227 41.9091 387.44 -15.2577 42.8748 387.44 -13.8954 44.0613 387.44 -12.7246 43.827 387.44 -15.3527 44.964 387.44 -14.1291 41.9481 389.11 -15.2593 42.9168 389.11 -13.8992 44.1067 389.11 -12.7319 43.8679 389.11 -15.3556 45.0089 389.11 -14.1357 41.9884 390.78 -15.261 42.9604 390.78 -13.9031 44.1538 390.78 -12.7394 43.9103 390.78 -15.3586 45.0555 390.78 -14.1427 42.0302 392.45 -15.2628 43.0055 392.45 -13.9072 43.9542 392.45 -15.3617 45.1037 392.45 -14.1499 42.0733 394.12 -15.2647 43.0505 394.119 -13.9113 43.9996 394.12 -15.365 45.1537 394.12 -14.1576 42.1179 395.79 -15.2666 43.0987 395.789 -13.9159 44.0465 395.79 -15.3685 45.2068 395.791 -14.1658 42.164 397.46 -15.2686 43.1484 397.459 -13.9207 44.0949 397.46 -15.3721 45.2602 397.461 -14.1742 42.2115 399.13 -15.2707 43.1998 399.129 -13.9256 44.145 399.13 -15.3759 45.3153 399.131 -14.1831 42.2606 400.8 -15.2729 43.2528 400.799 -13.9308 44.1967 400.8 -15.3799 42.3111 402.47 -15.2752 44.2501 402.47 -15.3839 </float_array>
+                    <technique_common>
+                        <accessor source="#positions_0-array" count="84" stride="3">
+                            <param name="X" type="float"/>
+                            <param name="Y" type="float"/>
+                            <param name="Z" type="float"/>
+                        </accessor>
+                    </technique_common>
+                </source>
+                <source id="normals_0" name="normals_0">
+                    <float_array id="normals_0-array" count="252">-0.459272 -0.132688 0.87833 -0.629788 -0.676353 -0.381986 0.101196 0.000893262 0.994866 0.665224 -0.297451 -0.684835 -0.961978 -0.102583 -0.253129 -0.773666 0.0148493 0.63342 0.34049 -0.0041914 0.940239 0.168171 -0.369647 -0.913827 0.997249 -0.0186438 0.0717401 -0.896851 0.0165982 -0.442021 -0.773265 0.0155228 0.633893 -0.141012 0.0059439 0.98999 0.389069 -0.00819322 -0.921172 0.996612 -0.0196886 -0.0798593 -0.69351 0.011883 -0.720349 -0.772885 0.0162052 0.634339 0.341822 -0.00435747 0.939755 0.527066 -0.0114538 -0.849747 0.999411 -0.0203508 0.0276446 -0.993906 0.0201775 -0.108366 -0.7619 0.0164849 0.647485 0.105246 0.000737974 0.994446 0.386116 -0.00905787 -0.922406 0.996369 -0.0216349 -0.0823463 -0.69394 0.0128968 -0.719918 -0.76324 0.0166492 0.645901 0.342904 -0.00465314 0.939359 0.38473 -0.00942259 -0.922981 0.997386 -0.0223509 0.0687166 -0.89812 0.0180638 -0.439379 -0.768632 0.0173033 0.639457 0.34328 -0.00487493 0.93922 0.382581 -0.00997913 -0.923868 0.996165 -0.0232361 -0.0843567 -0.898207 0.0193742 -0.439146 -0.765922 0.0184158 0.64267 0.107866 0.00046985 0.994165 0.317996 -0.00876522 -0.948051 0.996014 -0.0241473 -0.0858717 -0.898589 0.0194697 -0.43836 -0.763469 0.0197229 0.645543 0.108814 0.00121313 0.994061 0.378432 -0.0109348 -0.925564 0.986077 -0.0245226 0.16447 -0.898956 0.0205906 -0.437554 -0.761042 0.0207897 0.648369 0.109738 0.000568021 0.99396 0.376115 -0.0111463 -0.926506 0.995779 -0.0259632 -0.088038 -0.695445 0.0155285 -0.718411 -0.777285 0.0210791 0.628796 0.344788 -0.00525732 0.938666 0.312144 -0.00982761 -0.949984 0.995606 -0.0269483 -0.0896851 -0.994627 0.0248028 -0.100512 -0.780675 0.0222905 0.62454 0.0417381 0.0156183 0.999007 0.371863 -0.0123179 -0.928206 0.969426 -0.0276009 -0.243828 -0.696224 0.0166339 -0.717631 -0.77412 0.0229996 0.632621 0.307133 -0.0107055 -0.951606 0.995324 -0.0296809 -0.0919201 -0.994914 0.0262513 -0.0972464 -0.756068 0.022797 0.654096 0.366116 -0.0133388 -0.930473 0.968507 -0.0297331 -0.247203 -0.697084 0.0177894 -0.716768 -0.753275 0.0239116 0.657271 0.360491 -0.0122716 -0.932682 0.967657 -0.0307141 -0.250394 -0.901735 0.0247359 -0.431582 -0.751398 0.0246723 0.659388 0.360941 -0.0127194 -0.932502 0.994678 -0.0327942 -0.09767 -0.902306 0.0249636 -0.430374 -0.467385 0.0521242 0.882516 0.361059 -0.0131698 -0.93245 0.986016 0.0694683 -0.151481 -0.903128 0.0263631 -0.428562 -0.0594614 0.327408 0.94301 0.360843 -0.0136088 -0.932527 -0.940424 0.145193 -0.307443 0.735596 0.671226 -0.0914026 </float_array>
+                    <technique_common>
+                        <accessor source="#normals_0-array" count="84" stride="3">
+                            <param name="X" type="float"/>
+                            <param name="Y" type="float"/>
+                            <param name="Z" type="float"/>
+                        </accessor>
+                    </technique_common>
+                </source>
+                <vertices id="verts_0">
+                    <input semantic="POSITION" source="#positions_0"/>
+                </vertices>
+                <triangles count="164">
+                    <input semantic="VERTEX" source="#verts_0" offset="0"/>
+                    <input semantic="NORMAL" source="#normals_0" offset="1"/>
+                    <p>81 81 82 82 83 83 82 82 80 80 83 83 78 78 81 81 83 83 80 80 78 78 83 83 81 81 77 77 82 82 76 76 80 80 82 82 77 77 73 73 82 82 72 72 76 76 82 82 73 73 69 69 82 82 68 68 72 72 82 82 65 65 79 79 82 82 69 69 65 65 82 82 64 64 68 68 82 82 79 79 60 60 82 82 60 60 64 64 82 82 78 78 77 77 81 81 76 76 78 78 80 80 65 65 75 75 79 79 75 75 60 60 79 79 73 73 77 77 78 78 69 69 73 73 78 78 74 74 65 65 78 78 65 65 69 69 78 78 76 76 56 56 78 78 56 56 74 74 78 78 72 72 56 56 76 76 61 61 71 71 75 75 65 65 61 61 75 75 71 71 55 55 75 75 55 55 60 60 75 75 70 70 65 65 74 74 56 56 70 70 74 74 68 68 56 56 72 72 61 61 67 67 71 71 67 67 55 55 71 71 66 66 61 61 70 70 61 61 65 65 70 70 56 56 66 66 70 70 64 64 56 56 68 68 57 57 63 63 67 67 61 61 57 57 67 67 63 63 55 55 67 67 62 62 57 57 66 66 57 57 61 61 66 66 56 56 62 62 66 66 60 60 56 56 64 64 57 57 59 59 63 63 59 59 50 50 63 63 50 50 55 55 63 63 58 58 57 57 62 62 56 56 58 58 62 62 55 55 56 56 60 60 57 57 52 52 59 59 52 52 54 54 59 59 54 54 50 50 59 59 56 56 53 53 58 58 52 52 57 57 58 58 53 53 52 52 58 58 51 51 53 53 56 56 55 55 50 50 56 56 45 45 51 51 56 56 50 50 45 45 56 56 52 52 49 49 54 54 45 45 50 50 54 54 49 49 45 45 54 54 51 51 48 48 53 53 47 47 52 52 53 53 48 48 47 47 53 53 47 47 49 49 52 52 46 46 48 48 51 51 45 45 46 46 51 51 47 47 44 44 49 49 44 44 45 45 49 49 46 46 43 43 48 48 42 42 47 47 48 48 43 43 42 42 48 48 42 42 44 44 47 47 41 41 43 43 46 46 45 45 40 40 46 46 40 40 41 41 46 46 44 44 40 40 45 45 42 42 39 39 44 44 39 39 40 40 44 44 38 38 42 42 43 43 41 41 36 36 43 43 36 36 38 38 43 43 38 38 37 37 42 42 34 34 39 39 42 42 37 37 34 34 42 42 40 40 36 36 41 41 35 35 36 36 40 40 39 39 34 34 40 40 34 34 35 35 40 40 33 33 37 37 38 38 36 36 31 31 38 38 31 31 33 33 38 38 33 33 32 32 37 37 29 29 34 34 37 37 32 32 24 24 37 37 24 24 29 29 37 37 35 35 31 31 36 36 34 34 29 29 35 35 26 26 31 31 35 35 29 29 24 24 35 35 30 30 21 21 35 35 21 21 26 26 35 35 19 19 30 30 35 35 24 24 19 19 35 35 28 28 32 32 33 33 31 31 26 26 33 33 26 26 28 28 33 33 28 28 23 23 32 32 23 23 27 27 32 32 19 19 24 24 32 32 27 27 14 14 32 32 14 14 19 19 32 32 16 16 21 21 30 30 19 19 14 14 30 30 25 25 11 11 30 30 11 11 16 16 30 30 9 9 25 25 30 30 14 14 9 9 30 30 26 26 21 21 28 28 21 21 23 23 28 28 23 23 18 18 27 27 18 18 22 22 27 27 22 22 9 9 27 27 9 9 14 14 27 27 6 6 11 11 25 25 4 4 20 20 25 25 9 9 4 4 25 25 20 20 2 2 25 25 2 2 6 6 25 25 21 21 16 16 23 23 16 16 18 18 23 23 18 18 13 13 22 22 13 13 17 17 22 22 17 17 4 4 22 22 4 4 9 9 22 22 4 4 15 15 20 20 15 15 0 0 20 20 0 0 2 2 20 20 16 16 11 11 18 18 6 6 13 13 18 18 11 11 6 6 18 18 13 13 8 8 17 17 12 12 4 4 17 17 3 3 12 12 17 17 8 8 3 3 17 17 4 4 10 10 15 15 10 10 0 0 15 15 2 2 8 8 13 13 6 6 2 2 13 13 7 7 4 4 12 12 3 3 7 7 12 12 4 4 5 5 10 10 5 5 0 0 10 10 0 0 3 3 8 8 2 2 0 0 8 8 1 1 4 4 7 7 3 3 1 1 7 7 4 4 1 1 5 5 1 1 0 0 5 5 0 0 1 1 3 3 </p>
+                </triangles>
+            </mesh>
+        </geometry>
+    </library_geometries>
+    <library_controllers>
+        <controller id="muscle_anim33-skin_0" name="muscle_anim33-skin_0">
+            <skin source="#muscle_anim33-mesh_0">
+                <bind_shape_matrix>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</bind_shape_matrix>
+                <source id="muscle_anim33-skin-joints_0">
+                    <Name_array id="muscle_anim33-skin-joints_0-array" count="31">joint1 joint2 joint3 joint4 joint5 joint6 joint7 joint8 joint9 joint10 joint11 joint12 joint13 joint14 joint15 joint16 joint17 joint18 joint19 joint20 joint21 joint22 joint23 joint24 joint25 joint26 joint27 joint28 joint29 joint30 joint31 </Name_array>
+                    <technique_common>
+                        <accessor source="#muscle_anim33-skin-joints_0-array" count="31" stride="1">
+                            <param name="JOINT" type="Name"/>
+                        </accessor>
+                    </technique_common>
+                </source>
+                <source id="muscle_anim33-skin-bind_poses_0">
+                    <float_array id="muscle_anim33-skin-bind_poses_0-array" count="496">1 0 0 -50.1005 0 1 0 -189.859 0 0 1 20.0396 0 0 0 1 1 0 0 -50.1021 0 1 0 -200.14 0 0 1 20.0399 0 0 0 1 1 0 0 -50.0998 0 1 0 -211.012 0 0 1 20.0399 0 0 0 1 1 0 0 -50.0996 0 1 0 -221.531 0 0 1 20.04 0 0 0 1 1 0 0 -50.1016 0 1 0 -231.733 0 0 1 20.0399 0 0 0 1 1 0 0 -50.0984 0 1 0 -241.64 0 0 1 20.0399 0 0 0 1 1 0 0 -50.0996 0 1 0 -251.928 0 0 1 20.04 0 0 0 1 1 0 0 -50.1014 0 1 0 -261.678 0 0 1 20.0399 0 0 0 1 1 0 0 -50.1 0 1 0 -271.593 0 0 1 20.0399 0 0 0 1 1 0 0 -50.0996 0 1 0 -281.781 0 0 1 20.04 0 0 0 1 1 0 0 -50.1 0 1 0 -291.564 0 0 1 20.0398 0 0 0 1 1 0 0 -50.1 0 1 0 -301.549 0 0 1 20.0399 0 0 0 1 1 0 0 -50.0996 0 1 0 -311.531 0 0 1 20.04 0 0 0 1 1 0 0 -50.1 0 1 0 -321.519 0 0 1 20.0399 0 0 0 1 1 0 0 -50.1 0 1 0 -331.504 0 0 1 20.0399 0 0 0 1 1 0 0 -50.0996 0 1 0 -341.484 0 0 1 20.04 0 0 0 1 1 0 0 -50.1 0 1 0 -351.473 0 0 1 20.0399 0 0 0 1 1 0 0 -50.1 0 1 0 -361.457 0 0 1 20.0399 0 0 0 1 1 0 0 -50.0996 0 1 0 -371.359 0 0 1 20.04 0 0 0 1 1 0 0 -50.1015 0 1 0 -381.363 0 0 1 20.0399 0 0 0 1 1 0 0 -50.1002 0 1 0 -391.413 0 0 1 20.0399 0 0 0 1 1 0 0 -50.0996 0 1 0 -401.187 0 0 1 20.04 0 0 0 1 1 0 0 -50.1 0 1 0 -411.382 0 0 1 20.0399 0 0 0 1 1 0 0 -50.1017 0 1 0 -421.284 0 0 1 20.0399 0 0 0 1 1 0 0 -50.1016 0 1 0 -430.906 0 0 1 20.04 0 0 0 1 1 0 0 -50.1 0 1 0 -440.504 0 0 1 20.0399 0 0 0 1 1 0 0 -50.1004 0 1 0 -449.651 0 0 1 20.0399 0 0 0 1 1 0 0 -50.0996 0 1 0 -459.734 0 0 1 20.04 0 0 0 1 1 0 0 -50.097 0 1 0 -467.892 0 0 1 20.0398 0 0 0 1 1 0 0 -50.1006 0 1 0 -475.331 0 0 1 20.04 0 0 0 1 1 0 0 -50.1012 0 1 0 -484.451 0 0 1 20.04 0 0 0 1 </float_array>
+                    <technique_common>
+                        <accessor source="#muscle_anim33-skin-bind_poses_0-array" count="31" stride="16">
+                            <param name="TRANSFORM" type="float4x4"/>
+                        </accessor>
+                    </technique_common>
+                </source>
+                <source id="muscle_anim33-skin-weights_0">
+                    <float_array id="muscle_anim33-skin-weights_0-array" count="168">0.562554 0.437446 0.394975 0.605025 0.394975 0.605025 0.394975 0.605025 0.228033 0.771967 0.228033 0.771967 0.228033 0.771967 0.228033 0.771967 0.228033 0.771967 0.0610879 0.938912 0.0610879 0.938912 0.0610879 0.938912 0.0610879 0.938912 0.0610879 0.938912 0.894143 0.105857 0.894143 0.105857 0.894143 0.105857 0.894143 0.105857 0.894143 0.105857 0.7272 0.2728 0.7272 0.2728 0.7272 0.2728 0.7272 0.2728 0.7272 0.2728 0.560255 0.439745 0.560255 0.439745 0.560255 0.439745 0.560255 0.439745 0.560255 0.439745 0.393809 0.606191 0.393809 0.606191 0.393809 0.606191 0.393809 0.606191 0.393809 0.606191 0.22764 0.77236 0.22764 0.77236 0.22764 0.77236 0.22764 0.77236 0.22764 0.77236 0.0614748 0.938525 0.0614748 0.938525 0.0614748 0.938525 0.0614748 0.938525 0.0614748 0.938525 0.895306 0.104694 0.895306 0.104694 0.895306 0.104694 0.895306 0.104694 0.895306 0.104694 0.72914 0.27086 0.72914 0.27086 0.72914 0.27086 0.72914 0.27086 0.72914 0.27086 0.562972 0.437028 0.562972 0.437028 0.562972 0.437028 0.562972 0.437028 0.562972 0.437028 0.393894 0.606106 0.393894 0.606106 0.393894 0.606106 0.393894 0.606106 0.223045 0.776955 0.223148 0.776852 0.223148 0.776852 0.223045 0.776955 0.0521927 0.947807 0.0522957 0.947704 0.0522957 0.947704 0.0521927 0.947807 0.881343 0.118657 0.881443 0.118557 0.881443 0.118557 0.881343 0.118657 0.710491 0.289509 0.710594 0.289406 0.710594 0.289406 0.710491 0.289509 0.539642 0.460358 0.539742 0.460258 0.539742 0.460258 0.374199 0.625801 0.374298 0.625702 </float_array>
+                    <technique_common>
+                        <accessor source="#muscle_anim33-skin-weights_0-array" count="168" stride="1">
+                            <param name="WEIGHT" type="float"/>
+                        </accessor>
+                    </technique_common>
+                </source>
+                <joints>
+                    <input semantic="JOINT" source="#muscle_anim33-skin-joints_0"/>
+                    <input semantic="INV_BIND_MATRIX" source="#muscle_anim33-skin-bind_poses_0"/>
+                </joints>
+                <vertex_weights count="84">
+                    <input semantic="JOINT" source="#muscle_anim33-skin-joints_0" offset="0"/>
+                    <input semantic="WEIGHT" source="#muscle_anim33-skin-weights_0" offset="1"/>
+                    <vcount>2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 </vcount>
+                    <v>18 0 19 1 18 2 19 3 18 4 19 5 18 6 19 7 18 8 19 9 18 10 19 11 18 12 19 13 18 14 19 15 18 16 19 17 18 18 19 19 18 20 19 21 18 22 19 23 18 24 19 25 18 26 19 27 19 28 20 29 19 30 20 31 19 32 20 33 19 34 20 35 19 36 20 37 19 38 20 39 19 40 20 41 19 42 20 43 19 44 20 45 19 46 20 47 19 48 20 49 19 50 20 51 19 52 20 53 19 54 20 55 19 56 20 57 19 58 20 59 19 60 20 61 19 62 20 63 19 64 20 65 19 66 20 67 19 68 20 69 19 70 20 71 19 72 20 73 19 74 20 75 19 76 20 77 19 78 20 79 19 80 20 81 19 82 20 83 19 84 20 85 19 86 20 87 20 88 21 89 20 90 21 91 20 92 21 93 20 94 21 95 20 96 21 97 20 98 21 99 20 100 21 101 20 102 21 103 20 104 21 105 20 106 21 107 20 108 21 109 20 110 21 111 20 112 21 113 20 114 21 115 20 116 21 117 20 118 21 119 20 120 21 121 20 122 21 123 20 124 21 125 20 126 21 127 20 128 21 129 20 130 21 131 20 132 21 133 20 134 21 135 20 136 21 137 20 138 21 139 20 140 21 141 21 142 22 143 21 144 22 145 21 146 22 147 21 148 22 149 21 150 22 151 21 152 22 153 21 154 22 155 21 156 22 157 21 158 22 159 21 160 22 161 21 162 22 163 21 164 22 165 21 166 22 167 </v>
+                </vertex_weights>
+            </skin>
+        </controller>
+    </library_controllers>
+    <library_visual_scenes>
+        <visual_scene id="VisualSceneNode" name="bind">
+            <node id="skeleton_root_0" name="joint1" sid="joint1" type="JOINT">
+                <translate sid="translate">50.100529 189.859390 -20.039553</translate>
+                <node name="joint2" sid="joint2" type="JOINT">
+                    <translate sid="translate">0.001617 10.280411 -0.000311</translate>
+                    <node name="joint3" sid="joint3" type="JOINT">
+                        <translate sid="translate">-0.002357 10.871735 -0.000004</translate>
+                        <node name="joint4" sid="joint4" type="JOINT">
+                            <translate sid="translate">-0.000175 10.519730 -0.000170</translate>
+                            <node name="joint5" sid="joint5" type="JOINT">
+                                <translate sid="translate">0.002022 10.201385 0.000134</translate>
+                                <node name="joint6" sid="joint6" type="JOINT">
+                                    <translate sid="translate">-0.003273 9.907364 0.000011</translate>
+                                    <node name="joint7" sid="joint7" type="JOINT">
+                                        <translate sid="translate">0.001251 10.287659 -0.000145</translate>
+                                        <node name="joint8" sid="joint8" type="JOINT">
+                                            <translate sid="translate">0.001816 9.750275 0.000179</translate>
+                                            <node name="joint9" sid="joint9" type="JOINT">
+                                                <translate sid="translate">-0.001400 9.915253 0.000008</translate>
+                                                <node name="joint10" sid="joint10" type="JOINT">
+                                                    <translate sid="translate">-0.000416 10.188080 -0.000187</translate>
+                                                    <node name="joint11" sid="joint11" type="JOINT">
+                                                        <translate sid="translate">0.000366 9.782410 0.000193</translate>
+                                                        <node name="joint12" sid="joint12" type="JOINT">
+                                                            <translate sid="translate">0.000011 9.985687 -0.000010</translate>
+                                                            <node name="joint13" sid="joint13" type="JOINT">
+                                                                <translate sid="translate">-0.000378 9.981903 -0.000183</translate>
+                                                                <node name="joint14" sid="joint14" type="JOINT">
+                                                                    <translate sid="translate">0.000362 9.987854 0.000179</translate>
+                                                                    <node name="joint15" sid="joint15" type="JOINT">
+                                                                        <translate sid="translate">0.000004 9.984741 -0.000006</translate>
+                                                                        <node name="joint16" sid="joint16" type="JOINT">
+                                                                            <translate sid="translate">-0.000366 9.980530 -0.000174</translate>
+                                                                            <node name="joint17" sid="joint17" type="JOINT">
+                                                                                <translate sid="translate">0.000393 9.988373 0.000174</translate>
+                                                                                <node name="joint18" sid="joint18" type="JOINT">
+                                                                                    <translate sid="translate">-0.000008 9.984528 0.000011</translate>
+                                                                                    <node name="joint19" sid="joint19" type="JOINT">
+                                                                                        <translate sid="translate">-0.000385 9.902100 -0.000185</translate>
+                                                                                        <node name="joint20" sid="joint20" type="JOINT">
+                                                                                            <translate sid="translate">0.001862 10.003357 0.000183</translate>
+                                                                                            <node name="joint21" sid="joint21" type="JOINT">
+                                                                                                <translate sid="translate">-0.001297 10.050110 -0.000002</translate>
+                                                                                                <node name="joint22" sid="joint22" type="JOINT">
+                                                                                                    <translate sid="translate">-0.000565 9.774597 -0.000181</translate>
+                                                                                                    <node name="joint23" sid="joint23" type="JOINT">
+                                                                                                        <translate sid="translate">0.000423 10.194946 0.000153</translate>
+                                                                                                        <node name="joint24" sid="joint24" type="JOINT">
+                                                                                                            <translate sid="translate">0.001648 9.902039 0.000004</translate>
+                                                                                                            <node name="joint25" sid="joint25" type="JOINT">
+                                                                                                                <translate sid="translate">-0.000126 9.621826 -0.000156</translate>
+                                                                                                                <node name="joint26" sid="joint26" type="JOINT">
+                                                                                                                    <translate sid="translate">-0.001522 9.597626 0.000149</translate>
+                                                                                                                    <node name="joint27" sid="joint27" type="JOINT">
+                                                                                                                        <translate sid="translate">0.000389 9.147186 0.000004</translate>
+                                                                                                                        <node name="joint28" sid="joint28" type="JOINT">
+                                                                                                                            <translate sid="translate">-0.000813 10.083252 -0.000153</translate>
+                                                                                                                            <node name="joint29" sid="joint29" type="JOINT">
+                                                                                                                                <translate sid="translate">-0.002594 8.157745 0.000233</translate>
+                                                                                                                                <node name="joint30" sid="joint30" type="JOINT">
+                                                                                                                                    <translate sid="translate">0.003586 7.439270 -0.000183</translate>
+                                                                                                                                    <node name="joint31" sid="joint31" type="JOINT">
+                                                                                                                                        <translate sid="translate">0.000553 9.119659 -0.000053</translate>
+                                                                                                                                    </node>
+                                                                                                                                </node>
+                                                                                                                            </node>
+                                                                                                                        </node>
+                                                                                                                    </node>
+                                                                                                                </node>
+                                                                                                            </node>
+                                                                                                        </node>
+                                                                                                    </node>
+                                                                                                </node>
+                                                                                            </node>
+                                                                                        </node>
+                                                                                    </node>
+                                                                                </node>
+                                                                            </node>
+                                                                        </node>
+                                                                    </node>
+                                                                </node>
+                                                            </node>
+                                                        </node>
+                                                    </node>
+                                                </node>
+                                            </node>
+                                        </node>
+                                    </node>
+                                </node>
+                            </node>
+                        </node>
+                    </node>
+                </node>
+            </node>
+            <node id="muscle_anim33_0" name="muscle_anim33_0" type="NODE">
+                <instance_controller url="#muscle_anim33-skin_0">
+                    <skeleton>#skeleton_root_0</skeleton>
+                </instance_controller>
+            </node>
+        </visual_scene>
+    </library_visual_scenes>
+    <scene>
+        <instance_visual_scene url="#VisualSceneNode"/>
+    </scene>
+</COLLADA>
