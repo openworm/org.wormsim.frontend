@@ -83,6 +83,23 @@
 	            localInstancePath: "activation"
 	        }
         ]
+  	},
+  	{
+  		id:5,
+  		aspect: {
+            id: 1,
+            entityInstancePath: "wormsim.muscle_43",
+            aspect: "mechanical",
+            localInstancePath: ""
+        },
+        watchedVariables:[
+	        {
+	            id: 1,
+	            entityInstancePath: "wormsim.muscle_43",
+	            aspect: "mechanical.SimulationTree",
+	            localInstancePath: "activation"
+	        }
+        ]
   	}
   	],
   	simulationResults: [
