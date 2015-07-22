@@ -97,7 +97,7 @@
         },
         result: {
           id: 1,
-          url: "SERVER_ROOT/appdata/wormsim/recordings/10downsampled_wormsim_recording_flat.h5",
+          url: "SERVER_ROOT/appdata/wormsim/recordings/90downsampled_wormsim_recording_flat.h5",
           type: "RECORDING"
         }
   	} 

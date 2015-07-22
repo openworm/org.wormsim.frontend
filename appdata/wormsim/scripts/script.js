@@ -1,3 +1,5 @@
+G.setBackgroundColour("#F8FFD2")
+
 G.addWidget(1);
 Popup1.setPosition(755,85);
 Popup1.setSize(150,400);
@@ -11,9 +13,10 @@ ButtonBar2.setPosition(270,0);
 
 G.addVisualTransformListener(wormsim.mechanical, wormsim.mechanical.VisualizationTree.transformation);
 
-G.setPlayTimerStep(5);
+G.setPlayTimerStep(15);
 G.setPlayLoop(true);
 
 wormsim.show(false);
+GEPPETTO.getVARS().pickingEnabled = false;
 
 Project.getActiveExperiment().play({step:1});

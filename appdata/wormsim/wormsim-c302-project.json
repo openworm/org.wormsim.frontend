@@ -6,7 +6,7 @@
         {
             "id": 1,
             "name": "OpenWorm Connectome",
-            "description" : "This network represents the full connectome of C. elegans.",
+            "description" : "This network represents the full connectome of C. elegans. Each sphere represents a neuron, you can explore the brain of the worm by selecting neurons to see how the connect to each other.",
             "status": "COMPLETED",
             "lastModified":"1436102517799",
             "script": "SERVER_ROOT/appdata/wormsim/scripts/wormsim-c302.js",
