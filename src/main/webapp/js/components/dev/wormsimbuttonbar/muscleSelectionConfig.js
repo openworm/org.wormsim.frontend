@@ -3,7 +3,7 @@
         "default": {
             "muscle03Btn": {
                 "actions": [
-                    "if(plotW !== undefined){plotW.destroy()}",
+                    "if(plotW !== undefined){plotW.destroy();}",
                     "G.unSelectAll();",
                     "var plotW = G.addWidget(Widgets.PLOT);",
 					"plotW.setName('C. elegans muscle DR4 activation signal');",
@@ -20,7 +20,7 @@
             },
             "muscle15Btn": {
                 "actions": [
-                    "if(plotW !== undefined){plotW.destroy()}",
+                    "if(plotW !== undefined){plotW.destroy();}",
                     "G.unSelectAll();",
                     "var plotW = G.addWidget(Widgets.PLOT);",
 					"plotW.setName('C. elegans muscle DR16 activation signal');",
@@ -37,7 +37,7 @@
             },
             "muscle35Btn": {
                 "actions": [
-                    "if(plotW !== undefined){plotW.destroy()}",
+                    "if(plotW !== undefined){plotW.destroy();}",
                     "G.unSelectAll();",
                     "var plotW = G.addWidget(Widgets.PLOT);",
 					"plotW.setName('C. elegans muscle VR12 activation signal');",
@@ -54,7 +54,7 @@
             },
             "muscle43Btn": {
                 "actions": [
-                    "if(plotW !== undefined){plotW.destroy()}",
+                    "if(plotW !== undefined){plotW.destroy();}",
                     "G.unSelectAll();",
                     "var plotW = G.addWidget(Widgets.PLOT);",
 					"plotW.setName('C. elegans muscle VR20 activation signal');",
