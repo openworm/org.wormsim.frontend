@@ -1,6 +1,6 @@
 import os
 
-git_path = '/Users/giovanniidili/git/openworm'
+git_path = '/Users/[USER]/git/openworm'
 
 os.system("find " + git_path + "/org.geppetto.frontend/src/main/webapp/ -type f \( -name '*.css' -or -name '*.less' \) -exec sed -i '' 's/#fc6320/#D6F729/g' {} \;")
 os.system("find " + git_path + "/org.geppetto.frontend/src/main/webapp/ -type f \( -name '*.css' -or -name '*.less' \) -exec sed -i '' 's/#fd6808/#D6F729/g' {} \;")
