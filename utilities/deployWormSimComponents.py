@@ -29,7 +29,7 @@ def copytree(src, dst, symlinks = False, ignore = None):
     else:
       shutil.copy2(s, d)
 
-git_path = '/Users/[USERNAME]/git/openworm'
+git_path = '../..'
 source_dir = git_path + '/org.wormsim.frontend/src/main/webapp/js/components/'
 dest_dir = git_path + '/org.geppetto.frontend/src/main/webapp/js/components/'
 

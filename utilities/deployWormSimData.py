@@ -29,7 +29,7 @@ def copytree(src, dst, symlinks = False, ignore = None):
     else:
       shutil.copy2(s, d)
 
-git_path = '/Users/[USERNAME]/git/openworm'
+git_path = '../..'
 source_dir = git_path + '/org.wormsim.frontend/appdata'
 dest_dir = '/usr/local/Cellar/virgo/virgo-tomcat-server-3.6.2.RELEASE/appdata'
 
