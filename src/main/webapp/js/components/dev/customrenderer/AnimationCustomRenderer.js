@@ -1,9 +1,6 @@
 define(function(require) {
 
-var GEPPETTO = require('geppetto');
-require('GEPPETTO.Init');
-
-THREE.WormWebGLRenderer = function ( parameters ) {
+THREE.WebGLRenderer = function ( parameters ) {
 	console.log('THREE.WormWebGLRenderer');
 
 	parameters = parameters || {};
@@ -6490,15 +6487,4 @@ THREE.WormWebGLRenderer = function ( parameters ) {
 
 };
 
-var customRendererClass = THREE.WormWebGLRenderer;
-GEPPETTO.getVARS().customRendererClass = customRendererClass;
-
-console.log('customRendererClass set');
-
-GEPPETTO.getVARS().canvasCreated = false;
-GEPPETTO.getVARS().listenersCreated = false;
-var webGLStarted = GEPPETTO.init(GEPPETTO.FE.createContainer());
-GEPPETTO.FE.update(webGLStarted);
-
-console.log('canvas reset');
 });
