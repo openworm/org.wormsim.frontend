@@ -17,7 +17,8 @@ public class AuthService implements IAuthService {
 
     @Override
     public String authFailureRedirect() {
-        return "http://wormsim.org";
+    	// go back to root
+        return "/../";
     }
 
 	@Override
