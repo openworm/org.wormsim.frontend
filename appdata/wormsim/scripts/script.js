@@ -1,4 +1,4 @@
-G.setBackgroundColour("#F8FFD2")
+G.setBackgroundColour("#222222")
 
 G.addWidget(1);
 Popup1.setPosition(755,85);

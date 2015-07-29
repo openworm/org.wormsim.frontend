@@ -3,7 +3,8 @@
         "toggle": {
             "cuticleBtn": {
                 "actions": [
-                    "wormsim.show(false)"
+                    "wormsim.show(false);",
+                    "wormsim.changeOpacity(1,false);"
                 ],
                 "icon": "gpt-worm",
                 "label": "Cuticle",
@@ -11,7 +12,8 @@
             },
             "musclesBtn": {
                 "actions": [
-                    "wormsim.hide(false)"
+                    "wormsim.changeOpacity(0.3,false);",
+                    "wormsim.show(true);"
                 ],
                 "icon": "gpt-ion-channel",
                 "label": "Muscles",
