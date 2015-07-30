@@ -1,3 +1,4 @@
+document.title="WormSim";
 G.setBackgroundColour("#222222");
 wormsim.setColor(G.getCookie("WSCC"),true);
 
