@@ -83,6 +83,7 @@ public class Application
 			}
 
 			currentUser.save();
+			setColorCookie(req,res,currentUser.getWormColor());
 		}
 		catch(Exception e)
 		{
@@ -145,6 +146,7 @@ public class Application
 		User user = (User) authService.getUser();
 		user.tutorialLoaded = (tutorialLoaded);
 		user.save();
+		setColorCookie(req,res,user.getWormColor());
 		try
 		{
 			res.getWriter().print("ok");
@@ -176,6 +178,22 @@ public class Application
 		Map<String, User> modelMap = new HashMap<>();
 		modelMap.put("user", (User) authService.getUser());
 		return modelMap;
+	}
+	
+	/**
+	 * @param response
+	 */
+	private void setColorCookie(HttpServletRequest request, HttpServletResponse response, String color)
+	{
+		for(Cookie c : request.getCookies())
+		{
+			if(c.getName().equals("WSCC"))
+			{
+				c.setValue(color);
+				return;
+			}
+		}
+		response.addCookie(new Cookie("WSCC", color));
 	}
 
 }
