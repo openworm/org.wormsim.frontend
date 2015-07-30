@@ -4,7 +4,7 @@
             "showConnectivityBtn": {
                 "actions": [
                     "var connW = G.addWidget(6);",
-                    "connW.setName('Connectivity matrix');",
+                    "connW.setName(G.getCookie('WSNC')+ ' Connectivity matrix');",
                     "connW.setData(c302,{linkType:function(c){return c.getSubNodesOfDomainType('Synapse')[0].id}});",
                     "connW.setPosition(611,190);",
                     "connW.setSize(495,666);"

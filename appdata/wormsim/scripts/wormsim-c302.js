@@ -1,3 +1,4 @@
+document.title="WormSim";
 G.setBackgroundColour("#222222")
 c302.setColor(G.getCookie("WSCC"),true);
 
