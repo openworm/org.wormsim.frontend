@@ -95,6 +95,10 @@
 				<div class="sim-font middle-text">
 					Hello $user.firstName
 				</div>
+				<div class="buttons-container">
+					<a href="/org.geppetto.frontend/geppetto?load_project_from_url=SERVER_ROOT/appdata/wormsim/wormsim-project.json" class="category-button">Muscular system</a>
+					<a href="/org.geppetto.frontend/geppetto?load_project_from_url=SERVER_ROOT/appdata/wormsim/wormsim-c302-project.json" class="category-button">Simplified nervous system</a>
+				</div>
 				<div class="row middle-text">
 					<div class="col-md-1 col-sm-1">
 						<i class="fa fa-angle-left fa-4x" id="prevArrow"></i>
@@ -107,11 +111,6 @@
 					<div class="col-md-1 col-sm-1">
 						<i class="fa fa-angle-right fa-4x" id="nextArrow"></i>
 					</div>
-				</div>
-
-				<div class="buttons-container">
-					<a href="/org.geppetto.frontend/geppetto?load_project_from_url=SERVER_ROOT/appdata/wormsim/wormsim-project.json" class="category-button">Muscular system</a>
-					<a href="/org.geppetto.frontend/geppetto?load_project_from_url=SERVER_ROOT/appdata/wormsim/wormsim-c302-project.json" class="category-button">Simplified nervous system</a>
 				</div>
 			</div>
 		</div>
