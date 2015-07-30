@@ -15,10 +15,10 @@ ButtonBar2.setPosition(270,0);
 
 G.addVisualTransformListener(wormsim.mechanical, wormsim.mechanical.VisualizationTree.transformation);
 
-G.setPlayTimerStep(15);
+G.setPlayTimerStep(25);
 G.setPlayLoop(true);
 
 wormsim.show(false);
 GEPPETTO.getVARS().pickingEnabled = false;
 
-Project.getActiveExperiment().play({step:1});
+Project.getActiveExperiment().play({step:2});
