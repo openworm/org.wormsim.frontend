@@ -1,4 +1,5 @@
 G.setBackgroundColour("#222222")
+c302.setColor(G.getCookie("WSCC"),true);
 
 G.addWidget(1);
 Popup1.setMessage(Project.getActiveExperiment().getDescription());

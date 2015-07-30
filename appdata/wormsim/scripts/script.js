@@ -1,4 +1,5 @@
-G.setBackgroundColour("#222222")
+G.setBackgroundColour("#222222");
+wormsim.setColor(G.getCookie("WSCC"),true);
 
 G.addWidget(1);
 Popup1.setPosition(755,85);
