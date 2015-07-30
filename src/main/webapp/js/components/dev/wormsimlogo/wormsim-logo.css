@@ -6,5 +6,6 @@
     width:200px;
     cursor: pointer;
     position:fixed;
-    left: 10px;
+    left: 25px;
+    background-size: 90% 90%;
 }
