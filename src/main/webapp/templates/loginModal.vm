@@ -24,7 +24,7 @@
                             <a href="javascript:void(0);" onclick="window.location.href = '/user/reset';" class="btn btn-link green-link">Forgot Password</a>
                         </div>
                         <div class="col-sm-6">
-                            <button type="button" class="btn pull-right btn-lg green-btn" id="login-submit" data-loading-text="Submitting...">Log in</button>
+                            <button type="button" class="pull-right green-button" id="login-submit" data-loading-text="Submitting...">Log in</button>
                         </div>
                     </div>
                 </form>

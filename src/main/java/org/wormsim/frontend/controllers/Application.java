@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.wormsim.frontend.models.User;
 import org.wormsim.frontend.stormpath.ClientFactory;
-import org.wormsim.frontend.stormpath.UserManager;
 import org.wormsim.frontend.validators.SimpleEmailValidator;
 
 @Controller
@@ -84,6 +83,7 @@ public class Application
 
 			currentUser.save();
 			setColorCookie(req,res,currentUser.getWormColor());
+			setWormNameCookie(req,res,currentUser.getWormName());
 		}
 		catch(Exception e)
 		{
@@ -147,6 +147,7 @@ public class Application
 		user.tutorialLoaded = (tutorialLoaded);
 		user.save();
 		setColorCookie(req,res,user.getWormColor());
+		setWormNameCookie(req,res,user.getWormName());
 		try
 		{
 			res.getWriter().print("ok");
@@ -183,17 +184,35 @@ public class Application
 	/**
 	 * @param response
 	 */
-	private void setColorCookie(HttpServletRequest request, HttpServletResponse response, String color)
+	public static void setColorCookie(HttpServletRequest request, HttpServletResponse response, String color)
 	{
 		for(Cookie c : request.getCookies())
 		{
 			if(c.getName().equals("WSCC"))
 			{
 				c.setValue(color);
+				response.addCookie(c);
 				return;
 			}
 		}
 		response.addCookie(new Cookie("WSCC", color));
+	}
+	
+	/**
+	 * @param response
+	 */
+	public static void setWormNameCookie(HttpServletRequest request, HttpServletResponse response, String name)
+	{
+		for(Cookie c : request.getCookies())
+		{
+			if(c.getName().equals("WSNC"))
+			{
+				c.setValue(name);
+				response.addCookie(c);
+				return;
+			}
+		}
+		response.addCookie(new Cookie("WSNC", name));
 	}
 
 }

@@ -62,6 +62,8 @@ public class Login
 		{
 			authService.setUser(UserManager.login(user.getEmail(), user.getPassword()));
 			setSessionCookie(request, response);
+			Application.setColorCookie(request, response, ((User) authService.getUser()).getWormColor());
+			Application.setWormNameCookie(request, response, ((User) authService.getUser()).getWormName());
 		}
 		catch(AuthenticationException e)
 		{
