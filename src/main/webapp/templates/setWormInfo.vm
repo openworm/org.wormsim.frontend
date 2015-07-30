@@ -9,8 +9,8 @@
     #end
 
     <!-- Le meta -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <!--TODO: Un-hardwire the bundle name-->
@@ -28,11 +28,9 @@
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
-</head>
+	</head>
     
-
-  <body class="user-home">
+  	<body class="user-home">
 
        <div class="wormsim-logo pull-left"></div>
         <button id="logoutBtn" type="button" class="btn btn-danger btn-large dropdown-toggle pull-right" >
@@ -69,7 +67,7 @@
             <div id="slide-three" class="slide-three">
                 <h1>
                     Thanks, much better! Now, my scientific name is Caenorhabditis elegans - C. elegans for short. But I could really use a friendlier nickname :) Could you give me one?<br/>       
-                    <span style="text-align: center;"><input style="font-size:6vw;margin-top:15px;width:100%;text-align: center;" id="worm-name-input" type='text' maxlength="14" value="type here" onchange="wormNameChange(this.value)" /></span>
+                    <span style="text-align: center;"><input style="font-size:6vw;margin-top:15px;width:100%;text-align: center;" id="worm-name-input" type='text' maxlength="14" value="type here" /></span>
                 </h1>
             </div>
 

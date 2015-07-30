@@ -47,20 +47,26 @@ function makeVisibleOnlyOne(visibleIndex) {
 }
 
 function setArrowsVisibility() {
-    if (currentSlide == 0)
+    if (currentSlide == 0){
         updateArrowVisibility("visible", "hidden");
-    else
-    if (currentSlide == noOfSlides - 1)
+    }
+    else if (currentSlide == 1){
+    	// pick a color
+    	var colorSelected = ($(".circle-active").length > 0) ? true : false;
+    	updateArrowVisibility(colorSelected ? "visible" : "hidden", "visible");
+    }
+    else if (currentSlide == 2){
+    	// give it a name
+    	updateArrowVisibility(($("#worm-name-input").val() != "type here") ? "visible" : "hidden", "visible");
+    }
+    else {
         updateArrowVisibility("visible", "visible");
-    else
-        updateArrowVisibility("visible", "visible");
+    }
 }
 
 function updateArrowVisibility(leftArrowVisible, rightArrowVisible) {
     rightArrow.style.visibility = rightArrowVisible;
     leftArrow.style.visibility = leftArrowVisible;
-    console.log(leftArrow.style.visibility + " leftArrow.style.visibility");
-    console.log(rightArrow.style.visibility + " rightArrow.style.visibility");
 }
 
 function nextSlide() {
@@ -136,12 +142,20 @@ function colorChange(id) {
     document.getElementById("worm-name-input").style.color = userSelectedColor;
     document.getElementById("worm-name-confirmed").style.color = userSelectedColor;
     $.fn.setWormColor(rgb2hex(userSelectedColor));
+    
+    if(id!=0){
+    	leftArrow.style.visibility = "visible";
+    }
 }
 
 function wormNameChange(newName) {
     userSelectedName = newName;
-    document.getElementById("worm-name-confirmed").innerHTML = newName;
+    document.getElementById("worm-name-confirmed").innerHTML = userSelectedName;
     document.getElementById("userSurnameDisplay").innerHtml = "userSurname";
+    
+    if(userSelectedName != "type here" || userSelectedName != "" ){
+    	leftArrow.style.visibility = "visible";
+    }
 }
 
 function notifyWormNewSlide(oldSlideIndex, newSlideIndex) {
@@ -168,3 +182,7 @@ function hex(x) {
     console.log(x);
     return isNaN(x) ? "00" : hexDigits[(x - x % 16) / 16] + hexDigits[x % 16];
 }
+
+$("#worm-name-input").on('input propertychange paste', function (event){
+	wormNameChange($(this).val());
+});
