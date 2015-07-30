@@ -39,6 +39,7 @@
 	</head>
 	<body class="wormsim-bg">
 		<div class="wormsim-logo pull-left"></div>
+		<div class="openworm-logo-wormInfo"></div>
         <button id="logoutBtn" type="button" class="btn btn-danger btn-large dropdown-toggle pull-right" >
         	Log out
    		</button>
