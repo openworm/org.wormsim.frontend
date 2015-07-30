@@ -4,8 +4,8 @@
         <title>WormSim</title>
 
         <!-- Le meta -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=1024" />
         <meta property="og:title" content="A Digital Organism In Your Browser" />
         <meta property="og:description" content="OpenWorm is building the first complete simulation of an entire organism and bringing it to your web browser.  You can benefit from a tremendous amount of open access research and three years of effort to build a model of the worm within the OpenWorm project.  Your browser will receive a streamed version of the latest simulation as if you were watching a movie on Netflix, but you'll also be able to interact with it, explore the simulation dynamically in 3D, and look at the activity of muscle cells." />
         <meta property="og:image" content="http://wormsim.org/resources/images/wormsim-worm-logos.png" />
@@ -71,7 +71,7 @@
         });
     </script>
 
-    <body>
+    <body class="fallback-bg">
         <div class="container-fluid wormsim-bg">
             <div class="row">
             	#if($user)
