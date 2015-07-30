@@ -2,7 +2,7 @@
     #if($title)
         <title>$title</title>
     #else
-        <title>Wormsim</title>
+        <title>WormSim</title>
     #end
 
     <!-- Le meta -->
