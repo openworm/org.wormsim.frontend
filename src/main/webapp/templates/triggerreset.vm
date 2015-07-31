@@ -1,32 +1,31 @@
 <!DOCTYPE html>
 <html lang="@lang().code()">
-    #set($title = "Wormsim Password Reset")
+    #set($title = "WormSim Password Reset")
     #parse("templates/head.vm")
-<body>
-<div class="login-container">
-    <form action="" method="POST">
-        #if(!$wasreset)
-            #if($message)
-                <div class="alert alert-danger">
-                    $message
-                </div>
-            #end
-            <h4>Enter the email associated with your account:</h4>
-            <div class="form-group">
-                <input type="text" id="inputEmail" name="email" value="" class="form-control input-lg" autocomplete="off" placeholder="Email"/>
-                <span class="help-block"></span>
-            </div>
-            <div class="form-group submit-group row">
-                <div class="col-sm-12">
-                    <button type="submit" class="btn btn-primary btn-lg">Send Reset Email</button>
-                </div>
-            </div>
-
-        #else
-            <h2>Password reset instructions sent. Please check your email.</h2>
-        #end
-    </form>
-</div>
-
-</body>
+	<body class="reset-pw-bg">
+		<div id="password-reset-container" class="login-container">
+		    <form action="" method="POST">
+		        #if(!$wasreset)
+		            #if($message)
+		                <div class="alert alert-danger">
+		                    $message
+		                </div>
+		            #end
+		            <h4>Enter the email associated with your account:</h4>
+		            <div class="form-group">
+		                <input type="text" id="inputEmail" name="email" value="" class="form-control input-lg" autocomplete="off" placeholder="Email"/>
+		                <span class="help-block"></span>
+		            </div>
+		            <div class="form-group submit-group row">
+		                <div class="col-sm-12">
+		                    <button type="submit" class="btn green-button">Send Reset Email</button>
+		                </div>
+		            </div>
+		
+		        #else
+		            <h2>Password reset instructions sent. Please check your email.</h2>
+		        #end
+		    </form>
+		</div>
+	</body>
 </html>
