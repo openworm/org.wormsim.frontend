@@ -134,7 +134,7 @@
                         <div class='row'> 
                         	<span id="form-info" ></span>
                         </div>
-                        <span class="green-span" style="margin-bottom: 20px">Request an invitation.</span>
+                        <span class="green-span" style="margin-bottom: 20px; position: relative;">Request an invitation.</span>
 						<a tabindex="0" 
 							id="why-link"
 							class="btn btn-link green-link" 
