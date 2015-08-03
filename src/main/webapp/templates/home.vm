@@ -178,7 +178,7 @@
               $('[data-toggle="popover"]').popover()
             })
             
-            var shake=3;
+            var shake=1;
             setInterval(function() {
 	        	if($('.play-button').hasClass("shake"))
 	        	{
