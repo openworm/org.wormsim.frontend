@@ -21,7 +21,7 @@
         <!--TODO: Un-hardwire the bundle name-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link href="/resources/css/unsemantic-grid-responsive.css" rel="stylesheet" type="text/css"/>
-        
+       	<link href="resources/css/csshake.min.css" rel="stylesheet">
         <link rel="stylesheet/less" type="text/css" href="/resources/less/main.less" />
         <script src="resources/js/vendor/less-1.7.5.min.js" type="text/javascript"></script>
         
@@ -177,6 +177,28 @@
             $(function () {
               $('[data-toggle="popover"]').popover()
             })
+            
+            var shake=3;
+            setInterval(function() {
+	        	if($('.play-button').hasClass("shake"))
+	        	{
+	        		$('.play-button').removeClass("shake");
+	        		$('.play-button').removeClass("shake-constant");
+	        	}
+	        	else
+	        	{
+	        		if(shake==3) //makes it shake once every two cycles;
+	        		{
+	        			$('.play-button').addClass("shake");
+	        			$('.play-button').addClass("shake-constant");
+	        			shake=0;
+	        		}
+	        		else
+	        		{
+	        			shake++;
+	        		}
+	        	}
+	    	}, 1000); 
         </script>
         #parse("templates/loginModal.vm")
 
