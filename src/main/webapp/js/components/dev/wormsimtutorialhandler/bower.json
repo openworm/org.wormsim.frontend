@@ -1,0 +1,25 @@
+{
+  "name": "wormsimtutorialhandler",
+  "version": "0.0.1",
+  "authors": [
+        "Giovanni Idili <giovanni@metacell.us>"
+    ],
+  ,
+  "description": "WormSim tutorial handler",
+  "moduleType": [
+    "amd"
+  ],
+  "main": "tutorialHandler",
+  "keywords": [
+    "tutorialhandler"
+  ],
+  "license": "MIT",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
