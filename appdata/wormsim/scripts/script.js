@@ -37,9 +37,10 @@ tutorialPopup.showCloseButton(false);
 tutorialPopup.setDraggable(false);
 
 G.addWidget(Widgets.BUTTONBAR).fromJSON('/org.geppetto.frontend/geppetto/js/components/dev/wormsimbuttonbar/tutorialButtonBar.js');
-ButtonBar3.setPosition(20,505);
+ButtonBar3.setPosition(20,509);
 ButtonBar3.setSize(60,300);
 ButtonBar3.showCloseButton(false);
-ButtonBar3.setDraggable(false);
+ButtonBar3.showTitleBar(false);
+ButtonBar3.setClass('centerContent noStyleDisableDrag');
 
 Project.getActiveExperiment().play({step:2});
