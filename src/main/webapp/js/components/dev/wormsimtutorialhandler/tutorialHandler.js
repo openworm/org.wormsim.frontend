@@ -8,37 +8,30 @@ define(function(require) {
     var sphTutorialMessages = [];
     var sphTutorialActions = [];
 
-
-
-    sphTutorialMessages.push("What you can see here is a typical behaviour: forward locomotion.");
+    sphTutorialMessages.push("What you can see here is my most obvious and common behaviour: forward locomotion.  Yes it may sound like my motion is LOCO (i.e. craaazy).  It is actually just a way to say movement that gets my body moving :)");
     sphTutorialActions.push('');
 
-    sphTutorialMessages.push("As simple as the worm seems, there is still a great number of open questions about how the worm’s brain is generating this typical crawling motion.");
+    sphTutorialMessages.push("As simple as I may look, there are still a great number of open questions about how my brain is generating this pretty simple motion.");
     sphTutorialActions.push('');
 
-    sphTutorialMessages.push("Although it is a very stereotypical movement, scientists still argue between a number of possibilities for how the worm achieves this.  The OpenWorm community talked about this in <a href='https://www.youtube.com/watch?v=puB8R9PW3BI&index=10&list=PL8ACJC0fGE7D-EkkR7EFgQESpHONC_kcI' target='_blank'>one of our journal clubs.</a>");
+    sphTutorialMessages.push("Scientists trying to figure me out still argue between a number of possibilities for how my cells achieve this.  The OpenWorm community talked about this in <a href='https://www.youtube.com/watch?v=puB8R9PW3BI&index=10&list=PL8ACJC0fGE7D-EkkR7EFgQESpHONC_kcI' target='_blank'>one of our OpenWorm journal clubs.</a>");
     sphTutorialActions.push('');
 
-    sphTutorialMessages.push("C. elegans have 95 body wall muscles along its body, which help to navigate the worm in its world.");
+    sphTutorialMessages.push("Under my skin, I have 95 body wall muscles along my body, which are the primary drivers of my forward locomotion.");
     sphTutorialActions.push('wormsim.changeOpacity(0.3,false);wormsim.show(true);');
 
-    sphTutorialMessages.push("The current model that you can see has correct anatomy, but the cells are not based on real data.  They are ‘tuned’ to get the job done. ");
+    sphTutorialMessages.push("The current model that you can see has my correct anatomy, but the cells are not based on real data.  They are ‘tuned’ to get the job done. ");
     sphTutorialActions.push("if(plotW !== undefined){plotW.destroy();};G.unSelectAll();var plotW = G.addWidget(Widgets.PLOT);plotW.setName(G.getCookie('WSNC')+' muscle DR4 activation signal');options = {yaxis:{min:-.1,max:1.1},xaxis:{min:0,max:400,show:false}, colors: [G.getCookie('WSCC')]};plotW.setOptions(options);plotW.setPosition(180, 400);plotW.setSize(220,1000);plotW.plotData(wormsim.muscle_3.mechanical.SimulationTree.activation);wormsim.changeOpacity(0.3,false);wormsim.show(true);wormsim.muscle_3.select();");
 
-    sphTutorialMessages.push("One of the next major step for the OpenWorm project is to accommodate more data about the muscular activity of worm.");
+    sphTutorialMessages.push("One of the next major steps for the OpenWorm project is to incorporate more data about the muscular activity of worm.  We are currently in the process of setting up collaborations with laboratories around the world to fill this gap.");
     sphTutorialActions.push('');
 
     sphTutorialMessages.push("OpenWorm wants to further understanding by providing an integrated simulation where both the worm’s biology and the physics of the surrounding environment is simulated.");
     sphTutorialActions.push('');
 
-    sphTutorialMessages.push("Other than straight runs, the worm also engages in turns, reverses and other behaviours.");
+    sphTutorialMessages.push("Other than straight runs, I can do fancier things like engage in turns, reverses and other behaviours.  If you are interested in the behaviour of my fellow worm friends, check out <a href='https://www.youtube.com/user/wormbehavior' target='_blank'>these videos</a> by the <a href='http://www.google.com/url?q=http%3A%2F%2Fwormbehavior.mrc-lmb.cam.ac.uk%2F&sa=D&sntz=1&usg=AFQjCNGYmP8hCUFsrU0ofv_6SGv1Cm-p7A' target='_blank'>C. elegans behavioural database.</a>");
     sphTutorialActions.push('');
 
-    sphTutorialMessages.push("If you are interested in the behaviour of real worms check out <a href='https://www.youtube.com/user/wormbehavior' target='_blank'>these videos</a> by the <a href='http://www.google.com/url?q=http%3A%2F%2Fwormbehavior.mrc-lmb.cam.ac.uk%2F&sa=D&sntz=1&usg=AFQjCNGYmP8hCUFsrU0ofv_6SGv1Cm-p7A' target='_blank'>C. elegans behavioural database.</a>");
-    sphTutorialActions.push('');
-
-    sphTutorialMessages.push("We are currently in the process of setting up collaborations with laboratories around the world to fill this gap.");
-    sphTutorialActions.push('');
 //  sphTutorialActions.push('Project.getActiveExperiment().pause();');
 
 //    sphTutorialMessages.push("The simulation is now playing.");
