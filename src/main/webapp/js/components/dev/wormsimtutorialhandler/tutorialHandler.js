@@ -8,37 +8,40 @@ define(function(require) {
     var sphTutorialMessages = [];
     var sphTutorialActions = [];
 
-    sphTutorialMessages.push("What you can see here is my most obvious and common behaviour: forward locomotion.  Yes it may sound like my motion is LOCO (i.e. craaazy).  It is actually just a way to say movement that gets my body moving :)");
-    sphTutorialActions.push('');
-
-    sphTutorialMessages.push("As simple as I may look, there are still a great number of open questions about how my brain is generating this pretty simple motion.");
-    sphTutorialActions.push('');
-
-    sphTutorialMessages.push("Scientists trying to figure me out still argue between a number of possibilities for how my cells achieve this.  The OpenWorm community talked about this in <a href='https://www.youtube.com/watch?v=puB8R9PW3BI&index=10&list=PL8ACJC0fGE7D-EkkR7EFgQESpHONC_kcI' target='_blank'>one of our OpenWorm journal clubs.</a>");
-    sphTutorialActions.push('');
-
-    sphTutorialMessages.push("Under my skin, I have 95 body wall muscles along my body, which are the primary drivers of my forward locomotion.  The current model that you can see has my correct anatomy.  Feel free to use your mouse to rotate me around!");
-    sphTutorialActions.push('wormsim.changeOpacity(0.3,false);wormsim.show(true);');
-
-    sphTutorialMessages.push("The motion of each muscle you see here is the result of a complex physics simulation we call Sibernetic.  You can  <a href='http://www.sibernetic.org' target='_blank'>learn more about Sibernetic online</a>.");
-    sphTutorialActions.push('');
-
-    sphTutorialMessages.push("In the simulation each of my individual muscle cells are pulling on my body and makes up the forward locomotion behavior.  So far, my simulated cells are only loosely based on real data, but are ‘tuned’ to get the job done. ");
-    sphTutorialActions.push('');
-
-    sphTutorialMessages.push("Ever seen a proud body builder flexing at the gym?  Well check out this graph of one of my muscles flexing!  When the line is up at the top, my muscle is the most flexed; when it drops to the bottom it is the most loose.  BOOM!");
-    sphTutorialActions.push("if(plotW !== undefined){plotW.destroy();};G.unSelectAll();var plotW = G.addWidget(Widgets.PLOT);plotW.setName(G.getCookie('WSNC')+' muscle VR12 activation signal');options = {yaxis:{min:-.1,max:1.1},xaxis:{min:0,max:400,show:false}, colors: [G.getCookie('WSCC')]};plotW.setOptions(options);plotW.setPosition(180, 400);plotW.setSize(220,1000);plotW.plotData(wormsim.muscle_35.mechanical.SimulationTree.activation);wormsim.changeOpacity(0.3,false);wormsim.show(true);wormsim.muscle_35.select();");
-
-    sphTutorialMessages.push("The cells are not based on real data.  They are ‘tuned’ to get the job done. ");
-    sphTutorialActions.push('');
-
-    sphTutorialMessages.push("One of the next major steps for the OpenWorm project is to incorporate more data about the muscular activity of worm.  We are currently in the process of setting up collaborations with laboratories around the world to fill this gap.");
-    sphTutorialActions.push('');
-
-    sphTutorialMessages.push("OpenWorm wants to further understanding by providing an integrated simulation where both the worm’s biology and the physics of the surrounding environment is simulated.");
+    sphTutorialMessages.push("What you can see here is my most obvious and common behaviour: forward locomotion.  Yes it may sound like my motion is LOCO (i.e. craaazy).  It is actually just a way to say a behaviour that gets my body moving through the world :)");
     sphTutorialActions.push('');
 
     sphTutorialMessages.push("Other than straight runs, I can do fancier things like engage in turns, reverses and other behaviours.  If you are interested in the behaviour of my fellow worm friends, check out <a href='https://www.youtube.com/user/wormbehavior' target='_blank'>these videos</a> by the <a href='http://www.google.com/url?q=http%3A%2F%2Fwormbehavior.mrc-lmb.cam.ac.uk%2F&sa=D&sntz=1&usg=AFQjCNGYmP8hCUFsrU0ofv_6SGv1Cm-p7A' target='_blank'>C. elegans behavioural database.</a>");
+    sphTutorialActions.push('');
+
+    sphTutorialMessages.push("Even as simple as the forward locomotion looks though, there are still a great number of open questions about how my brain generates even this movement.");
+    sphTutorialActions.push('');
+
+    sphTutorialMessages.push("Scientists trying to figure me out sure have a bunch of ideas for how my cells do this!  But they still haven't completely figured me out!  Isn't that strange?  The OpenWorm community talked about this in <a href='https://www.youtube.com/watch?v=puB8R9PW3BI&index=10&list=PL8ACJC0fGE7D-EkkR7EFgQESpHONC_kcI' target='_blank'>one of our OpenWorm journal clubs.</a>");
+    sphTutorialActions.push('');
+
+    sphTutorialMessages.push("Part of the mystery deals with my muscles.  Under my skin, I have 95 body wall muscles along my body, which are the primary drivers of my forward locomotion.  The current model that you can see has my correct anatomy.  Feel free to use your mouse to rotate me around!");
+    sphTutorialActions.push('wormsim.changeOpacity(0.3,false);wormsim.show(true);');
+
+    sphTutorialMessages.push("The motion of each muscle you see here is the result of a complex physics simulation we call Sibernetic.  My friends at OpenWorm worked really hard on it!  You can  <a href='http://www.sibernetic.org' target='_blank'>learn more about Sibernetic online</a>.");
+    sphTutorialActions.push('');
+
+    sphTutorialMessages.push("Each of my muscle cells are pulling on my body making up the forward locomotion behavior.  So far, my cells are only loosely based on real data, but are ‘tuned’ to get the job done. ");
+    sphTutorialActions.push('');
+
+    sphTutorialMessages.push("Ever seen a proud body builder flexing at the gym?  Well check out this graph of one of MY muscles flexing!  When the line is up at the top, my muscle is the most flexed; when it drops to the bottom it is the most loose.");
+    sphTutorialActions.push("if(plotW !== undefined){plotW.destroy();};G.unSelectAll();var plotW = G.addWidget(Widgets.PLOT);plotW.setName(G.getCookie('WSNC')+' muscle VR12 activation signal');options = {yaxis:{min:-.1,max:1.1},xaxis:{min:0,max:400,show:false}, colors: [G.getCookie('WSCC')]};plotW.setOptions(options);plotW.setPosition(180, 400);plotW.setSize(220,1000);plotW.plotData(wormsim.muscle_35.mechanical.SimulationTree.activation);wormsim.changeOpacity(0.3,false);wormsim.show(true);wormsim.muscle_35.select();");
+
+    sphTutorialMessages.push("Can you rotate me around so you can find the one yellow highlighted muscle that's generating this graph?  Feel free to zoom up close to see it.  That's the one I call 'VR12' :) ");
+    sphTutorialActions.push('');
+
+    sphTutorialMessages.push("Check it out; you can freeze me in place!  See those buttons in the upper right corner?  You can use them to get me moving again and freeze me whenever you like.");
+    sphTutorialActions.push('Project.getActiveExperiment().pause();');
+
+    sphTutorialMessages.push("One of the next major steps for the OpenWorm project is to incorporate more data about the muscular activity of worm.  We are currently in the process of setting up collaborations with laboratories around the world to fill this gap.");
+    sphTutorialActions.push('Project.getActiveExperiment().play({step:2});');
+
+    sphTutorialMessages.push("OpenWorm wants to further understanding by providing an integrated simulation where both the worm’s biology and the physics of the surrounding environment is simulated.");
     sphTutorialActions.push('');
 
 //  sphTutorialActions.push('Project.getActiveExperiment().pause();');
