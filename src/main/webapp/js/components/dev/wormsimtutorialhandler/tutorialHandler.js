@@ -13,17 +13,17 @@ define(function(require) {
     sphTutorialMessages.push("What you can see here is a typical behaviour: forward locomotion.");
     sphTutorialActions.push('');
 
-    sphTutorialMessages.push("As simple as the worm seems, there is still a great number of open questions about how the worm’s brain is generating it’s typical crawling motion.");
+    sphTutorialMessages.push("As simple as the worm seems, there is still a great number of open questions about how the worm’s brain is generating this typical crawling motion.");
     sphTutorialActions.push('');
 
-    sphTutorialMessages.push("Although it is a very stereotypical movement scientists still argue over a number of possibilities how does the worm achieves this.");
+    sphTutorialMessages.push("Although it is a very stereotypical movement, scientists still argue between a number of possibilities for how the worm achieves this.  The OpenWorm community talked about this in <a href='https://www.youtube.com/watch?v=puB8R9PW3BI&index=10&list=PL8ACJC0fGE7D-EkkR7EFgQESpHONC_kcI' target='_blank'>one of our journal clubs.</a>");
     sphTutorialActions.push('');
 
-    sphTutorialMessages.push("C. elegans have 95 body wall muscles along its body, that help to navigate the worm in its world.");
+    sphTutorialMessages.push("C. elegans have 95 body wall muscles along its body, which help to navigate the worm in its world.");
     sphTutorialActions.push('wormsim.changeOpacity(0.3,false);wormsim.show(true);');
 
     sphTutorialMessages.push("The current model that you can see has correct anatomy, but the cells are not based on real data.  They are ‘tuned’ to get the job done. ");
-    sphTutorialActions.push('');
+    sphTutorialActions.push("if(plotW !== undefined){plotW.destroy();};G.unSelectAll();var plotW = G.addWidget(Widgets.PLOT);plotW.setName(G.getCookie('WSNC')+' muscle DR4 activation signal');options = {yaxis:{min:-.1,max:1.1},xaxis:{min:0,max:400,show:false}, colors: [G.getCookie('WSCC')]};plotW.setOptions(options);plotW.setPosition(180, 400);plotW.setSize(220,1000);plotW.plotData(wormsim.muscle_3.mechanical.SimulationTree.activation);wormsim.changeOpacity(0.3,false);wormsim.show(true);wormsim.muscle_3.select();");
 
     sphTutorialMessages.push("One of the next major step for the OpenWorm project is to accommodate more data about the muscular activity of worm.");
     sphTutorialActions.push('');
