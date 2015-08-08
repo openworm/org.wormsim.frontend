@@ -17,11 +17,20 @@ define(function(require) {
     sphTutorialMessages.push("Scientists trying to figure me out still argue between a number of possibilities for how my cells achieve this.  The OpenWorm community talked about this in <a href='https://www.youtube.com/watch?v=puB8R9PW3BI&index=10&list=PL8ACJC0fGE7D-EkkR7EFgQESpHONC_kcI' target='_blank'>one of our OpenWorm journal clubs.</a>");
     sphTutorialActions.push('');
 
-    sphTutorialMessages.push("Under my skin, I have 95 body wall muscles along my body, which are the primary drivers of my forward locomotion.");
+    sphTutorialMessages.push("Under my skin, I have 95 body wall muscles along my body, which are the primary drivers of my forward locomotion.  The current model that you can see has my correct anatomy.  Feel free to use your mouse to rotate me around!");
     sphTutorialActions.push('wormsim.changeOpacity(0.3,false);wormsim.show(true);');
 
-    sphTutorialMessages.push("The current model that you can see has my correct anatomy, but the cells are not based on real data.  They are ‘tuned’ to get the job done. ");
-    sphTutorialActions.push("if(plotW !== undefined){plotW.destroy();};G.unSelectAll();var plotW = G.addWidget(Widgets.PLOT);plotW.setName(G.getCookie('WSNC')+' muscle DR4 activation signal');options = {yaxis:{min:-.1,max:1.1},xaxis:{min:0,max:400,show:false}, colors: [G.getCookie('WSCC')]};plotW.setOptions(options);plotW.setPosition(180, 400);plotW.setSize(220,1000);plotW.plotData(wormsim.muscle_3.mechanical.SimulationTree.activation);wormsim.changeOpacity(0.3,false);wormsim.show(true);wormsim.muscle_3.select();");
+    sphTutorialMessages.push("The motion of each muscle you see here is the result of a complex physics simulation we call Sibernetic.  You can  <a href='http://www.sibernetic.org' target='_blank'>learn more about Sibernetic online</a>.");
+    sphTutorialActions.push('');
+
+    sphTutorialMessages.push("In the simulation each of my individual muscle cells are pulling on my body and makes up the forward locomotion behavior.  So far, my simulated cells are only loosely based on real data, but are ‘tuned’ to get the job done. ");
+    sphTutorialActions.push('');
+
+    sphTutorialMessages.push("Ever seen a proud body builder flexing at the gym?  Well check out this graph of one of my muscles flexing!  When the line is up at the top, my muscle is the most flexed; when it drops to the bottom it is the most loose.  BOOM!");
+    sphTutorialActions.push("if(plotW !== undefined){plotW.destroy();};G.unSelectAll();var plotW = G.addWidget(Widgets.PLOT);plotW.setName(G.getCookie('WSNC')+' muscle VR12 activation signal');options = {yaxis:{min:-.1,max:1.1},xaxis:{min:0,max:400,show:false}, colors: [G.getCookie('WSCC')]};plotW.setOptions(options);plotW.setPosition(180, 400);plotW.setSize(220,1000);plotW.plotData(wormsim.muscle_35.mechanical.SimulationTree.activation);wormsim.changeOpacity(0.3,false);wormsim.show(true);wormsim.muscle_35.select();");
+
+    sphTutorialMessages.push("The cells are not based on real data.  They are ‘tuned’ to get the job done. ");
+    sphTutorialActions.push('');
 
     sphTutorialMessages.push("One of the next major steps for the OpenWorm project is to incorporate more data about the muscular activity of worm.  We are currently in the process of setting up collaborations with laboratories around the world to fill this gap.");
     sphTutorialActions.push('');
