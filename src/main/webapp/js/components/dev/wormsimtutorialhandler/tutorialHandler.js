@@ -41,22 +41,9 @@ define(function(require) {
     sphTutorialMessages.push("One of the next major steps for the OpenWorm project is to incorporate more data about the muscular activity of worm.  We've got a <a href='https://github.com/openworm/muscle_model/blob/addb61f370bab4e510a7610691524df172f03eba/README.md#introduction' target='_blank'>whole project</a> dedicated to building on what's been done to have a great model of each of these muscles that is as accurate as possible.");
     sphTutorialActions.push('Project.getActiveExperiment().play({step:2});');
 
-    sphTutorialMessages.push("After you are done checking out my SWEET muscles (ha ha) you should go check out my brain cells over at the neuron simulation.  See you over there!");
+    sphTutorialMessages.push("After you are done checking out my SWEET muscles (ha ha) you should go check out my brain cells over at the nervous system simulation.  See you over there!");
     sphTutorialActions.push('');
 
-//  sphTutorialActions.push('Project.getActiveExperiment().pause();');
-
-//    sphTutorialMessages.push("The simulation is now playing.");
-//    sphTutorialActions.push('Project.getActiveExperiment().play({step:2});');
-
-//    sphTutorialMessages.push("The simulation is now paused.");
-//    sphTutorialActions.push('Project.getActiveExperiment().pause();');
-
-//    sphTutorialMessages.push("Fun times, the simulation is now stopped.");
-//    sphTutorialActions.push('Project.getActiveExperiment().stop();');
-
-//    sphTutorialMessages.push("And... playing again.<br />Click next to restart the tutorial!");
-//    sphTutorialActions.push('Project.getActiveExperiment().play({step:2});');
 
     /* c302 tutorial */
 	var c302TutorialMessages = [];
