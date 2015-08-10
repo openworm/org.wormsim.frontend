@@ -26,12 +26,12 @@ G.incrementCameraPan(0.65, 0);
 G.addWidget(Widgets.BUTTONBAR).fromJSON('/org.geppetto.frontend/geppetto/js/components/dev/wormsimbuttonbar/c302buttonbar.js');
 ButtonBar1.setPosition(600,0);
 
-// tutorial 
+// tutorial
 var tutorialPopup = G.addWidget(1);
 tutorialPopup.setPosition(20,360);
 tutorialPopup.setSize(150,300);
 tutorialPopup.setName("Guided tour");
-tutorialPopup.setMessage("Hi " + window.WORMSIM_VARS.backerName + " welcome to WormSim! Hit next below to start the guided tour!");
+tutorialPopup.setMessage("Hi " + window.WORMSIM_VARS.backerName + "!  Welcome to the nervous system model of WormSim! Hit next below to start the guided tour!");
 tutorialPopup.setResizable(false);
 tutorialPopup.showCloseButton(false);
 tutorialPopup.setDraggable(false);

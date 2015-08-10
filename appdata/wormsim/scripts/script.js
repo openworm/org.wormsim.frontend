@@ -26,12 +26,12 @@ G.setPlayLoop(true);
 wormsim.show(false);
 GEPPETTO.getVARS().pickingEnabled = false;
 
-// tutorial 
+// tutorial
 var tutorialPopup = G.addWidget(1);
 tutorialPopup.setPosition(20,360);
 tutorialPopup.setSize(150,300);
 tutorialPopup.setName("Guided tour");
-tutorialPopup.setMessage("Hi " + window.WORMSIM_VARS.backerName + " welcome to WormSim! Hit next below to start the guided tour!");
+tutorialPopup.setMessage("Hi " + window.WORMSIM_VARS.backerName + ", it's me, " + window.WORMSIM_VARS.wormName + ", crawling around!  Welcome to WormSim! Hit \'next\' below to start my guided tour!");
 tutorialPopup.setResizable(false);
 tutorialPopup.showCloseButton(false);
 tutorialPopup.setDraggable(false);
