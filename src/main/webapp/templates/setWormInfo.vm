@@ -53,7 +53,7 @@
                 <h1 style="font-size: 5vw;">Hi and welcome!</h1><br/><br/>
                 <h2 style="font-size: 2.5vw;">
                     That's me in the spotlight.</br>
-                    I am a model of the C. elegans,</br>
+                    I am a model of the <i>C. elegans</i>,</br>
                     a tiny worm!
                 </h2>
             </div>
@@ -78,7 +78,7 @@
 
             <div id="slide-three" class="slide-three">
                 <h1>
-                    Thanks, much better! Now, my scientific name is Caenorhabditis elegans - C. elegans for short. But I could really use a friendlier nickname :) Could you give me one?<br/>       
+                    Thanks, much better! Now, my scientific name is <i>Caenorhabditis elegans</i> - <i>C. elegans</i> for short. But I could really use a friendlier nickname :) Could you give me one?<br/>       
                     <span style="text-align: center;"><input style="font-size:6vw;margin-top:15px;width:100%;text-align: center;" id="worm-name-input" type='text' maxlength="14" value="type here" /></span>
                 </h1>
             </div>
@@ -86,7 +86,7 @@
             <div id="slide-four" class="slide-four">
                 <h1>
                     <span id="worm-name-confirmed" >Spock</span><br/>
-                    WOW, look at me, I am probably the fanciest C. elegans the world has ever seen. Thank you for the nice touch!
+                    WOW, look at me, I am probably the fanciest <i>C. elegans</i> the world has ever seen. Thank you for the nice touch!
                     <span id="worm-name-confirmed-2"></span> and <span id="userSurnameDisplay"></span>, I like the sound of it!<br/>
                     Let's make it official!
                 </h1>
