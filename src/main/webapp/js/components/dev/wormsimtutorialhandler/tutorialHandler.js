@@ -54,24 +54,36 @@ define(function(require) {
 	//c302TutorialMessages.push("This simulation shows a visualization of the neuron activity. Each sphere represents a neuron, neurons are cells that make up the nervous system. They communicate with each other with chemical and electrical signals. The lines connecting neurons are called axons and dendrites and they are cables connecting neurons");
 	//c302TutorialActions.push('');
 
-	//c302TutorialMessages.push("Neurons generate electrical signals by an imbalance of positively and negatively charged ions.  When one neuron lights up on your screen that means it is activated. Each neuron receives signals from several other neurons. Based on whether the sum of the incoming signals exceeds a threshold they either activate or not. This process is called summation");
+	//c302TutorialMessages.push("Neurons generate electrical signals by an imbalance of positively and negatively charged ions.  When one neuron lights up on your screen that means it is activated. Each neuron receives signals from several other neurons. Based on whether the sum of the incoming signals exceeds a threshold they either activate or not. This process is called summation.");
 	//c302TutorialActions.push("");
 
-	c302TutorialMessages.push("This is a visualization of my neurons!  Each sphere represents one of them. <a href='https://en.wikipedia.org/wiki/Neuron' target='_blank' >Neurons</a> are cells that make up the <a href='https://en.wikipedia.org/wiki/Nervous_system' target='_blank'> nervous system</a>. They communicate with each other with chemical and electrical signals. ");
+	c302TutorialMessages.push("This is a visualization of my neurons! Each sphere represents one of them. <a href='https://en.wikipedia.org/wiki/Neuron' target='_blank' >Neurons</a> are cells that make up the <a href='https://en.wikipedia.org/wiki/Nervous_system' target='_blank'>nervous system</a>. They communicate with each other with chemical and electrical signals.");
 	c302TutorialActions.push('');
 
-	c302TutorialMessages.push("The lines connecting neurons are called axons and dendrites and they are cables connecting neurons.  You might want to click on my cells to see how they are connected to each other!");
+	c302TutorialMessages.push("The lines connecting neurons are called axons and dendrites and they are like cables connecting neurons. You might want to click on my cells to see how they are connected to each other!");
 	c302TutorialActions.push('G.unSelectAll(); c302.NSML_0.electrical.select();');
+	
+	c302TutorialMessages.push("When you select one of my cells it is shown in yellow. Input cells are shown in white and output cells in orange. Cells that are both input and input to the selected one (yes, it's possible!) are shown in green. Checkout <a href='http://docs.geppetto.org/en/latest/connections.html' target='_blank'>here</a> for a handy reference.");
+	c302TutorialActions.push('');
+	
+	c302TutorialMessages.push("But what does it mean for a neuron to be input to another? It simply means that in my living brain the neuron in yellow receives signals from the one in white!");
+	c302TutorialActions.push('');
+	
+	c302TutorialMessages.push("Similarly the output neurons in orange receive signals from the yellow one. See? You're flying this neuroscience stuff!");
+	c302TutorialActions.push('');
 
 	//c302TutorialMessages.push("The diagram that you see here is called a <a href='https://en.wikipedia.org/wiki/Connectome' target='_blank'>\'connectome\'</a>, shows which neuron is connected to which other neuron.  My species is the only one for which this wiring has been completely mapped. The availability of this data is a big part of why OpenWorm has decided to make a model of me!  Woo hoo!");
 	//c302TutorialActions.push("");
 
-	c302TutorialMessages.push("There is an area in my head where there are lots of neurons next to each other. Technically it is not brain, scientist call it the nerve ring, but in essence it plays the same role.");
-	c302TutorialActions.push("");
+	c302TutorialMessages.push("There is an area in my head - you are looking at it! -  where there are lots of neurons next to each other. Technically it is not brain, scientist call it the nerve ring, but in essence it plays the same role.");
+	c302TutorialActions.push("G.incrementCameraZoom(+0.05);");
 
-	c302TutorialMessages.push("Further down my body you can clearly see neurons. These are connected to my muscle cells that give rise to my movement, like you can see over in the muscle system simulation.");
-	c302TutorialActions.push("");
+	c302TutorialMessages.push("Further down my body you can also clearly see neurons. These are connected to my muscle cells that give rise to my movement, like you can see over in the muscle system simulation.");
+	c302TutorialActions.push("G.incrementCameraRotate(0.05, 0, 0); G.incrementCameraPan(0, 0); G.incrementCameraPan(0, -0.2); G.incrementCameraPan(0, 0); G.incrementCameraPan(-0.23, 0);");
 
+	c302TutorialMessages.push("Go ahead - you can drag me around, rotate me and zoom in as much as you want with your mouse or with the camera controls in the top left!");
+	c302TutorialActions.push('');
+	
 	c302TutorialMessages.push("Guided tour over!<br /><br />Click next to restart the  tutorial!");
 	c302TutorialActions.push('');
 
