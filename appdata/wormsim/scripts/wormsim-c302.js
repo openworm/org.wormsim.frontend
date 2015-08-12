@@ -1,5 +1,6 @@
 document.title="WormSim";
-G.setBackgroundColour("#222222")
+G.setBackgroundColour("#222222");
+$('.simulation-controls').find('i.fa-play').parent().attr('disabled', true);
 c302.setColor(G.getCookie("WSCC"),true);
 
 window.WORMSIM_VARS.wormColor = G.getCookie("WSCC");
