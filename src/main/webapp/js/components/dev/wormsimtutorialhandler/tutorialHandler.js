@@ -44,18 +44,12 @@ define(function(require) {
     sphTutorialMessages.push("After you are done checking out my SWEET muscles (ha ha), you should go check out my brain cells over at the nervous system simulation.  See you over there!");
     sphTutorialActions.push('');
 
-    sphTutorialMessages.push("Guided tour over!<br /><br />Click next to restart the  tutorial!");
+    sphTutorialMessages.push("The guided tour is over, hope you had a good time!<br /><br />You can keep playing with my muscles or click next to restart the  tutorial!");
   	sphTutorialActions.push('');
 
     /* c302 tutorial */
 	var c302TutorialMessages = [];
 	var c302TutorialActions = [];
-
-	//c302TutorialMessages.push("This simulation shows a visualization of the neuron activity. Each sphere represents a neuron, neurons are cells that make up the nervous system. They communicate with each other with chemical and electrical signals. The lines connecting neurons are called axons and dendrites and they are cables connecting neurons");
-	//c302TutorialActions.push('');
-
-	//c302TutorialMessages.push("Neurons generate electrical signals by an imbalance of positively and negatively charged ions.  When one neuron lights up on your screen that means it is activated. Each neuron receives signals from several other neurons. Based on whether the sum of the incoming signals exceeds a threshold they either activate or not. This process is called summation.");
-	//c302TutorialActions.push("");
 
 	c302TutorialMessages.push("This is a visualization of my neurons! Each sphere represents one of them. <a href='https://en.wikipedia.org/wiki/Neuron' target='_blank' >Neurons</a> are cells that make up the <a href='https://en.wikipedia.org/wiki/Nervous_system' target='_blank'>nervous system</a>. They communicate with each other with chemical and electrical signals.");
 	c302TutorialActions.push('');
@@ -72,9 +66,6 @@ define(function(require) {
 	c302TutorialMessages.push("Similarly the output neurons in orange receive signals from the yellow one. See? You're flying this neuroscience stuff!");
 	c302TutorialActions.push('');
 
-	//c302TutorialMessages.push("The diagram that you see here is called a <a href='https://en.wikipedia.org/wiki/Connectome' target='_blank'>\'connectome\'</a>, shows which neuron is connected to which other neuron.  My species is the only one for which this wiring has been completely mapped. The availability of this data is a big part of why OpenWorm has decided to make a model of me!  Woo hoo!");
-	//c302TutorialActions.push("");
-
 	c302TutorialMessages.push("There is an area in my head - you are looking at it! -  where there are lots of neurons next to each other. Technically it is not brain, scientist call it the nerve ring, but in essence it plays the same role.");
 	c302TutorialActions.push("G.incrementCameraZoom(+0.05);");
 
@@ -84,7 +75,16 @@ define(function(require) {
 	c302TutorialMessages.push("Go ahead - you can drag me around, rotate me and zoom in as much as you want with your mouse or with the camera controls in the top left!");
 	c302TutorialActions.push('');
 	
-	c302TutorialMessages.push("Guided tour over!<br /><br />Click next to restart the  tutorial!");
+	c302TutorialMessages.push("Now, the diagram that you see here is called a connectivity matrix, it is a representation at a glance of my <a href='https://en.wikipedia.org/wiki/Connectome' target='_blank'>\'connectome\'</a>, and simply shows which neuron is connected to which other neuron. Each square represents a connection.");
+	c302TutorialActions.push("var connW = G.addWidget(6); connW.setName(G.getCookie('WSNC')+ ' Connectivity matrix'); connW.setData(c302,{linkType:function(c){return c.getSubNodesOfDomainType('Synapse')[0].id}}); connW.setPosition(611,190); connW.setSize(495,666);");
+	
+	c302TutorialMessages.push("It is kind of mind-boggling isn't it? It's like looking at the blueprint of the architecture of a building... but it's for my brain! It's hard to interpret this picture but looking at pictures like this helps scientists compare neuronal networks - brains! - to each other.");
+	c302TutorialActions.push("");
+	
+	c302TutorialMessages.push("My species is the only one for which this wiring has been completely mapped out and the availability of this data is a big part of why OpenWorm has decided to make a model of me instead of some other animal - lucky me!");
+	c302TutorialActions.push("");
+	
+	c302TutorialMessages.push("The guided tour is over, hope you enjoyed!<br /><br />You can keep exploring my nervous system or click next to restart the  tutorial!");
 	c302TutorialActions.push('');
 
     window.WORMSIM_VARS.showTutorial = function(){
