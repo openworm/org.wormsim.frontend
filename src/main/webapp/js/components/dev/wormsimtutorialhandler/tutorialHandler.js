@@ -8,22 +8,22 @@ define(function(require) {
     var sphTutorialMessages = [];
     var sphTutorialActions = [];
 
-    sphTutorialMessages.push("What you can see here is my most obvious and common behaviour: forward locomotion.  Yes it may sound like my motion is LOCO (i.e. craaazy).  It is actually just a way to say a behaviour that gets my body moving through the world :)");
+    sphTutorialMessages.push("What you can see here is my most obvious and common behaviour: forward locomotion.  Yes it may sound like my motion is LOCO (i.e. craaazy). It is actually just a way to say a behaviour that gets my body moving through the world :)");
     sphTutorialActions.push('');
 
-    sphTutorialMessages.push("Other than straight runs, I can do fancier things like engage in turns, reverses and other behaviours.  If you are interested in the behaviour of my fellow worm friends, check out <a href='https://www.youtube.com/user/wormbehavior' target='_blank'>these videos</a> by the <a href='http://www.google.com/url?q=http%3A%2F%2Fwormbehavior.mrc-lmb.cam.ac.uk%2F&sa=D&sntz=1&usg=AFQjCNGYmP8hCUFsrU0ofv_6SGv1Cm-p7A' target='_blank'>C. elegans behavioural database.</a>");
+    sphTutorialMessages.push("Other than straight runs, I can do fancier things like engage in turns, reverses and other behaviours. If you are interested in the behaviour of my fellow worm friends, check out <a href='https://www.youtube.com/user/wormbehavior' target='_blank'>these videos</a> by the <a href='http://www.google.com/url?q=http%3A%2F%2Fwormbehavior.mrc-lmb.cam.ac.uk%2F&sa=D&sntz=1&usg=AFQjCNGYmP8hCUFsrU0ofv_6SGv1Cm-p7A' target='_blank'>C. elegans behavioural database.</a>");
     sphTutorialActions.push('');
 
-    sphTutorialMessages.push("Even as simple as the forward locomotion looks though, there are still a great number of open questions about how my brain generates even this movement.  Scientists still haven't completely figured  out how my cells do this!  Isn't that strange?");
+    sphTutorialMessages.push("Even as simple as the forward locomotion looks, there are still a great number of open questions about how my brain generates even this movement. Scientists still haven't completely figured out how my cells do this!");
     sphTutorialActions.push('');
 
-    sphTutorialMessages.push("The OpenWorm community talked about this mystery in <a href='https://www.youtube.com/watch?v=puB8R9PW3BI&index=10&list=PL8ACJC0fGE7D-EkkR7EFgQESpHONC_kcI' target='_blank'>one of our OpenWorm journal clubs.</a>  Part of the mystery deals with my muscles...");
+    sphTutorialMessages.push("The OpenWorm community talked about this mystery in <a href='https://www.youtube.com/watch?v=puB8R9PW3BI&index=10&list=PL8ACJC0fGE7D-EkkR7EFgQESpHONC_kcI' target='_blank'>one of our OpenWorm journal clubs.</a> Part of the mystery deals with my muscles...");
     sphTutorialActions.push('');
 
-    sphTutorialMessages.push("Under my skin, I have 95 muscles along my body, which are the primary drivers of my forward locomotion.  The current model that you can see has my correct anatomy.  Feel free to use your mouse to rotate me around!");
+    sphTutorialMessages.push("Under my skin, I have 95 muscles along my body, which are the primary drivers of my forward locomotion.  The current model that you can see has my correct anatomy. Feel free to use your mouse to rotate me around!");
     sphTutorialActions.push('wormsim.changeOpacity(0.3,false);wormsim.show(true);');
 
-    sphTutorialMessages.push("The motion of each muscle you see here is the result of a complex physics simulation we call Sibernetic.  My friends at OpenWorm worked really hard on it!  You can  <a href='http://www.sibernetic.org' target='_blank'>learn more about Sibernetic online</a>.");
+    sphTutorialMessages.push("The motion of each muscle you see here is the result of a complex physics simulation we call Sibernetic.  My friends at OpenWorm worked really hard on it! You can  <a href='http://www.sibernetic.org' target='_blank'>learn more about Sibernetic online</a>.");
     sphTutorialActions.push('');
 
     sphTutorialMessages.push("Each of my muscle cells are pulling on my body making up the forward locomotion behavior.  So far, my cells are only loosely based on real data, but are ‘tuned’ to get the job done. ");
@@ -32,19 +32,19 @@ define(function(require) {
     sphTutorialMessages.push("Ever seen a proud body builder flexing at the gym?  Well check out this graph of one of MY muscles flexing!  When the line is up at the top, my muscle is the most flexed; when it drops to the bottom it is the most loose.");
     sphTutorialActions.push("if(plotW !== undefined){plotW.destroy();};G.unSelectAll();var plotW = G.addWidget(Widgets.PLOT);plotW.setName(G.getCookie('WSNC')+' muscle VR12 activation signal');options = {yaxis:{min:-.1,max:1.1},xaxis:{min:0,max:400,show:false}, colors: [G.getCookie('WSCC')]};plotW.setOptions(options);plotW.setPosition(319,499);plotW.setSize(209.80000019073486,805.8000001907349);plotW.plotData(wormsim.muscle_35.mechanical.SimulationTree.activation);wormsim.changeOpacity(0.3,false);wormsim.show(true);wormsim.muscle_35.select();");
 
-    sphTutorialMessages.push("Can you rotate me around so you can find the one yellow highlighted muscle that's generating this graph?  Feel free to zoom up close to see it.  That's the one I call 'VR12' :) ");
+    sphTutorialMessages.push("Can you rotate me around so you can find the one yellow highlighted muscle that's generating this graph?  Feel free to zoom up close to see it. That's the one I call 'VR12' :) ");
     sphTutorialActions.push('');
 
-    sphTutorialMessages.push("Check it out; you can FREEZE me IN PLACE!  See those play / pause / stop buttons in the upper right corner?  You can use them to get me moving again and freeze me whenever you like.");
+    sphTutorialMessages.push("Check it out; you can FREEZE me IN PLACE!  See those play / pause / stop buttons in the upper right corner? You can use them to get me moving again and freeze me whenever you like.");
     sphTutorialActions.push('Project.getActiveExperiment().pause();');
 
-    sphTutorialMessages.push("One of the next major steps for the OpenWorm project is to incorporate more data about the muscular activity of worm.  We've got a <a href='https://github.com/openworm/muscle_model/blob/addb61f370bab4e510a7610691524df172f03eba/README.md#introduction' target='_blank'>whole project</a> dedicated to getting the muscles as accurate as possible.");
+    sphTutorialMessages.push("One of the next major steps for the OpenWorm project is to incorporate more data about the muscular activity of worm. We've got a <a href='https://github.com/openworm/muscle_model/blob/addb61f370bab4e510a7610691524df172f03eba/README.md#introduction' target='_blank'>whole project</a> dedicated to getting the muscles as accurate as possible.");
     sphTutorialActions.push('Project.getActiveExperiment().play({step:2});');
 
-    sphTutorialMessages.push("After you are done checking out my SWEET muscles (ha ha), you should go check out my brain cells over at the nervous system simulation.  See you over there!");
+    sphTutorialMessages.push("After you are done checking out my SWEET muscles, you should go check out my brain cells over at the nervous system simulation. See you over there!");
     sphTutorialActions.push('');
 
-    sphTutorialMessages.push("The guided tour is over, hope you had a good time!<br /><br />You can keep playing with my muscles or click next to restart the  tutorial!");
+    sphTutorialMessages.push("The guided tour is over, hope you enjoyed!<br /><br />You can keep playing with my muscles, click next to restart the tour or click the WormSim logo to go back to the home page!");
   	sphTutorialActions.push('');
 
     /* c302 tutorial */
@@ -84,7 +84,7 @@ define(function(require) {
 	c302TutorialMessages.push("My species is the only one for which this wiring has been completely mapped out and the availability of this data is a big part of why OpenWorm has decided to make a model of me instead of some other animal - lucky me!");
 	c302TutorialActions.push("");
 	
-	c302TutorialMessages.push("The guided tour is over, hope you enjoyed!<br /><br />You can keep exploring my nervous system or click next to restart the  tutorial!");
+	c302TutorialMessages.push("The guided tour is over, hope you enjoyed!<br /><br />You can keep exploring my neurons, click next to restart the tour or click the WormSim logo to go back to the home page!");
 	c302TutorialActions.push('');
 
     window.WORMSIM_VARS.showTutorial = function(){
