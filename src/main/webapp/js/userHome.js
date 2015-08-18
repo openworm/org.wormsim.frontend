@@ -22,31 +22,31 @@ tutorialList[12] = "Alright that's it, let's go have a closer look at my insides
 
 var hintList = new Array();
 var hintIndex = 0;
-hintList[0] = "Did you know: C. elegans is made up of only 1000 cells... 959 to be precise!";
-hintList[1] = "Did you know: C. elegans only has 302 neurons.";
-hintList[2] = "Did you know: Many human diseases can be modeled and studied in C. elegans.";
-hintList[3] = "Did you know: 3 Nobel prizes were awarded for work on C. elegans.";
-hintList[4] = "Did you know: There are more than 900 labs that study C. elegans around the world!";
-hintList[5] = "Did you know: The OpenWorm project started in January 2011... with a tweet!";
-hintList[6] = "Did you know: The OpenWorm project has more than 100 contributors from 13 different countries!";
-hintList[7] = "Did you know: The OpenWorm project was recently featured on Through the Wormhole narrated by Morgan Freeman!";
-hintList[8] = "Did you know: The majority of C. elegans are hermaphrodite, but males also exist.";
-hintList[9] = "Did you know: C. elegans is probably the most studied and best understood organism in all of biology.";
-hintList[10] = "Did you know: C. elegans is only about 1 millimeter long.";
-hintList[11] = "Did you know: C. elegans was the first multicellular organism to have its whole genome sequenced."
-hintList[12] = "Did you know: C. elegans is the first and only animal whose brain wiring diagram (connectome) is fully known."
-hintList[13] = "Did you know: New buttons will appear below when new simulation of worm models are released by OpenWorm."
-hintList[14] = "Did you know: The first scientist that tried to look inside me was the biologist Sydney Brenner."
-hintList[15] = "Did you know: Brenner, Horvitz and Sulston won a Nobel prize in 2002 for their work on C. elegans."
-hintList[16] = "Did you know: You can follow the recent progress of the OpenWorm project on its Twitter account @OpenWorm."
-hintList[17] = "Did you know: The code for the OpenWorm project consists of more than 45 repositories on GitHub!"
-hintList[18] = "Did you know: Even though C. elegans has a thoroughly studied brain, scientists still don't know how it crawls!"
-hintList[19] = "Did you know: To do genetic experiments on C. elegans, you can feed it bacteria with the new genes you want to give it!"
-hintList[20] = "Did you know: The C. elegans has transparent skin - all the better to see you with, my dear!"
-hintList[21] = "Did you know: The C. elegans can be infused with fluorescent molecules from jellyfish to make its insides glow!"
-hintList[22] = "Did you know: C. elegans neurons can be made sensitive to laser light, enabling scientists to remotely control its brain!"
-hintList[23] = "Did you know: Scientists have been able to watch all of C. elegans' neurons glowing with activity in the living, moving animal!"
-	
+hintList[0] = "Did you know? C. elegans is made up of only 1000 cells... 959 to be precise!";
+hintList[1] = "Did you know? C. elegans only has 302 neurons.";
+hintList[2] = "Did you know? Many human diseases can be modeled and studied in C. elegans.";
+hintList[3] = "Did you know? 3 Nobel prizes were awarded for work on C. elegans.";
+hintList[4] = "Did you know? There are more than 900 labs that study C. elegans around the world!";
+hintList[5] = "Did you know? The OpenWorm project started in January 2011... with a tweet!";
+hintList[6] = "Did you know? The OpenWorm project has more than 100 contributors from 13 different countries!";
+hintList[7] = "Did you know? The OpenWorm project was recently featured on Through the Wormhole narrated by Morgan Freeman!";
+hintList[8] = "Did you know? The majority of C. elegans are hermaphrodite, but males also exist.";
+hintList[9] = "Did you know? C. elegans is probably the most studied and best understood organism in all of biology.";
+hintList[10] = "Did you know? C. elegans is only about 1 millimeter long.";
+hintList[11] = "Did you know? C. elegans was the first multicellular organism to have its whole genome sequenced."
+hintList[12] = "Did you know? C. elegans is the first and only animal whose brain wiring diagram (connectome) is fully known."
+hintList[13] = "Did you know? New buttons will appear below when new simulation of worm models are released by OpenWorm."
+hintList[14] = "Did you know? The first scientist that tried to look inside me was the biologist Sydney Brenner."
+hintList[15] = "Did you know? Brenner, Horvitz and Sulston won a Nobel prize in 2002 for their work on C. elegans."
+hintList[16] = "Did you know? You can follow the recent progress of the OpenWorm project on its Twitter account @OpenWorm."
+hintList[17] = "Did you know? The code for the OpenWorm project consists of more than 45 repositories on GitHub!"
+hintList[18] = "Did you know? Even though C. elegans has a thoroughly studied brain, scientists still don't know how it crawls!"
+hintList[19] = "Did you know? To do genetic experiments on C. elegans, you can feed it bacteria with the new genes you want to give it!"
+hintList[20] = "Did you know? The C. elegans has transparent skin - all the better to see you with, my dear!"
+hintList[21] = "Did you know? The C. elegans can be infused with fluorescent molecules from jellyfish to make its insides glow!"
+hintList[22] = "Did you know? C. elegans neurons can be made sensitive to laser light, enabling scientists to remotely control its brain!"
+hintList[23] = "Did you know? Scientists have been able to watch all of C. elegans' neurons glowing with activity in the living, moving animal!"
+
 getTutorialState();
 
 function startHintsOrTutorial() {
@@ -87,7 +87,7 @@ function notifyServerTutorialFinished(tutorialLoaded) {
         }).done(function (response) {
         	console.log("tutorial finished set");
         }).fail(function (data) {
-           
+
         });
 }
 
@@ -102,37 +102,37 @@ function getTutorialState() {
             tutorialLoaded = String(response);
             startHintsOrTutorial();
         }).fail(function (data) {
-            
+
         });
 }
 
 function changeTextSnippet(direction) {
 	if(tutorialLoaded=="false") {
 		changeTextSnippetTutorial(direction);
-	} else { 
+	} else {
 		changeTextSnippetHint(direction);
 	}
 }
 
 function changeTextSnippetTutorial(direction) {
 	tutorialIndex = tutorialIndex + direction;
-	
+
 	// NOTE: this should never happen
 	if(tutorialIndex < 0) {
 		turorialIndex = 0;
 	}
-	
+
 	if(tutorialIndex > 0) {
 		$('#prevArrow').css('display', 'block');
 	}
 	else {
 		$('#prevArrow').css('display', 'none');
 	}
-	
+
 	if(tutorialIndex > tutorialList.length-1) {
 		tutorialFinished();
 	}
-	
+
 	$('#textSnippet').text(tutorialList[tutorialIndex]);
 }
 
@@ -143,7 +143,7 @@ function changeTextSnippetHint(direction) {
 
 var nextSlide = function() {
 	$('#textSnippet').addClass('animated fadeOutLeft');
-	setTimeout(function(){					
+	setTimeout(function(){
 		changeTextSnippet(+1);
 		$('#textSnippet').removeClass('animated fadeOutLeft')
 		$('#textSnippet').addClass('animated fadeInRight');
@@ -214,7 +214,7 @@ var increaseSize = function() {
 	//check if current height can smaller than max length
 	if(currentIncrememt < $incrementSteps-1) {
 		currentIncrememt++;
-		
+
 		var newHeight = currentHeight + progressValue;
 		$("#worm-length").css("height", newHeight + "px");
 		$("#worm-length").css("margin-top", "-" + (newHeight / 2) + "px");
@@ -228,7 +228,7 @@ var decreaseSize = function() {
 	//check if current height can smaller than max height
 	if (currentIncrememt > 0) {
 		currentIncrememt--;
-		
+
 		var newHeight = currentHeight - progressValue;
 		$("#worm-length").css("height", newHeight + "px");
 		$("#worm-length").css("margin-top", "-" + (newHeight / 2) + "px");
