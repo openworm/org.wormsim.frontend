@@ -57,16 +57,16 @@ define(function(require) {
 	c302TutorialMessages.push("The lines connecting neurons are called axons and dendrites and they are like cables connecting neurons. You might want to click on my cells to see how they are connected to each other!");
 	c302TutorialActions.push('G.unSelectAll(); c302.NSML_0.electrical.select();');
 	
-	c302TutorialMessages.push("When you select one of my cells it is shown in yellow. Input cells are shown in white and output cells in orange. Cells that are both input and input to the selected one (yes, it's possible!) are shown in green. Checkout <a href='http://docs.geppetto.org/en/latest/connections.html' target='_blank'>here</a> for a handy reference.");
+	c302TutorialMessages.push("When you select one of my cells it is shown in yellow. Input cells are shown in white and output cells in orange. Cells that are both input and output to the selected one (yes, it's possible!) are shown in green. Checkout <a href='http://docs.geppetto.org/en/latest/connections.html' target='_blank'>here</a> for a handy reference.");
 	c302TutorialActions.push('');
 	
 	c302TutorialMessages.push("But what does it mean for a neuron to be input to another? It simply means that in my living brain the neuron in yellow receives signals from the one in white!");
 	c302TutorialActions.push('');
 	
-	c302TutorialMessages.push("Similarly the output neurons in orange receive signals from the yellow one. See? You're flying this neuroscience stuff!");
+	c302TutorialMessages.push("Similarly the output neurons in orange receive signals from the yellow one. See? You're flying through this neuroscience stuff!");
 	c302TutorialActions.push('');
 
-	c302TutorialMessages.push("There is an area in my head - you are looking at it! -  where there are lots of neurons next to each other. Technically it is not brain, scientist call it the nerve ring, but in essence it plays the same role.");
+	c302TutorialMessages.push("There is an area in my head - you are looking at it! -  where there are lots of neurons next to each other. Technically it is not a brain, scientist call it the nerve ring, but in essence it plays the same role.");
 	c302TutorialActions.push("G.incrementCameraZoom(+0.05);");
 
 	c302TutorialMessages.push("Further down my body you can also clearly see neurons. These are connected to my muscle cells that give rise to my movement, like you can see over in the muscle system simulation.");
