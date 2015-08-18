@@ -30,7 +30,7 @@ ButtonBar1.setPosition(600,0);
 // tutorial
 var tutorialPopup = G.addWidget(1);
 tutorialPopup.setPosition(20,360);
-tutorialPopup.setSize(150,300);
+tutorialPopup.setSize(190,300);
 tutorialPopup.setName("Guided tour");
 tutorialPopup.setMessage("Hi " + window.WORMSIM_VARS.backerName + "!  " + window.WORMSIM_VARS.wormName + " here again!  Now you are having a look INSIDE MY MIND! Hit \'next\' below to start the guided tour!");
 tutorialPopup.setResizable(false);
@@ -38,7 +38,7 @@ tutorialPopup.showCloseButton(false);
 tutorialPopup.setDraggable(false);
 
 G.addWidget(Widgets.BUTTONBAR).fromJSON('/org.geppetto.frontend/geppetto/js/components/dev/wormsimbuttonbar/tutorialButtonBar.js');
-ButtonBar2.setPosition(20,509);
+ButtonBar2.setPosition(20,549);
 ButtonBar2.setSize(60,300);
 ButtonBar2.showCloseButton(false);
 ButtonBar2.showTitleBar(false);
