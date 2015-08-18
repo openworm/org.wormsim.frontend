@@ -75,10 +75,13 @@ define(function(require) {
 	c302TutorialMessages.push("Go ahead - you can drag me around, rotate me and zoom in as much as you want with your mouse or with the camera controls in the top left!");
 	c302TutorialActions.push('');
 	
-	c302TutorialMessages.push("Now, the diagram that you see here is called a connectivity matrix, it is a representation at a glance of my <a href='https://en.wikipedia.org/wiki/Connectome' target='_blank'>\'connectome\'</a>, and simply shows which neuron is connected to which other neuron. Each square represents a connection.");
+	c302TutorialMessages.push("Now, the diagram that you see here is called a connectivity matrix, it is a representation at a glance of my <a href='https://en.wikipedia.org/wiki/Connectome' target='_blank'>\'connectome\'</a>, and simply shows which neuron is connected to which other neuron. Each dot represents a connection.");
 	c302TutorialActions.push("var connW = G.addWidget(6); connW.setName(G.getCookie('WSNC')+ ' Connectivity matrix'); connW.setData(c302); connW.setPosition(611,190); connW.setSize(495,666); $('.connectivity-ordering').hide();");
 	
-	c302TutorialMessages.push("It is kind of mind-boggling isn't it? It's like looking at the blueprint of the architecture of a building... but it's for my brain! It's hard to interpret this picture but looking at pictures like this helps scientists compare neuronal networks - brains! - to each other.");
+	c302TutorialMessages.push("If you hover on the dots with your mouse the lable on top will show you which neurons form the connection. If you select a connection, cells will be highlighted in the 3D model with the same color convention explained before.");
+	c302TutorialActions.push("");
+	
+	c302TutorialMessages.push("Kind of mind-boggling isn't it? It's like looking at the blueprint of the architecture of a building... but it's for my brain! It's hard for the untrained eye to interpret this diagram but looking at pictures like these helps scientists compare neuronal networks - brains! - to each other.");
 	c302TutorialActions.push("");
 	
 	c302TutorialMessages.push("My species is the only one for which this wiring has been completely mapped out and the availability of this data is a big part of why OpenWorm has decided to make a model of me instead of some other animal - lucky me!");
