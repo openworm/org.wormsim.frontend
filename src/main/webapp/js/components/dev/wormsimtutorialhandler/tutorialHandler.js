@@ -80,7 +80,7 @@ define(function(require) {
 	c302TutorialActions.push('');
 
 	c302TutorialMessages.push("Now, the diagram that you see here is called a connectivity matrix.  It is a representation at a glance of my <a href='https://en.wikipedia.org/wiki/Connectome' target='_blank'>\'connectome\'</a>, and simply shows which neuron is connected to which other neuron. Each square represents a connection.");
-	c302TutorialActions.push("var connW = G.addWidget(6); connW.setName(G.getCookie('WSNC')+ ' Connectivity matrix'); connW.setData(c302,{linkType:function(c){return c.getSubNodesOfDomainType('Synapse')[0].id}}); connW.setPosition(611,190); connW.setSize(495,666);");
+	c302TutorialActions.push("var connW = G.addWidget(6); connW.setName(G.getCookie('WSNC')+ ' Connectivity matrix'); connW.setData(c302); connW.setPosition(611,190); connW.setSize(495,666); $('.connectivity-ordering').hide();");
 
 
 	c302TutorialMessages.push("If you hover on the dots with your mouse the lable on top will show you which neurons form the connection. If you select a connection, cells will be highlighted in the 3D model with the same color convention explained before.");
