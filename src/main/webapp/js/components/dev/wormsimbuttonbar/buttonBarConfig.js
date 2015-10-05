@@ -12,7 +12,7 @@
             },
             "musclesBtn": {
                 "actions": [
-                    "wormsim.changeOpacity(0.3,false);",
+                    "wormsim.setOpacity(0.3,false);",
                     "wormsim.show(true);"
                 ],
                 "icon": "gpt-ion-channel",

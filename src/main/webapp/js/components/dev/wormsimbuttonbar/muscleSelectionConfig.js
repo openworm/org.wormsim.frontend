@@ -12,7 +12,7 @@
 					"plotW.setPosition(180, 400);",
 					"plotW.setSize(220,1000);",
 					"plotW.plotData(wormsim.muscle_3.mechanical.SimulationTree.activation);",
-					"wormsim.changeOpacity(0.3,false);",
+					"wormsim.setOpacity(0.3,false);",
 					"wormsim.show(true);",
 					"wormsim.muscle_3.select();"
                 ],
@@ -31,7 +31,7 @@
 					"plotW.setPosition(180, 400);",
 					"plotW.setSize(220,1000);",
 					"plotW.plotData(wormsim.muscle_15.mechanical.SimulationTree.activation);",
-					"wormsim.changeOpacity(0.3,false);",
+					"wormsim.setOpacity(0.3,false);",
 					"wormsim.show(true);",
 					"wormsim.muscle_15.select();"
                 ],
@@ -50,7 +50,7 @@
 					"plotW.setPosition(180, 400);",
 					"plotW.setSize(220,1000);",
 					"plotW.plotData(wormsim.muscle_35.mechanical.SimulationTree.activation);",
-					"wormsim.changeOpacity(0.3,false);",
+					"wormsim.setOpacity(0.3,false);",
 					"wormsim.show(true);",
 					"wormsim.muscle_35.select();"
                 ],
@@ -69,7 +69,7 @@
 					"plotW.setPosition(180, 400);",
 					"plotW.setSize(220,1000);",
 					"plotW.plotData(wormsim.muscle_43.mechanical.SimulationTree.activation);",
-					"wormsim.changeOpacity(0.3,false);",
+					"wormsim.setOpacity(0.3,false);",
 					"wormsim.show(true);",
 					"wormsim.muscle_43.select();"
                 ],

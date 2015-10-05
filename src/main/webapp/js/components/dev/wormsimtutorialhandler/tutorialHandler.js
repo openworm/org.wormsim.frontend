@@ -21,7 +21,7 @@ define(function(require) {
     sphTutorialActions.push('');
 
     sphTutorialMessages.push("Under my skin, I have 95 muscles along my body, which are the primary drivers of my forward locomotion.  The current model that you can see has my correct anatomy. Feel free to use your mouse to rotate me around!");
-    sphTutorialActions.push('wormsim.changeOpacity(0.3,false);wormsim.show(true);');
+    sphTutorialActions.push('wormsim.setOpacity(0.3,false);wormsim.show(true);');
 
     sphTutorialMessages.push("The motion of each muscle you see here is the result of a complex physics simulation we call Sibernetic.  My friends at OpenWorm worked really hard on it! You can  <a href='http://www.sibernetic.org' target='_blank'>learn more about Sibernetic online</a>.");
     sphTutorialActions.push('');
@@ -30,7 +30,7 @@ define(function(require) {
     sphTutorialActions.push('');
 
     sphTutorialMessages.push("Ever seen a proud body builder flexing at the gym?  Well check out this graph of one of MY muscles flexing!  When the line is up at the top, my muscle is the most flexed; when it drops to the bottom it is the most loose.");
-    sphTutorialActions.push("if(plotW !== undefined){plotW.destroy();};G.unSelectAll();var plotW = G.addWidget(Widgets.PLOT);plotW.setName(G.getCookie('WSNC')+' muscle VR12 activation signal');options = {yaxis:{min:-.1,max:1.1},xaxis:{min:0,max:400,show:false}, colors: [G.getCookie('WSCC')]};plotW.setOptions(options);plotW.setPosition(319,499);plotW.setSize(209.80000019073486,805.8000001907349);plotW.plotData(wormsim.muscle_35.mechanical.SimulationTree.activation);wormsim.changeOpacity(0.3,false);wormsim.show(true);wormsim.muscle_35.select();");
+    sphTutorialActions.push("if(plotW !== undefined){plotW.destroy();};G.unSelectAll();var plotW = G.addWidget(Widgets.PLOT);plotW.setName(G.getCookie('WSNC')+' muscle VR12 activation signal');options = {yaxis:{min:-.1,max:1.1},xaxis:{min:0,max:400,show:false}, colors: [G.getCookie('WSCC')]};plotW.setOptions(options);plotW.setPosition(319,499);plotW.setSize(209.80000019073486,805.8000001907349);plotW.plotData(wormsim.muscle_35.mechanical.SimulationTree.activation);wormsim.setOpacity(0.3,false);wormsim.show(true);wormsim.muscle_35.select();");
 
     sphTutorialMessages.push("Can you rotate me around so you can find the one yellow highlighted muscle that's generating this graph?  Feel free to zoom up close to see it. That's the one I call 'VR12' :) ");
     sphTutorialActions.push('');
