@@ -44,4 +44,10 @@ ButtonBar2.showCloseButton(false);
 ButtonBar2.showTitleBar(false);
 ButtonBar2.setClass('centerContent noStyleDisableDrag');
 
-c302.I3_0.electrical.select();
+var backerPopup = G.addWidget(1);
+backerPopup.setName("Neuron name");
+backerPopup.setPosition(255,0);
+backerPopup.setSize(140, 300);
+GEPPETTO.on(Events.Select, function() {var selected = G.getSelection();selected[0].electrical.getModelTree();setTimeout(function() {var mt = selected[0].electrical.ModelTree;if (mt.OpenWormBackerAssignedName != undefined && mt.OpenWormBackerAssignedName.getValue() != "" && mt.OpenWormBackerAssignedName.getValue() != undefined) {backerPopup.setMessage("Scientific name: <b>" + selected[0].getName().split("_")[0] + "</b><br/><br/>Neuron adopted as: <b>" + mt.OpenWormBackerAssignedName.getValue() + "</b>");} else {backerPopup.setMessage("Scientific name: <b>" + selected[0].getName().split("_")[0] + "</b><br/><br/>This is an orphan neuron! Want to adopt it? Drop us an <a href='mailto:info@openworm.org?Subject=Adopt%20a%20neuron' target='_blank'>email</a>!");}}, 250);});
+
+c302.RIVR_0.electrical.select();
