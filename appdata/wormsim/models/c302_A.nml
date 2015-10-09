@@ -101,6 +101,7 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="ADEL" type="populationList" component="generic_iaf_cell">
+        	<property tag="OpenWormBackerAssignedName" value="synbitset"/>
             <instance id="0">
                 <location y="11." x="-242.375" z="32.450000000000003"/>
             </instance>
@@ -729,6 +730,7 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="I3" type="populationList" component="generic_iaf_cell">
+        	<property tag="OpenWormBackerAssignedName" value="simulations.com"/>
             <instance id="0">
                 <location y="-2.05" x="-296.550020000000018" z="58.25"/>
             </instance>
@@ -1012,6 +1014,7 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="PVDR" type="populationList" component="generic_iaf_cell">
+        	<property tag="OpenWormBackerAssignedName" value="La Nonna"/>
             <instance id="0">
                 <location y="-26.113997999999999" x="175.15100000000001" z="24.952000000000002"/>
             </instance>
@@ -1053,6 +1056,7 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="PVR" type="populationList" component="generic_iaf_cell">
+        	<property tag="OpenWormBackerAssignedName" value="Joleena Joloons"/>
             <instance id="0">
                 <location y="-1.85" x="407.350000000000023" z="7.7"/>
             </instance>
