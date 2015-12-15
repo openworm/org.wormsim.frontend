@@ -850,6 +850,7 @@ Parameters and setting used to generate this network:
             </instance>
         </population>
         <population id="M4" type="populationList" component="generic_iaf_cell">
+            <property tag="OpenWormBackerAssignedName" value="Dave Matthews"/>
             <instance id="0">
                 <location y="-2.033" x="-288.932979999999986" z="57.582999999999998"/>
             </instance>
