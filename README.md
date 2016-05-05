@@ -2,6 +2,8 @@
 
 # Wormsim Frontend
 
+[![Join the chat at https://gitter.im/openworm/org.wormsim.frontend](https://badges.gitter.im/openworm/org.wormsim.frontend.svg)](https://gitter.im/openworm/org.wormsim.frontend?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 <p>Bundle for wormsim frontend.</p>
 
 <p>OpenWorm pioneered open science crowdfunding by successfully running a <a href="https://www.kickstarter.com/projects/openworm/openworm-a-digital-organism-in-your-browser" target="_blank">Kickstarter campaign</a> in 2014. Here you can find our wall of crowdfunding heroes to be remembered for the ages, the open science activists who got our back when it mattered.</p>
