@@ -19,8 +19,9 @@ WORKDIR /home/developer
 
 #VIRGO INSTALL
 USER root
-RUN apt-get update && apt-get install -y curl bsdtar maven
+RUN apt-get update && apt-get install -y curl bsdtar maven npm 
 USER developer
+RUN npm install -g bower
 RUN mkdir -p /home/developer/virgo
 RUN curl -L 'http://www.eclipse.org/downloads/download.php?file=/virgo/release/VP/3.6.4.RELEASE/virgo-tomcat-server-3.6.4.RELEASE.zip&mirror_id=580&r=1' | bsdtar --strip-components 1 -C /home/developer/virgo -xzf -
 RUN chmod u+x /home/developer/virgo/bin/*.sh
@@ -31,10 +32,10 @@ ENV SERVER_HOME /home/developer/virgo
 #GET GEPPETTO SOURCES
 USER root
 RUN mkdir -p workspace && cd workspace && git clone http://github.com/openworm/org.geppetto && cd org.geppetto && git checkout tags/v0.2.6-alpha 
-RUN cd workspace && git clone http://github.com/openworm/org.geppetto.frontend && git checkout tags/v0.2.6-alpha 
-RUN cd workspace && git clone http://github.com/openworm/org.geppetto.core && git checkout tags/v0.2.6-alpha 
-RUN cd workspace && git clone http://github.com/openworm/org.geppetto.simulation && git checkout tags/v0.2.6-alpha 
-RUN cd workspace && git clone http://github.com/openworm/org.geppetto.model.neuroml && git checkout tags/v0.2.6-alpha
+RUN cd workspace && git clone http://github.com/openworm/org.geppetto.frontend && cd org.geppetto.frontend && git checkout tags/v0.2.6-alpha 
+RUN cd workspace && git clone http://github.com/openworm/org.geppetto.core && cd org.geppetto.core && git checkout tags/v0.2.6-alpha 
+RUN cd workspace && git clone http://github.com/openworm/org.geppetto.simulation && cd org.geppetto.simulation && git checkout tags/v0.2.6-alpha 
+RUN cd workspace && git clone http://github.com/openworm/org.geppetto.model.neuroml && cd org.geppetto.model.neuroml && git checkout tags/v0.2.6-alpha
 RUN cd workspace && git clone http://github.com/openworm/org.wormsim.frontend
 RUN chmod -R 777 workspace
 USER developer
