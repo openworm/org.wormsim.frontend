@@ -1,1 +1,1 @@
-sudo docker logs -f geppetto
+sudo docker logs -f wormsim

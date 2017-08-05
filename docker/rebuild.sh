@@ -1,1 +1,1 @@
-sudo docker build --rm=true --force-rm -t slarson/geppetto:latest .
+sudo docker build --rm=true --force-rm -t openworm/wormsim:latest .

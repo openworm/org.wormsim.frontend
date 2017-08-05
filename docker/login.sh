@@ -1,1 +1,1 @@
-sudo docker exec -ti geppetto bash
+sudo docker exec -ti wormsim bash

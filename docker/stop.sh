@@ -1,2 +1,2 @@
-sudo docker stop geppetto
-sudo docker rm geppetto
+sudo docker stop wormsim
+sudo docker rm wormsim
