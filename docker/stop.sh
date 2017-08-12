@@ -1,2 +1,2 @@
-sudo docker stop wormsim
-sudo docker rm wormsim
+docker stop wormsim
+docker rm wormsim

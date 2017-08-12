@@ -1,1 +1,1 @@
-sudo docker exec -ti wormsim bash
+docker exec -ti wormsim bash

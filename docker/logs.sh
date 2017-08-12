@@ -1,1 +1,1 @@
-sudo docker logs -f wormsim
+docker logs -f wormsim
